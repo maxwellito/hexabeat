@@ -7,10 +7,13 @@
   height: calc(var(--border-width) * 8);
   border: var(--border-width) solid var(--shade-dark);
   background-color: var(--shade-darker);
+  transition: .2s box-shadow, .3s border-color;
+  box-shadow: 0 0 0 transparent;
 }
 
 .level-meter.active {
   border-color: var(--primary);
+  box-shadow: 0 0 var(--border-width) var(--primary);
 }
 
 .level-meter-wrap {

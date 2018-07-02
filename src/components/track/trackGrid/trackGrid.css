@@ -1,0 +1,27 @@
+@import '../../../styles/variables.css';
+
+.track-grid {
+  padding: calc(var(--border-width) / 3);
+  background-color: var(--shade-darker);
+}
+.line {
+  display: flex;
+}
+.line > div {
+  width: calc(var(--border-width) * 3);
+  height: calc(var(--border-width) * 3);
+  margin: calc(var(--border-width) / 3);
+  background-color: var(--shade-dark);
+  box-sizing: border-box;
+}
+
+.bit-on {
+  border: calc(var(--border-width) / 3) solid var(--primary);
+}
+
+.active.bit-on {
+  background-color: var(--primary);
+}
+.active.bit-off {
+  background-color: var(--shade);
+}
