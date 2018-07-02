@@ -1,8 +1,10 @@
 @import '../../../styles/variables.css';
 
 .track-grid {
-  padding: calc(var(--border-width) / 3);
-  background-color: var(--shade-darker);
+  display: inline-block;
+  padding: calc(var(--border-width) / 2);
+  background-color: var(--shade-dark);
+  vertical-align: top;
 }
 .line {
   display: flex;
@@ -10,8 +12,8 @@
 .line > div {
   width: calc(var(--border-width) * 3);
   height: calc(var(--border-width) * 3);
-  margin: calc(var(--border-width) / 3);
-  background-color: var(--shade-dark);
+  margin: calc(var(--border-width) / 2);
+  background-color: var(--shade-darker);
   box-sizing: border-box;
 }
 
