@@ -1,3 +1,7 @@
+svg {
+  background-color: #111;
+}
+
 line {
   stroke: black;
   stroke-width: 7px;
