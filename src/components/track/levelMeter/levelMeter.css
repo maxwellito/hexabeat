@@ -1,0 +1,31 @@
+@import '../../../styles/variables.css';
+
+.level-meter {
+  display: inline-block;
+  position: relative;
+  width: calc(var(--border-width) * 4);
+  height: calc(var(--border-width) * 8);
+  border: var(--border-width) solid var(--shade-dark);
+  background-color: var(--shade-darker);
+}
+
+.level-meter.active {
+  border-color: var(--primary);
+}
+
+.level-meter-wrap {
+  position: absolute;
+  top: var(--border-width);
+  right: var(--border-width);
+  bottom: var(--border-width);
+  left: var(--border-width);
+  background-color: var(--shade-dark);
+}
+
+.level-meter-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary);
+}
