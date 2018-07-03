@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './trackGrid.css';
+import './trackData.css';
 
 const lineLength = 16;
 
@@ -8,7 +8,7 @@ const lineLength = 16;
  * - `currentPos`: number
  * - `data`: boolean[][]
  */
-class TrackGrid extends Component {
+class TrackData extends Component {
 
   render() {
     let data = this.props.data || [],
@@ -23,11 +23,11 @@ class TrackGrid extends Component {
     });
 
     return (
-      <div className="track-grid">
+      <div className="track-data">
         {lines}
       </div>
     );
   }
 }
 
-export default TrackGrid;
+export default TrackData;

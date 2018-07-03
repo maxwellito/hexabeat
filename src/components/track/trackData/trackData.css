@@ -1,6 +1,6 @@
 @import '../../../styles/variables.css';
 
-.track-grid {
+.track-data {
   display: inline-block;
   padding: calc(var(--border-width) / 2);
   background-color: var(--shade-dark);
