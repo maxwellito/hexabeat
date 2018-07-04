@@ -1,0 +1,38 @@
+@import '../../../styles/variables.css';
+
+.label-pick {
+  display: inline-block;
+  border: var(--border-width) solid var(--shade-dark);
+  padding: calc(var(--border-width) / 2);
+  background-color: var(--shade-darker);
+  transition: .2s box-shadow, .3s border-color;
+  box-shadow: 0 0 0 transparent;
+}
+
+.label-pick.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 var(--border-width) var(--primary);
+}
+
+.label {
+  display: inline-block;
+  width: calc(var(--border-width) * 8);
+  height: calc(var(--border-width) * 8);
+  padding: 0 calc(var(--border-width) / 2);
+  margin: calc(var(--border-width) / 2);
+  background-color: var(--shade-dark);
+  box-sizing: border-box;
+}
+
+.labelTitle, .labelIndex {
+  display: block;
+  line-height: 1.2;
+}
+.labelTitle {
+  font-size: 20px;
+}
+
+.labelIndex {
+  font-size: 14px;
+  color: var(--shade-light);
+}

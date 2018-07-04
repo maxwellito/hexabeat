@@ -1,3 +1,5 @@
+@import './styles/variables.css';
+
 @font-face {
   font-family: "Roboto Mono";
   font-weight: 100;
@@ -10,5 +12,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto Mono", monospace;
-  background: black;
+  background: var(--shade-darker);
+  color: var(--shade-lighter);
 }
