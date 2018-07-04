@@ -1,2 +1,2 @@
-signal:
+test:
   script: python /home/pi/blinkt/examples/gitlab_success.py
