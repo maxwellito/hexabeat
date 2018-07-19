@@ -5,7 +5,7 @@ class LevelMeter extends Component {
 
   render() {
     let height = Math.round((this.props.progress || 0) * 100) + '%',
-        wrapClass = 'level-meter' + (this.props.active ? 'active' : '')
+        wrapClass = 'level-meter selectable' + (this.props.active ? 'active' : '')
     return (
       <div className={wrapClass}>
         <div className="level-meter-wrap">

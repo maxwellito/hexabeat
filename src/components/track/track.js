@@ -21,10 +21,10 @@ class Track extends Component {
 
     setTimeout(() => {
       this.setState({currentPos: (currentPos + 1) % 16})
-    }, 2000);
+    }, 80000);
 
     return (
-      <div className='track'>
+      <div className='track selectable'>
         <LabelPick labels={labels} />
         <LevelMeter progress={.6}/>
         <TrackData currentPos={currentPos} data={trackData} />

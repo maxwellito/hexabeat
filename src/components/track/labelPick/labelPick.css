@@ -2,26 +2,19 @@
 
 .label-pick {
   display: inline-block;
-  border: var(--border-width) solid var(--shade-dark);
-  padding: calc(var(--border-width) / 2);
+  padding: var(--border-width-half);
   background-color: var(--shade-darker);
-  transition: .2s box-shadow, .3s border-color;
-  box-shadow: 0 0 0 transparent;
-}
-
-.label-pick.active {
-  border-color: var(--primary);
-  box-shadow: 0 0 var(--border-width) var(--primary);
+  vertical-align: top;
 }
 
 .label {
   display: inline-block;
-  width: calc(var(--border-width) * 8);
-  height: calc(var(--border-width) * 8);
-  padding: 0 calc(var(--border-width) / 2);
-  margin: calc(var(--border-width) / 2);
+  width: var(--ctrl-height);
+  height: var(--ctrl-height);
+  padding: 0 var(--border-width-half);
+  margin: var(--border-width-half);
   background-color: var(--shade-dark);
-  box-sizing: border-box;
+  box-sizing: unset;
 }
 
 .labelTitle, .labelIndex {

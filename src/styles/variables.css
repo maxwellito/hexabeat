@@ -1,12 +1,14 @@
 :root {
-  --shade-darker:   #000;
-  --shade-dark:     #111;
-  --shade:          #222;
-  --shade-light:    #333;
-  --shade-lighter:  #999;
+  --shade-darker:     #000;
+  --shade-dark:       #111;
+  --shade:            #222;
+  --shade-light:      #333;
+  --shade-lighter:    #999;
 
-  --primary:        #ff0;
-  --primary-shade:  #770;
+  --primary:          #ff0;
+  --primary-shade:    #770;
 
-  --border-width:   6px;
+  --border-width:       6px;
+  --border-width-half:  3px;
+  --ctrl-height:        48px;
 }

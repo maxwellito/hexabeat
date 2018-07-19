@@ -23,7 +23,7 @@ class TrackData extends Component {
     });
 
     return (
-      <div className="track-data">
+      <div className="track-data selectable">
         {lines}
       </div>
     );

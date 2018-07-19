@@ -1,18 +1,19 @@
 @import '../../../styles/variables.css';
 
-.track-data {
+
+.track-data  {
   display: inline-block;
-  padding: calc(var(--border-width) / 2);
-  background-color: var(--shade-dark);
+  padding: calc(var(--border-width) - 1px);
   vertical-align: top;
 }
+
 .line {
   display: flex;
 }
 .line > div {
-  width: calc(var(--border-width) * 3);
-  height: calc(var(--border-width) * 3);
-  margin: calc(var(--border-width) / 2);
+  width: calc(var(--ctrl-height) / 2 - 1px);
+  height: calc(var(--ctrl-height) / 2 - 1px);
+  margin: 1px;
   background-color: var(--shade-darker);
   box-sizing: border-box;
 }
@@ -27,3 +28,6 @@
 .active.bit-off {
   background-color: var(--shade);
 }
+
+
+

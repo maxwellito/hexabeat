@@ -1,3 +1,14 @@
-.track {
-  display: flex;
+@import '../../styles/variables.css';
+
+
+.track  {
+  display: inline-block;
+  padding: calc(var(--border-width) - 1px);
+  margin: 20px;
+  vertical-align: top;
+}
+
+
+.track > * + * {
+  margin-left: var(--border-width);
 }

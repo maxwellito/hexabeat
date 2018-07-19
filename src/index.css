@@ -15,3 +15,15 @@ body {
   background: var(--shade-darker);
   color: var(--shade-lighter);
 }
+
+
+/* Components */
+.selectable  {
+  border: var(--border-width) solid var(--shade-dark);
+  transition: .2s box-shadow, .3s border-color;
+  box-shadow: 0 0 0 transparent;
+}
+.selectable.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 var(--border-width) var(--primary);
+}

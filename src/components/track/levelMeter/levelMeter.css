@@ -2,26 +2,17 @@
 
 .level-meter {
   display: inline-block;
-  position: relative;
-  width: calc(var(--border-width) * 4);
-  height: calc(var(--border-width) * 8);
-  border: var(--border-width) solid var(--shade-dark);
+  padding: var(--border-width);
+  line-height: 0;
   background-color: var(--shade-darker);
-  transition: .2s box-shadow, .3s border-color;
-  box-shadow: 0 0 0 transparent;
-}
-
-.level-meter.active {
-  border-color: var(--primary);
-  box-shadow: 0 0 var(--border-width) var(--primary);
 }
 
 .level-meter-wrap {
-  position: absolute;
-  top: var(--border-width);
-  right: var(--border-width);
-  bottom: var(--border-width);
-  left: var(--border-width);
+  position: relative;
+  display: inline-block;
+  width: calc(var(--border-width) * 2);
+  height: var(--ctrl-height);
+  line-height: 0;
   background-color: var(--shade-dark);
 }
 

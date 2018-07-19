@@ -5,7 +5,7 @@ class LabelPick extends Component {
 
   render() {
     let labels = this.props.labels || [],
-        wrapClass = 'label-pick' + (this.props.active ? 'active' : '')
+        wrapClass = 'label-pick selectable' + (this.props.active ? 'active' : '')
 
     labels = labels.map((label, index) => {
       return <div className='label'>
