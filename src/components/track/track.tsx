@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
-import LabelPick from './labelPick/labelPick';
-import LevelMeter from './levelMeter/levelMeter';
-import TrackData from './trackData/trackData';
-import './track.css';
+import * as React from 'react';
+import {LabelPick} from './labelPick/labelPick';
+import {LevelMeter} from './levelMeter/levelMeter';
+import {TrackData} from './trackData/trackData';
+// import './track.css';
 
-class Track extends Component {
+export interface TrackProps {
+}
 
-  constructor() {
-    super();
-    this.setState({currentPos: 0})
+export interface TrackState {
+  currentPos: number
+}
+
+export class Track extends React.Component<TrackProps, TrackState> {
+
+  constructor(props:TrackProps) {
+    super(props);
+    this.state = {
+      currentPos: 0
+    }
   }
 
   render() {
@@ -25,12 +34,10 @@ class Track extends Component {
 
     return (
       <div className='track selectable'>
-        <LabelPick labels={labels} />
+        <LabelPick labels={labels}/>
         <LevelMeter progress={.6}/>
         <TrackData currentPos={currentPos} data={trackData} />
       </div>
     );
   }
 }
-
-export default Track;

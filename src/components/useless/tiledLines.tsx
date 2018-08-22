@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
-import './tiledLines.css';
+import * as React from 'react';
+// import './tiledLines.css';
 
-class TiledLines extends Component {
+export interface TiledLines {
+  gap: number,
+  width: number,
+  height: number
+}
+
+export class TiledLines extends React.Component<TiledLines> {
 
   render() {
     let pif, pos, stack = [],
@@ -33,5 +39,3 @@ class TiledLines extends Component {
     );
   }
 }
-
-export default TiledLines;

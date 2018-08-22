@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
-import './levelMeter.css';
+import * as React from 'react';
+// import './levelMeter.css';
 
-class LevelMeter extends Component {
+export interface LevelMeterProps {
+  active?: boolean,
+  progress: number
+}
+
+export class LevelMeter extends React.Component<LevelMeterProps> {
 
   render() {
     let height = Math.round((this.props.progress || 0) * 100) + '%',
@@ -15,5 +20,3 @@ class LevelMeter extends Component {
     );
   }
 }
-
-export default LevelMeter;

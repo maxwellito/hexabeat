@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Track from './components/track/track';
+import * as React from "react";
+import { Track } from './components/track/track';
 
 /**
  * Fun times:
  * 
  * <TiledLines gap={18} width={800} height={500} />
  */
-class App extends Component {
+export class App extends React.Component {
   render() {
     return (
       <div>
@@ -15,5 +15,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
