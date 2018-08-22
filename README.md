@@ -46,6 +46,8 @@ A. Welcoming screen
     d. Load assets
   5. GO!
 
+  >>>>> THINK ABOUT MPK DISCONNECTIONS
+
 B. Playin
 
   1. We got 8 drumpads and 8 nobs + 25 notes

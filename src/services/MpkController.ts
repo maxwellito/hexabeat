@@ -24,7 +24,7 @@ class MpkController {
    * Classic listeners for MIDI messages
    * received from the MPK
    */
-  listeners: ((number) => void)[];
+  listeners: ((data:number[]) => void)[];
 
   /**
    * Stacks of listeners for each nob and pad.
@@ -86,7 +86,7 @@ class MpkController {
   accessDevice():Promise<MpkController> {
     return (<any>window.navigator)
       .requestMIDIAccess()
-      .then((access) => {
+      .then((access:any) => {
 
         // Test deprecated browsers
         if ('function' === typeof access.inputs || !access.inputs) {
@@ -122,7 +122,7 @@ class MpkController {
   /**
    * Method to register a listener to message event
    */
-  onMessage (listener): {():void;} {
+  onMessage (listener:{(data:number[]):void}): {():void;} {
     var listenerIndex = this.listeners.length
     this.listeners.push(listener)
 
@@ -193,7 +193,7 @@ class MpkController {
    * 
    * @param MIDIMessageEvent
    */
-  messageDispatcher(e) {
+  messageDispatcher(e:any) {
     let data = e.data;
 
     // Find Nobs and Pads listener
