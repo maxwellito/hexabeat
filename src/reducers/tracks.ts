@@ -1,4 +1,12 @@
-const tracks = (state = [], action) => {
+import Track from '../models/Track';
+
+export interface TracksAction {
+  type: string;
+  track?: Track;
+  tracks?: Track[]
+}
+
+export function tracks (state:Track[] = [], action?:TracksAction): Track[] {
   switch (action.type) {
     case 'SET_TRACKS':
       return action.tracks
@@ -11,5 +19,3 @@ const tracks = (state = [], action) => {
       return state
   }
 }
-
-export default tracks

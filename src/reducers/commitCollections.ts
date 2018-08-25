@@ -1,4 +1,12 @@
-const commitCollections = (state = [], action) => {
+import {CommitCollection} from '../models/Commit'
+
+export interface CommitCollectionsAction {
+  type: string;
+  collection?: CommitCollection;
+  collections?: CommitCollection[];
+}
+
+export function commitCollections (state:CommitCollection[] = [], action:CommitCollectionsAction): CommitCollection[] {
   switch (action.type) {
     case 'SET_COMMIT_COLLECTIONS':
       return action.collections
@@ -11,5 +19,3 @@ const commitCollections = (state = [], action) => {
       return state
   }
 }
-
-export default commitCollections

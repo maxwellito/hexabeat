@@ -4,10 +4,13 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "jsx": "react"
   },
   "include": [
     "./src/**/*"
+  ],
+  "definitions": [
+    { "models": "./src/models" }
   ]
 }

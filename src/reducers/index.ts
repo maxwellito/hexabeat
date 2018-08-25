@@ -8,8 +8,8 @@ import {sessionVolume} from './sessionVolume';
 import {tracks} from './tracks';
 
 export default combineReducers({
-  currentBit,
   commitCollections,
+  currentBit,
   selectedTrack,
   sessionBPM,
   sessionVolume,
