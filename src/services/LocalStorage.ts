@@ -46,5 +46,36 @@ export default {
     catch (e) {
       throw new Error (`LocalStorage: Error while setting the key '${key}'. [${e.message}]`)
     }
+  },
+
+  /**
+   * Dump the local storage into a big object
+   */
+  export: (): string => {
+    let dump:{[k:string]:any} = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      dump[key] = this.getItem(key)
+    }
+    return JSON.stringify(dump)
+  },
+
+  /**
+   * Import a local storage dump from an old backup.
+   */
+  import (input:string):boolean {
+    let data:{[k:string]:any}
+    try {
+      data = JSON.parse(input)
+    }
+    catch (e) {
+      throw new Error (`LocalStorage: Error while importing a backup, the JSON was invalid.`)
+    }
+    Object
+      .keys(data)
+      .forEach((key:string) => {
+        this.setItem(key, data[key])
+      })
+    return true;
   }
 }
