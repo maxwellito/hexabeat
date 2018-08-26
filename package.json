@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.2",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.0.1",
     "webpack-cli": "^3.1.0"

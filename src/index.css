@@ -3,17 +3,17 @@
 @font-face {
   font-family: "Space Mono";
   font-weight: 400;
-  src: /* url('public/fonts/SpaceMono-Regular.woff2') format('woff2'),
-       url('public/fonts/SpaceMono-Regular.woff') format('woff'), */
-       url('public/fonts/SpaceMono-Regular.ttf') format('truetype');
+  src: /* url('../public/fonts/SpaceMono-Regular.woff2') format('woff2'),
+       url('../public/fonts/SpaceMono-Regular.woff') format('woff'), */
+       url('../public/fonts/SpaceMono-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: "Space Mono";
   font-weight: 700;
-  src: /* url('public/fonts/SpaceMono-Bold.woff2') format('woff2'),
-       url('public/fonts/SpaceMono-Bold.woff') format('woff'), */
-       url('public/fonts/SpaceMono-Bold.ttf') format('truetype');
+  src: /* url('../public/fonts/SpaceMono-Bold.woff2') format('woff2'),
+       url('../public/fonts/SpaceMono-Bold.woff') format('woff'), */
+       url('../public/fonts/SpaceMono-Bold.ttf') format('truetype');
 }
 
 body {

@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   entry: "./src/index.tsx",
   output: {
@@ -19,7 +21,17 @@ module.exports = {
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+
+
+      {
+        test: /\.s?[ac]ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { url: false, sourceMap: true } },
+          // { loader: 'sass-loader', options: { sourceMap: true } }
+        ],
+      },
     ]
   },
 
@@ -30,5 +42,13 @@ module.exports = {
   externals: {
     "react": "React",
     "react-dom": "ReactDOM"
-  }
+  },
+
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "style.css",
+      path: __dirname + "/dist"
+    })  
+  ]
 };

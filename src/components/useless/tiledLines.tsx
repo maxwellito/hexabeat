@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import './tiledLines.css';
+import './tiledLines.css';
 
 export interface TiledLines {
   gap: number,

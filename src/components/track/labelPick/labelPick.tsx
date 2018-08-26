@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import './labelPick.css';
+import './labelPick.css';
 
 export interface LabelPickProps {
   active?: boolean,

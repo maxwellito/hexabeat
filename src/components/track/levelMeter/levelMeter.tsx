@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import './levelMeter.css';
+import './levelMeter.css';
 
 export interface LevelMeterProps {
   active?: boolean,

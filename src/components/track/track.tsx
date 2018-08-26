@@ -2,7 +2,7 @@ import * as React from 'react';
 import {LabelPick} from './labelPick/labelPick';
 import {LevelMeter} from './levelMeter/levelMeter';
 import {TrackData} from './trackData/trackData';
-// import './track.css';
+import './track.css';
 
 export interface TrackProps {
 }
@@ -30,7 +30,7 @@ export class Track extends React.Component<TrackProps, TrackState> {
 
     setTimeout(() => {
       this.setState({currentPos: (currentPos + 1) % 16})
-    }, 80000);
+    }, 800);
 
     return (
       <div className='track selectable'>
