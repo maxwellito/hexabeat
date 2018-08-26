@@ -1,0 +1,27 @@
+{
+  "name": "minimal kit",
+  "version": 1,
+  "description": "Audio deck for minimal kit",
+  "author": "Sancho Gomez",
+  "pathBase": "/public/decks/",
+  "sets": [
+    {
+      "name": "Drumkit",
+      "icon": "drum",
+      "audio": [
+        {"name": "kik", "sub": "001", "url": "tr808/CH.WAV"},
+        {"name": "kik", "sub": "002", "url": "tr808/CL.WAV"},
+        {"name": "snr", "sub": "001", "url": "tr808/CP.WAV"}
+      ]
+    },
+    {
+      "name": "Clap",
+      "icon": "hands",
+      "audio": [
+        {"name": "clp", "sub": "001", "url": "tr808/CY2500.WAV"},
+        {"name": "clp", "sub": "002", "url": "tr808/HC00.WAV"},
+        {"name": "bbk", "sub": "001", "url": "tr808/HT00.WAV"}
+      ]
+    }
+  ]
+}
