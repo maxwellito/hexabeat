@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './tiledLines.css';
 
-export interface TiledLines {
-  gap: number,
-  width: number,
-  height: number
+export interface TiledLinesProps {
+  gap?: number,
+  width?: number,
+  height?: number
 }
 
-export class TiledLines extends React.Component<TiledLines> {
+export class TiledLines extends React.Component<TiledLinesProps> {
 
   render() {
     let pif, pos, stack = [],
