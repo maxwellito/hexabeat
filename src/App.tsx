@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Track } from './components/track/track';
+import { TiledLines } from './components/useless/tiledLines'
 
 /**
  * Fun times:
@@ -11,6 +12,7 @@ export class App extends React.Component {
     return (
       <div>
         <Track/>
+        <TiledLines type={'red'} />
       </div>
     );
   }

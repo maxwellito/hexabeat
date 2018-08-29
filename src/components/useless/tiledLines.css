@@ -7,3 +7,7 @@ line {
   stroke-width: 7px;
   stroke-linecap: square;
 }
+svg.red line {
+  stroke: #f008;
+  stroke-linecap: round;
+}

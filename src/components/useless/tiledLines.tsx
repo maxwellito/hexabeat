@@ -4,7 +4,8 @@ import './tiledLines.css';
 export interface TiledLinesProps {
   gap?: number,
   width?: number,
-  height?: number
+  height?: number,
+  type?: string
 }
 
 export class TiledLines extends React.Component<TiledLinesProps> {
@@ -15,7 +16,8 @@ export class TiledLines extends React.Component<TiledLinesProps> {
         width  = this.props.width  || 600,
         height = this.props.height || 600,
         sizeX = Math.ceil(width  / gap),
-        sizeY = Math.ceil(height / gap);
+        sizeY = Math.ceil(height / gap),
+        type = this.props.type || '';
 
     for (let x=0; x<sizeX; x++) {
       for (let y=0; y<sizeY; y++) {
@@ -33,7 +35,7 @@ export class TiledLines extends React.Component<TiledLinesProps> {
     }
 
     return (
-      <svg viewBox={'0 0 ' + width + ' ' + height}>
+      <svg className={type} viewBox={'0 0 ' + width + ' ' + height}>
         {stack}
       </svg>
     );
