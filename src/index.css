@@ -22,6 +22,10 @@ body {
   font-family: "Space Mono", monospace;
   background: var(--shade-darker);
   color: var(--shade-lighter);
+
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 

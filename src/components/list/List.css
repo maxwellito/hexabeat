@@ -1,0 +1,37 @@
+@import '../../styles/variables.css';
+
+.list-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  margin: 0.35em 0;
+}
+
+.list-item-title {
+  font-size: 1em;
+  color: var(--shade-light);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.list-item-subtitle {
+  font-size: .75em;
+  color: var(--shade);
+  margin: 0;
+  line-height: 1.2;
+}
+
+
+.list-item.active {
+  font-size: 1.5em;
+}
+
+.list-item.active .list-item-title {
+  color: var(--shade-lighter);
+}
+
+.list-item.active .list-item-subtitle {
+  color: var(--shade-light);
+}

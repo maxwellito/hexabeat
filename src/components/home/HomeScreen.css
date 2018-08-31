@@ -1,0 +1,23 @@
+@import '../../styles/variables.css';
+
+.step-wrap {
+  display: flex;
+}
+
+.step-index {
+  display: inline-block;
+  width: 3ch;
+  height: 3ch;
+  background: white;
+  text-align: center;
+  line-height: 3ch;
+  color: black;
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+.warning-box {
+  color: var(--shade-darker);
+  background-color: var(--primary);
+  padding: .5em;
+}

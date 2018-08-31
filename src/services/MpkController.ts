@@ -1,3 +1,5 @@
+import { promises } from "fs";
+
 /**
  * MpkController class
  * Manage access and interact with
@@ -10,7 +12,7 @@
  *   Nob
  *     [176, 1, 59]
  */
-class MpkController {
+export class MpkController {
 
   deviceName: string;
 
@@ -84,8 +86,12 @@ class MpkController {
    * @public
    */
   accessDevice():Promise<MpkController> {
-    return (<any>window.navigator)
-      .requestMIDIAccess()
+    if (!(<any>window).navigator.requestMIDIAccess) {
+      return Promise.reject(new Error('Your browser is not compatible. Please use Chrome.'))
+    }
+    return (<any>window)
+      .navigator
+      .requestMIDIAccess({sysex:true})
       .then((access:any) => {
 
         // Test deprecated browsers
@@ -302,10 +308,10 @@ const introAnimStack:number[][] = [
 ]
 
 
-let xx = new MpkController()
-xx.accessDevice()
-let a = xx.stackPadListener(2, function (p) {console.log('Firster', p)})
-let b = xx.stackPadListener(2, function (p) {console.log('Sec', p)})
+// let xx = new MpkController()
+// xx.accessDevice()
+// let a = xx.stackPadListener(2, function (p) {console.log('Firster', p)})
+// let b = xx.stackPadListener(2, function (p) {console.log('Sec', p)})
 
-var aa = xx.stackNobListener(2, function (p) { console.log('FF', p); });
-var bb = xx.stackNobListener(2, function (p) { console.log('SS', p); });
+// var aa = xx.stackNobListener(2, function (p) { console.log('FF', p); });
+// var bb = xx.stackNobListener(2, function (p) { console.log('SS', p); });
