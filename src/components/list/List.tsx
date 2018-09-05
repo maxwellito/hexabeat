@@ -17,6 +17,8 @@ class ListItem {
 
 export class List extends React.Component<ListProps, ListState> {
 
+  previousIndex:number = 0;
+
   constructor(props:ListProps) {
     super(props);
     this.state = {
@@ -25,21 +27,34 @@ export class List extends React.Component<ListProps, ListState> {
   }
 
   render() {
-    let items = this.props.data.map((item:ListItem, index:number) => {
+    let topList:any[] = [],
+        selectedItem:any,
+        bottomList:any[] = [];
+        
+    this.props.data.forEach((item:ListItem, index:number) => {
       let itemClass = 'list-item ' + (index === this.props.index ? 'active' : ''),
-          itemElements = [<p className='list-item-title'>{item.title}</p>];
+          itemElements = [<p className='list-item-title'  key={'ff'+index}>{item.title}</p>];
       
       if (item.subtitle) {
         itemElements.push(<p className='list-item-subtitle'>{item.subtitle}</p>)
       }
-      return <div className={itemClass} key={index}>
-        {itemElements}
-      </div>
+
+      let output = <div className={itemClass} key={index}>{itemElements}</div>
+      if (index === this.props.index) {
+        selectedItem = output;
+      }
+      else {
+        (index < this.props.index ? topList : bottomList).push(output)
+      }
     })
 
+    let wrapClass = this.previousIndex > this.state.index ? 'down' : 'up';
+
     return (
-      <div className='list-wrap'>
-        {items}
+      <div className={'list-wrap ' + wrapClass}>
+        <div className='list-wrap-top'>{topList}</div>
+        {selectedItem}
+        <div className='list-wrap-bottom'>{bottomList}</div>
       </div>
     );
   }

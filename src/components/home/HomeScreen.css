@@ -2,6 +2,7 @@
 
 .step-wrap {
   display: flex;
+  align-items: center;
 }
 
 .step-index {
