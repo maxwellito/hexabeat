@@ -10,8 +10,8 @@ export default {
     [0, 6, 6],
     [2, 7, 7]
   ],
-  algo: (input:Commit, tracks:number) => {
-    let lastPosition = input.quad[0],
+  algo: (input:Commit, tracks:number):number[][] => {
+    let lastPosition = -1,
         output = [];
     
     for (let t = 0; t < tracks; t++) {
@@ -19,13 +19,21 @@ export default {
     }
 
     for (let i = 0; i < 16; i++) {
-      let val = input.hash[i];
+      let rotator = input.quad[i],
+          newPosition = lastPosition;
 
+      if (rotator === 0) {
+        newPosition = Math.max(0, lastPosition - 1)
+      }
+      else if (rotator === 3) {
+        newPosition = Math.min(tracks - 1, lastPosition + 1)
+      }
 
       for (let t = 0; t < tracks; t++) {
-        output[t].push(postrack)
+        output[t].push(/*newPosition !== lastPosition && */newPosition === t)
       }
+      lastPosition = newPosition;
     }
-    return [];
+    return output;
   }
 }

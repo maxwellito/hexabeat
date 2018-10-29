@@ -3,10 +3,16 @@ import { Commit, CommitCollection } from '../models/Commit';
 const firstLiner = /^(.)*(\r?\n|\r)?/;
 
 export default {
-  sources: {},
+  sources: CommitCollection[] = [],
 
-  addSource:(src:string, fetchNow:boolean = true ) => {
-    if (this.sources[src]) {
+  /**
+   * Add a repository source to get commits
+   * 
+   * @param {string} src Repository source (ex: 'maxwellito/phontom')
+   * @param {boolean} fetchNow Market to fetch data source immediately
+   */
+  addSource: (src:string, fetchNow:boolean = true): void => {
+    if (this.sources.find(repo => repo.name === src)) {
       return;
     }
 
@@ -15,9 +21,14 @@ export default {
     collection.commits = [];
     this.sources[src] = collection;
   },
-  fetch:() => {
-    this.source.map(this.githubFetcher)
+
+  /**
+   * 
+   */
+  fetch: () => {
+    this.sources.map(this.githubFetcher)
   },
+  
   /**
    * Method to load commit information from GitHub
    * @param {string} repo Repo name (ex: 'maxwellito/commitbeat')
@@ -27,11 +38,18 @@ export default {
     return fetch(`https://api.github.com/repos/${repo}/commits`)
       .then(response => response.json())
       .then((data:any) => {
-        this.sources[repo] = data.map(this.commitParser)
+        this.sources[repo].commits = data.map(this.commitParser)
       })
   },
 
-
+  /**
+   * Transform a GitHub commit into a Commit object
+   * This one contain trimmed label, original SHA 
+   * and parsed version into hexadecimal and quadecimal
+   * 
+   * @param {object} commit Commit object from GitHub API
+   * @return {Commit} Lovaly formatted commit object
+   */
   hashParser: (commit:any):Commit => {
     let hash = commit.sha,
         messageParsed = firstLiner.exec(commit.commit.message),
@@ -59,5 +77,4 @@ export default {
       quad,
     }
   }
-
 }
