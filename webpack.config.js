@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -12,7 +13,10 @@ module.exports = {
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    plugins: [
+      new TsConfigPathsPlugin(/* { configFileName, compiler } */)
+    ]
   },
 
   module: {

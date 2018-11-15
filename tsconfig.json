@@ -8,11 +8,11 @@
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
-      "models": ["models/*"]
+      "actions": ["actions/*"],
+      "components": ["components/*"],
+      "models": ["models/*"],
+      "reducers": ["reducers/*"],
+      "services": ["services/*"],
     }
-  },
-  "include": [
-    "./src/**/*"
-  ]
-  
+  }
 }
