@@ -2,8 +2,8 @@ import { Commit, CommitCollection } from '../models/Commit';
 
 const firstLiner = /^(.)*(\r?\n|\r)?/;
 
-export default {
-  sources: CommitCollection[] = [],
+class CommitLoader {
+  sources: {[sourceName: string]: CommitCollection} = {};
 
   /**
    * Add a repository source to get commits
@@ -11,36 +11,36 @@ export default {
    * @param {string} src Repository source (ex: 'maxwellito/phontom')
    * @param {boolean} fetchNow Market to fetch data source immediately
    */
-  addSource: (src:string, fetchNow:boolean = true): void => {
-    if (this.sources.find(repo => repo.name === src)) {
+  addSource (src:string, fetchNow:boolean = true): void {
+    if (this.sources[src]) {
       return;
     }
 
-    let collection = new CommitCollection()
+    let collection = new CommitCollection();
     collection.name = src;
     collection.commits = [];
     this.sources[src] = collection;
-  },
+  }
 
   /**
    * 
    */
-  fetch: () => {
-    this.sources.map(this.githubFetcher)
-  },
+  fetch () {
+    Object.keys(this.sources).map(this.githubFetcher)
+  }
   
   /**
    * Method to load commit information from GitHub
    * @param {string} repo Repo name (ex: 'maxwellito/commitbeat')
    * @return {promise} Promise resolved with GitHub data
    */
-  githubFetcher: (repo:string) => {
+  githubFetcher (repo:string) {
     return fetch(`https://api.github.com/repos/${repo}/commits`)
       .then(response => response.json())
       .then((data:any) => {
-        this.sources[repo].commits = data.map(this.commitParser)
+        this.sources[repo].commits = data.map(this.hashParser)
       })
-  },
+  }
 
   /**
    * Transform a GitHub commit into a Commit object
@@ -50,7 +50,7 @@ export default {
    * @param {object} commit Commit object from GitHub API
    * @return {Commit} Lovaly formatted commit object
    */
-  hashParser: (commit:any):Commit => {
+  hashParser (commit:any):Commit {
     let hash = commit.sha,
         messageParsed = firstLiner.exec(commit.commit.message),
         name = (messageParsed && messageParsed[0]) || '',
@@ -77,4 +77,10 @@ export default {
       quad,
     }
   }
+
+  hexToInt (input:string) {
+    return parseInt(input, 16);
+  }
 }
+
+export default (new CommitLoader)
