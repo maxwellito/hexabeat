@@ -1,4 +1,4 @@
-import { Commit, CommitCollection } from '../models/Commit';
+import { Commit, CommitCollection } from 'models/Commit';
 
 const firstLiner = /^(.)*(\r?\n|\r)?/;
 
@@ -11,7 +11,7 @@ class CommitLoader {
    * @param {string} src Repository source (ex: 'maxwellito/phontom')
    * @param {boolean} fetchNow Market to fetch data source immediately
    */
-  addSource (src:string, fetchNow:boolean = true): void {
+  addSource (src:string): void {
     if (this.sources[src]) {
       return;
     }
@@ -26,7 +26,9 @@ class CommitLoader {
    * 
    */
   fetch () {
-    Object.keys(this.sources).map(this.githubFetcher)
+    return Promise.all(
+      Object.keys(this.sources).map(this.githubFetcher.bind(this))
+    );
   }
   
   /**
@@ -59,7 +61,7 @@ class CommitLoader {
         quad = new Int8Array(len * 2);
 
     for (var i = 0; i < len; i++) {
-      val = this.hexToInt(hash.substr(i, 1))
+      val = hexToInt(hash.substr(i, 1))
 
       quad[i*2]     = Math.floor(val/4);
       quad[i*2 + 1] = val % 4;
@@ -81,6 +83,10 @@ class CommitLoader {
   hexToInt (input:string) {
     return parseInt(input, 16);
   }
+}
+
+function hexToInt (input:string) {
+  return parseInt(input, 16);
 }
 
 export default (new CommitLoader)

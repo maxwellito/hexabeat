@@ -1,5 +1,3 @@
-import { promises } from "fs";
-
 /**
  * MpkController class
  * Manage access and interact with
