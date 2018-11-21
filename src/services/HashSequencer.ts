@@ -1,9 +1,11 @@
+import { Sequencer } from 'models/Sequencer';
+
 /**
  * Hash Sequencer
  * 
  */
 import continuous from './sequencers/continuous';
-const sequencers = {
+const sequencers: {[name: string]: Sequencer} = {
   continuous
 }
 export default {

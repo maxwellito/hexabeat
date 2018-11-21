@@ -27,3 +27,16 @@ commitLoader.fetch().then(
     debugger;
   }
 )
+
+import deckLoader from 'services/DeckLoader';
+deckLoader.load('public/decks/demo.json')
+.then(
+  (e) => {
+    console.info(e, deckLoader)
+    debugger;
+  },
+  (e) => {
+    console.warn(deckLoader, e)
+    debugger;
+  }
+)
