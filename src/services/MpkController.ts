@@ -10,9 +10,16 @@
  *   Nob
  *     [176, 1, 59]
  */
-export class MpkController {
+class MpkController {
 
   deviceName: string;
+
+  /**
+   * Status of the MPK
+   * 
+   * @public
+   */
+  status = MpkStatus.off;
 
   /**
    * MIDIInput and MIDIOutput of the MPK Mini
@@ -27,6 +34,12 @@ export class MpkController {
   listeners: ((data:number[]) => void)[];
 
   /**
+   * List of listeners for MIDI status.
+   * Will be triggered for MIDI connections and disconnections.
+   */
+  statusListener: ((event: MpkStatus) => void)[] = [];
+
+  /**
    * Stacks of listeners for each nob and pad.
    * The array index is related to the input
    * it represents.
@@ -37,7 +50,7 @@ export class MpkController {
   /**
    * Binded methodto avoid bloating the memory
    */
-  runIntroAnimBinded: ()=>void;
+  runIntroAnimBinded: () => void;
 
   /**
    * Current frame index of the animation
@@ -59,22 +72,21 @@ export class MpkController {
    * @param  {[type]} deviceName Device name to find from MIDIDevice
    */
   constructor (deviceName = 'MPK mini') {
-    this.deviceName = deviceName
-    this.input = null
-    this.output = null
-    this.listeners = []
+    this.deviceName = deviceName;
+    this.input = null;
+    this.output = null;
+    this.listeners = [];
 
-    this.runIntroAnimBinded = this.runIntroAnim.bind(this)
-  }
+    this.runIntroAnimBinded = this.runIntroAnim.bind(this);
 
-  /**
-   * Get the accessed device.
-   * If null, please call `accessDevice` first.
-   * 
-   * @public
-   */
-  isConncted(): boolean {
-    return !!(this.input && this.output)
+    // Check if the user already granted access
+    (<any>navigator).permissions
+      .query({name:'midi', sysex: true})
+      .then((status:any/* PermissionStatus */) => {
+        if (status.state === 'granted') {
+          this.accessDevice();
+        }
+      });
   }
 
   /**
@@ -83,44 +95,97 @@ export class MpkController {
    * 
    * @public
    */
-  accessDevice():Promise<MpkController> {
+  accessDevice():Promise<any> {
     if (!(<any>window).navigator.requestMIDIAccess) {
       return Promise.reject(new Error('Your browser is not compatible. Please use Chrome.'))
     }
+    else if (this.status !== MpkStatus.off && this.status !== MpkStatus.error) {
+      return Promise.resolve(this)
+    }
+    this.setStatus(MpkStatus.waitingForAccess);
     return (<any>window)
       .navigator
       .requestMIDIAccess({sysex:true})
       .then((access:any) => {
-
         // Test deprecated browsers
         if ('function' === typeof access.inputs || !access.inputs) {
           throw new Error('Your browser is deprecated and use an old Midi API.')
         }
+        this.setStatus(MpkStatus.pending);
+        access.addEventListener('statechange', this.stateChangeHandler.bind(this));
 
-        // Get MIDI devices
-        var i, input, output,
-            inputs  = (<any>Array).from(access.inputs.values()),
-            outputs = (<any>Array).from(access.outputs.values())
+        [
+          ...(<any>Array).from(access.inputs.values()),
+          ...(<any>Array).from(access.outputs.values())
+        ].forEach((port:any) => this.stateChangeHandler({port}));
 
-        // Loop though the device list to find the MPK
-        for (i = 0; i < inputs.length; i++) {
-          input = inputs[i]
-          output = outputs[i]
-          if (input.type === 'input'  && ~input.name.indexOf(this.deviceName) &&
-              output.type === 'output' && ~output.name.indexOf(this.deviceName)) {
-            
-            // When found, it save the input/output and start listening
-            this.input = input
-            this.output = output
-            this.input.onmidimessage = this.messageDispatcher.bind(this);
-            this.runIntroAnim()
-            return this
-          }
-        }
+      }, () => {
+        this.setStatus(MpkStatus.error);
+      });
+  }
 
-        // No device found
-        throw new Error(`Device ${this.deviceName} not found.`)
-      })
+  /**
+   * Listener for `statechange` events from the
+   * MPK to add/remove input and output.
+   * @param e Event
+   */
+  stateChangeHandler(e:any) {
+    // Ditch device that aren't what we are looking for
+    if (!~e.port.name.indexOf(this.deviceName)) {
+      console.log(`Useless device [${e.port.name}]`);
+      return;
+    }
+    
+    const isInput = (e.port instanceof (<any>window).MIDIInput);
+    console.info(`MIDI: ${this.deviceName} ${isInput ? 'input' : 'output'} ${e.port.state}`);
+
+    if (e.port.state === 'connected') {
+      if (isInput) {
+        this.input = e.port;
+        this.input.onmidimessage = this.messageDispatcher.bind(this);
+        this.setStatus(MpkStatus.connected);
+      }
+      else {
+        this.output = e.port;
+        this.runIntroAnim();
+      }
+    }
+    else {
+      if (isInput) {
+        this.input = null;
+        this.setStatus(MpkStatus.disconnected);
+      }
+      else {
+        this.output = null;
+      }
+    }
+  }
+
+  /**
+   * Set the status of the MPK connection
+   * and dispatch an even to all listeners.
+   */
+  setStatus(status: MpkStatus) {
+    this.status = status;
+    this.statusListener.forEach(listener => {
+      listener(status);
+    })
+  }
+
+  /**
+   * Add listener for state change.
+   * @param listener Listener function
+   * 
+   * @public
+   */
+  onStateChange(listener:((status: MpkStatus) => void)) {
+    if (~this.statusListener.indexOf(listener)) {
+      return this.lostCall;
+    }
+    this.statusListener.push(listener);
+    return () => {
+      this.statusListener.splice(this.statusListener.indexOf(listener), 1);
+    }
   }
 
   /**
@@ -184,7 +249,7 @@ export class MpkController {
       introAnimStack[this.introAnimIndex].forEach(index => {
         this.output.send([144, index, 1])
       })
-      setTimeout(this.runIntroAnimBinded.bind(this), 60)
+      setTimeout(this.runIntroAnimBinded, 60)
     }
     else {
       this.introAnimIndex = null
@@ -305,6 +370,17 @@ const introAnimStack:number[][] = [
   [PADS[4]],
 ]
 
+
+export enum MpkStatus {
+  off = 'off',
+  waitingForAccess = 'waitingForAccess',
+  pending = 'pending',
+  connected = 'connected',
+  disconnected = 'disconnected',
+  error = 'error'
+}
+
+export let Mpk = (new MpkController);
 
 // let xx = new MpkController()
 // xx.accessDevice()

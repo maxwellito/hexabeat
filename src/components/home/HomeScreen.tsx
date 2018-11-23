@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { MpkController } from '../../services/MpkController';
+import { Mpk } from 'services/MpkController';
 import { List } from '../list/List';
 import './HomeScreen.css';
+
+import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
 
 export interface HomeProps {
 }
@@ -40,7 +42,7 @@ const steps:{[k:string]:number} = {
 
 export class Home extends React.Component<HomeProps, HomeState> {
 
-  mpk: MpkController;
+  mpk = Mpk;
   keyUpListener: {(e:KeyboardEvent):void};
 
   constructor(props:HomeProps) {
@@ -50,7 +52,6 @@ export class Home extends React.Component<HomeProps, HomeState> {
       errorMessage: ''
     }
 
-    this.mpk = new MpkController()
     this.keyUpListener = this.onKeyUp.bind(this)
     window.addEventListener('keyup', this.keyUpListener)
   }
@@ -119,6 +120,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <List index={this.state.step} data={listData} />
         </div>
         {err}
+        <MiniMPK/>
       </div>
     );
   }

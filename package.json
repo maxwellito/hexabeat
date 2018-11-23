@@ -13,7 +13,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build-dev": "webpack --mode development",
-    "watch": "webpack -w --mode development"
+    "watch": "webpack -w --display minimal --mode development"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.0",

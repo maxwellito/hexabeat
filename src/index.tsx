@@ -20,11 +20,9 @@ commitLoader.addSource('maxwellito/triangulart')
 commitLoader.fetch().then(
   () => {
     console.info(commitLoader)
-    debugger;
   },
   (e) => {
     console.warn(commitLoader, e)
-    debugger;
   }
 )
 
@@ -33,10 +31,8 @@ deckLoader.load('public/decks/demo.json')
 .then(
   (e) => {
     console.info(e, deckLoader)
-    debugger;
   },
   (e) => {
     console.warn(deckLoader, e)
-    debugger;
   }
 )
