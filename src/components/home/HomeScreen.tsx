@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Mpk } from 'services/MpkController';
 import { List } from '../list/List';
+import { Track } from '../track/track';
 import './HomeScreen.css';
 
 import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
@@ -45,6 +46,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
   mpk = Mpk;
   keyUpListener: {(e:KeyboardEvent):void};
 
+  knobListenerCanceller: ()=>void;
+
   constructor(props:HomeProps) {
     super(props);
     this.state = {
@@ -54,6 +57,17 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
     this.keyUpListener = this.onKeyUp.bind(this)
     window.addEventListener('keyup', this.keyUpListener)
+  }
+
+  componentDidMount() {
+    this.knobListenerCanceller = this.mpk.stackNobListener(1,
+      p => { 
+        console.log('FF', p);
+        this.setState({
+          step: Math.floor(p/8)
+        });
+      }
+    );
   }
 
   onKeyUp(e:KeyboardEvent) {
@@ -111,16 +125,66 @@ export class Home extends React.Component<HomeProps, HomeState> {
       {
         title: 'CHOOSE A DECK',
         // subtitle: 'PICK YOUR KIT'
+      },
+      {
+        title: 'PRESS SPACE',
+        // subtitle: 'TO BEGIN'
+      },
+      {
+        title: 'SETUP MIDI CONNECTION',
+        // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
+      },
+      {
+        title: 'PICK A SESSION',
+        // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
+      },
+      {
+        title: 'CHOOSE A DECK',
+        // subtitle: 'PICK YOUR KIT'
+      },
+      {
+        title: 'PRESS SPACE',
+        // subtitle: 'TO BEGIN'
+      },
+      {
+        title: 'SETUP MIDI CONNECTION',
+        // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
+      },
+      {
+        title: 'PICK A SESSION',
+        // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
+      },
+      {
+        title: 'CHOOSE A DECK',
+        // subtitle: 'PICK YOUR KIT'
+      },
+      {
+        title: 'PRESS SPACE',
+        // subtitle: 'TO BEGIN'
+      },
+      {
+        title: 'SETUP MIDI CONNECTION',
+        // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
+      },
+      {
+        title: 'PICK A SESSION',
+        // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
+      },
+      {
+        title: 'CHOOSE A DECK',
+        // subtitle: 'PICK YOUR KIT'
       }
     ]
+
     return (
       <div>
         <div className='step-wrap'>
-          <span className='step-index'>0{this.state.step}</span>
+          <span className='step-index'>{(this.state.step < 10 ? '0' : '') + this.state.step}</span>
           <List index={this.state.step} data={listData} />
         </div>
         {err}
         <MiniMPK/>
+        <Track/>
       </div>
     );
   }

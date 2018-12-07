@@ -24,11 +24,14 @@ export class TrackData extends React.Component<TrackDataProps> {
         let dotClass = (bit ? 'bit-on' : 'bit-off') + (index === currentPos ? ' active' : '')
         return <div className={dotClass} key={index}></div>;
       })
-      return <div className='line' key={index}>{dots}</div>
+      return <div className='track-data-line' key={index}>
+        <div className="track-data-label">drum_02</div>
+        {dots}
+      </div>
     });
 
     return (
-      <div className="track-data selectable">
+      <div className="track-data">
         {lines}
       </div>
     );

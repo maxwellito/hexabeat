@@ -24,5 +24,5 @@ export class DeckSample {
   name: string;
   sub: string;
   url: string;
-  blob: Blob;
+  data: ArrayBuffer;
 }

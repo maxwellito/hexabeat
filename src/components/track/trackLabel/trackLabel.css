@@ -1,0 +1,18 @@
+@import '../../../styles/variables.css';
+
+
+.track-label {
+  display: inline-block;
+  height: var(--track-size);
+  background: var(--shade);
+  vertical-align: top;
+}
+
+.track-label-title {
+  font-size: 1.25rem;
+  color: var(--shade-light);
+}
+.track-label-subtitle {
+  font-size: .875rem;
+  color: var(--shade-base);
+}

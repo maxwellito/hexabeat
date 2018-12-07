@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {LabelPick} from './labelPick/labelPick';
+import {TrackIndex} from './trackIndex/trackIndex';
 import {LevelMeter} from './levelMeter/levelMeter';
+import {TrackLabel} from './trackLabel/trackLabel';
 import {TrackData} from './trackData/trackData';
 import './track.css';
 
@@ -33,9 +34,10 @@ export class Track extends React.Component<TrackProps, TrackState> {
     }, 800);
 
     return (
-      <div className='track selectable'>
-        <LabelPick labels={labels}/>
+      <div className='track'>
+        <TrackIndex index={2}/>
         <LevelMeter progress={.6}/>
+        <TrackLabel title={'tr808_drums'} subtitle={'7cbd875be785a085a0d87b5a'}/>
         <TrackData currentPos={currentPos} data={trackData} />
       </div>
     );

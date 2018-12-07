@@ -11,4 +11,18 @@
   --border-width:       6px;
   --border-width-half:  3px;
   --ctrl-height:        48px;
+
+/* Old crap */
+
+  --shade-base: #000;
+
+  --shade-dark: #fff1;
+  --shade: #fff2;
+  --shade-light: #fff;
+
+  --shade-active-on: #ff0;
+
+  --space: 2px;
+  --box-size: 25px;
+  --track-size: 52px;
 }

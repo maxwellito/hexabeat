@@ -1,32 +1,42 @@
 @import '../../../styles/variables.css';
 
 
-.track-data  {
+.track-data {
   display: inline-block;
-  padding: calc(var(--border-width) - 1px);
   vertical-align: top;
 }
 
-.line {
+.track-data-line {
   display: flex;
 }
-.line > div {
-  width: calc(var(--ctrl-height) / 2 - 1px);
-  height: calc(var(--ctrl-height) / 2 - 1px);
-  margin: 1px;
-  background-color: var(--shade-darker);
+.track-data-line > div.track-data-label {
+  width: calc(var(--box-size)*4);
+  padding: .125em 0 0 .5em;
+  background-color: var(--shade);
+  margin-left: 0;
+}
+.track-data-line > div {
+  width: var(--box-size);
+  height: var(--box-size);
+  
+  margin-left: var(--space);
+  margin-bottom: var(--space);
+
   box-sizing: border-box;
 }
 
-.bit-on {
-  border: calc(var(--border-width) / 3) solid var(--primary);
+.track-data .bit-off {
+  background-color: var(--shade);
+}
+.track-data .bit-on {
+  background-color: var(--shade-light);
 }
 
-.active.bit-on {
-  background-color: var(--primary);
+.track-data .active.bit-on {
+  background-color: var(--shade-active-on);
 }
-.active.bit-off {
-  background-color: var(--shade);
+.track-data .active.bit-off {
+  background-color: var(--shade-dark);
 }
 
 

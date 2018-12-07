@@ -5,7 +5,7 @@
  */
 
 import {Deck, DeckSample} from '../models/Deck';
-import {fetchJson, fetchBlob} from './utils/fetch';
+import {fetchJson, fetchArrayBuffer} from './utils/fetch';
 
 class DeckLoader {
 
@@ -14,7 +14,7 @@ class DeckLoader {
    * This will load the config file
    * then will load the samples.
    */
-  load (configUrl:string):Promise<any> {
+  load (configUrl:string):Promise<Deck> {
     return fetchJson(configUrl)
       .then(data => this.loadConfig(data)) 
   }
@@ -49,8 +49,8 @@ class DeckLoader {
    * Load the sample from a DeckSample
    */
   loadSample (sample:DeckSample, pathBase:string = ''):Promise<Blob> {
-    return fetchBlob(pathBase + sample.url)
-      .then(blob => sample.blob = blob)
+    return fetchArrayBuffer(pathBase + sample.url)
+      .then(data => sample.data = data)
   }
 }
 

@@ -1,0 +1,14 @@
+@import '../../../styles/variables.css';
+
+
+.track-index {
+  display: inline-block;
+  width: var(--track-size);
+  height: var(--track-size);
+  background: var(--shade-light);
+  text-align: center;
+  line-height: var(--track-size);
+  color: var(--shade-base);
+  font-size: 1.5rem;
+  vertical-align: top;
+}

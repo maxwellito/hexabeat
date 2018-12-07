@@ -27,10 +27,10 @@
   position: relative;
 }
 
-.up .list-item {
+.up .list-item.active {
   animation: .2s goUp;
 }
-.down .list-item {
+.down .list-item.active {
   animation: .2s goDown;
 }
 

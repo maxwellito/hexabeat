@@ -2,9 +2,9 @@
 
 .level-meter {
   display: inline-block;
-  padding: var(--border-width);
+  padding: var(--space);
   line-height: 0;
-  background-color: var(--shade-darker);
+  background-color: var(--shade);
 }
 
 .level-meter-wrap {
@@ -13,7 +13,6 @@
   width: calc(var(--border-width) * 2);
   height: var(--ctrl-height);
   line-height: 0;
-  background-color: var(--shade-dark);
 }
 
 .level-meter-content {
@@ -21,5 +20,5 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--primary);
+  background-color: var(--shade-light);
 }

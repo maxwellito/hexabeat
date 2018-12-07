@@ -18,12 +18,17 @@ class ListItem {
 export class List extends React.Component<ListProps, ListState> {
 
   previousIndex:number = 0;
+  isScrollingDown: true;
 
   constructor(props:ListProps) {
     super(props);
     this.state = {
       index: 0
     }
+  }
+
+  shouldComponentUpdate(nextProps:ListProps) {
+    return nextProps.index !== this.props.index;
   }
 
   render() {
@@ -48,7 +53,8 @@ export class List extends React.Component<ListProps, ListState> {
       }
     })
 
-    let wrapClass = this.previousIndex > this.state.index ? 'down' : 'up';
+    let wrapClass = this.previousIndex > this.props.index ? 'down' : 'up';
+    this.previousIndex = this.props.index;
 
     return (
       <div className={'list-wrap ' + wrapClass}>
