@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Mpk } from 'services/MpkController';
 import { List } from '../list/List';
-import { Track } from '../track/track';
+import { TrackComponent } from '../track/track';
 import './HomeScreen.css';
+import { setCurrentBit } from '../../actions';
+import store from 'store';
 
 import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
 
@@ -12,6 +14,7 @@ export interface HomeProps {
 export interface HomeState {
   step: number;
   errorMessage: string;
+  session: Session;
 }
 
 /**
@@ -52,7 +55,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
     super(props);
     this.state = {
       step: steps.init,
-      errorMessage: ''
+      errorMessage: '',
+      session: null
     }
 
     this.keyUpListener = this.onKeyUp.bind(this)
@@ -100,6 +104,26 @@ export class Home extends React.Component<HomeProps, HomeState> {
       step: steps.midi,
       errorMessage: ''
     })
+  }
+
+  start() {
+    deckLoader.load('public/decks/demo.json')
+      .then(
+        (myDeck) => {
+          let sess = new Session(98, myDeck, pp);
+          sess.isReady.then(() => {
+            this.setState({session: sess})
+            sess.start((index:number) => {
+              store.dispatch(setCurrentBit(index));
+            });
+          });
+
+        },
+        (e) => {
+          console.warn(deckLoader, e)
+        }
+      )
+      .catch(console.log)
   }
 
   render() {
@@ -174,8 +198,18 @@ export class Home extends React.Component<HomeProps, HomeState> {
         title: 'CHOOSE A DECK',
         // subtitle: 'PICK YOUR KIT'
       }
-    ]
+    ];
 
+    var xx = store.getState().currentBit;
+
+    let tracks: TrackComponent[] = [];
+    if (this.state.session) {
+      tracks = this.state.session.tracks.map((track, index): any => {
+        return <TrackComponent data={track} index={index} />
+      })
+    }
+
+ 
     return (
       <div>
         <div className='step-wrap'>
@@ -183,9 +217,75 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <List index={this.state.step} data={listData} />
         </div>
         {err}
+        <button onClick={this.start.bind(this)}>START</button>
         <MiniMPK/>
-        <Track/>
+        {tracks}
       </div>
     );
+  }
+}
+
+
+
+import deckLoader from 'services/DeckLoader';
+import Track from "models/Track";
+
+import { Deck, DeckSet, DeckSample } from 'models/Deck';
+
+
+
+
+const pp = [
+  [
+    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+    [!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+  ],
+  [
+    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!1,!!0,!!1,!!0,!!1,!!0,!!1,!!1],
+    [!!1,!!0,!!1,!!0,!!1,!!0,!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+  ]
+]
+
+class Session {
+  tracks: Track[] = [];
+  contextListener: () => void;
+  gridIndex = 0;
+  isReady: Promise<any>;
+  cbInterval: (keyIndex: number) => void;
+
+  constructor(public bpm:number, myDeck:Deck, partitions:boolean[][][]) {
+    let loads: Promise<boolean>[] = [];
+    myDeck.sets.forEach((set:DeckSet, setIndex:number) => {
+      let trck = new Track;
+      set.samples.forEach((sample:DeckSample) => {
+        loads.push(trck.addSample(sample.data));
+      })
+      trck.name = set.name;
+      trck.labels = set.samples.map(s => s.name);
+      trck.partitions = partitions[setIndex];
+      this.tracks.push(trck);
+    });
+    this.isReady = Promise.all(loads);
+    this.contextListener = this.loop.bind(this);
+  }
+
+  start(cb: (keyIndex: number) => void) {
+    this.cbInterval = cb;
+    this.loop();
+  }
+
+  loop() {
+    setTimeout(this.contextListener, this.bpm);
+    this.cbInterval(this.gridIndex);
+    this.play();
+  }
+
+  play() {
+    this.tracks.forEach((trck, index) => {
+      trck.playAt(this.gridIndex);
+    });
+    this.gridIndex = (this.gridIndex + 17) % 16;
   }
 }

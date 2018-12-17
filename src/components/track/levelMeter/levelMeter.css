@@ -2,7 +2,9 @@
 
 .level-meter {
   display: inline-block;
-  padding: var(--space);
+  position: relative;
+  height: var(--track-size);
+  width: calc(var(--border-width) * 3);
   line-height: 0;
   background-color: var(--shade);
 }
@@ -10,8 +12,10 @@
 .level-meter-wrap {
   position: relative;
   display: inline-block;
-  width: calc(var(--border-width) * 2);
-  height: var(--ctrl-height);
+  height: calc(100% - 2*var(--space));
+  width: calc(100% - 2*var(--space));
+  top: var(--space);
+  left: var(--space);
   line-height: 0;
 }
 

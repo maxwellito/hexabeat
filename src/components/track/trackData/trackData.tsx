@@ -1,11 +1,16 @@
 import * as React from 'react';
 import './trackData.css';
-
+import store from 'store';
+  
 const lineLength = 16;
 
 export interface TrackDataProps {
-  currentPos: number,
-  data: number[][]
+  data: boolean[][];
+  labels: string[];
+}
+
+export interface TrackDataState {
+  currentPos: number;
 }
 
 /**
@@ -13,11 +18,25 @@ export interface TrackDataProps {
  * - `currentPos`: number
  * - `data`: boolean[][]
  */
-export class TrackData extends React.Component<TrackDataProps> {
+export class TrackData extends React.Component<TrackDataProps, TrackDataState> {
+
+  constructor(props:TrackDataProps) {
+    super(props);
+    this.state = {
+      currentPos: 0
+    }
+    store.subscribe(() => {
+      this.setState({
+        currentPos: store.getState().currentBit
+      })
+    })
+  }
 
   render() {
     let data = this.props.data || [],
-        currentPos = this.props.currentPos;
+        currentPos = this.state.currentPos;
+
+    currentPos = store.getState().currentBit;
     
     let lines = data.map((lineData, index) => {
       let dots = lineData.map((bit, index) => {
@@ -25,7 +44,7 @@ export class TrackData extends React.Component<TrackDataProps> {
         return <div className={dotClass} key={index}></div>;
       })
       return <div className='track-data-line' key={index}>
-        <div className="track-data-label">drum_02</div>
+        <div className="track-data-label">{this.props.labels[index]}</div>
         {dots}
       </div>
     });

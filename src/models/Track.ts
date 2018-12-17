@@ -9,6 +9,8 @@ export default class Track {
   layers:number;         // number, layer length [1~4]
   samples:AudioBufferSourceNode[] = [];      // number[], 
   partitions:boolean[][]; // boolean[16][], grid data
+  labels: string[]; // List of labels
+  name: string;
 
   audioCtx = new AudioContext();
 
@@ -26,15 +28,18 @@ export default class Track {
     })
   }
 
-  addSample(audioFile:ArrayBuffer) {
+  async addSample(audioFile:ArrayBuffer): Promise<any> {
     var source = this.audioCtx.createBufferSource();
     this.samples.push(source);
     this.layers = this.samples.length;
 
-    this.audioCtx.decodeAudioData(audioFile, buffer => {
-      source.buffer = buffer;
-      source.connect(this.audioCtx.destination);
-    });
+    return new Promise((resolve) => {
+      this.audioCtx.decodeAudioData(audioFile, buffer => {
+        source.buffer = buffer;
+        source.connect(this.audioCtx.destination);
+        resolve();
+      });
+    })
   }
 
 }

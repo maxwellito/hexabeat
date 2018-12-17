@@ -1,10 +1,36 @@
 @import '../../styles/variables.css';
 
 .track  {
-  display: inline-block;
+  display: flex;
   vertical-align: top;
 }
 
 .track > * + * {
   margin-left: var(--space);
+}
+
+.track > * {
+  opacity: 0;
+  animation: flashIn .2s;
+  animation-fill-mode: both;
+  vertical-align: top;
+}
+
+.track > *:nth-child(1) { animation-delay: 0s; }
+.track > *:nth-child(2) { animation-delay: .1s; }
+.track > *:nth-child(3) { animation-delay: .2s; }
+.track > *:nth-child(4) { animation-delay: .3s; }
+
+
+@keyframes flashIn {
+  0%   {opacity: 0;}
+
+  10%   {opacity: 0;}
+  11%   {opacity: 1;}
+  12%   {opacity: 0;}
+  13%   {opacity: 1;}
+  14%   {opacity: 0;}
+
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
 }

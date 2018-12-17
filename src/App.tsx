@@ -1,7 +1,8 @@
 import * as React from "react";
+import {Provider} from 'react-redux';
+import store from 'store';
 import { Home } from './components/home/HomeScreen';
-import { Track } from './components/track/track';
-import { TiledLines } from './components/useless/tiledLines'
+// import { TiledLines } from './components/useless/tiledLines'
 
 /**
  * Fun times:
@@ -11,11 +12,11 @@ import { TiledLines } from './components/useless/tiledLines'
 export class App extends React.Component {
   render() {
     return (
-      <div>
+      <Provider store={store}>
         <Home/>
         {/* <Track/>
         <TiledLines type={'red'} /> */}
-      </div>
+      </Provider>
     );
   }
 }

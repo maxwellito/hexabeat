@@ -5,7 +5,7 @@
   display: inline-block;
   height: var(--track-size);
   background: var(--shade);
-  vertical-align: top;
+  flex-grow: 1;
 }
 
 .track-label-title {
