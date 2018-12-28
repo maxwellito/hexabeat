@@ -20,12 +20,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Space Mono", monospace;
-  background: var(--shade-darker);
+  background-color: var(--shade-darker);
+  background-image: url(/public/background.svg);
   color: var(--shade-lighter);
 
   font-weight: normal;
   text-transform: uppercase;
   line-height: 1.2;
+
+  
+  animation: looped 2s linear infinite;
+}
+
+@keyframes looped {
+  from {background-position-x: 0;}
+  to {background-position-x: 50px;}
 }
 
 

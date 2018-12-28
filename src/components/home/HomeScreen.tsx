@@ -48,6 +48,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
   mpk = Mpk;
   keyUpListener: {(e:KeyboardEvent):void};
+  stepUpdate: (newIndex: number) => void;
 
   knobListenerCanceller: ()=>void;
 
@@ -61,6 +62,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
     this.keyUpListener = this.onKeyUp.bind(this)
     window.addEventListener('keyup', this.keyUpListener)
+    this.stepUpdate = this.updateStep.bind(this);
   }
 
   componentDidMount() {
@@ -82,6 +84,12 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
   componentWillUnmount() {
     window.removeEventListener('keyup', this.keyUpListener)
+  }
+
+  updateStep(newIndex: number) {
+    this.setState({
+      step: newIndex
+    });
   }
 
   /**
@@ -214,7 +222,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
       <div>
         <div className='step-wrap'>
           <span className='step-index'>{(this.state.step < 10 ? '0' : '') + this.state.step}</span>
-          <List index={this.state.step} data={listData} />
+          <List index={this.state.step} data={listData} onUpdate={this.stepUpdate}/>
         </div>
         {err}
         <button onClick={this.start.bind(this)}>START</button>

@@ -4,10 +4,10 @@ import './List.css';
 export interface ListProps {
   data: ListItem[];
   index: number;
+  onUpdate?: (newIndex: number) => void;
 }
 
 export interface ListState {
-  index: number;
 }
 
 class ListItem {
@@ -19,12 +19,40 @@ export class List extends React.Component<ListProps, ListState> {
 
   previousIndex:number = 0;
   isScrollingDown: true;
+  wheelListener: (e:React.WheelEvent) => void;
+  wheelAcc = 0;
 
   constructor(props:ListProps) {
     super(props);
     this.state = {
       index: 0
     }
+    this.wheelListener = this.onWheel.bind(this);
+  }
+
+  onWheel(e:React.WheelEvent) {
+    const Y = e.deltaY;
+    let newIndex = this.props.index;
+    if (!Y) {
+      return;
+    }
+    this.wheelAcc += Y * (1/4);
+
+    if (this.wheelAcc >= 4) {
+      newIndex += Math.floor(this.wheelAcc / 4);
+      this.wheelAcc %= 4;
+    }
+    else if (this.wheelAcc <= -4) {
+      newIndex -= Math.floor(-this.wheelAcc / 4);
+      this.wheelAcc = -(-this.wheelAcc % 4);
+    }
+    else {
+      return;
+    }
+
+    
+    newIndex = Math.min(this.props.data.length-1, Math.max(0, newIndex));
+    this.props.onUpdate(newIndex);
   }
 
   shouldComponentUpdate(nextProps:ListProps) {
@@ -57,7 +85,7 @@ export class List extends React.Component<ListProps, ListState> {
     this.previousIndex = this.props.index;
 
     return (
-      <div className={'list-wrap ' + wrapClass}>
+      <div className={'list-wrap ' + wrapClass} onWheel={this.wheelListener}>
         <div className='list-wrap-top'>{topList}</div>
         {selectedItem}
         <div className='list-wrap-bottom'>{bottomList}</div>
