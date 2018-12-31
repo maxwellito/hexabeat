@@ -1,4 +1,5 @@
 @import './styles/variables.css';
+@import './styles/fonts.css';
 
 @font-face {
   font-family: "Space Mono";

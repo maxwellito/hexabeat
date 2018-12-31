@@ -65,3 +65,5 @@ services/
 
 The awful CommitBeat
 
+Music instruments: Icon pack 
+Icons made by [Freepik](http://www.freepik.com/) from [www.flaticon.com](https://www.flaticon.com/) is licensed by Creative Commons BY 3.0
