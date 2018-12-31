@@ -1,4 +1,4 @@
-import {Commit} from './Commit';
+import {Commit} from './GitRepository';
 
 export interface Sequencer {
   icon: number[][],

@@ -1,9 +1,9 @@
-import { Commit, CommitCollection } from 'models/Commit';
+import { Commit, Repository, RepositoryCollection } from 'models/GitRepository';
 
 const firstLiner = /^(.)*(\r?\n|\r)?/;
 
-class CommitLoader {
-  sources: {[sourceName: string]: CommitCollection} = {};
+class RepositoryLoader {
+  sources: RepositoryCollection = {};
 
   /**
    * Add a repository source to get commits
@@ -11,24 +11,27 @@ class CommitLoader {
    * @param {string} src Repository source (ex: 'maxwellito/phontom')
    * @param {boolean} fetchNow Market to fetch data source immediately
    */
-  addSource (src:string): void {
+  addSource (src:string): RepositoryLoader {
     if (this.sources[src]) {
       return;
     }
 
-    let collection = new CommitCollection();
-    collection.name = src;
-    collection.commits = [];
-    this.sources[src] = collection;
+    let repo: Repository = {
+      name: src,
+      commits: []
+    };
+    this.sources[src] = repo;
+    return this;
   }
 
   /**
    * 
    */
-  fetch () {
+  fetch (): Promise<RepositoryCollection> {
     return Promise.all(
       Object.keys(this.sources).map(this.githubFetcher.bind(this))
-    );
+    )
+    .then(() => this.sources);
   }
   
   /**
@@ -36,11 +39,12 @@ class CommitLoader {
    * @param {string} repo Repo name (ex: 'maxwellito/commitbeat')
    * @return {promise} Promise resolved with GitHub data
    */
-  githubFetcher (repo:string) {
+  githubFetcher (repo:string): Promise<Repository> {
     return fetch(`https://api.github.com/repos/${repo}/commits`)
       .then(response => response.json())
       .then((data:any) => {
-        this.sources[repo].commits = data.map(this.hashParser)
+        this.sources[repo].commits = data.map(this.hashParser);
+        return this.sources[repo];
       })
   }
 
@@ -89,4 +93,4 @@ function hexToInt (input:string) {
   return parseInt(input, 16);
 }
 
-export default (new CommitLoader)
+export default (new RepositoryLoader)

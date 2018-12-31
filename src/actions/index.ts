@@ -1,11 +1,11 @@
-import {CommitCollectionsAction} from '../reducers/commitCollections';
+import {RepositoryCollectionAction} from '../reducers/gitRepository';
 import {CurrentBitAction} from '../reducers/currentBit'
 import {SelectedTrackAction} from '../reducers/selectedTrack'
 import {SessionBpmAction} from '../reducers/sessionBPM'
 import {SessionVolumeAction} from '../reducers/sessionVolume'
 import {TracksAction} from '../reducers/tracks'
 
-import {CommitCollection} from '../models/Commit'
+import {RepositoryCollection} from '../models/GitRepository'
 import Track from '../models/Track';
 
 // Session
@@ -32,17 +32,9 @@ export const removeTrack = (track:Track):TracksAction => ({
   track
 })
 
-// Commit Collections
-export const setCommitCollections = (collections:CommitCollection[]):CommitCollectionsAction => ({
-  type: 'SET_COMMIT_COLLECTIONS',
-  collections
-})
-export const addCommitCollection = (collection:CommitCollection):CommitCollectionsAction => ({
-  type: 'ADD_COMMIT_COLLECTION',
-  collection
-})
-export const removeCommitCollection = (collection:CommitCollection):CommitCollectionsAction => ({
-  type: 'REMOVE_COMMIT_COLLECTION',
+// Repository Collection
+export const setRepositoryCollection = (collection:RepositoryCollection): RepositoryCollectionAction => ({
+  type: 'SET_REPOSITORY_COLLECTION',
   collection
 })
 

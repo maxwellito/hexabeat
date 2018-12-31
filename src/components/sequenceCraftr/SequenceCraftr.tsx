@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Mpk } from 'services/MpkController';
-import { List } from '../list/List';
-import './HomeScreen.css';
+import { List, ListItem } from '../list/List';
+import store from 'store';
+import {RepositoryCollection, Repository} from 'models/GitRepository';
+import './SequenceCraftr.css';
 
 export interface SequenceCraftrProps {
 }
@@ -15,9 +17,12 @@ export interface SequenceCraftrState {
 
 export class SequenceCraftr extends React.Component<SequenceCraftrProps, SequenceCraftrState> {
 
-  repoUpdate: (newIndex: number) => void;
-  commitUpdate: (newIndex: number) => void;
-  sequencerUpdate: (newIndex: number) => void;
+  updateRepoListener: (newIndex: number) => void;
+  updateCommitListener: (newIndex: number) => void;
+  updateAlgoListener: (newIndex: number) => void;
+
+  repoCollection: Repository[] = [];
+  repoCollectionList: ListItem[];
 
   constructor(props:SequenceCraftrProps) {
     super(props);
@@ -27,9 +32,22 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
       selectedSequencer: 0
     };
 
-    this.repoUpdate = this.updateRepo.bind(this);
+    this.updateRepoListener = this.updateRepo.bind(this);
+    this.updateCommitListener = this.updateCommit.bind(this);
     // this.commitUpdate = this.listUpdate('selectedCommit');
     // this.sequencerUpdate = this.listUpdate('selectedSequencer');
+
+    
+    const repoCollection = store.getState().repositoryCollection;
+    this.repoCollectionList = Object.keys(repoCollection)
+      .map((name: string): ListItem => {
+        this.repoCollection.push(repoCollection[name])
+        const [author, repoName] = name.split('/');
+        return {
+          title: repoName,
+          subtitle: author
+        };
+      });
   }
 
   componentDidMount() {
@@ -44,8 +62,17 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
   }
 
   updateRepo(newIndex: number) {
+  
     this.setState({
-      selectedRepo: newIndex
+      selectedRepo: newIndex,
+      selectedCommit: 0
+    });
+  }
+
+  updateCommit(newIndex: number) {
+  
+    this.setState({
+      selectedCommit: newIndex
     });
   }
 
@@ -56,80 +83,31 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
 
 
   render() {
+    const selectedRepo = this.repoCollection[this.state.selectedRepo];
+    const commitList = selectedRepo.commits.map(commit => {
+      return {
+        title: commit.hash,
+        subtitle: commit.name
+      };
+    })
+
     return (
-      <div>
-        <List index={this.state.selectedRepo} data={listData} onUpdate={this.repoUpdate}/>
-        <List index={this.state.selectedCommit} data={listData} />
-        <List index={this.state.selectedSequencer} data={listData} />
+      <div className='sequence-craftr-wrap'>
+        <List 
+          index={this.state.selectedRepo}
+          data={this.repoCollectionList}
+          onUpdate={this.updateRepoListener}/>
+        <List
+          key={this.state.selectedCommit}
+          index={this.state.selectedCommit}
+          data={commitList}
+          onUpdate={this.updateCommitListener}
+        />
+        {/* <List
+          index={this.state.selectedSequencer}
+          data={listData}
+        /> */}
       </div>
     );
   }
 }
-
-
-let listData = [
-  {
-    title: 'PRESS SPACE',
-    // subtitle: 'TO BEGIN'
-  },
-  {
-    title: 'SETUP MIDI CONNECTION',
-    // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
-  },
-  {
-    title: 'PICK A SESSION',
-    // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
-  },
-  {
-    title: 'CHOOSE A DECK',
-    // subtitle: 'PICK YOUR KIT'
-  },
-  {
-    title: 'PRESS SPACE',
-    // subtitle: 'TO BEGIN'
-  },
-  {
-    title: 'SETUP MIDI CONNECTION',
-    // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
-  },
-  {
-    title: 'PICK A SESSION',
-    // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
-  },
-  {
-    title: 'CHOOSE A DECK',
-    // subtitle: 'PICK YOUR KIT'
-  },
-  {
-    title: 'PRESS SPACE',
-    // subtitle: 'TO BEGIN'
-  },
-  {
-    title: 'SETUP MIDI CONNECTION',
-    // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
-  },
-  {
-    title: 'PICK A SESSION',
-    // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
-  },
-  {
-    title: 'CHOOSE A DECK',
-    // subtitle: 'PICK YOUR KIT'
-  },
-  {
-    title: 'PRESS SPACE',
-    // subtitle: 'TO BEGIN'
-  },
-  {
-    title: 'SETUP MIDI CONNECTION',
-    // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
-  },
-  {
-    title: 'PICK A SESSION',
-    // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
-  },
-  {
-    title: 'CHOOSE A DECK',
-    // subtitle: 'PICK YOUR KIT'
-  }
-];

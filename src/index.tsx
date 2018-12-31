@@ -6,7 +6,22 @@ import store from './store';
 
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById("root")
-);
+
+
+
+// Load commits
+import RepositoryLoader from 'services/RepositoryLoader';
+import * as actions from 'actions/index';
+RepositoryLoader
+  .addSource('maxwellito/vivus')
+  .addSource('maxwellito/triangulart')
+  .fetch()
+  .then(
+    collection => {
+      store.dispatch(actions.setRepositoryCollection(collection));
+      ReactDOM.render(
+        <App />,
+        document.getElementById("root")
+      );
+    }
+  )

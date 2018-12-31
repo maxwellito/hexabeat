@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Mpk } from 'services/MpkController';
 import { List } from '../list/List';
 import { TrackComponent } from '../track/track';
+import { SequenceCraftr } from '../sequenceCraftr/SequenceCraftr';
 import './HomeScreen.css';
 import { setCurrentBit } from '../../actions';
 import store from 'store';
@@ -225,6 +226,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <List index={this.state.step} data={listData} onUpdate={this.stepUpdate}/>
         </div>
         {err}
+        <SequenceCraftr></SequenceCraftr>
         <button onClick={this.start.bind(this)}>START</button>
         <MiniMPK/>
         {tracks}

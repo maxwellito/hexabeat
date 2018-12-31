@@ -1,4 +1,4 @@
-import { Commit } from 'models/Commit';
+import { Commit } from 'models/GitRepository';
 
 export default {
   icon: [

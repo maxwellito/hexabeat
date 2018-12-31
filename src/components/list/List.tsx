@@ -1,6 +1,8 @@
 import * as React from 'react';
 import './List.css';
 
+const WHEEL_STEP = 4;
+
 export interface ListProps {
   data: ListItem[];
   index: number;
@@ -10,7 +12,7 @@ export interface ListProps {
 export interface ListState {
 }
 
-class ListItem {
+export interface ListItem {
   title: string;
   subtitle?: string;
 }
@@ -36,15 +38,15 @@ export class List extends React.Component<ListProps, ListState> {
     if (!Y) {
       return;
     }
-    this.wheelAcc += Y * (1/4);
+    this.wheelAcc += Y > 0 ? 1 : -1;
 
-    if (this.wheelAcc >= 4) {
-      newIndex += Math.floor(this.wheelAcc / 4);
-      this.wheelAcc %= 4;
+    if (this.wheelAcc >= WHEEL_STEP) {
+      newIndex += Math.floor(this.wheelAcc / WHEEL_STEP);
+      this.wheelAcc %= WHEEL_STEP;
     }
-    else if (this.wheelAcc <= -4) {
-      newIndex -= Math.floor(-this.wheelAcc / 4);
-      this.wheelAcc = -(-this.wheelAcc % 4);
+    else if (this.wheelAcc <= -WHEEL_STEP) {
+      newIndex -= Math.floor(-this.wheelAcc / WHEEL_STEP);
+      this.wheelAcc = -(-this.wheelAcc % WHEEL_STEP);
     }
     else {
       return;
@@ -66,10 +68,10 @@ export class List extends React.Component<ListProps, ListState> {
         
     this.props.data.forEach((item:ListItem, index:number) => {
       let itemClass = 'list-item ' + (index === this.props.index ? 'active' : ''),
-          itemElements = [<p className='list-item-title'  key={'ff'+index}>{item.title}</p>];
+          itemElements = [<p className='list-item-title'  key={index+'_title'}>{item.title}</p>];
       
       if (item.subtitle) {
-        itemElements.push(<p className='list-item-subtitle'>{item.subtitle}</p>)
+        itemElements.push(<p className='list-item-subtitle' key={index+'_sub'}>{item.subtitle}</p>)
       }
 
       let output = <div className={itemClass} key={index}>{itemElements}</div>

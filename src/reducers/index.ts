@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 
-import {commitCollections} from './commitCollections';
+import {repositoryCollection} from './gitRepository';
 import {currentBit} from './currentBit';
 import {selectedTrack} from './selectedTrack';
 import {sessionBPM} from './sessionBPM';
@@ -8,7 +8,7 @@ import {sessionVolume} from './sessionVolume';
 import {tracks} from './tracks';
 
 export default combineReducers({
-  commitCollections,
+  repositoryCollection,
   currentBit,
   selectedTrack,
   sessionBPM,

@@ -25,6 +25,7 @@
 .list-item {
   margin: 0.35em 0;
   position: relative;
+  color: var(--shade-light);
 }
 
 .up .list-item.active {
@@ -36,15 +37,15 @@
 
 .list-item-title {
   font-size: 1em;
-  color: var(--shade-light);
   margin: 0;
   line-height: 1.2;
+  display: inline-block;
 }
 .list-item-subtitle {
   font-size: .75em;
-  color: var(--shade);
   margin: 0;
   line-height: 1.2;
+  opacity: .5;
 }
 
 
@@ -52,10 +53,13 @@
   font-size: 1.5em;
 }
 .list-item.active .list-item-title {
-  color: var(--shade-lighter);
+
+  color: var(--shade-darker);
+  background-color: var(--shade-lighter);
+  padding: .125em .25em;
 }
 .list-item.active .list-item-subtitle {
-  color: var(--shade-light);
+  /* opacity: .75; */
 }
 
 
