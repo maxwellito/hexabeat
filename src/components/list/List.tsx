@@ -52,13 +52,13 @@ export class List extends React.Component<ListProps, ListState> {
       return;
     }
 
-    
     newIndex = Math.min(this.props.data.length-1, Math.max(0, newIndex));
     this.props.onUpdate(newIndex);
   }
 
   shouldComponentUpdate(nextProps:ListProps) {
-    return nextProps.index !== this.props.index;
+    return  nextProps.index !== this.props.index ||
+            nextProps.data !== this.props.data;
   }
 
   render() {

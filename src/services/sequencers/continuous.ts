@@ -1,6 +1,9 @@
+import { Sequencer } from 'models/Sequencer';
 import { Commit } from 'models/GitRepository';
 
-export default {
+let continuous: Sequencer = {
+  name: 'Continuous',
+  description: '',
   icon: [
     [1, 0, 1],
     [2, 2, 2],
@@ -37,3 +40,5 @@ export default {
     return output;
   }
 }
+
+export default continuous;

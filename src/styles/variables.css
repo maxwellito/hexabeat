@@ -1,23 +1,9 @@
 :root {
-  --shade-darker:     #000;
-  --shade-dark:       #222;
-  --shade:            #444;
-  --shade-light:      #888;
-  --shade-lighter:    #ccc;
-
-  --primary:          #ff0;
-  --primary-shade:    #770;
-
-  --border-width:       6px;
-  --border-width-half:  3px;
-  --ctrl-height:        48px;
-
-/* Old crap */
 
   --shade-base: #000;
 
-  --shade-dark: #fff1;
-  --shade: #fff2;
+  --shade-dark: #111;
+  --shade: #666;
   --shade-light: #fff;
 
   --shade-active-on: #ff0;

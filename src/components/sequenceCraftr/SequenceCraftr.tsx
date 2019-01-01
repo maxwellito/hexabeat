@@ -2,8 +2,10 @@ import * as React from 'react';
 import { Mpk } from 'services/MpkController';
 import { List, ListItem } from '../list/List';
 import store from 'store';
-import {RepositoryCollection, Repository} from 'models/GitRepository';
+import {Repository} from 'models/GitRepository';
+import sequencers from 'services/sequencers';
 import './SequenceCraftr.css';
+import { Sequencer } from 'models/Sequencer';
 
 export interface SequenceCraftrProps {
 }
@@ -19,10 +21,12 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
 
   updateRepoListener: (newIndex: number) => void;
   updateCommitListener: (newIndex: number) => void;
-  updateAlgoListener: (newIndex: number) => void;
+  updateSequencerListener: (newIndex: number) => void;
 
   repoCollection: Repository[] = [];
   repoCollectionList: ListItem[];
+  sequencers: Sequencer[] = [];
+  sequencersList: ListItem[] = [];
 
   constructor(props:SequenceCraftrProps) {
     super(props);
@@ -34,8 +38,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
 
     this.updateRepoListener = this.updateRepo.bind(this);
     this.updateCommitListener = this.updateCommit.bind(this);
-    // this.commitUpdate = this.listUpdate('selectedCommit');
-    // this.sequencerUpdate = this.listUpdate('selectedSequencer');
+    this.updateSequencerListener = this.updateSequencer.bind(this);
 
     
     const repoCollection = store.getState().repositoryCollection;
@@ -48,6 +51,14 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
           subtitle: author
         };
       });
+
+    Object.keys(sequencers).map(name => {
+      this.sequencers.push(sequencers[name]);
+      this.sequencersList.push({
+        title: sequencers[name].name,
+        subtitle: sequencers[name].description
+      });
+    });
   }
 
   componentDidMount() {
@@ -76,6 +87,13 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
     });
   }
 
+  updateSequencer(newIndex: number) {
+  
+    this.setState({
+      selectedSequencer: newIndex
+    });
+  }
+
   componentWillUnmount() {
     // window.removeEventListener('keyup', this.keyUpListener)
   }
@@ -89,7 +107,9 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
         title: commit.hash,
         subtitle: commit.name
       };
-    })
+    });
+
+
 
     return (
       <div className='sequence-craftr-wrap'>
@@ -98,15 +118,15 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
           data={this.repoCollectionList}
           onUpdate={this.updateRepoListener}/>
         <List
-          key={this.state.selectedCommit}
           index={this.state.selectedCommit}
           data={commitList}
           onUpdate={this.updateCommitListener}
         />
-        {/* <List
+        <List
           index={this.state.selectedSequencer}
-          data={listData}
-        /> */}
+          data={this.sequencersList}
+          onUpdate={this.updateSequencerListener}
+        />
       </div>
     );
   }

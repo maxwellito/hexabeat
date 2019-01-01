@@ -54,8 +54,8 @@
 }
 .list-item.active .list-item-title {
 
-  color: var(--shade-darker);
-  background-color: var(--shade-lighter);
+  color: var(--shade-dark);
+  background-color: var(--shade-light);
   padding: .125em .25em;
 }
 .list-item.active .list-item-subtitle {
