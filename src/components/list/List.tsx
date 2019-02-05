@@ -15,6 +15,7 @@ export interface ListState {
 export interface ListItem {
   title: string;
   subtitle?: string;
+  icon?: string;
 }
 
 export class List extends React.Component<ListProps, ListState> {
@@ -30,6 +31,9 @@ export class List extends React.Component<ListProps, ListState> {
       index: 0
     }
     this.wheelListener = this.onWheel.bind(this);
+
+
+    console.log(this.props.children)
   }
 
   onWheel(e:React.WheelEvent) {
@@ -72,6 +76,9 @@ export class List extends React.Component<ListProps, ListState> {
       
       if (item.subtitle) {
         itemElements.push(<p className='list-item-subtitle' key={index+'_sub'}>{item.subtitle}</p>)
+      }
+      if (item.icon) {
+        itemElements.unshift(<span className='list-item-icon {item.icon}' key={index+'_icon'}></span>)
       }
 
       let output = <div className={itemClass} key={index}>{itemElements}</div>

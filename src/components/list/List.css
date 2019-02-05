@@ -40,12 +40,14 @@
   margin: 0;
   line-height: 1.2;
   display: inline-block;
+  white-space: nowrap;
 }
 .list-item-subtitle {
   font-size: .75em;
   margin: 0;
   line-height: 1.2;
   opacity: .5;
+  white-space: nowrap;
 }
 
 

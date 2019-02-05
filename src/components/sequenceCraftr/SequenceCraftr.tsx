@@ -62,14 +62,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
   }
 
   componentDidMount() {
-    // this.knobListenerCanceller = this.mpk.stackNobListener(1,
-    //   p => { 
-    //     console.log('FF', p);
-    //     this.setState({
-    //       step: Math.floor(p/8)
-    //     });
-    //   }
-    // );
+
   }
 
   updateRepo(newIndex: number) {
@@ -126,7 +119,9 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps, Sequenc
           index={this.state.selectedSequencer}
           data={this.sequencersList}
           onUpdate={this.updateSequencerListener}
-        />
+        >
+          <div>{}</div>
+        </List>
       </div>
     );
   }
