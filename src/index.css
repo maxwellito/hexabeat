@@ -21,8 +21,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Space Mono", monospace;
-  background-color: var(--shade-dark);
-  background-image: url(/public/background.svg);
+  background-color: var(--shade-base);
+  /* background-image: url(/public/background.svg); */
   color: var(--shade-light);
 
   font-weight: normal;

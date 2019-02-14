@@ -10,10 +10,7 @@ export class TrackLabel extends React.Component<TrackLabelProps> {
 
   render() {
     return (
-      <div className='track-label'>
-        <div className='track-label-title'>{this.props.title}</div>
-        <div className='track-label-subtitle'>{this.props.subtitle}</div>
-      </div>
+      <div className='track-label'>{this.props.title}</div>
     );
   }
 }

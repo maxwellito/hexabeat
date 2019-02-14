@@ -1,25 +1,66 @@
 @import '../../styles/variables.css';
 
-.track  {
+.track {
   display: flex;
   vertical-align: top;
+
+  max-width: 1000px;
+  margin: auto;
 }
 
-.track > * + * {
-  margin-left: var(--space);
-}
 
-.track > * {
+
+.track-bloc {
   opacity: 0;
   animation: flashIn .2s;
   animation-fill-mode: both;
   vertical-align: top;
+  min-width: 4rem;
+
+  padding-bottom: var(--space);
+  border-bottom-width: var(--space);
+  border-bottom-style: solid;
+  border-bottom-color: var(--shade-dark); 
+  margin: 1rem 0;
 }
+.track-bloc + .track-bloc {
+  margin-left: var(--space);
+}
+.track.active .track-bloc {
+  border-color: var(--shade-light);
+}
+.track.active .track-bloc.selected {
+  border-color: var(--shade-active-on);
+}
+
+.track-bloc:before {
+  display: block;
+  content: attr(data-title);
+  color: var(--shade);
+  font-size: .75rem;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.track-bloc-title {
+  flex-grow: 1;
+}
+
+.track-label {
+  display: inline-block;
+  height: var(--track-size);
+  font-size: 2rem;
+  color: var(--shade-light);
+  line-height: 2.75rem;
+}
+
+
 
 .track > *:nth-child(1) { animation-delay: 0s; }
 .track > *:nth-child(2) { animation-delay: .1s; }
 .track > *:nth-child(3) { animation-delay: .2s; }
 .track > *:nth-child(4) { animation-delay: .3s; }
+.track > *:nth-child(5) { animation-delay: .4s; }
 
 
 @keyframes flashIn {

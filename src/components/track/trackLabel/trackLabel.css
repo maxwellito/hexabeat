@@ -4,15 +4,6 @@
 .track-label {
   display: inline-block;
   height: var(--track-size);
-  background: var(--shade);
-  flex-grow: 1;
-}
-
-.track-label-title {
-  font-size: 1.25rem;
-  color: var(--shade-light);
-}
-.track-label-subtitle {
-  font-size: .875rem;
-  color: var(--shade-base);
+  font-size: 1.5rem;
+  color: var(shade-light);
 }

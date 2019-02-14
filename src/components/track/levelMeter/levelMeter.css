@@ -1,28 +1,22 @@
 @import '../../../styles/variables.css';
 
 .level-meter {
-  display: inline-block;
   position: relative;
   height: var(--track-size);
   width: calc(var(--border-width) * 3);
-  line-height: 0;
-  background-color: var(--shade);
+  background-color: var(--shade-dark);
 }
 
 .level-meter-wrap {
-  position: relative;
-  display: inline-block;
-  height: calc(100% - 2*var(--space));
-  width: calc(100% - 2*var(--space));
-  top: var(--space);
-  left: var(--space);
-  line-height: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--shade);
 }
 
 .level-meter-content {
   position: absolute;
-  left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--shade-light);
+  color: var(--shade-light);
 }

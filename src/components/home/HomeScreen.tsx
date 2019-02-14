@@ -226,7 +226,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <List index={this.state.step} data={listData} onUpdate={this.stepUpdate}/>
         </div>
         {err}
-        <SequenceCraftr></SequenceCraftr>
+        {/* <SequenceCraftr></SequenceCraftr> */}
         <button onClick={this.start.bind(this)}>START</button>
         <MiniMPK/>
         {tracks}
@@ -249,12 +249,12 @@ const pp = [
   [
     [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
     [!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
-    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
   ],
   [
     [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
     [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!1,!!0,!!1,!!0,!!1,!!0,!!1,!!1],
     [!!1,!!0,!!1,!!0,!!1,!!0,!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
   ]
 ]
 
@@ -287,7 +287,7 @@ class Session {
   }
 
   loop() {
-    setTimeout(this.contextListener, this.bpm);
+    //setTimeout(this.contextListener, this.bpm);
     this.cbInterval(this.gridIndex);
     this.play();
   }

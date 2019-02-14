@@ -13,9 +13,8 @@ export class LevelMeter extends React.Component<LevelMeterProps> {
         wrapClass = 'level-meter ' + (this.props.active ? 'active' : '')
     return (
       <div className={wrapClass}>
-        <div className="level-meter-wrap">
-          <div className="level-meter-content" style={{"height": height}}></div>
-        </div>
+        <div className='level-meter-wrap' style={{'height': height}}></div>
+        <span className='level-meter-content'>{this.props.progress.toFixed(2).substr(2)}</span>
       </div>
     );
   }
