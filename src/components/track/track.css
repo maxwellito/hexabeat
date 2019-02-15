@@ -37,9 +37,10 @@
   display: block;
   content: attr(data-title);
   color: var(--shade);
+  background-color: var(--shade-base);
   font-size: .75rem;
   font-weight: bold;
-  margin-bottom: .5rem;
+  padding-bottom: .5rem;
 }
 
 .track-bloc-title {

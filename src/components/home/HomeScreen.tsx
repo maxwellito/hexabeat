@@ -214,7 +214,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
     let tracks: TrackComponent[] = [];
     if (this.state.session) {
       tracks = this.state.session.tracks.map((track, index): any => {
-        return <TrackComponent data={track} index={index} />
+        return <TrackComponent data={track} index={index} active={index === 0}/>
       })
     }
 

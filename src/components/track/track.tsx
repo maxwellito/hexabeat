@@ -9,13 +9,15 @@ import Track from 'models/Track';
 export interface TrackProps {
   index: number;
   data: Track;
+  active: boolean;
 }
 
 export class TrackComponent extends React.Component<TrackProps> {
 
   render() {
+    let wrapClass = `track ${this.props.active ? 'active' : ''}`;
     return (
-      <div className='track active'>
+      <div className={wrapClass}>
         <div className='track-bloc' data-title='id'>
           <div className='track-label'>0{this.props.index}</div>
         </div>

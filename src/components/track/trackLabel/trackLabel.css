@@ -6,4 +6,5 @@
   height: var(--track-size);
   font-size: 1.5rem;
   color: var(shade-light);
+  line-height: var(--track-size);
 }

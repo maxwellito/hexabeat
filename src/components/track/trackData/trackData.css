@@ -11,7 +11,6 @@
 .track-data-line > div.track-data-label {
   width: calc(var(--box-size)*4);
   padding: .125em 0 0 .5em;
-  background-color: var(--shade);
   margin-left: 0;
 }
 .track-data-line > div {
@@ -19,23 +18,28 @@
   height: var(--box-size);
   
   margin-left: var(--space);
-  margin-bottom: var(--space);
 
   box-sizing: border-box;
+
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%);
+}
+
+.track-data-line + .track-data-line {
+  margin-top: var(--space);
 }
 
 .track-data .bit-off {
-  background-color: var(--shade);
+  background-color: var(--shade-dark);
 }
 .track-data .bit-on {
-  background-color: var(--shade-light);
+  background-color: var(--shade);
 }
 
 .track-data .active.bit-on {
   background-color: var(--shade-active-on);
 }
 .track-data .active.bit-off {
-  background-color: var(--shade-dark);
+  background-color: var(--shade-light);
 }
 
 
