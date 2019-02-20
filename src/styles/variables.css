@@ -9,6 +9,7 @@
   --shade-active-on: #ff0;
 
   --space: 2px;
+  --half-box-size: 12px;
   --box-size: 25px;
   --track-size: 52px;
 }

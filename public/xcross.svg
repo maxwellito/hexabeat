@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <line x1="0" y1="0" x2="8%" y2="0" stroke="#fff" stroke-width="4"/>
+  <line x1="0" y1="0" x2="0" y2="8%" stroke="#fff" stroke-width="4"/>
+
+  <line x1="92%" y1="0" x2="100%" y2="0" stroke="#fff" stroke-width="4"/>
+  <line x1="100%" y1="0" x2="100%" y2="8%" stroke="#fff" stroke-width="4"/>
+
+  <line x1="100%" y1="92%" x2="100%" y2="100%" stroke="#fff" stroke-width="4"/>
+  <line x1="100%" y1="100%" x2="92%" y2="100%" stroke="#fff" stroke-width="4"/>
+
+  <line x1="8%" y1="100%" x2="0" y2="100%" stroke="#fff" stroke-width="4"/>
+  <line x1="0" y1="100%" x2="0" y2="92%" stroke="#fff" stroke-width="4"/>
+</svg>

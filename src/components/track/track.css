@@ -20,7 +20,7 @@
   padding-bottom: var(--space);
   border-bottom-width: var(--space);
   border-bottom-style: solid;
-  border-bottom-color: var(--shade-dark); 
+  border-bottom-color: var(--shade); 
   margin: 1rem 0;
 }
 .track-bloc + .track-bloc {
