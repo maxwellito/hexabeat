@@ -9,8 +9,7 @@ import store from 'store';
 
 import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
 
-export interface HomeProps {
-}
+export interface HomeProps {}
 
 export interface HomeState {
   step: number;
@@ -20,9 +19,9 @@ export interface HomeState {
 
 /**
  * Home component
- * 
+ *
  * Here are the different steps of the component
- * 
+ *
  * 1. Press SPACE
  * 2. Connect your Mini MPK
  *   a. Check if WebMIDI is allowed [can skip]
@@ -38,53 +37,50 @@ export interface HomeState {
  * 5. GO!
  */
 
-const steps:{[k:string]:number} = {
+const steps: { [k: string]: number } = {
   init: 0,
   midi: 1,
   session: 2,
   deck: 3
-}
+};
 
 export class Home extends React.Component<HomeProps, HomeState> {
-
   mpk = Mpk;
-  keyUpListener: {(e:KeyboardEvent):void};
+  keyUpListener: { (e: KeyboardEvent): void };
   stepUpdate: (newIndex: number) => void;
 
-  knobListenerCanceller: ()=>void;
+  knobListenerCanceller: () => void;
 
-  constructor(props:HomeProps) {
+  constructor(props: HomeProps) {
     super(props);
     this.state = {
       step: steps.init,
       errorMessage: '',
       session: null
-    }
+    };
 
-    this.keyUpListener = this.onKeyUp.bind(this)
-    window.addEventListener('keyup', this.keyUpListener)
+    this.keyUpListener = this.onKeyUp.bind(this);
+    window.addEventListener('keyup', this.keyUpListener);
     this.stepUpdate = this.updateStep.bind(this);
   }
 
   componentDidMount() {
-    this.knobListenerCanceller = this.mpk.stackNobListener(1,
-      p => { 
-        console.log('FF', p);
-        this.setState({
-          step: Math.floor(p/8)
-        });
-      }
-    );
+    this.knobListenerCanceller = this.mpk.stackNobListener(1, p => {
+      console.log('FF', p);
+      this.setState({
+        step: Math.floor(p / 8)
+      });
+    });
   }
 
-  onKeyUp(e:KeyboardEvent) {
+  onKeyUp(e: KeyboardEvent) {
     if (this.state.step === steps.init && e.key === ' ') {
-      this.pressStart()
+      this.pressStart();
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keyup', this.keyUpListener)
+    window.removeEventListener('keyup', this.keyUpListener);
   }
 
   updateStep(newIndex: number) {
@@ -97,114 +93,116 @@ export class Home extends React.Component<HomeProps, HomeState> {
    * Here is where everything starts
    */
   pressStart() {
-    this.mpk.accessDevice()
-      .then(() => {
+    this.mpk.accessDevice().then(
+      () => {
         this.setState({
           step: steps.session
-        })
-      }, e => {
+        });
+      },
+      e => {
         this.setState({
           step: steps.init,
           errorMessage: e.message
-        })
-      })
-    
+        });
+      }
+    );
+
     this.setState({
       step: steps.midi,
       errorMessage: ''
-    })
+    });
   }
 
   start() {
-    deckLoader.load('public/decks/demo.json')
+    deckLoader
+      .load('public/decks/demo.json')
       .then(
-        (myDeck) => {
+        myDeck => {
           let sess = new Session(98, myDeck, pp);
           sess.isReady.then(() => {
-            this.setState({session: sess})
-            sess.start((index:number) => {
+            this.setState({ session: sess });
+            sess.start((index: number) => {
               store.dispatch(setCurrentBit(index));
             });
           });
-
         },
-        (e) => {
-          console.warn(deckLoader, e)
+        e => {
+          console.warn(deckLoader, e);
         }
       )
-      .catch(console.log)
+      .catch(console.log);
   }
 
   render() {
     let err;
 
     if (this.state.errorMessage) {
-      err = <p className='warning-box'>{this.state.errorMessage}</p>
+      err = <p className='warning-box'>{this.state.errorMessage}</p>;
     }
 
     let listData = [
       {
-        title: 'PRESS SPACE',
+        title: 'PRESS SPACE'
         // subtitle: 'TO BEGIN'
       },
       {
-        title: 'SETUP MIDI CONNECTION',
+        title: 'SETUP MIDI CONNECTION'
         // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
       },
       {
-        title: 'PICK A SESSION',
+        title: 'PICK A SESSION'
         // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
       },
       {
-        title: 'CHOOSE A DECK',
+        title: 'CHOOSE A DECK'
         // subtitle: 'PICK YOUR KIT'
       },
       {
-        title: 'PRESS SPACE',
+        title: 'PRESS SPACE'
         // subtitle: 'TO BEGIN'
       },
       {
-        title: 'SETUP MIDI CONNECTION',
+        title: 'SETUP MIDI CONNECTION'
         // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
       },
       {
-        title: 'PICK A SESSION',
+        title: 'PICK A SESSION'
         // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
       },
       {
-        title: 'CHOOSE A DECK',
+        title: 'CHOOSE A DECK'
         // subtitle: 'PICK YOUR KIT'
       },
       {
-        title: 'PRESS SPACE',
+        title: 'PRESS SPACE'
         // subtitle: 'TO BEGIN'
       },
       {
-        title: 'SETUP MIDI CONNECTION',
+        title: 'SETUP MIDI CONNECTION'
         // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
       },
       {
-        title: 'PICK A SESSION',
+        title: 'PICK A SESSION'
         // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
       },
       {
-        title: 'CHOOSE A DECK',
+        title: 'CHOOSE A DECK'
         // subtitle: 'PICK YOUR KIT'
       },
       {
-        title: 'PRESS SPACE',
+        title: 'PRESS SPACE'
         // subtitle: 'TO BEGIN'
       },
       {
-        title: 'SETUP MIDI CONNECTION',
+        title: 'SETUP MIDI CONNECTION'
         // subtitle: 'REQUEST FOR PERMISSION AND FIND YOUR MINI MPK'
       },
       {
-        title: 'PICK A SESSION',
+        title: 'PICK A SESSION'
         // subtitle: 'PICK AN EXISTING ONE OR CREATE A NEW ONE'
       },
       {
-        title: 'CHOOSE A DECK',
+        title: 'CHOOSE A DECK'
         // subtitle: 'PICK YOUR KIT'
       }
     ];
@@ -213,50 +211,156 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
     let tracks: TrackComponent[] = [];
     if (this.state.session) {
-      tracks = this.state.session.tracks.map((track, index): any => {
-        return <TrackComponent data={track} index={index} active={index === 0}/>
-      })
+      tracks = this.state.session.tracks.map(
+        (track, index): any => {
+          return (
+            <TrackComponent data={track} index={index} active={index === 0} />
+          );
+        }
+      );
     }
 
- 
     return (
       <div>
         <div className='step-wrap'>
-          <span className='step-index'>{(this.state.step < 10 ? '0' : '') + this.state.step}</span>
-          <List index={this.state.step} data={listData} onUpdate={this.stepUpdate}/>
+          <span className='step-index'>
+            {(this.state.step < 10 ? '0' : '') + this.state.step}
+          </span>
+          <List
+            index={this.state.step}
+            data={listData}
+            onUpdate={this.stepUpdate}
+          />
         </div>
         {err}
-        {/* <SequenceCraftr></SequenceCraftr> */}
+        <SequenceCraftr />
         <button onClick={this.start.bind(this)}>START</button>
-        <MiniMPK/>
+        <MiniMPK />
         {tracks}
       </div>
     );
   }
 }
 
-
-
 import deckLoader from 'services/DeckLoader';
-import Track from "models/Track";
+import Track from 'models/Track';
 
 import { Deck, DeckSet, DeckSample } from 'models/Deck';
 
-
-
-
 const pp = [
   [
-    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
-    [!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+    [
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0
+    ],
+    [
+      !!1,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!1,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0
+    ]
   ],
   [
-    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
-    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!1,!!0,!!1,!!0,!!1,!!0,!!1,!!1],
-    [!!1,!!0,!!1,!!0,!!1,!!0,!!1,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
-    [!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0],
+    [
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0
+    ],
+    [
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!1,
+      !!0,
+      !!1,
+      !!0,
+      !!1,
+      !!0,
+      !!1,
+      !!1
+    ],
+    [
+      !!1,
+      !!0,
+      !!1,
+      !!0,
+      !!1,
+      !!0,
+      !!1,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0
+    ],
+    [
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0,
+      !!0
+    ]
   ]
-]
+];
 
 class Session {
   tracks: Track[] = [];
@@ -265,13 +369,13 @@ class Session {
   isReady: Promise<any>;
   cbInterval: (keyIndex: number) => void;
 
-  constructor(public bpm:number, myDeck:Deck, partitions:boolean[][][]) {
+  constructor(public bpm: number, myDeck: Deck, partitions: boolean[][][]) {
     let loads: Promise<boolean>[] = [];
-    myDeck.sets.forEach((set:DeckSet, setIndex:number) => {
-      let trck = new Track;
-      set.samples.forEach((sample:DeckSample) => {
+    myDeck.sets.forEach((set: DeckSet, setIndex: number) => {
+      let trck = new Track();
+      set.samples.forEach((sample: DeckSample) => {
         loads.push(trck.addSample(sample.data));
-      })
+      });
       trck.name = set.name;
       trck.labels = set.samples.map(s => s.name);
       trck.partitions = partitions[setIndex];

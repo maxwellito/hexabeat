@@ -1,0 +1,9 @@
+@import '../../styles/variables.css';
+
+.algoIcon {
+  width: 52px;
+}
+.algoIcon line {
+  stroke: var(--shade-light);
+  stroke-linecap: round;
+}
