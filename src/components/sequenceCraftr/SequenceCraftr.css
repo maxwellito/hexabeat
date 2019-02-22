@@ -1,4 +1,4 @@
-.sequence-craftr-wrap {
+.sequence-craftr {
   position: fixed;
   background: #000d;
   top: 0;
@@ -6,6 +6,8 @@
   left: 0;
   right: 0;
   padding: 1rem;
-  display: flex;
+}
 
+.sequence-craftr-wrap {
+  display: flex;
 }

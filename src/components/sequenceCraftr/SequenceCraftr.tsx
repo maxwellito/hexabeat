@@ -6,6 +6,7 @@ import { Repository } from 'models/GitRepository';
 import sequencers from 'services/sequencers';
 import './SequenceCraftr.css';
 import { Sequencer } from 'models/Sequencer';
+import { TrackData } from 'components/track/trackData/trackData';
 
 export interface SequenceCraftrProps {}
 
@@ -96,25 +97,40 @@ export class SequenceCraftr extends React.Component<
       };
     });
 
+    // console.log('>>', selectedRepo.commits[this.state.selectedCommit]);
+    // console.log('::', this.sequencers[this.state.selectedSequencer]);
+    // console.log(this.sequencers[this.state.selectedSequencer]);
+    var SHA = selectedRepo.commits[this.state.selectedCommit];
+    var Algo = this.sequencers[this.state.selectedSequencer];
+    var seq = Algo.algo(SHA, 2);
+
+    console.log(seq);
+
+    // data
+    // label
+
     return (
-      <div className='sequence-craftr-wrap'>
-        <List
-          index={this.state.selectedRepo}
-          data={this.repoCollectionList}
-          onUpdate={this.updateRepoListener}
-        />
-        <List
-          index={this.state.selectedCommit}
-          data={commitList}
-          onUpdate={this.updateCommitListener}
-        />
-        <List
-          index={this.state.selectedSequencer}
-          data={this.sequencersList}
-          onUpdate={this.updateSequencerListener}
-        >
-          <div>{}</div>
-        </List>
+      <div className='sequence-craftr'>
+        <div className='sequence-craftr-wrap'>
+          <List
+            index={this.state.selectedRepo}
+            data={this.repoCollectionList}
+            onUpdate={this.updateRepoListener}
+          />
+          <List
+            index={this.state.selectedCommit}
+            data={commitList}
+            onUpdate={this.updateCommitListener}
+          />
+          <List
+            index={this.state.selectedSequencer}
+            data={this.sequencersList}
+            onUpdate={this.updateSequencerListener}
+          />
+        </div>
+        <div>
+          <TrackData data={seq} labels={['xyz', 'xxx']} />
+        </div>
       </div>
     );
   }
