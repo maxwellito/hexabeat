@@ -1,9 +1,13 @@
 import { Sequencer } from 'models/Sequencer';
 
-import continuous from './continuous';
+import gradual from './gradual';
+import gradualLinear from './gradualLinear';
+import snow from './snow';
 
-let sequencers: {[name: string]: Sequencer} = {
-  continuous
+let sequencers: { [name: string]: Sequencer } = {
+  gradual,
+  gradualLinear,
+  snow
 };
 
 export default sequencers;

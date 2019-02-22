@@ -1,10 +1,10 @@
 import { Sequencer } from 'models/Sequencer';
 import { Commit } from 'models/GitRepository';
 
-let continuous: Sequencer = {
-  name: 'Continuous',
+let gradual: Sequencer = {
+  name: 'Gradual',
   description: '',
-  icon: [[1, 0, 1], [0, 2, 2], [1, 3, 3], [2, 4, 5], [3, 6, 6], [2, 7, 7]],
+  icon: [[1, 0, 0], [0, 2, 2], [1, 3, 3], [2, 4, 4], [3, 6, 6], [2, 7, 7]],
   algo: (input: Commit, tracks: number): boolean[][] => {
     let lastPosition = -1,
       output = [];
@@ -24,7 +24,7 @@ let continuous: Sequencer = {
       }
 
       for (let t = 0; t < tracks; t++) {
-        output[t].push(/*newPosition !== lastPosition && */ newPosition === t);
+        output[t].push(newPosition !== lastPosition && newPosition === t);
       }
       lastPosition = newPosition;
     }
@@ -32,4 +32,4 @@ let continuous: Sequencer = {
   }
 };
 
-export default continuous;
+export default gradual;
