@@ -3,7 +3,7 @@ import { Commit } from 'models/GitRepository';
 
 let gradualLinear: Sequencer = {
   name: 'Gradual_Linear',
-  description: '',
+  description: 'Creschendo move linear',
   icon: [[1, 0, 1], [0, 2, 2], [1, 3, 3], [2, 4, 5], [3, 6, 6], [2, 7, 7]],
   algo: (input: Commit, tracks: number): boolean[][] => {
     let lastPosition = -1,
