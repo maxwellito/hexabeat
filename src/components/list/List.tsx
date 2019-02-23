@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { AlgoIcon } from 'components/algoIcon/algoIcon';
+import { ListItemProps, DefaultListItem } from './templates/SimpleListItem';
 import './List.css';
 
 const WHEEL_STEP = 4;
 
 export interface ListProps {
-  data: ListItem[];
+  data: ListItemProps[];
   index: number;
+  component?: any;
   onUpdate?: (newIndex: number) => void;
 }
 
@@ -35,6 +37,10 @@ export class List extends React.Component<ListProps, ListState> {
   }
 
   onWheel(e: React.WheelEvent) {
+    // End event
+    e.stopPropagation();
+    e.preventDefault();
+
     const Y = e.deltaY;
     let newIndex = this.props.index;
     if (!Y) {
@@ -67,37 +73,15 @@ export class List extends React.Component<ListProps, ListState> {
       selectedItem: any,
       bottomList: any[] = [];
 
+    // items = this.props.data.map(e => React.createElement(c, { e })
+
     this.props.data.forEach((item: ListItem, index: number) => {
-      let itemClass =
-          'list-item ' + (index === this.props.index ? 'active' : ''),
-        itemElements = [
-          <p className='list-item-title' key={index + '_title'}>
-            {item.title}
-          </p>
-        ];
+      let output = React.createElement(DefaultListItem, {
+        ...item,
+        key: index,
+        isActive: index === this.props.index
+      });
 
-      if (item.icon) {
-        itemElements.unshift(<AlgoIcon data={item.icon} />);
-      }
-
-      if (item.subtitle) {
-        itemElements.push(
-          <p className='list-item-subtitle' key={index + '_sub'}>
-            {item.subtitle}
-          </p>
-        );
-      }
-      if (item.icon) {
-        itemElements.unshift(
-          <span className='list-item-icon {item.icon}' key={index + '_icon'} />
-        );
-      }
-
-      let output = (
-        <div className={itemClass} key={index}>
-          {itemElements}
-        </div>
-      );
       if (index === this.props.index) {
         selectedItem = output;
       } else {
