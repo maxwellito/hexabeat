@@ -7,6 +7,7 @@ import sequencers from 'services/sequencers';
 import './SequenceCraftr.css';
 import { Sequencer } from 'models/Sequencer';
 import { TrackData } from 'components/track/trackData/trackData';
+import { AlgoListItem, AlgoListItemProps } from '../list/items/AlgoListItem';
 
 export interface SequenceCraftrProps {}
 
@@ -27,7 +28,7 @@ export class SequenceCraftr extends React.Component<
   repoCollection: Repository[] = [];
   repoCollectionList: ListItem[];
   sequencers: Sequencer[] = [];
-  sequencersList: ListItem[] = [];
+  sequencersList: AlgoListItemProps[] = [];
 
   constructor(props: SequenceCraftrProps) {
     super(props);
@@ -97,17 +98,10 @@ export class SequenceCraftr extends React.Component<
       };
     });
 
-    // console.log('>>', selectedRepo.commits[this.state.selectedCommit]);
-    // console.log('::', this.sequencers[this.state.selectedSequencer]);
-    // console.log(this.sequencers[this.state.selectedSequencer]);
+    // Calculate sequence
     var SHA = selectedRepo.commits[this.state.selectedCommit];
     var Algo = this.sequencers[this.state.selectedSequencer];
     var seq = Algo.algo(SHA, 2);
-
-    console.log(seq);
-
-    // data
-    // label
 
     return (
       <div className='sequence-craftr'>
@@ -126,6 +120,7 @@ export class SequenceCraftr extends React.Component<
             index={this.state.selectedSequencer}
             data={this.sequencersList}
             onUpdate={this.updateSequencerListener}
+            component={AlgoListItem}
           />
         </div>
         <div>

@@ -1,23 +1,15 @@
 import * as React from 'react';
+import { ListItem } from '../List';
+import { AlgoIcon } from 'components/algoIcon/algoIcon';
 
 /**
- * Base element
+ * Algo list item
  */
-export interface ListItemProps {
-  isActive?: boolean;
-  title: string;
-  subtitle?: string;
-  icon?: number[][];
+export interface AlgoListItemProps extends ListItem {
+  icon: number[][];
 }
 
-class ListItem extends React.Component<ListItemProps> {}
-
-/**
- * Default list item
- */
-export interface DefaultListItemProps extends ListItemProps {}
-
-export class DefaultListItem extends React.Component<ListItemProps> {
+export class AlgoListItem extends React.Component<AlgoListItemProps> {
   render() {
     let classes = ['list-item'];
 
@@ -27,6 +19,7 @@ export class DefaultListItem extends React.Component<ListItemProps> {
 
     return (
       <div className={classes.join(' ')}>
+        <AlgoIcon data={this.props.icon} />
         <p className='list-item-title'>{this.props.title}</p>
         <p className='list-item-subtitle'>{this.props.subtitle || ''}</p>
       </div>

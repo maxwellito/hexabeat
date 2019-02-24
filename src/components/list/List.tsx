@@ -1,24 +1,26 @@
 import * as React from 'react';
-import { AlgoIcon } from 'components/algoIcon/algoIcon';
-import { ListItemProps, DefaultListItem } from './templates/SimpleListItem';
+import { DefaultListItem } from './items/DefaultListItem';
 import './List.css';
 
 const WHEEL_STEP = 4;
 
+/**
+ * Base element
+ */
+export interface ListItem {
+  isActive?: boolean;
+  title: string;
+  subtitle?: string;
+}
+
 export interface ListProps {
-  data: ListItemProps[];
+  data: ListItem[];
   index: number;
   component?: any;
   onUpdate?: (newIndex: number) => void;
 }
 
 export interface ListState {}
-
-export interface ListItem {
-  title: string;
-  subtitle?: string;
-  icon?: number[][];
-}
 
 export class List extends React.Component<ListProps, ListState> {
   previousIndex: number = 0;
@@ -32,8 +34,6 @@ export class List extends React.Component<ListProps, ListState> {
       index: 0
     };
     this.wheelListener = this.onWheel.bind(this);
-
-    console.log(this.props.children);
   }
 
   onWheel(e: React.WheelEvent) {
@@ -73,16 +73,15 @@ export class List extends React.Component<ListProps, ListState> {
       selectedItem: any,
       bottomList: any[] = [];
 
-    // items = this.props.data.map(e => React.createElement(c, { e })
-
     this.props.data.forEach((item: ListItem, index: number) => {
-      let output = React.createElement(DefaultListItem, {
-        ...item,
-        key: index,
-        isActive: index === this.props.index
-      });
+      let isActive = index === this.props.index,
+        output = React.createElement(this.props.component || DefaultListItem, {
+          ...item,
+          isActive,
+          key: index
+        });
 
-      if (index === this.props.index) {
+      if (isActive) {
         selectedItem = output;
       } else {
         (index < this.props.index ? topList : bottomList).push(output);
