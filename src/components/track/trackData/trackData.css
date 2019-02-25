@@ -1,6 +1,5 @@
 @import '../../../styles/variables.css';
 
-
 .track-data {
   display: inline-block;
 }
@@ -9,19 +8,26 @@
   display: flex;
 }
 .track-data-line > div.track-data-label {
-  width: calc(var(--box-size)*4);
-  padding: .125em 0 0 .5em;
+  width: 4ch;
+  width: calc(var(--box-size) * 4);
+  padding: 0.125em 0 0 0.5em;
   margin-left: 0;
 }
 .track-data-line > div {
   width: var(--box-size);
   height: var(--box-size);
-  
+
   margin-left: var(--space);
 
   box-sizing: border-box;
 
-  clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--half-box-size)), calc(100% - var(--half-box-size)) 100%, 0% 100%);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - var(--half-box-size)),
+    calc(100% - var(--half-box-size)) 100%,
+    0% 100%
+  );
 }
 
 .track-data-line + .track-data-line {
@@ -41,6 +47,3 @@
 .track-data .active.bit-off {
   background-color: var(--shade-light);
 }
-
-
-
