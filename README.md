@@ -8,29 +8,19 @@ Web-based application to generate music from repositories commits. To start, two
 
 The app will load the list of different commits and load the config file provided and all the required samples.
 
-## Vat is ziz'?
-
-Web application controlled via a MiniNPK Midi controller.
-
-## Structure
-
-The main layout got few controls:
-
-- Play/Pause
-- Volume
-- BPM
-
-Each track got different variables:
-
-- on/off switch
-- output
-- by-pass filter (maybe?)
-- Samples
-- Grid
-
-Use 'ch' unit
-
 ## UI Workflow
+
+In every case, P8 is reserved to reset nobs and display help.
+
+```
+ .----. .----. .----. .----.    .--.   .--.   .--.   .--.
+ | P1 | | P2 | | P3 | | P4 |   | N1 | | N2 | | N3 | | N4 |
+ '----' '----' '----' '----'    '--'   '--'   '--'   '--'
+ .----. .----. .----. .----.    .--.   .--.   .--.   .--.
+ | P5 | | P6 | | P7 | | P8 |   | N5 | | N6 | | N7 | | N8 |
+ '----' '----' '----' '----'    '--'   '--'   '--'   '--'
+ '---------- PADS ---------'   '--------- NOBS ----------'
+```
 
 ### Setup
 
@@ -49,18 +39,6 @@ b. If there's an active session about this deck, the UI will ask if the user wan
 * **N1** : Move cursor alon the list
 
 ### Play
-
-In every case, P8 is reserved to reset nobs and display help.
-
-```
- .----. .----. .----. .----.    .--.   .--.   .--.   .--.
- | P1 | | P2 | | P3 | | P4 |   | N1 | | N2 | | N3 | | N4 |
- '----' '----' '----' '----'    '--'   '--'   '--'   '--'
- .----. .----. .----. .----.    .--.   .--.   .--.   .--.
- | P5 | | P6 | | P7 | | P8 |   | N5 | | N6 | | N7 | | N8 |
- '----' '----' '----' '----'    '--'   '--'   '--'   '--'
- '---------- PADS ---------'   '--------- NOBS ----------'
-```
 
 a. Main screen
 
@@ -94,6 +72,12 @@ c. Sequence Crafter
 * **N2** : Sleected Commit
 * **N3** : Algorithm
 * **N4** : Offset
+
+## Playground file
+
+The playground file is a JSON encoded file that define the different audio sets and repositories sources. A good example is available at `/public/decks/demo.json`.
+
+When this file is loaded on a user computer, it's stored in the local storage.
 
 ## Credits
 
