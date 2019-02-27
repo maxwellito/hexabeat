@@ -22,6 +22,11 @@
  *     [176, 1, 59]
  */
 class MpkController {
+  /**
+   * Midi device to find
+   * Of course this class is made for the MPK mini
+   * but maybe the new version got a different name.
+   */
   deviceName: string;
 
   /**
@@ -30,6 +35,12 @@ class MpkController {
    * @public
    */
   status = MpkStatus.off;
+
+  /**
+   * List of listeners for MIDI status.
+   * Will be triggered for MIDI connections and disconnections.
+   */
+  statusListener: ((event: MpkStatus) => void)[] = [];
 
   /**
    * MIDIInput and MIDIOutput of the MPK Mini
@@ -44,38 +55,14 @@ class MpkController {
   listeners: ((data: number[]) => void)[];
 
   /**
-   * List of listeners for MIDI status.
-   * Will be triggered for MIDI connections and disconnections.
+   * Stack of CtrlListeners
    */
-  statusListener: ((event: MpkStatus) => void)[] = [];
+  controlListenerStack: CtrlListener[] = [];
 
   /**
-   * Stacks of listeners for each nob and pad.
-   * The array index is related to the input
-   * it represents.
+   * Current Control Listener
    */
-  padsListeners: { (isPress: boolean): void }[][] = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-  ];
-  nobsListeners: { (value: number): void }[][] = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-  ];
-
-  controlListener: CtrlListener[] = [];
+  controlListener: CtrlListener;
 
   /**
    * Binded methodto avoid bloating the memory
@@ -236,50 +223,19 @@ class MpkController {
     };
   }
 
-  /**
-   * Adds a listener for a specific nob
-   * and returns a function to remove the listener
-   */
-  stackPadListener(
-    padIndex: number,
-    listener: { (isPress: boolean): void }
-  ): { (): void } {
-    return this.stackListener(this.padsListeners, padIndex, listener);
-  }
-
-  /**
-   * Adds a listener for a specific pad
-   * and returns a function to remove the listener
-   */
-  stackNobListener(
-    padIndex: number,
-    listener: { (value: number): void }
-  ): { (): void } {
-    return this.stackListener(this.nobsListeners, padIndex, listener);
-  }
-
   /* Utils */
 
-  /**
-   * Adds a listener to a provided stack
-   * and returns a function to remove the listener
-   */
-  stackListener(
-    stack: { (k: any): void }[][],
-    padIndex: number,
-    listener: { (a: any): void }
-  ): { (): void } {
-    padIndex = Math.min(Math.max(padIndex - 1, 0), 8);
-    stack[padIndex].push(listener);
-    return () => {
-      stack[padIndex].splice(stack[padIndex].indexOf(listener), 1);
-    };
-  }
-
   takeControl(listeners: CtrlListener): { (): void } {
-    this.controlListener.push(listeners);
+    this.controlListenerStack.push(listeners);
+    this.controlListener = listeners;
     return () => {
-      this.controlListener.splice(this.controlListener.indexOf(listeners), 1);
+      this.controlListenerStack.splice(
+        this.controlListenerStack.indexOf(listeners),
+        1
+      );
+      this.controlListener = this.controlListenerStack[
+        this.controlListenerStack.length - 1
+      ];
     };
   }
 
@@ -339,107 +295,47 @@ class MpkController {
     });
   }
 
-  /**
-   * Find the current pad listener from a pad key.
-   * The pad key is the pad index received via MIDI
-   * message.
-   * If `padKey` is 49, this match with the pad n.2, and
-   * will return the most recent listener registered
-   * for this pad.
-   */
-  currentPadListener(padKey: number): { (isPress: boolean): void } {
-    let padId = PADS.indexOf(padKey);
-    if (!~padId) {
-      return this.lostCall;
-    }
-
-    let stack = this.padsListeners[padId];
-    if (!stack.length) {
-      return this.lostCall;
-    }
-
-    return stack[stack.length - 1];
-  }
-
-  /**
-   * Find the current nob listener from a nob key.
-   * The nob key is the nob index received via MIDI
-   * message.
-   */
-  currentNobListener(nobIndex: number): { (value: number): void } {
-    nobIndex = Math.min(Math.max(nobIndex - 1, 0), 8);
-
-    let stack = this.nobsListeners[nobIndex];
-    if (!stack.length) {
-      return this.lostCall;
-    }
-
-    return stack[stack.length - 1];
-  }
-
-  getListenerFor(): CtrlListener {
-    return (
-      this.controlListener.length &&
-      this.controlListener[this.controlListener.length - 1]
-    );
-  }
-
   getPadListenerFor(padIndex: number): PadListener {
-    const ctrl = this.getListenerFor();
-    if (!ctrl) {
+    if (!this.controlListener) {
       return this.lostCall;
     }
 
-    return ctrl[padIndex] || this.lostCall;
+    return this.controlListener[padIndex] || this.lostCall;
   }
   getNobListenerFor(nobIndex: number): NobListener {
-    const ctrl = this.getListenerFor();
-    if (!ctrl) {
+    if (!this.controlListener) {
       return this.lostCall;
     }
 
-    return ctrl[nobIndex] || this.lostCall;
+    return this.controlListener[nobIndex] || this.lostCall;
   }
 }
 
 /**
- * Index of pads keys
+ * CtrlListener is an object defining the listeners
+ * while setting a new control.
+ *
+ * Example:
+ * {
+ *   [MpkKey.pad1]: (isPressed: boolean) => {...},
+ *   [MpkKey.nob1]: (value: number) => {...},
+ * }
  */
-const PADS = [48, 49, 50, 51, 44, 45, 46, 47];
-
-/**
- * Animation stack data for intro
- */
-const introAnimStack: number[][] = [
-  [PADS[0]],
-  [PADS[0], PADS[1]],
-  [PADS[1], PADS[2]],
-  [PADS[2], PADS[3]],
-  [PADS[3], PADS[7]],
-  [PADS[7], PADS[6]],
-  [PADS[6], PADS[5]],
-  [PADS[5], PADS[4]],
-  [PADS[4], PADS[0]],
-  [PADS[0], PADS[1]],
-  [PADS[1], PADS[2]],
-  [PADS[2], PADS[3]],
-  [PADS[3], PADS[7]],
-  [PADS[7], PADS[6]],
-  [PADS[6], PADS[5]],
-  [PADS[5], PADS[4]],
-  [PADS[4], PADS[0]],
-  [PADS[0], PADS[1]],
-  [PADS[1], PADS[2]],
-  [PADS[2], PADS[3]],
-  [PADS[3], PADS[7]],
-  [PADS[7], PADS[6]],
-  [PADS[6], PADS[5]],
-  [PADS[5], PADS[4]],
-  [PADS[4]]
-];
-
 export type CtrlListener = { [key: number]: PadListener | NobListener };
 
+/**
+ * Listener for pad events
+ */
+export type PadListener = (isPress: boolean) => void;
+
+/**
+ * Listener for nob events
+ */
+export type NobListener = (value: number) => void;
+
+/**
+ * Enum defining the different status of the MPK
+ */
 export enum MpkStatus {
   off = 'off',
   waitingForAccess = 'waitingForAccess',
@@ -449,6 +345,11 @@ export enum MpkStatus {
   error = 'error'
 }
 
+/**
+ * Enum listing the keys of the MPK
+ * Thankfully nobs and pads don't share the same IDs
+ * Making this enum a pleasure to use.
+ */
 export enum MpkKey {
   pad1 = 48,
   pad2 = 49,
@@ -468,22 +369,38 @@ export enum MpkKey {
   nob8 = 8
 }
 
+/**
+ * Animation stack data for intro
+ */
+const introAnimStack: number[][] = [
+  [MpkKey.pad1],
+  [MpkKey.pad1, MpkKey.pad2],
+  [MpkKey.pad2, MpkKey.pad3],
+  [MpkKey.pad3, MpkKey.pad4],
+  [MpkKey.pad4, MpkKey.pad8],
+  [MpkKey.pad8, MpkKey.pad7],
+  [MpkKey.pad7, MpkKey.pad6],
+  [MpkKey.pad6, MpkKey.pad5],
+  [MpkKey.pad5, MpkKey.pad1],
+  [MpkKey.pad1, MpkKey.pad2],
+  [MpkKey.pad2, MpkKey.pad3],
+  [MpkKey.pad3, MpkKey.pad4],
+  [MpkKey.pad4, MpkKey.pad8],
+  [MpkKey.pad8, MpkKey.pad7],
+  [MpkKey.pad7, MpkKey.pad6],
+  [MpkKey.pad6, MpkKey.pad5],
+  [MpkKey.pad5, MpkKey.pad1],
+  [MpkKey.pad1, MpkKey.pad2],
+  [MpkKey.pad2, MpkKey.pad3],
+  [MpkKey.pad3, MpkKey.pad4],
+  [MpkKey.pad4, MpkKey.pad8],
+  [MpkKey.pad8, MpkKey.pad7],
+  [MpkKey.pad7, MpkKey.pad6],
+  [MpkKey.pad6, MpkKey.pad5],
+  [MpkKey.pad5]
+];
+
 export let Mpk = new MpkController();
-
-// let xx = new MpkController()
-// xx.accessDevice()
-// let a = xx.stackPadListener(2, function (p) {console.log('Firster', p)})
-// let b = xx.stackPadListener(2, function (p) {console.log('Sec', p)})
-
-// var aa = xx.stackNobListener(2, function (p) { console.log('FF', p); });
-// var bb = xx.stackNobListener(2, function (p) { console.log('SS', p); });
-
-// xx.takeControl({
-//   [MpkKey.nob1]:
-// })
-
-export type PadListener = (isPress: boolean) => void;
-export type NobListener = (value: number) => void;
 
 Mpk.takeControl({
   [MpkKey.pad1]: (s: boolean) => console.log('A : PAD1', s),

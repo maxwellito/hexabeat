@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Mpk } from 'services/MpkController';
+import { Mpk, MpkKey } from 'services/MpkController';
 import { List } from '../list/List';
 import { TrackComponent } from '../track/track';
 import { SequenceCraftr } from '../sequenceCraftr/SequenceCraftr';
@@ -65,11 +65,13 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   componentDidMount() {
-    this.knobListenerCanceller = this.mpk.stackNobListener(1, p => {
-      console.log('FF', p);
-      this.setState({
-        step: Math.floor(p / 8)
-      });
+    this.knobListenerCanceller = this.mpk.takeControl({
+      [MpkKey.pad1]: (p: number) => {
+        console.log('FF', p);
+        this.setState({
+          step: Math.floor(p / 8)
+        });
+      }
     });
   }
 
