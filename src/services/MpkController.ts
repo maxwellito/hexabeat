@@ -29,6 +29,8 @@ class MpkController {
    */
   deviceName: string;
 
+  // Status
+
   /**
    * Status of the MPK
    *
@@ -42,6 +44,8 @@ class MpkController {
    */
   statusListener: ((event: MpkStatus) => void)[] = [];
 
+  // Internal
+
   /**
    * MIDIInput and MIDIOutput of the MPK Mini
    */
@@ -54,6 +58,8 @@ class MpkController {
    */
   listeners: ((data: number[]) => void)[];
 
+  // Outside listeners
+
   /**
    * Stack of CtrlListeners
    */
@@ -63,6 +69,13 @@ class MpkController {
    * Current Control Listener
    */
   controlListener: CtrlListener;
+
+  /**
+   * Listener callback for helpkey event
+   */
+  onHelpKey: PadListener;
+
+  // Intro
 
   /**
    * Binded methodto avoid bloating the memory
@@ -172,7 +185,7 @@ class MpkController {
         this.setStatus(MpkStatus.connected);
       } else {
         this.output = e.port;
-        this.runIntroAnim();
+        this.runIntroAnim(true);
       }
     } else {
       if (isInput) {
@@ -226,6 +239,11 @@ class MpkController {
   /* Utils */
 
   takeControl(listeners: CtrlListener): { (): void } {
+    if (listeners[MpkKey.pad8]) {
+      throw new Error(
+        'MpkKey.pad8 is reserved for system. Please review your listener.'
+      );
+    }
     this.controlListenerStack.push(listeners);
     this.controlListener = listeners;
     return () => {
@@ -243,7 +261,12 @@ class MpkController {
    * Animation function to provide the LED animation
    * on device connection
    */
-  runIntroAnim(): void {
+  runIntroAnim(isStarting?: boolean): void {
+    // Blocks if the call if its to start the animation
+    // and the intro is already running
+    if (isStarting && this.introAnimIndex !== null) {
+      return;
+    }
     if (this.introAnimIndex !== null) {
       introAnimStack[this.introAnimIndex].forEach(index => {
         this.output.send([144, index, 0]);
@@ -275,17 +298,17 @@ class MpkController {
     switch (data[0]) {
       case 144: // Pad press
         // this.currentPadListener(data[1])(true)
-        this.getPadListenerFor(data[1])(true);
+        this.getKeyListenerFor(data[1])(true);
         break;
 
       case 128: // Pad release
         // this.currentPadListener(data[1])(false)
-        this.getPadListenerFor(data[1])(false);
+        this.getKeyListenerFor(data[1])(false);
         break;
 
       case 176: // Nob update
         // this.currentNobListener(data[1])(data[2])
-        this.getNobListenerFor(data[1])(data[2]);
+        this.getKeyListenerFor(data[1])(data[2]);
         break;
     }
 
@@ -295,19 +318,14 @@ class MpkController {
     });
   }
 
-  getPadListenerFor(padIndex: number): PadListener {
+  getKeyListenerFor(padIndex: number): any {
+    if (padIndex === MpkKey.pad8) {
+      return this.onHelpKey || this.lostCall;
+    }
     if (!this.controlListener) {
       return this.lostCall;
     }
-
     return this.controlListener[padIndex] || this.lostCall;
-  }
-  getNobListenerFor(nobIndex: number): NobListener {
-    if (!this.controlListener) {
-      return this.lostCall;
-    }
-
-    return this.controlListener[nobIndex] || this.lostCall;
   }
 }
 
@@ -413,3 +431,7 @@ window.onafterprint = Mpk.takeControl({
   [MpkKey.pad1]: (s: boolean) => console.log('B : PAD1', s),
   [MpkKey.nob1]: (v: number) => console.log('B : NOB1', v)
 });
+
+Mpk.onHelpKey = (status: boolean) => {
+  console.log(`HELP ${status ? 'on' : 'off'}`);
+};
