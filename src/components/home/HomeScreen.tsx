@@ -71,6 +71,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
         this.setState({
           step: Math.floor(p / 8)
         });
+      },
+      [MpkKey.nob1]: (progress: number) => {
+        console.log('nob1', progress);
       }
     });
   }

@@ -58,6 +58,16 @@ class MpkController {
    */
   listeners: ((data: number[]) => void)[];
 
+  /**
+   * Store the current value of nobs
+   */
+  nobsState: { [nobIndex: number]: number } = {};
+
+  /**
+   * Status of the help key
+   */
+  isOnHelp: boolean;
+
   // Outside listeners
 
   /**
@@ -298,17 +308,17 @@ class MpkController {
     switch (data[0]) {
       case 144: // Pad press
         // this.currentPadListener(data[1])(true)
-        this.getKeyListenerFor(data[1])(true);
+        this.callPadListener(data[1], true);
         break;
 
       case 128: // Pad release
         // this.currentPadListener(data[1])(false)
-        this.getKeyListenerFor(data[1])(false);
+        this.callPadListener(data[1], false);
         break;
 
       case 176: // Nob update
         // this.currentNobListener(data[1])(data[2])
-        this.getKeyListenerFor(data[1])(data[2]);
+        this.callNobListener(data[1], data[2]);
         break;
     }
 
@@ -318,14 +328,37 @@ class MpkController {
     });
   }
 
-  getKeyListenerFor(padIndex: number): any {
+  callPadListener(padIndex: number, state: boolean): any {
     if (padIndex === MpkKey.pad8) {
-      return this.onHelpKey || this.lostCall;
+      return this.triggerHelp(state);
     }
-    if (!this.controlListener) {
-      return this.lostCall;
+    if (
+      this.isOnHelp ||
+      !this.controlListener ||
+      !this.controlListener[padIndex]
+    ) {
+      return;
     }
-    return this.controlListener[padIndex] || this.lostCall;
+    (<any>this.controlListener[padIndex])(state);
+  }
+  callNobListener(nobIndex: number, value: number): any {
+    this.nobsState[nobIndex] =
+      this.nobsState[nobIndex] === undefined ? value : this.nobsState[nobIndex];
+    const progress = value - this.nobsState[nobIndex];
+    this.nobsState[nobIndex] = value;
+
+    if (
+      this.isOnHelp ||
+      !this.controlListener ||
+      !this.controlListener[nobIndex]
+    ) {
+      return;
+    }
+    (<any>this.controlListener[nobIndex])(progress);
+  }
+  triggerHelp(state: boolean): void {
+    this.isOnHelp = state;
+    this.onHelpKey(state);
   }
 }
 
