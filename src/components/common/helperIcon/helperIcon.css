@@ -1,0 +1,21 @@
+@import '/styles/variables.css';
+
+.helperIcon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  padding: 0.125rem;
+  color: var(--shade-dark);
+  background-color: var(--shade-active-on);
+  border: var(--space) solid currentColor;
+  text-align: center;
+  line-height: 1em;
+}
+
+.helperIcon.pad {
+  border-radius: var(--space);
+}
+
+.helperIcon.nob {
+  border-radius: 50%;
+}

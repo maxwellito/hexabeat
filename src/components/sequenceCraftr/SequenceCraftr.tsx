@@ -9,6 +9,8 @@ import { Sequencer } from 'models/Sequencer';
 import { TrackData } from 'components/track/trackData/trackData';
 import { AlgoListItem, AlgoListItemProps } from '../list/items/AlgoListItem';
 
+import { HelperIcon } from 'components/common/helperIcon/helperIcon';
+
 export interface SequenceCraftrProps {}
 
 export interface SequenceCraftrState {
@@ -110,6 +112,7 @@ export class SequenceCraftr extends React.Component<
             index={this.state.selectedRepo}
             data={this.repoCollectionList}
             onUpdate={this.updateRepoListener}
+            ref='red'
           />
           <List
             index={this.state.selectedCommit}
@@ -126,6 +129,8 @@ export class SequenceCraftr extends React.Component<
         <div>
           <TrackData data={seq} labels={['xyz', 'xxx']} />
         </div>
+        <HelperIcon index={1} type='nob' />
+        <HelperIcon index={3} type='pad' />
       </div>
     );
   }

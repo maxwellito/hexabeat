@@ -1,0 +1,45 @@
+.loaderDot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-width: 6px;
+  border-style: solid;
+  animation: 1s loaderDotAnimation infinite;
+}
+
+@keyframes loaderDotAnimation {
+  0% {
+    border-top-color: #ffff;
+    border-left-color: #fff4;
+    border-bottom-color: #fff1;
+    border-right-color: #fff0;
+  }
+
+  25% {
+    border-right-color: #ffff;
+    border-top-color: #fff4;
+    border-left-color: #fff1;
+    border-bottom-color: #fff0;
+  }
+
+  50% {
+    border-bottom-color: #ffff;
+    border-right-color: #fff4;
+    border-top-color: #fff1;
+    border-left-color: #fff0;
+  }
+
+  75% {
+    border-left-color: #ffff;
+    border-bottom-color: #fff4;
+    border-right-color: #fff1;
+    border-top-color: #fff0;
+  }
+
+  100% {
+    border-top-color: #ffff;
+    border-left-color: #fff4;
+    border-bottom-color: #fff1;
+    border-right-color: #fff0;
+  }
+}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ListItem } from '../List';
-import { AlgoIcon } from 'components/algoIcon/algoIcon';
+import { AlgoIcon } from 'components/common/algoIcon/algoIcon';
 
 /**
  * Algo list item
