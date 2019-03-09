@@ -1,0 +1,12 @@
+.project-picker {
+}
+
+.project-picker .project-item {
+  display: inline-block;
+  width: 280px;
+  margin-right: 1rem;
+}
+
+.project-picker .active {
+  border-top: 5px solid red;
+}

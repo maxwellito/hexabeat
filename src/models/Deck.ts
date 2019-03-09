@@ -1,23 +1,17 @@
-import { isValidElement } from "../../node_modules/@types/react";
-
 export class Deck {
   name: string;
   version: number;
   description: string;
   author: string;
+  repositories: string[];
   pathBase: string;
-  sets: DeckSet[]
-
-  //# To DEV
-  getHash():string {
-    return ''
-  }
+  sets: DeckSet[];
 }
 
 export class DeckSet {
   name: string;
   icon: string;
-  samples: DeckSample[]
+  samples: DeckSample[];
 }
 
 export class DeckSample {

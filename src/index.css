@@ -2,25 +2,25 @@
 @import './styles/fonts.css';
 
 @font-face {
-  font-family: "Space Mono";
+  font-family: 'Space Mono';
   font-weight: 400;
   src: /* url('../public/fonts/SpaceMono-Regular.woff2') format('woff2'),
-       url('../public/fonts/SpaceMono-Regular.woff') format('woff'), */
-       url('../public/fonts/SpaceMono-Regular.ttf') format('truetype');
+       url('../public/fonts/SpaceMono-Regular.woff') format('woff'), */ url('../public/fonts/SpaceMono-Regular.ttf')
+    format('truetype');
 }
 
 @font-face {
-  font-family: "Space Mono";
+  font-family: 'Space Mono';
   font-weight: 700;
   src: /* url('../public/fonts/SpaceMono-Bold.woff2') format('woff2'),
-       url('../public/fonts/SpaceMono-Bold.woff') format('woff'), */
-       url('../public/fonts/SpaceMono-Bold.ttf') format('truetype');
+       url('../public/fonts/SpaceMono-Bold.woff') format('woff'), */ url('../public/fonts/SpaceMono-Bold.ttf')
+    format('truetype');
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Space Mono", monospace;
+  font-family: 'Space Mono', monospace;
   background-color: var(--shade-base);
   /* background-image: url(/public/background.svg); */
   color: var(--shade-light);
@@ -29,21 +29,31 @@ body {
   text-transform: uppercase;
   line-height: 1.2;
 
-  
   animation: looped 2s linear infinite;
 }
 
-@keyframes looped {
-  from {background-position-x: 0;}
-  to {background-position-x: 50px;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
 }
 
-
+@keyframes looped {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 50px;
+  }
+}
 
 /* Components */
-.selectable  {
+.selectable {
   border: var(--border-width) solid var(--shade-dark);
-  transition: .2s box-shadow, .3s border-color;
+  transition: 0.2s box-shadow, 0.3s border-color;
   box-shadow: 0 0 0 transparent;
 }
 .selectable.active {
