@@ -26,7 +26,7 @@ In every case, P8 is reserved to reset nobs and display help.
 
 The MPK is not required to manipulate the app. The setup must be blank.
 
-a. Pick an ausio deck from the list (preset and added by the user). Under each of them a tickbox will inform if a session already exists about it. If the user wants to add a custom one, the last item in the list is a `+` to provide the audio deck URL. One the choice made, it loads the audio deck. If fail, it doesn't go to the next step.
+a. Pick an audio deck from the list (preset and added by the user). Under each of them a tickbox will inform if a session already exists about it. If the user wants to add a custom one, the last item in the list is a `+` to provide the audio deck URL. One the choice made, it loads the audio deck. If fail, it doesn't go to the next step.
 
 - **P1** : Selects
 
