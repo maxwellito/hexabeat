@@ -1,12 +1,12 @@
-.project-picker {
+.liveset-picker {
 }
 
-.project-picker .project-item {
+.liveset-picker .liveset-item {
   display: inline-block;
   width: 280px;
   margin-right: 1rem;
 }
 
-.project-picker .active {
+.liveset-picker .active {
   border-top: 5px solid red;
 }

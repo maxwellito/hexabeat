@@ -119,11 +119,11 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   start() {
-    deckLoader
+    livesetLoader
       .load('public/decks/demo.json')
       .then(
-        myDeck => {
-          let sess = new Session(98, myDeck, pp);
+        myLiveset => {
+          let sess = new Session(98, myLiveset, pp);
           sess.isReady.then(() => {
             this.setState({ session: sess });
             sess.start((index: number) => {
@@ -132,7 +132,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           });
         },
         e => {
-          console.warn(deckLoader, e);
+          console.warn(livesetLoader, e);
         }
       )
       .catch(console.log);
@@ -247,10 +247,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 }
 
-import deckLoader from 'services/DeckLoader';
+import livesetLoader from 'services/LivesetLoader';
 import Track from 'models/Track';
 
-import { Deck, DeckSet, DeckSample } from 'models/Deck';
+import { Liveset, SampleGroup, SampleItem } from 'models/Liveset';
 
 const pp = [
   [
@@ -374,11 +374,15 @@ class Session {
   isReady: Promise<any>;
   cbInterval: (keyIndex: number) => void;
 
-  constructor(public bpm: number, myDeck: Deck, partitions: boolean[][][]) {
+  constructor(
+    public bpm: number,
+    myLiveset: Liveset,
+    partitions: boolean[][][]
+  ) {
     let loads: Promise<boolean>[] = [];
-    myDeck.sets.forEach((set: DeckSet, setIndex: number) => {
+    myLiveset.sampleGroups.forEach((set: SampleGroup, setIndex: number) => {
       let trck = new Track();
-      set.samples.forEach((sample: DeckSample) => {
+      set.samples.forEach((sample: SampleItem) => {
         loads.push(trck.addSample(sample.data));
       });
       trck.name = set.name;

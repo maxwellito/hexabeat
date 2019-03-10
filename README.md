@@ -54,7 +54,7 @@ Contains the control bar (general volume, BPM), track list, option to add track
 * **N4** : BPM
 * **N5** : Volume track
 
-b. Track screen
+b. Playground screen
 
 - **P1** : ESC - Blinking
 - **P4** : Delete track (double tap)
@@ -73,9 +73,9 @@ c. Sequence Crafter
 * **N3** : Algorithm
 * **N4** : Offset
 
-## Playground file
+## Liveset file
 
-The playground file is a JSON encoded file that define the different audio sets and repositories sources. A good example is available at `/public/decks/demo.json`.
+The Liveset file is a JSON encoded file that define the different audio sets and repositories sources. A good example is available at `/public/decks/demo.json`.
 
 When this file is loaded on a user computer, it's stored in the local storage.
 

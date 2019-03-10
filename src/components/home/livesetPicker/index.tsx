@@ -6,75 +6,75 @@ import * as React from 'react';
 import './index.css';
 // import { setCurrentBit } from '../../actions';
 // import store from 'store';
-import { Deck } from 'models/Deck';
+import { Liveset } from 'models/Liveset';
 
 // import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
 
-export interface ProjectPickerProps {
-  projects: Deck[];
+export interface LivesetPickerProps {
+  livesets: Liveset[];
   selectedIndex: number;
   onChange: (index: number) => void;
 }
 
-export interface ProjectPickerState {
+export interface LivesetPickerState {
   step: number;
 }
 
 /**
- * ProjectPicker component
+ * LivesetPicker component
  *
  * Components:
- * - ProjectPicker
- * - ProjectUploader
- * - ProjectStart
+ * - LivesetPicker
+ * - LivesetUploader
+ * - LivesetStart
  */
-export class ProjectPicker extends React.Component<
-  ProjectPickerProps,
-  ProjectPickerState
+export class LivesetPicker extends React.Component<
+  LivesetPickerProps,
+  LivesetPickerState
 > {
   catchClick = this.catchClickListener.bind(this);
 
-  constructor(props: ProjectPickerProps) {
+  constructor(props: LivesetPickerProps) {
     super(props);
   }
 
-  catchClickListener(proj?: Deck) {
-    this.props.onChange(this.props.projects.indexOf(proj));
+  catchClickListener(proj?: Liveset) {
+    this.props.onChange(this.props.livesets.indexOf(proj));
   }
   render() {
     const selectedIndex = Math.min(
-      this.props.projects.length - 1,
+      this.props.livesets.length - 1,
       Math.max(-1, this.props.selectedIndex)
     );
-    let projectList = this.props.projects.map((projectData, index) => (
-      <Project
-        data={projectData}
+    let livesetList = this.props.livesets.map((livesetData, index) => (
+      <LivesetItem
+        data={livesetData}
         isSelected={selectedIndex === index}
         onSelect={this.catchClick}
         key={index}
       />
     ));
     return (
-      <div className='project-picker'>
-        <ProjectAdd
+      <div className='liveset-picker'>
+        <LivesetAdd
           isSelected={selectedIndex === -1}
           onSelect={this.catchClick}
         />
-        {projectList}
+        {livesetList}
       </div>
     );
   }
 }
 
-export interface ProjectProps {
-  data: Deck;
+export interface LivesetItemProps {
+  data: Liveset;
   isSelected: boolean;
-  onSelect: (data: Deck) => void;
+  onSelect: (data: Liveset) => void;
 }
 
-class Project extends React.Component<ProjectProps> {
+class LivesetItem extends React.Component<LivesetItemProps> {
   selection = this.selectionListener.bind(this);
-  constructor(props: ProjectProps) {
+  constructor(props: LivesetItemProps) {
     super(props);
   }
   selectionListener() {
@@ -82,33 +82,33 @@ class Project extends React.Component<ProjectProps> {
     this.props.onSelect(this.props.data);
   }
   render() {
-    const project = this.props.data;
-    const classNames = ['project-item'];
+    const liveset = this.props.data;
+    const classNames = ['liveset-item'];
     classNames.push(this.props.isSelected ? 'active' : '');
     return (
       <div className={classNames.join(' ')} onClick={this.selection}>
-        <div>{project.name}</div>
-        <div>ver. {project.version}</div>
-        <div>by {project.author}</div>
-        <div>{project.description}</div>
+        <div>{liveset.name}</div>
+        <div>ver. {liveset.version}</div>
+        <div>by {liveset.author}</div>
+        <div>{liveset.description}</div>
       </div>
     );
   }
 }
 
-export interface ProjectAddProps {
+export interface LivesetAddProps {
   isSelected: boolean;
   onSelect: () => void;
 }
 
-class ProjectAdd extends React.Component<ProjectAddProps> {
+class LivesetAdd extends React.Component<LivesetAddProps> {
   render() {
-    const classNames = ['project-item'];
+    const classNames = ['liveset-item'];
     classNames.push(this.props.isSelected ? 'active' : '');
     return (
       <div className={classNames.join(' ')} onClick={this.props.onSelect}>
         <div>+</div>
-        <div>Add project</div>
+        <div>Add liveset</div>
       </div>
     );
   }

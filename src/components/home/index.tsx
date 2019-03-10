@@ -7,9 +7,9 @@ import './index.css';
 // import { setCurrentBit } from '../../actions';
 // import store from 'store';
 
-import { Deck } from 'models/Deck';
+import { Liveset } from 'models/Liveset';
 
-import { ProjectPicker } from './projectPicker';
+import { LivesetPicker } from './LivesetPicker';
 
 // import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
 
@@ -23,9 +23,9 @@ export interface HomeState {
  * Home component
  *
  * Components:
- * - ProjectPicker
- * - ProjectUploader
- * - ProjectStart
+ * - LivesetPicker
+ * - LivesetUploader
+ * - LivesetStart
  */
 export class Home extends React.Component<HomeProps, HomeState> {
   drapPos = 0;
@@ -82,8 +82,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
         </div>
         <div className='content'>
           <p>//// PROVIDE ON-BOARDING HELP ////</p>
-          <ProjectPicker
-            projects={decks}
+          <LivesetPicker
+            livesets={decks}
             selectedIndex={this.state.step}
             onChange={console.warn}
           />
@@ -93,7 +93,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 }
 
-const decks: Deck[] = [
+const decks: Liveset[] = [
   {
     name: 'minimal kit',
     version: 1,
@@ -101,7 +101,7 @@ const decks: Deck[] = [
     author: 'Sancho Gomez aka Wurst Offendr',
     repositories: [],
     pathBase: '/public/decks/',
-    sets: []
+    sampleGroups: []
   },
   {
     name: 'panorama',
@@ -110,6 +110,6 @@ const decks: Deck[] = [
     author: 'Ryan Elliot',
     repositories: [],
     pathBase: '/public/decks/',
-    sets: []
+    sampleGroups: []
   }
 ];

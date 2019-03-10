@@ -1,20 +1,20 @@
-export class Deck {
+export class Liveset {
   name: string;
   version: number;
   description: string;
   author: string;
   repositories: string[];
   pathBase: string;
-  sets: DeckSet[];
+  sampleGroups: SampleGroup[];
 }
 
-export class DeckSet {
+export class SampleGroup {
   name: string;
   icon: string;
-  samples: DeckSample[];
+  samples: SampleItem[];
 }
 
-export class DeckSample {
+export class SampleItem {
   name: string;
   sub: string;
   url: string;
