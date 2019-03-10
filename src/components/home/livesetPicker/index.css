@@ -1,12 +1,47 @@
+@import '~styles/variables.css';
+
 .liveset-picker {
+  position: relative;
+  vertical-align: top;
 }
 
-.liveset-picker .liveset-item {
-  display: inline-block;
+.liveset-item {
+  display: inline-grid;
   width: 280px;
+  grid-template-columns: auto 20px auto;
+  grid-template-rows: 32px 60px 100px;
+  grid-template-areas:
+    'title title title'
+    'meta_1 . meta_2'
+    'description description description';
   margin-right: 1rem;
+  padding-top: 0.5rem;
+  border-top: 5px solid transparent;
 }
 
-.liveset-picker .active {
-  border-top: 5px solid red;
+.liveset-item.active {
+  border-top-color: red;
+}
+
+.liveset-item-title {
+  grid-area: title;
+  font-size: 1.25rem;
+}
+.liveset-item-meta-1 {
+  grid-area: meta_1;
+}
+.liveset-item-meta-2 {
+  grid-area: meta_2;
+}
+.liveset-item-description {
+  grid-area: description;
+}
+
+.liveset-item-label {
+  display: block;
+  color: var(--shade);
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.liveset-item-contents {
 }

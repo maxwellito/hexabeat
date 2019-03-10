@@ -87,10 +87,16 @@ class LivesetItem extends React.Component<LivesetItemProps> {
     classNames.push(this.props.isSelected ? 'active' : '');
     return (
       <div className={classNames.join(' ')} onClick={this.selection}>
-        <div>{liveset.name}</div>
-        <div>ver. {liveset.version}</div>
-        <div>by {liveset.author}</div>
-        <div>{liveset.description}</div>
+        <div className='liveset-item-title'>{liveset.name}</div>
+        <div className='liveset-item-meta-1'>
+          <span className='liveset-item-label'>version</span>
+          <span className='liveset-item-contents'>{liveset.version}</span>
+        </div>
+        <div className='liveset-item-meta-2'>
+          <span className='liveset-item-label'>author</span>
+          <span className='liveset-item-contents'>{liveset.author}</span>
+        </div>
+        <div className='liveset-item-description'>{liveset.description}</div>
       </div>
     );
   }
@@ -107,8 +113,8 @@ class LivesetAdd extends React.Component<LivesetAddProps> {
     classNames.push(this.props.isSelected ? 'active' : '');
     return (
       <div className={classNames.join(' ')} onClick={this.props.onSelect}>
-        <div>+</div>
-        <div>Add liveset</div>
+        <div className='liveset-item-title'>+ </div>
+        <div>Upload liveset file</div>
       </div>
     );
   }
