@@ -1,0 +1,33 @@
+{
+  "name": "panorama",
+  "version": 1,
+  "description": "Dope shit to forget to go home",
+  "author": "Rainbow Dash",
+  "repositories": [
+    "maxwellito/vivus",
+    "maxwellito/triangulart",
+    "maxwellito/commitbeat",
+    "maxwellito/breaklock"
+  ],
+  "pathBase": "/public/livesets/",
+  "sets": [
+    {
+      "name": "Drumkit",
+      "icon": "drum",
+      "samples": [
+        { "name": "kik", "sub": "001", "url": "tr808/CH.WAV" },
+        { "name": "kik", "sub": "002", "url": "tr808/CL.WAV" }
+      ]
+    },
+    {
+      "name": "Clap",
+      "icon": "hands",
+      "samples": [
+        { "name": "clp", "sub": "001", "url": "tr808/CY2500.WAV" },
+        { "name": "clp", "sub": "002", "url": "tr808/HC00.WAV" },
+        { "name": "bbk", "sub": "001", "url": "tr808/HT00.WAV" },
+        { "name": "snr", "sub": "001", "url": "tr808/CP.WAV" }
+      ]
+    }
+  ]
+}

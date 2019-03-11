@@ -9,7 +9,7 @@
     "maxwellito/commitbeat",
     "maxwellito/breaklock"
   ],
-  "pathBase": "/public/decks/",
+  "pathBase": "/public/livesets/",
   "sets": [
     {
       "name": "Drumkit",
