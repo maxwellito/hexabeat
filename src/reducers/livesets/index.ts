@@ -6,19 +6,16 @@ export interface LivesetsAction {
 }
 
 export function livesets(
-  state: Map<string, Liveset> = new Map(),
+  state: Liveset[] = [],
   action?: LivesetsAction
-): Map<string, Liveset> {
-  let { liveset } = action,
-    key = `${liveset.name}.${liveset.version}`;
-
+): Liveset[] {
   switch (action.type) {
     case 'ADD_LIVESET':
-      state.set(key, liveset);
-      return state;
+      console.info(state, action.liveset);
+      return [...state, action.liveset];
     case 'REMOVE_LIVESET':
-      state.delete(key);
-      return state;
+      state.splice(state.indexOf(action.liveset), 1);
+      return [...state];
     default:
       return state;
   }

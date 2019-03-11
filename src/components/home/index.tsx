@@ -6,7 +6,7 @@ import { Mpk, MpkKey } from 'services/MpkController';
 import './index.css';
 // import { setCurrentBit } from '../../actions';
 // import store from 'store';
-
+import store from 'store';
 import { Liveset } from 'models/Liveset';
 
 import { LivesetPicker } from './LivesetPicker';
@@ -17,6 +17,7 @@ export interface HomeProps {}
 
 export interface HomeState {
   step: number;
+  livesets: Liveset[];
 }
 
 /**
@@ -29,14 +30,30 @@ export interface HomeState {
  */
 export class Home extends React.Component<HomeProps, HomeState> {
   drapPos = 0;
+
+  unsubscribe = store.subscribe(() => {
+    let newLivesets = store.getState().livesets;
+    console.log('Hello', newLivesets);
+    if (newLivesets !== this.state.livesets) {
+      this.setState({
+        livesets: newLivesets
+      });
+    }
+  });
+
   constructor(props: HomeProps) {
     super(props);
     this.state = {
-      step: 0
+      step: 0,
+      livesets: store.getState().livesets
     };
     Mpk.takeControl({
       [MpkKey.nob1]: this.updatePos.bind(this)
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   updatePos(rel: number) {
@@ -83,7 +100,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
         <div className='content'>
           <p>//// PROVIDE ON-BOARDING HELP ////</p>
           <LivesetPicker
-            livesets={decks}
+            livesets={this.state.livesets}
             selectedIndex={this.state.step}
             onChange={console.warn}
           />
@@ -92,24 +109,3 @@ export class Home extends React.Component<HomeProps, HomeState> {
     );
   }
 }
-
-const decks: Liveset[] = [
-  {
-    name: 'minimal kit',
-    version: 1,
-    description: 'Audio deck for minimal kit',
-    author: 'Sancho Gomez aka Wurst Offendr',
-    repositories: [],
-    pathBase: '/public/decks/',
-    sampleGroups: []
-  },
-  {
-    name: 'panorama',
-    version: 1,
-    description: 'Shadow dancin..',
-    author: 'Ryan Elliot',
-    repositories: [],
-    pathBase: '/public/decks/',
-    sampleGroups: []
-  }
-];

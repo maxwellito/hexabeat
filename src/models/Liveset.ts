@@ -1,6 +1,6 @@
 export class Liveset {
   name: string;
-  version: number;
+  version: string;
   description: string;
   author: string;
   repositories: string[];

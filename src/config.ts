@@ -5,6 +5,6 @@
  */
 
 export default {
-  livesets: ['/livesets/minimal.json', '/livesets/panorama.json'],
+  livesets: ['/public/livesets/minimal.json', '/public/livesets/panorama.json'],
   repositories: ['samaaron/sonic-pi', 'maxwellito/matrx']
 };
