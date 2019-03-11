@@ -44,7 +44,7 @@ export class SequenceCraftr extends React.Component<
     this.updateCommitListener = this.updateCommit.bind(this);
     this.updateSequencerListener = this.updateSequencer.bind(this);
 
-    const repoCollection = store.getState().repositoryCollection;
+    const repoCollection = store.getState().session.gitRepositories;
     this.repoCollectionList = Object.keys(repoCollection).map(
       (name: string): ListItem => {
         this.repoCollection.push(repoCollection[name]);

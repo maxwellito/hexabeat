@@ -1,14 +1,6 @@
 import * as React from 'react';
-// import { Mpk, MpkKey } from 'services/MpkController';
-// import { List } from '../list/List';
-// import { TrackComponent } from '../track/track';
-// import { SequenceCraftr } from '../sequenceCraftr/SequenceCraftr';
-import './index.css';
-// import { setCurrentBit } from '../../actions';
-// import store from 'store';
 import { Liveset } from 'models/Liveset';
-
-// import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
+import './index.css';
 
 export interface LivesetPickerProps {
   livesets: Liveset[];
@@ -22,11 +14,8 @@ export interface LivesetPickerState {
 
 /**
  * LivesetPicker component
- *
- * Components:
- * - LivesetPicker
- * - LivesetUploader
- * - LivesetStart
+ * Used in the HomeScreem
+ * Allow the user to pick a liveset to start
  */
 export class LivesetPicker extends React.Component<
   LivesetPickerProps,
@@ -66,6 +55,10 @@ export class LivesetPicker extends React.Component<
   }
 }
 
+/**
+ * LivesetItem component
+ * Vue component for a liveset item
+ */
 export interface LivesetItemProps {
   data: Liveset;
   isSelected: boolean;
@@ -102,6 +95,10 @@ class LivesetItem extends React.Component<LivesetItemProps> {
   }
 }
 
+/**
+ * LivesetAdd component
+ *
+ */
 export interface LivesetAddProps {
   isSelected: boolean;
   onSelect: () => void;
@@ -113,7 +110,7 @@ class LivesetAdd extends React.Component<LivesetAddProps> {
     classNames.push(this.props.isSelected ? 'active' : '');
     return (
       <div className={classNames.join(' ')} onClick={this.props.onSelect}>
-        <div className='liveset-item-title'>+ </div>
+        <div className='liveset-item-title'>[+] Add Liveset</div>
         <div>Upload liveset file</div>
       </div>
     );

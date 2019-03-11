@@ -18,7 +18,7 @@ export class HelperIcon extends React.Component<
   HelperIconState
 > {
   unsubscribe = store.subscribe(() => {
-    let isHelpActivated = store.getState().rootUI;
+    let isHelpActivated = store.getState().help;
     if (isHelpActivated !== this.state.isHelpActivated) {
       this.setState({
         isHelpActivated
@@ -29,7 +29,7 @@ export class HelperIcon extends React.Component<
   constructor(props: HelperIconProps) {
     super(props);
     this.state = {
-      isHelpActivated: store.getState().rootUI
+      isHelpActivated: store.getState().help
     };
   }
 
@@ -43,7 +43,7 @@ export class HelperIcon extends React.Component<
       classes.push(this.props.status ? 'on' : 'off');
     } else {
       classes.push(
-        !this.props.disabled && store.getState().rootUI ? 'on' : 'off'
+        !this.props.disabled && store.getState().help ? 'on' : 'off'
       );
     }
 

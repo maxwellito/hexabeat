@@ -212,7 +212,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
       }
     ];
 
-    var xx = store.getState().currentBit;
+    var xx = store.getState().session.currentBit;
 
     let tracks: TrackComponent[] = [];
     if (this.state.session) {
