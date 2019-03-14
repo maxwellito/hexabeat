@@ -119,23 +119,23 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   start() {
-    livesetLoader
-      .load('public/decks/demo.json')
-      .then(
-        myLiveset => {
-          let sess = new Session(98, myLiveset, pp);
-          sess.isReady.then(() => {
-            this.setState({ session: sess });
-            sess.start((index: number) => {
-              store.dispatch(setCurrentBit(index));
-            });
-          });
-        },
-        e => {
-          console.warn(livesetLoader, e);
-        }
-      )
-      .catch(console.log);
+    // livesetLoader
+    //   .load('public/decks/demo.json')
+    //   .then(
+    //     myLiveset => {
+    //       let sess = new Session(98, myLiveset, pp);
+    //       sess.isReady.then(() => {
+    //         this.setState({ session: sess });
+    //         sess.start((index: number) => {
+    //           store.dispatch(setCurrentBit(index));
+    //         });
+    //       });
+    //     },
+    //     e => {
+    //       console.warn(livesetLoader, e);
+    //     }
+    //   )
+    //   .catch(console.log);
   }
 
   render() {
@@ -247,7 +247,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 }
 
-import livesetLoader from 'services/LivesetLoader';
+// import livesetLoader from 'services/LivesetLoader';
 import Track from 'models/Track';
 
 import { Liveset, SampleGroup, SampleItem } from 'models/Liveset';

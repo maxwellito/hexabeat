@@ -8,6 +8,7 @@ import './index.css';
 // import store from 'store';
 import store from 'store';
 import { Liveset } from 'models/Liveset';
+import * as actions from 'actions/index';
 
 import { LivesetPicker } from './LivesetPicker';
 
@@ -41,6 +42,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
     }
   });
 
+  startLoad = this.startLoadListener.bind(this);
+
   constructor(props: HomeProps) {
     super(props);
     this.state = {
@@ -67,6 +70,23 @@ export class Home extends React.Component<HomeProps, HomeState> {
       step
     });
   }
+
+  startLoadListener(index: number) {
+    const theLS = this.state.livesets[index];
+    console.log(index, theLS);
+    if (!theLS) {
+      return;
+    }
+
+    theLS.loadAssets().then(
+      () => {
+        console.info('yay');
+        store.dispatch(actions.setLiveset(theLS));
+      },
+      e => console.warn
+    );
+  }
+
   render() {
     return (
       <div className='container'>
@@ -102,7 +122,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <LivesetPicker
             livesets={this.state.livesets}
             selectedIndex={this.state.step}
-            onChange={console.warn}
+            onChange={this.startLoad}
           />
         </div>
       </div>
