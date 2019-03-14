@@ -10,23 +10,23 @@
     "maxwellito/breaklock"
   ],
   "pathBase": "/public/livesets/",
-  "sets": [
+  "sampleGroups": [
     {
       "name": "Drumkit",
       "icon": "drum",
       "samples": [
-        { "name": "kik", "sub": "001", "url": "tr808/CH.WAV" },
-        { "name": "kik", "sub": "002", "url": "tr808/CL.WAV" }
+        { "name": "kik/001", "url": "tr808/CH.WAV" },
+        { "name": "kik/002", "url": "tr808/CL.WAV" }
       ]
     },
     {
       "name": "Clap",
       "icon": "hands",
       "samples": [
-        { "name": "clp", "sub": "001", "url": "tr808/CY2500.WAV" },
-        { "name": "clp", "sub": "002", "url": "tr808/HC00.WAV" },
-        { "name": "bbk", "sub": "001", "url": "tr808/HT00.WAV" },
-        { "name": "snr", "sub": "001", "url": "tr808/CP.WAV" }
+        { "name": "clp/001", "url": "tr808/CY2500.WAV" },
+        { "name": "clp/002", "url": "tr808/HC00.WAV" },
+        { "name": "bbk/001", "url": "tr808/HT00.WAV" },
+        { "name": "snr/001", "url": "tr808/CP.WAV" }
       ]
     }
   ]
