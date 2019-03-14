@@ -1,0 +1,2377 @@
+[
+  {
+    "sha": "730732a4a18f40678c29f2568832de1f0d4db8a4",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NzMwNzMyYTRhMThmNDA2NzhjMjlmMjU2ODgzMmRlMWYwZDRkYjhhNA==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-09-01T21:25:30Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-09-01T21:25:30Z"
+      },
+      "message": "Facepalm.",
+      "tree": {
+        "sha": "40ef4397e835e93488665f35e9d77b263da66f93",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/40ef4397e835e93488665f35e9d77b263da66f93"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/730732a4a18f40678c29f2568832de1f0d4db8a4",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/730732a4a18f40678c29f2568832de1f0d4db8a4",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/730732a4a18f40678c29f2568832de1f0d4db8a4",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/730732a4a18f40678c29f2568832de1f0d4db8a4/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "507e49be9252159b54afba578d99444ab94c1035",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/507e49be9252159b54afba578d99444ab94c1035",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/507e49be9252159b54afba578d99444ab94c1035"
+      }
+    ]
+  },
+  {
+    "sha": "507e49be9252159b54afba578d99444ab94c1035",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NTA3ZTQ5YmU5MjUyMTU5YjU0YWZiYTU3OGQ5OTQ0NGFiOTRjMTAzNQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-09-01T21:12:50Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-09-01T21:12:50Z"
+      },
+      "message": "Fix doubleclick lag on mobile",
+      "tree": {
+        "sha": "12572589700402683079f480cdbdc17a9d7ed6ee",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/12572589700402683079f480cdbdc17a9d7ed6ee"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/507e49be9252159b54afba578d99444ab94c1035",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/507e49be9252159b54afba578d99444ab94c1035",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/507e49be9252159b54afba578d99444ab94c1035",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/507e49be9252159b54afba578d99444ab94c1035/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1c46b7e73d02f1e661c3fdd578e251bb040bfd30",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/1c46b7e73d02f1e661c3fdd578e251bb040bfd30",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/1c46b7e73d02f1e661c3fdd578e251bb040bfd30"
+      }
+    ]
+  },
+  {
+    "sha": "1c46b7e73d02f1e661c3fdd578e251bb040bfd30",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MWM0NmI3ZTczZDAyZjFlNjYxYzNmZGQ1NzhlMjUxYmIwNDBiZmQzMA==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-09-01T21:03:55Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-09-01T21:03:55Z"
+      },
+      "message": "Double tap on title to go deep black",
+      "tree": {
+        "sha": "34379d03f6e533d04e341760c3c78d61704a15aa",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/34379d03f6e533d04e341760c3c78d61704a15aa"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/1c46b7e73d02f1e661c3fdd578e251bb040bfd30",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/1c46b7e73d02f1e661c3fdd578e251bb040bfd30",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/1c46b7e73d02f1e661c3fdd578e251bb040bfd30",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/1c46b7e73d02f1e661c3fdd578e251bb040bfd30/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9"
+      }
+    ]
+  },
+  {
+    "sha": "2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MmJlZTBmNmE1YzA5Zjg2YTY5OTViMWY3ZTlmMTNiM2Y4NjUzNmFiOQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-05-17T19:03:41Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-05-17T19:03:41Z"
+      },
+      "message": "Fix missing color for deep black mode",
+      "tree": {
+        "sha": "f227cfe2ee8866f1797aae34ecc4a72aace0f63f",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/f227cfe2ee8866f1797aae34ecc4a72aace0f63f"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/2bee0f6a5c09f86a6995b1f7e9f13b3f86536ab9/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6746a6a3934679858d89536c8df9db98da0a78f6",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/6746a6a3934679858d89536c8df9db98da0a78f6",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/6746a6a3934679858d89536c8df9db98da0a78f6"
+      }
+    ]
+  },
+  {
+    "sha": "6746a6a3934679858d89536c8df9db98da0a78f6",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6Njc0NmE2YTM5MzQ2Nzk4NThkODk1MzZjOGRmOWRiOThkYTBhNzhmNg==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-05-17T00:16:49Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-05-17T00:16:49Z"
+      },
+      "message": "Add DeepBlack mode",
+      "tree": {
+        "sha": "4ae98992e6112886be797baa61d5a3c66ef93639",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/4ae98992e6112886be797baa61d5a3c66ef93639"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/6746a6a3934679858d89536c8df9db98da0a78f6",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/6746a6a3934679858d89536c8df9db98da0a78f6",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/6746a6a3934679858d89536c8df9db98da0a78f6",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/6746a6a3934679858d89536c8df9db98da0a78f6/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986"
+      }
+    ]
+  },
+  {
+    "sha": "2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MmI4Y2JmYWE1YTM2YWQwNTNjZGI0NmE2MDE5YTdiNWMzMmQyMjk4Ng==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-05-17T00:01:28Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-05-17T00:01:28Z"
+      },
+      "message": "Remove Google Analytics",
+      "tree": {
+        "sha": "f8074c8332795f24a885ccb046bd4a94fc4f4a3a",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/f8074c8332795f24a885ccb046bd4a94fc4f4a3a"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/2b8cbfaa5a36ad053cdb46a6019a7b5c32d22986/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "32a91b949af95f917cb5c02211e1bfe45b67a5ca",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/32a91b949af95f917cb5c02211e1bfe45b67a5ca",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/32a91b949af95f917cb5c02211e1bfe45b67a5ca"
+      }
+    ]
+  },
+  {
+    "sha": "32a91b949af95f917cb5c02211e1bfe45b67a5ca",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MzJhOTFiOTQ5YWY5NWY5MTdjYjVjMDIyMTFlMWJmZTQ1YjY3YTVjYQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-01-14T16:56:51Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2018-01-14T16:56:51Z"
+      },
+      "message": "Fix service worker cache",
+      "tree": {
+        "sha": "5fddeb1987168c15a013c69221b2bf5bea794468",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/5fddeb1987168c15a013c69221b2bf5bea794468"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/32a91b949af95f917cb5c02211e1bfe45b67a5ca",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/32a91b949af95f917cb5c02211e1bfe45b67a5ca",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/32a91b949af95f917cb5c02211e1bfe45b67a5ca",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/32a91b949af95f917cb5c02211e1bfe45b67a5ca/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "14c75f369ff00787dc4fff2bf1eac1b564a2b4e0",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/14c75f369ff00787dc4fff2bf1eac1b564a2b4e0",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/14c75f369ff00787dc4fff2bf1eac1b564a2b4e0"
+      }
+    ]
+  },
+  {
+    "sha": "14c75f369ff00787dc4fff2bf1eac1b564a2b4e0",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MTRjNzVmMzY5ZmYwMDc4N2RjNGZmZjJiZjFlYWMxYjU2NGEyYjRlMA==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-12-27T22:03:35Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-12-27T22:03:35Z"
+      },
+      "message": "Remove pull to refresh",
+      "tree": {
+        "sha": "26a01c2b80ba45fa6702ba7e9358ba4a1a11e2a9",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/26a01c2b80ba45fa6702ba7e9358ba4a1a11e2a9"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/14c75f369ff00787dc4fff2bf1eac1b564a2b4e0",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/14c75f369ff00787dc4fff2bf1eac1b564a2b4e0",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/14c75f369ff00787dc4fff2bf1eac1b564a2b4e0",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/14c75f369ff00787dc4fff2bf1eac1b564a2b4e0/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6eba526db431ffbe09a352bb377ac248b3ec41c8",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/6eba526db431ffbe09a352bb377ac248b3ec41c8",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/6eba526db431ffbe09a352bb377ac248b3ec41c8"
+      }
+    ]
+  },
+  {
+    "sha": "6eba526db431ffbe09a352bb377ac248b3ec41c8",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NmViYTUyNmRiNDMxZmZiZTA5YTM1MmJiMzc3YWMyNDhiM2VjNDFjOA==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-07-05T20:57:05Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-07-05T20:57:05Z"
+      },
+      "message": "UI improvements",
+      "tree": {
+        "sha": "a225507bc28ae39e20e6c1206d22468ccb90b505",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/a225507bc28ae39e20e6c1206d22468ccb90b505"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/6eba526db431ffbe09a352bb377ac248b3ec41c8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/6eba526db431ffbe09a352bb377ac248b3ec41c8",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/6eba526db431ffbe09a352bb377ac248b3ec41c8",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/6eba526db431ffbe09a352bb377ac248b3ec41c8/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f3c67648253ca883e354eddd1be952eb38fa814c",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/f3c67648253ca883e354eddd1be952eb38fa814c",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/f3c67648253ca883e354eddd1be952eb38fa814c"
+      }
+    ]
+  },
+  {
+    "sha": "f3c67648253ca883e354eddd1be952eb38fa814c",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6ZjNjNjc2NDgyNTNjYTg4M2UzNTRlZGRkMWJlOTUyZWIzOGZhODE0Yw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-05-09T22:18:24Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-05-09T22:18:24Z"
+      },
+      "message": "Fix caching issue",
+      "tree": {
+        "sha": "3ac7b36dabdbabe410026118d4f5e51f0419f38c",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/3ac7b36dabdbabe410026118d4f5e51f0419f38c"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/f3c67648253ca883e354eddd1be952eb38fa814c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/f3c67648253ca883e354eddd1be952eb38fa814c",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/f3c67648253ca883e354eddd1be952eb38fa814c",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/f3c67648253ca883e354eddd1be952eb38fa814c/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7418bae777d7c7aab27a25fd9dd6e2dbfe37e783",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/7418bae777d7c7aab27a25fd9dd6e2dbfe37e783",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/7418bae777d7c7aab27a25fd9dd6e2dbfe37e783"
+      }
+    ]
+  },
+  {
+    "sha": "7418bae777d7c7aab27a25fd9dd6e2dbfe37e783",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NzQxOGJhZTc3N2Q3YzdhYWIyN2EyNWZkOWRkNmUyZGJmZTM3ZTc4Mw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-30T12:42:18Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-30T12:42:18Z"
+      },
+      "message": "Add brute calc script",
+      "tree": {
+        "sha": "f7b6fdc2864f40239d4a50b1f4c1c74cbcb63855",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/f7b6fdc2864f40239d4a50b1f4c1c74cbcb63855"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/7418bae777d7c7aab27a25fd9dd6e2dbfe37e783",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/7418bae777d7c7aab27a25fd9dd6e2dbfe37e783",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/7418bae777d7c7aab27a25fd9dd6e2dbfe37e783",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/7418bae777d7c7aab27a25fd9dd6e2dbfe37e783/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "366b9dcbec8595c2eca72b5b68a41dd7e52c5753",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/366b9dcbec8595c2eca72b5b68a41dd7e52c5753",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/366b9dcbec8595c2eca72b5b68a41dd7e52c5753"
+      }
+    ]
+  },
+  {
+    "sha": "366b9dcbec8595c2eca72b5b68a41dd7e52c5753",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MzY2YjlkY2JlYzg1OTVjMmVjYTcyYjViNjhhNDFkZDdlNTJjNTc1Mw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-26T20:07:22Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-26T20:07:22Z"
+      },
+      "message": "Build 005: Fix spelling mistake",
+      "tree": {
+        "sha": "3240d00f65dd5f0906e49974ce2635674659358c",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/3240d00f65dd5f0906e49974ce2635674659358c"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/366b9dcbec8595c2eca72b5b68a41dd7e52c5753",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/366b9dcbec8595c2eca72b5b68a41dd7e52c5753",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/366b9dcbec8595c2eca72b5b68a41dd7e52c5753",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/366b9dcbec8595c2eca72b5b68a41dd7e52c5753/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "047addaca19f2ae363703cee247a6915c286cec7",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/047addaca19f2ae363703cee247a6915c286cec7",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/047addaca19f2ae363703cee247a6915c286cec7"
+      }
+    ]
+  },
+  {
+    "sha": "047addaca19f2ae363703cee247a6915c286cec7",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MDQ3YWRkYWNhMTlmMmFlMzYzNzAzY2VlMjQ3YTY5MTVjMjg2Y2VjNw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-26T19:35:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2017-04-26T19:35:12Z"
+      },
+      "message": "Merge pull request #1 from dmcgrath/patch-1\n\nFixed spelling",
+      "tree": {
+        "sha": "1ef40398871c3512193e6ce2abf9b0fc23acede5",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/1ef40398871c3512193e6ce2abf9b0fc23acede5"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/047addaca19f2ae363703cee247a6915c286cec7",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/047addaca19f2ae363703cee247a6915c286cec7",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/047addaca19f2ae363703cee247a6915c286cec7",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/047addaca19f2ae363703cee247a6915c286cec7/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/81fda3a8250cabfc02a8520fba2644e86f9fec6e"
+      },
+      {
+        "sha": "1a06be4dc347f26d81a4f0c61331d1292ec495b5",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/1a06be4dc347f26d81a4f0c61331d1292ec495b5",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/1a06be4dc347f26d81a4f0c61331d1292ec495b5"
+      }
+    ]
+  },
+  {
+    "sha": "1a06be4dc347f26d81a4f0c61331d1292ec495b5",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MWEwNmJlNGRjMzQ3ZjI2ZDgxYTRmMGM2MTMzMWQxMjkyZWM0OTViNQ==",
+    "commit": {
+      "author": {
+        "name": "Dan McGrath",
+        "email": "danmcg.au@gmail.com",
+        "date": "2017-04-26T14:15:13Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2017-04-26T14:15:13Z"
+      },
+      "message": "Fixed spelling",
+      "tree": {
+        "sha": "1ef40398871c3512193e6ce2abf9b0fc23acede5",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/1ef40398871c3512193e6ce2abf9b0fc23acede5"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/1a06be4dc347f26d81a4f0c61331d1292ec495b5",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/1a06be4dc347f26d81a4f0c61331d1292ec495b5",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/1a06be4dc347f26d81a4f0c61331d1292ec495b5",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/1a06be4dc347f26d81a4f0c61331d1292ec495b5/comments",
+    "author": {
+      "login": "dmcgrath",
+      "id": 1204991,
+      "node_id": "MDQ6VXNlcjEyMDQ5OTE=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1204991?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dmcgrath",
+      "html_url": "https://github.com/dmcgrath",
+      "followers_url": "https://api.github.com/users/dmcgrath/followers",
+      "following_url": "https://api.github.com/users/dmcgrath/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dmcgrath/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dmcgrath/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dmcgrath/subscriptions",
+      "organizations_url": "https://api.github.com/users/dmcgrath/orgs",
+      "repos_url": "https://api.github.com/users/dmcgrath/repos",
+      "events_url": "https://api.github.com/users/dmcgrath/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dmcgrath/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/81fda3a8250cabfc02a8520fba2644e86f9fec6e"
+      }
+    ]
+  },
+  {
+    "sha": "81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6ODFmZGEzYTgyNTBjYWJmYzAyYTg1MjBmYmEyNjQ0ZTg2ZjlmZWM2ZQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-17T09:46:54Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-17T09:46:54Z"
+      },
+      "message": "Update fetch in service-worker",
+      "tree": {
+        "sha": "d64e7b5d670ba16389ff2990a910cf8b86fd6422",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/d64e7b5d670ba16389ff2990a910cf8b86fd6422"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/81fda3a8250cabfc02a8520fba2644e86f9fec6e",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/81fda3a8250cabfc02a8520fba2644e86f9fec6e/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bf3e008f55a7837e10c94f07a64295362171f1a6",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/bf3e008f55a7837e10c94f07a64295362171f1a6",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/bf3e008f55a7837e10c94f07a64295362171f1a6"
+      }
+    ]
+  },
+  {
+    "sha": "bf3e008f55a7837e10c94f07a64295362171f1a6",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6YmYzZTAwOGY1NWE3ODM3ZTEwYzk0ZjA3YTY0Mjk1MzYyMTcxZjFhNg==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-06T22:44:38Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-06T22:44:38Z"
+      },
+      "message": "Fix typo in readme",
+      "tree": {
+        "sha": "8db9b05c3f1636c912e35dc9369a5027f5bafa31",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/8db9b05c3f1636c912e35dc9369a5027f5bafa31"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/bf3e008f55a7837e10c94f07a64295362171f1a6",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/bf3e008f55a7837e10c94f07a64295362171f1a6",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/bf3e008f55a7837e10c94f07a64295362171f1a6",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/bf3e008f55a7837e10c94f07a64295362171f1a6/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0652e0e06e77f9549b7bc550538174973ce092a2",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/0652e0e06e77f9549b7bc550538174973ce092a2",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/0652e0e06e77f9549b7bc550538174973ce092a2"
+      }
+    ]
+  },
+  {
+    "sha": "0652e0e06e77f9549b7bc550538174973ce092a2",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MDY1MmUwZTA2ZTc3Zjk1NDliN2JjNTUwNTM4MTc0OTczY2UwOTJhMg==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-06T22:39:00Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-06T22:39:00Z"
+      },
+      "message": "Fix lock on Firefox",
+      "tree": {
+        "sha": "926f43ec1b704be06d07e6384fdbbad0c4ec4d8b",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/926f43ec1b704be06d07e6384fdbbad0c4ec4d8b"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/0652e0e06e77f9549b7bc550538174973ce092a2",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/0652e0e06e77f9549b7bc550538174973ce092a2",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/0652e0e06e77f9549b7bc550538174973ce092a2",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/0652e0e06e77f9549b7bc550538174973ce092a2/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "576fb701696e8977ed15f512e19aa80166bc7b9b",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/576fb701696e8977ed15f512e19aa80166bc7b9b",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/576fb701696e8977ed15f512e19aa80166bc7b9b"
+      }
+    ]
+  },
+  {
+    "sha": "576fb701696e8977ed15f512e19aa80166bc7b9b",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NTc2ZmI3MDE2OTZlODk3N2VkMTVmNTEyZTE5YWE4MDE2NmJjN2I5Yg==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-04T22:58:27Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-04T22:58:27Z"
+      },
+      "message": "Fix CSS glitches and wrong URLs",
+      "tree": {
+        "sha": "ad1386b6f4bd78e790054fe453edfcb9cd71dcbe",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/ad1386b6f4bd78e790054fe453edfcb9cd71dcbe"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/576fb701696e8977ed15f512e19aa80166bc7b9b",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/576fb701696e8977ed15f512e19aa80166bc7b9b",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/576fb701696e8977ed15f512e19aa80166bc7b9b",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/576fb701696e8977ed15f512e19aa80166bc7b9b/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416"
+      }
+    ]
+  },
+  {
+    "sha": "6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NmMyZjA4ZTlmMmZmMDcyYzhmZjdjODNjOGY3YTAwNWI3ZjI5NzQxNg==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:43:13Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:43:13Z"
+      },
+      "message": "Fix the manifest file",
+      "tree": {
+        "sha": "bfcf348b68b8e3252ae22d9778f6c79707cfc047",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/bfcf348b68b8e3252ae22d9778f6c79707cfc047"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/6c2f08e9f2ff072c8ff7c83c8f7a005b7f297416/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dd4ced7f21ea70e540c168ff378cf56f01dcc89a",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/dd4ced7f21ea70e540c168ff378cf56f01dcc89a",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/dd4ced7f21ea70e540c168ff378cf56f01dcc89a"
+      }
+    ]
+  },
+  {
+    "sha": "dd4ced7f21ea70e540c168ff378cf56f01dcc89a",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6ZGQ0Y2VkN2YyMWVhNzBlNTQwYzE2OGZmMzc4Y2Y1NmYwMWRjYzg5YQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:37:04Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:37:04Z"
+      },
+      "message": "Fix link to manifest.json",
+      "tree": {
+        "sha": "8ea8e5325b2cb2394cf9ff0783e01f4cf9cb72fc",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/8ea8e5325b2cb2394cf9ff0783e01f4cf9cb72fc"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/dd4ced7f21ea70e540c168ff378cf56f01dcc89a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/dd4ced7f21ea70e540c168ff378cf56f01dcc89a",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/dd4ced7f21ea70e540c168ff378cf56f01dcc89a",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/dd4ced7f21ea70e540c168ff378cf56f01dcc89a/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "53d16412b81d4991166d5ac6b9b748688b1e9f91",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/53d16412b81d4991166d5ac6b9b748688b1e9f91",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/53d16412b81d4991166d5ac6b9b748688b1e9f91"
+      }
+    ]
+  },
+  {
+    "sha": "53d16412b81d4991166d5ac6b9b748688b1e9f91",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NTNkMTY0MTJiODFkNDk5MTE2NmQ1YWM2YjliNzQ4Njg4YjFlOWY5MQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:26:00Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:26:00Z"
+      },
+      "message": "First version",
+      "tree": {
+        "sha": "c2fba6f817bf99d284f9cb053e02a26fd0c69de1",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/c2fba6f817bf99d284f9cb053e02a26fd0c69de1"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/53d16412b81d4991166d5ac6b9b748688b1e9f91",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/53d16412b81d4991166d5ac6b9b748688b1e9f91",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/53d16412b81d4991166d5ac6b9b748688b1e9f91",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/53d16412b81d4991166d5ac6b9b748688b1e9f91/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "588a4a7aa816f71c86cb2896e869a2a40f90e219",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/588a4a7aa816f71c86cb2896e869a2a40f90e219",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/588a4a7aa816f71c86cb2896e869a2a40f90e219"
+      }
+    ]
+  },
+  {
+    "sha": "588a4a7aa816f71c86cb2896e869a2a40f90e219",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NTg4YTRhN2FhODE2ZjcxYzg2Y2IyODk2ZTg2OWEyYTQwZjkwZTIxOQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:21:49Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:21:49Z"
+      },
+      "message": "Let's go for MIT license",
+      "tree": {
+        "sha": "ef8848225f138e4e70ee28879c0edd6b0b47d1c5",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/ef8848225f138e4e70ee28879c0edd6b0b47d1c5"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/588a4a7aa816f71c86cb2896e869a2a40f90e219",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/588a4a7aa816f71c86cb2896e869a2a40f90e219",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/588a4a7aa816f71c86cb2896e869a2a40f90e219",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/588a4a7aa816f71c86cb2896e869a2a40f90e219/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "47e605a3514ce42d07238f26929b59770d48bad5",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/47e605a3514ce42d07238f26929b59770d48bad5",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/47e605a3514ce42d07238f26929b59770d48bad5"
+      }
+    ]
+  },
+  {
+    "sha": "47e605a3514ce42d07238f26929b59770d48bad5",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NDdlNjA1YTM1MTRjZTQyZDA3MjM4ZjI2OTI5YjU5NzcwZDQ4YmFkNQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:18:16Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:18:16Z"
+      },
+      "message": "Set up service workers and analytics",
+      "tree": {
+        "sha": "7ae8ecec942d8fbb63c9db26b4da0de4f090b3ce",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/7ae8ecec942d8fbb63c9db26b4da0de4f090b3ce"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/47e605a3514ce42d07238f26929b59770d48bad5",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/47e605a3514ce42d07238f26929b59770d48bad5",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/47e605a3514ce42d07238f26929b59770d48bad5",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/47e605a3514ce42d07238f26929b59770d48bad5/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "abcd28de7539533b8e2dc508a822f27011041945",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/abcd28de7539533b8e2dc508a822f27011041945",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/abcd28de7539533b8e2dc508a822f27011041945"
+      }
+    ]
+  },
+  {
+    "sha": "abcd28de7539533b8e2dc508a822f27011041945",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6YWJjZDI4ZGU3NTM5NTMzYjhlMmRjNTA4YTgyMmYyNzAxMTA0MTk0NQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:04:19Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T23:04:19Z"
+      },
+      "message": "FIx typo in documentation",
+      "tree": {
+        "sha": "e3f26946a1a26e272ba3835c6c1c4d33d1d40535",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/e3f26946a1a26e272ba3835c6c1c4d33d1d40535"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/abcd28de7539533b8e2dc508a822f27011041945",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/abcd28de7539533b8e2dc508a822f27011041945",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/abcd28de7539533b8e2dc508a822f27011041945",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/abcd28de7539533b8e2dc508a822f27011041945/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f6fa36a377d3202c92083427d66dd34fec749653",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/f6fa36a377d3202c92083427d66dd34fec749653",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/f6fa36a377d3202c92083427d66dd34fec749653"
+      }
+    ]
+  },
+  {
+    "sha": "f6fa36a377d3202c92083427d66dd34fec749653",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6ZjZmYTM2YTM3N2QzMjAyYzkyMDgzNDI3ZDY2ZGQzNGZlYzc0OTY1Mw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:47:13Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:47:13Z"
+      },
+      "message": "Update service worker from Google Documentation",
+      "tree": {
+        "sha": "7ee16ee6ea78bc75864873a33ebb8ee91684b5b6",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/7ee16ee6ea78bc75864873a33ebb8ee91684b5b6"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/f6fa36a377d3202c92083427d66dd34fec749653",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/f6fa36a377d3202c92083427d66dd34fec749653",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/f6fa36a377d3202c92083427d66dd34fec749653",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/f6fa36a377d3202c92083427d66dd34fec749653/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2b7e8fcf2f852143ed24d7204f18506cb451c60e",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/2b7e8fcf2f852143ed24d7204f18506cb451c60e",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/2b7e8fcf2f852143ed24d7204f18506cb451c60e"
+      }
+    ]
+  },
+  {
+    "sha": "2b7e8fcf2f852143ed24d7204f18506cb451c60e",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MmI3ZThmY2YyZjg1MjE0M2VkMjRkNzIwNGYxODUwNmNiNDUxYzYwZQ==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:42:26Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:42:26Z"
+      },
+      "message": "Update readme",
+      "tree": {
+        "sha": "891781b431851494dc95369bad21e52945ea5d63",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/891781b431851494dc95369bad21e52945ea5d63"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/2b7e8fcf2f852143ed24d7204f18506cb451c60e",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/2b7e8fcf2f852143ed24d7204f18506cb451c60e",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/2b7e8fcf2f852143ed24d7204f18506cb451c60e",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/2b7e8fcf2f852143ed24d7204f18506cb451c60e/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "61f263d21872528845ccd53c51d37f9d7ef4dccb",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/61f263d21872528845ccd53c51d37f9d7ef4dccb",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/61f263d21872528845ccd53c51d37f9d7ef4dccb"
+      }
+    ]
+  },
+  {
+    "sha": "61f263d21872528845ccd53c51d37f9d7ef4dccb",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6NjFmMjYzZDIxODcyNTI4ODQ1Y2NkNTNjNTFkMzdmOWQ3ZWY0ZGNjYg==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:20:03Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:20:03Z"
+      },
+      "message": "Fix littles glitches and duplicates",
+      "tree": {
+        "sha": "07172c5edf58f07b4ea387bf1f26f66d7ba28f3d",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/07172c5edf58f07b4ea387bf1f26f66d7ba28f3d"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/61f263d21872528845ccd53c51d37f9d7ef4dccb",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/61f263d21872528845ccd53c51d37f9d7ef4dccb",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/61f263d21872528845ccd53c51d37f9d7ef4dccb",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/61f263d21872528845ccd53c51d37f9d7ef4dccb/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "cc634972fe41e5b938bdbabb530b88f527e5cd57",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/cc634972fe41e5b938bdbabb530b88f527e5cd57",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/cc634972fe41e5b938bdbabb530b88f527e5cd57"
+      }
+    ]
+  },
+  {
+    "sha": "cc634972fe41e5b938bdbabb530b88f527e5cd57",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6Y2M2MzQ5NzJmZTQxZTViOTM4YmRiYWJiNTMwYjg4ZjUyN2U1Y2Q1Nw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:19:06Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-03T19:19:06Z"
+      },
+      "message": "Fix Webpack config",
+      "tree": {
+        "sha": "f6e166b5e459b110f2c7587d4d27aab0f34eb327",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/f6e166b5e459b110f2c7587d4d27aab0f34eb327"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/cc634972fe41e5b938bdbabb530b88f527e5cd57",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/cc634972fe41e5b938bdbabb530b88f527e5cd57",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/cc634972fe41e5b938bdbabb530b88f527e5cd57",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/cc634972fe41e5b938bdbabb530b88f527e5cd57/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a4165998e4a7ba814c301219641503093d8029e0",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/a4165998e4a7ba814c301219641503093d8029e0",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/a4165998e4a7ba814c301219641503093d8029e0"
+      }
+    ]
+  },
+  {
+    "sha": "a4165998e4a7ba814c301219641503093d8029e0",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6YTQxNjU5OThlNGE3YmE4MTRjMzAxMjE5NjQxNTAzMDkzZDgwMjllMA==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-01T23:51:03Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-01T23:51:03Z"
+      },
+      "message": "Fix layout issues",
+      "tree": {
+        "sha": "7617ae49505af48718b56d112a8e9ce8a0c3ed80",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/7617ae49505af48718b56d112a8e9ce8a0c3ed80"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/a4165998e4a7ba814c301219641503093d8029e0",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/a4165998e4a7ba814c301219641503093d8029e0",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/a4165998e4a7ba814c301219641503093d8029e0",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/a4165998e4a7ba814c301219641503093d8029e0/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "32dc08ce7cbce90ad8f2fbafda37340a592deadc",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/32dc08ce7cbce90ad8f2fbafda37340a592deadc",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/32dc08ce7cbce90ad8f2fbafda37340a592deadc"
+      }
+    ]
+  },
+  {
+    "sha": "32dc08ce7cbce90ad8f2fbafda37340a592deadc",
+    "node_id": "MDY6Q29tbWl0ODcxMzAyNzI6MzJkYzA4Y2U3Y2JjZTkwYWQ4ZjJmYmFmZGEzNzM0MGE1OTJkZWFkYw==",
+    "commit": {
+      "author": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-01T22:54:13Z"
+      },
+      "committer": {
+        "name": "maxwellito",
+        "email": "duluc.maxime@gmail.com",
+        "date": "2017-04-01T22:54:13Z"
+      },
+      "message": "Update feedback quotes",
+      "tree": {
+        "sha": "516e837ceda5e62b403fb4cdbdee4820cd6795bb",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/git/trees/516e837ceda5e62b403fb4cdbdee4820cd6795bb"
+      },
+      "url": "https://api.github.com/repos/maxwellito/breaklock/git/commits/32dc08ce7cbce90ad8f2fbafda37340a592deadc",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/maxwellito/breaklock/commits/32dc08ce7cbce90ad8f2fbafda37340a592deadc",
+    "html_url": "https://github.com/maxwellito/breaklock/commit/32dc08ce7cbce90ad8f2fbafda37340a592deadc",
+    "comments_url": "https://api.github.com/repos/maxwellito/breaklock/commits/32dc08ce7cbce90ad8f2fbafda37340a592deadc/comments",
+    "author": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "maxwellito",
+      "id": 1097232,
+      "node_id": "MDQ6VXNlcjEwOTcyMzI=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1097232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/maxwellito",
+      "html_url": "https://github.com/maxwellito",
+      "followers_url": "https://api.github.com/users/maxwellito/followers",
+      "following_url": "https://api.github.com/users/maxwellito/following{/other_user}",
+      "gists_url": "https://api.github.com/users/maxwellito/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/maxwellito/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/maxwellito/subscriptions",
+      "organizations_url": "https://api.github.com/users/maxwellito/orgs",
+      "repos_url": "https://api.github.com/users/maxwellito/repos",
+      "events_url": "https://api.github.com/users/maxwellito/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/maxwellito/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "84fbb6eee6ceb3c9c334e5c643202976c347b0e8",
+        "url": "https://api.github.com/repos/maxwellito/breaklock/commits/84fbb6eee6ceb3c9c334e5c643202976c347b0e8",
+        "html_url": "https://github.com/maxwellito/breaklock/commit/84fbb6eee6ceb3c9c334e5c643202976c347b0e8"
+      }
+    ]
+  }
+]
