@@ -82,6 +82,13 @@ export class Liveset extends LivesetFile {
           `No samples found in "${group.name}" sampleGroup of ${this.configUrl}`
         );
       }
+      if (group.samples.length > 4) {
+        throw new Error(
+          `Too many samples found in "${group.name}" sampleGroup of ${
+            this.configUrl
+          }`
+        );
+      }
       let exisitingSampleNames: string[] = [];
       for (let y = group.samples.length - 1; y >= 0; y--) {
         let sample = group.samples[y];
