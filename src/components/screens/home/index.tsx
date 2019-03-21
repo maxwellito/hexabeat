@@ -1,6 +1,5 @@
 import * as React from 'react';
-import store from 'store';
-import * as actions from 'actions/index';
+import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { Mpk, MpkKey } from 'services/MpkController';
 

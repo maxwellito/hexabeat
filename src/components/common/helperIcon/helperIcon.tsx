@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './helperIcon.css';
-import store from 'store';
+import { store } from 'store';
 
 export interface HelperIconProps {
   index: number;

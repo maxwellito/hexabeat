@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import store from 'store';
+import { store } from 'store';
 
 import { Home } from 'components/screens/home';
 import { Playground } from 'components/screens/playground';

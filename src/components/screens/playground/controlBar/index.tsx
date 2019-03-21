@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Mpk, MpkKey } from 'services/MpkController';
-import store from 'store';
+import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
-import * as actions from 'actions/index';
 import { MiniMPK } from 'components/common/minimpk';
 
 export interface ControlBarProps {}

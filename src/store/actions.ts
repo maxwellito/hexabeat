@@ -1,12 +1,12 @@
-import { HelpAction } from 'reducers/help';
-import { LivesetsAction } from 'reducers/livesets';
-import { BpmAction } from 'reducers/session/bpm';
-import { CurrentBitAction } from 'reducers/session/currentBit';
-import { GitRepositoriesAction } from 'reducers/session/gitRepositories';
-import { LivesetAction } from 'reducers/session/liveset';
-import { SelectedTrackAction } from 'reducers/session/selectedTrack';
-import { TracksAction } from '../reducers/session/tracks';
-import { VolumeAction } from 'reducers/session/volume';
+import { HelpAction } from './reducers/help';
+import { LivesetsAction } from './reducers/livesets';
+import { BpmAction } from './reducers/session/bpm';
+import { CurrentBitAction } from './reducers/session/currentBit';
+import { GitRepositoriesAction } from './reducers/session/gitRepositories';
+import { LivesetAction } from './reducers/session/liveset';
+import { SelectedTrackAction } from './reducers/session/selectedTrack';
+import { TracksAction } from './reducers/session/tracks';
+import { VolumeAction } from './reducers/session/volume';
 
 import { RepositoryCollection } from 'models/GitRepository';
 import { Liveset } from 'models/Liveset';

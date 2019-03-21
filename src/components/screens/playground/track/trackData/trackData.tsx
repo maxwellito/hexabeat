@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './trackData.css';
-import store from 'store';
+import { store } from 'store';
 
 const lineLength = 16;
 
