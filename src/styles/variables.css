@@ -1,12 +1,11 @@
 :root {
-
   --shade-base: #000;
 
   --shade-dark: #111;
   --shade: #444;
   --shade-light: #fff;
 
-  --shade-active-on: #ff0;
+  --shade-active-on: #f6c408;
 
   --space: 2px;
   --half-box-size: 12px;

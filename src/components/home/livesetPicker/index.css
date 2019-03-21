@@ -8,19 +8,19 @@
 .liveset-item {
   display: inline-grid;
   width: 280px;
-  grid-template-columns: auto 20px auto;
+  grid-template-columns: 7ch auto;
   grid-template-rows: 32px 60px 100px;
   grid-template-areas:
-    'title title title'
-    'meta_1 . meta_2'
-    'description description description';
+    'title title'
+    'meta_1 meta_2'
+    'description description';
   margin-right: 1rem;
   padding-top: 0.5rem;
   border-top: 5px solid transparent;
 }
 
 .liveset-item.active {
-  border-top-color: red;
+  border-top-color: var(--shade-active-on);
 }
 
 .liveset-item-title {
