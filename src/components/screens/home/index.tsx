@@ -1,18 +1,13 @@
 import * as React from 'react';
-import { Mpk, MpkKey } from 'services/MpkController';
-// import { List } from '../list/List';
-// import { TrackComponent } from '../track/track';
-// import { SequenceCraftr } from '../sequenceCraftr/SequenceCraftr';
-import './index.css';
-// import { setCurrentBit } from '../../actions';
-// import store from 'store';
 import store from 'store';
-import { Liveset } from 'models/Liveset';
 import * as actions from 'actions/index';
+import { Liveset } from 'models/Liveset';
+import { Mpk, MpkKey } from 'services/MpkController';
 
+import { MiniMPK } from 'components/common/minimpk';
 import { LivesetPicker } from './LivesetPicker';
 
-// import { MiniMPK } from '../controllbar/minimpk/MiniMPK';
+import './index.css';
 
 export interface HomeProps {}
 
@@ -93,7 +88,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
         <div />
         <div />
         <div />
-        <div />
+        <div>
+          <MiniMPK />
+        </div>
         <div />
         <div />
         <div />

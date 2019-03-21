@@ -1,15 +1,19 @@
 import * as React from 'react';
-import { Mpk } from 'services/MpkController';
-import { List, ListItem } from '../list/List';
 import store from 'store';
-import { Repository } from 'models/GitRepository';
-import sequencers from 'services/sequencers';
-import './SequenceCraftr.css';
-import { Sequencer } from 'models/Sequencer';
-import { TrackData } from 'components/track/trackData/trackData';
-import { AlgoListItem, AlgoListItemProps } from '../list/items/AlgoListItem';
 
+import { Repository } from 'models/GitRepository';
+import { Sequencer } from 'models/Sequencer';
+import sequencers from 'services/sequencers';
+import { Mpk } from 'services/MpkController';
+import { TrackData } from 'components/track/trackData/trackData';
+import { List, ListItem } from 'components/list/List';
+import {
+  AlgoListItem,
+  AlgoListItemProps
+} from 'components/list/items/AlgoListItem';
 import { HelperIcon } from 'components/common/helperIcon/helperIcon';
+
+import './SequenceCraftr.css';
 
 export interface SequenceCraftrProps {}
 

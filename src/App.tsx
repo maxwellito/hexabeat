@@ -1,17 +1,18 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import store from 'store';
-import { Home } from './components/home/index';
-// import { TiledLines } from './components/useless/tiledLines'
+
+import { Home } from 'components/screens/home';
 import { Playground } from 'components/screens/playground';
 
 interface AppState {
   livesetReady: boolean;
 }
+
 /**
- * Fun times:
- *
- * <TiledLines gap={18} width={800} height={500} />
+ * Root component
+ * Switch between screen depending on the
+ * app store.
  */
 export class App extends React.Component<any, AppState> {
   constructor(props: any) {

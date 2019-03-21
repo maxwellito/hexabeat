@@ -3,23 +3,23 @@ import { Mpk, MpkKey } from 'services/MpkController';
 import store from 'store';
 import { Liveset } from 'models/Liveset';
 import * as actions from 'actions/index';
-import { ControlBar } from './controlBar';
+import { MiniMPK } from 'components/common/minimpk';
 
-export interface PlaygroundProps {}
+export interface ControlBarProps {}
 
-export interface PlaygroundState {}
+export interface ControlBarState {}
 
 /**
- * Playground component
+ * ControlBar component
  *
  * Components:
  * - LivesetPicker
  * - LivesetUploader
  * - LivesetStart
  */
-export class Playground extends React.Component<
-  PlaygroundProps,
-  PlaygroundState
+export class ControlBar extends React.Component<
+  ControlBarProps,
+  ControlBarState
 > {
   drapPos = 0;
 
@@ -33,7 +33,7 @@ export class Playground extends React.Component<
     // }
   });
 
-  constructor(props: PlaygroundProps) {
+  constructor(props: ControlBarProps) {
     super(props);
     this.state = {};
     // Mpk.takeControl({
@@ -47,9 +47,8 @@ export class Playground extends React.Component<
 
   render() {
     return (
-      <div className='container'>
-        <ControlBar />
-        Welcome
+      <div>
+        <MiniMPK />
       </div>
     );
   }
