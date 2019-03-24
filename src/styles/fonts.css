@@ -1,75 +1,168 @@
 @font-face {
-  font-family: "MusicIcons";
-  src: url("./MusicIcons.eot");
-  src: url("./MusicIcons.eot?#iefix") format("embedded-opentype"),
-        url("./MusicIcons.woff") format("woff"),
-        url("./MusicIcons.ttf") format("truetype");
+  font-family: 'MusicIcons';
+  src: url('../public/fonts/MusicIcons.eot');
+  src: url('../public/fonts/MusicIcons.eot?#iefix') format('embedded-opentype'),
+    url('../public/fonts/MusicIcons.woff') format('woff'),
+    url('../public/fonts/MusicIcons.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: "MusicIcons";
-    src: url("./MusicIcons.svg#MusicIcons") format("svg");
-  }
-}
-
-[class^="icon-"]:before, [class*=" icon-"]:before,
-[class^="icon-"]:after, [class*=" icon-"]:after {   
+[class^='icon-']:before,
+[class*=' icon-']:before,
+[class^='icon-']:after,
+[class*=' icon-']:after {
   font-family: MusicIcons;
-        font-size: 20px;
-font-style: normal;
-margin-left: 20px;
+  font-style: normal;
 }
 
-.icon-accordion:before { content: "\f100"; }
-.icon-acoustic-guitar:before { content: "\f101"; }
-.icon-amplifier:before { content: "\f102"; }
-.icon-bagpipes:before { content: "\f103"; }
-.icon-balalaika:before { content: "\f104"; }
-.icon-banjo:before { content: "\f105"; }
-.icon-bell:before { content: "\f106"; }
-.icon-cabasa:before { content: "\f107"; }
-.icon-chimes:before { content: "\f108"; }
-.icon-clave:before { content: "\f109"; }
-.icon-conga:before { content: "\f10a"; }
-.icon-cymbals:before { content: "\f10b"; }
-.icon-cymbals-1:before { content: "\f10c"; }
-.icon-djembe:before { content: "\f10d"; }
-.icon-djembe-1:before { content: "\f10e"; }
-.icon-domra:before { content: "\f10f"; }
-.icon-drum:before { content: "\f110"; }
-.icon-drum-1:before { content: "\f111"; }
-.icon-drum-set:before { content: "\f112"; }
-.icon-drumsticks:before { content: "\f113"; }
-.icon-electric-guitar:before { content: "\f114"; }
-.icon-electric-guitar-1:before { content: "\f115"; }
-.icon-flute:before { content: "\f116"; }
-.icon-flute-1:before { content: "\f117"; }
-.icon-flute-2:before { content: "\f118"; }
-.icon-french-horn:before { content: "\f119"; }
-.icon-harmonica:before { content: "\f11a"; }
-.icon-harp:before { content: "\f11b"; }
-.icon-keyboard:before { content: "\f11c"; }
-.icon-keytar:before { content: "\f11d"; }
-.icon-maracas:before { content: "\f11e"; }
-.icon-metronome:before { content: "\f11f"; }
-.icon-microphone:before { content: "\f120"; }
-.icon-mixer:before { content: "\f121"; }
-.icon-pedal:before { content: "\f122"; }
-.icon-percussion:before { content: "\f123"; }
-.icon-piano:before { content: "\f124"; }
-.icon-saxophone:before { content: "\f125"; }
-.icon-sitar:before { content: "\f126"; }
-.icon-stand:before { content: "\f127"; }
-.icon-synthesizer:before { content: "\f128"; }
-.icon-tambourine:before { content: "\f129"; }
-.icon-triangle:before { content: "\f12a"; }
-.icon-trumpet:before { content: "\f12b"; }
-.icon-tuning-fork:before { content: "\f12c"; }
-.icon-turntable:before { content: "\f12d"; }
-.icon-ukelele:before { content: "\f12e"; }
-.icon-violin:before { content: "\f12f"; }
-.icon-violin-1:before { content: "\f130"; }
-.icon-xylophone:before { content: "\f131"; }
+.icon-accordion:before {
+  content: '\f100';
+}
+.icon-acoustic-guitar:before {
+  content: '\f101';
+}
+.icon-amplifier:before {
+  content: '\f102';
+}
+.icon-bagpipes:before {
+  content: '\f103';
+}
+.icon-balalaika:before {
+  content: '\f104';
+}
+.icon-banjo:before {
+  content: '\f105';
+}
+.icon-bell:before {
+  content: '\f106';
+}
+.icon-cabasa:before {
+  content: '\f107';
+}
+.icon-chimes:before {
+  content: '\f108';
+}
+.icon-clave:before {
+  content: '\f109';
+}
+.icon-conga:before {
+  content: '\f10a';
+}
+.icon-cymbals:before {
+  content: '\f10b';
+}
+.icon-cymbals-1:before {
+  content: '\f10c';
+}
+.icon-djembe:before {
+  content: '\f10d';
+}
+.icon-djembe-1:before {
+  content: '\f10e';
+}
+.icon-domra:before {
+  content: '\f10f';
+}
+.icon-drum:before {
+  content: '\f110';
+}
+.icon-drum-1:before {
+  content: '\f111';
+}
+.icon-drum-set:before {
+  content: '\f112';
+}
+.icon-drumsticks:before {
+  content: '\f113';
+}
+.icon-electric-guitar:before {
+  content: '\f114';
+}
+.icon-electric-guitar-1:before {
+  content: '\f115';
+}
+.icon-flute:before {
+  content: '\f116';
+}
+.icon-flute-1:before {
+  content: '\f117';
+}
+.icon-flute-2:before {
+  content: '\f118';
+}
+.icon-french-horn:before {
+  content: '\f119';
+}
+.icon-harmonica:before {
+  content: '\f11a';
+}
+.icon-harp:before {
+  content: '\f11b';
+}
+.icon-keyboard:before {
+  content: '\f11c';
+}
+.icon-keytar:before {
+  content: '\f11d';
+}
+.icon-maracas:before {
+  content: '\f11e';
+}
+.icon-metronome:before {
+  content: '\f11f';
+}
+.icon-microphone:before {
+  content: '\f120';
+}
+.icon-mixer:before {
+  content: '\f121';
+}
+.icon-pedal:before {
+  content: '\f122';
+}
+.icon-percussion:before {
+  content: '\f123';
+}
+.icon-piano:before {
+  content: '\f124';
+}
+.icon-saxophone:before {
+  content: '\f125';
+}
+.icon-sitar:before {
+  content: '\f126';
+}
+.icon-stand:before {
+  content: '\f127';
+}
+.icon-synthesizer:before {
+  content: '\f128';
+}
+.icon-tambourine:before {
+  content: '\f129';
+}
+.icon-triangle:before {
+  content: '\f12a';
+}
+.icon-trumpet:before {
+  content: '\f12b';
+}
+.icon-tuning-fork:before {
+  content: '\f12c';
+}
+.icon-turntable:before {
+  content: '\f12d';
+}
+.icon-ukelele:before {
+  content: '\f12e';
+}
+.icon-violin:before {
+  content: '\f12f';
+}
+.icon-violin-1:before {
+  content: '\f130';
+}
+.icon-xylophone:before {
+  content: '\f131';
+}
