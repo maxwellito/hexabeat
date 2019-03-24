@@ -1,0 +1,78 @@
+@import '~/styles/variables.css';
+
+.picker {
+  display: flex;
+  overflow: hidden;
+}
+
+.picker-wrap-top,
+.picker-wrap-bottom {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  height: 50%;
+}
+.picker-wrap-top {
+  justify-content: flex-end;
+}
+.picker-wrap-bottom {
+  justify-content: flex-start;
+}
+
+.picker-item {
+  margin: 0.35em 0;
+  position: relative;
+  color: var(--shade-light);
+}
+
+.up .picker-item.active {
+  animation: 0.2s goUp;
+}
+.down .picker-item.active {
+  animation: 0.2s goDown;
+}
+
+.picker-item-title {
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.2;
+  display: inline-block;
+  white-space: nowrap;
+}
+.picker-item-subtitle {
+  font-size: 0.75em;
+  margin: 0;
+  line-height: 1.2;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+.picker-item.active {
+  font-size: 1.5em;
+}
+.picker-item.active .picker-item-title {
+  color: var(--shade-dark);
+  background-color: var(--shade-light);
+  padding: 0.125em 0.25em;
+}
+.picker-item.active .picker-item-subtitle {
+  /* opacity: .75; */
+}
+
+@keyframes goLeft {
+  from {
+    left: 0.5em;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes goRight {
+  from {
+    left: -0.5em;
+  }
+  to {
+    left: 0;
+  }
+}
