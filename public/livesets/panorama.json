@@ -13,7 +13,7 @@
   "sampleGroups": [
     {
       "name": "Drumkit",
-      "icon": "drum",
+      "icon": "drum-1",
       "samples": [
         { "name": "kik/001", "url": "tr808/CH.WAV" },
         { "name": "kik/002", "url": "tr808/CL.WAV" }
@@ -21,7 +21,7 @@
     },
     {
       "name": "Clap",
-      "icon": "hands",
+      "icon": "tambourine",
       "samples": [
         { "name": "clp/001", "url": "tr808/CY2500.WAV" },
         { "name": "clp/002", "url": "tr808/HC00.WAV" },
