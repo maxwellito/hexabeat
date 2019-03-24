@@ -29,6 +29,11 @@ body {
   text-transform: uppercase;
   line-height: 1.2;
 
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   animation: looped 2s linear infinite;
 }
 
