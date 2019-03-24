@@ -3,6 +3,9 @@ import { Mpk, MpkKey } from 'services/MpkController';
 import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { ControlBar } from './controlBar';
+import { TrackGenerator } from './trackGenerator';
+
+import { IconHelper } from 'components/useless/icon-helper';
 
 export interface PlaygroundProps {}
 
@@ -46,8 +49,10 @@ export class Playground extends React.Component<
 
   render() {
     return (
-      <div className='container'>
+      <div>
         <ControlBar />
+        <TrackGenerator />
+        {/* <IconHelper /> */}
         Welcome
       </div>
     );
