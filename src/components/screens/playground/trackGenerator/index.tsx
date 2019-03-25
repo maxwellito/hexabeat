@@ -8,6 +8,8 @@ import { Picker } from 'components/picker';
 
 import { SampleGroup } from 'models/Liveset';
 
+import './index.css';
+
 export interface TrackGeneratorProps {}
 
 export interface TrackGeneratorState {
@@ -83,13 +85,34 @@ export interface TrackGeneratorItemProps {
 export class TrackGeneratorItem extends React.Component<
   TrackGeneratorItemProps
 > {
+  oo = this.ooListener.bind(this);
+  ooo = false;
+  ooListener() {
+    this.ooo = !this.ooo;
+    this.setState({});
+  }
   render() {
     let { item } = this.props;
+    let classes = ['track-generator-item'];
+
+    if (this.props.isActive) {
+      classes.push('active');
+    }
+    if (this.ooo) {
+      classes.push('active selected');
+    }
 
     return (
-      <div>
-        <span className={'icon-' + item.icon} />
-        {item.name}
+      <div className={classes.join(' ')} onClick={this.oo}>
+        <div className='track-generator-item-icon'>
+          <span className={'icon-' + item.icon} />
+        </div>
+        <div className='track-generator-item-content'>
+          <div className='track-generator-item-title'>{item.name}</div>
+          <div className='track-generator-item-subtitle'>
+            {item.samples.length}
+          </div>
+        </div>
       </div>
     );
   }

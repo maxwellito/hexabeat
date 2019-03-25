@@ -1,0 +1,54 @@
+@import '~/styles/variables.css';
+
+.track-generator-item {
+  display: flex;
+  position: relative;
+  padding: var(--half-box-size);
+}
+
+.track-generator-item:after {
+  content: '';
+  position: absolute;
+  background-color: var(--shade-light);
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: top 0.2s, background-color 0.2s;
+}
+
+.track-generator-item.active,
+.track-generator-item:hover {
+  color: var(--shade-base);
+}
+.track-generator-item.active.selected:after,
+.track-generator-item.selected:hover:after {
+  background-color: var(--shade-active-on);
+}
+.track-generator-item.active:after,
+.track-generator-item:hover:after {
+  top: 0;
+}
+
+.track-generator-item-icon {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  padding: var(--space);
+  margin-right: var(--space);
+  line-height: 1;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.track-generator-item-content {
+  flex-grow: 1;
+}
+.track-generator-item-title {
+  display: block;
+}
+.track-generator-item-subtitle {
+  font-size: 0.75rem;
+  color: var(--shade);
+}

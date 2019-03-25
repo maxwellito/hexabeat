@@ -9,18 +9,18 @@
   display: inline-grid;
   width: 280px;
   grid-template-columns: 7ch auto;
-  grid-template-rows: 32px 60px 100px;
+  grid-template-rows: 32px 60px auto;
   grid-template-areas:
     'title title'
     'meta_1 meta_2'
     'description description';
   margin-right: 1rem;
-  padding-top: 0.5rem;
-  border-top: 5px solid transparent;
+  padding: var(--box-size);
 }
 
 .liveset-item.active {
-  border-top-color: var(--shade-active-on);
+  background-color: var(--shade-active-on);
+  color: var(--shade-base);
 }
 
 .liveset-item-title {
