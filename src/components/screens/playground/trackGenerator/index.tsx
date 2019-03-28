@@ -14,7 +14,8 @@ export interface TrackGeneratorProps {}
 
 export interface TrackGeneratorState {
   sampleGroups: SampleGroup[];
-  selectedGroup: number;
+  pickerIndex: number;
+  pickerIsSelected: boolean;
 }
 
 /**
@@ -46,17 +47,29 @@ export class TrackGenerator extends React.Component<
     super(props);
     let liveset = store.getState().session.liveset;
     this.state = {
-      sampleGroups: liveset ? liveset.sampleGroups : [],
-      selectedGroup: 0
+      sampleGroups: liveset
+        ? [
+            ...liveset.sampleGroups,
+            ...liveset.sampleGroups,
+            ...liveset.sampleGroups,
+            ...liveset.sampleGroups
+          ]
+        : [],
+      pickerIndex: 0,
+      pickerIsSelected: false
     };
 
     // Mpk.takeControl({
-    //   [MpkKey.nob1]: this.updatePos.bind(this)
+    //   [MpkKey.nob1]: this.updatePos.bind(this),
+    //   [MpkKey.pad1]: this.selectGroup.bind(this)
     // });
   }
 
   onUpdateListener(e: any) {
     console.log(e);
+    this.setState({
+      pickerIsSelected: true
+    });
   }
 
   componentWillUnmount() {
@@ -68,7 +81,8 @@ export class TrackGenerator extends React.Component<
       <div>
         <Picker
           data={this.state.sampleGroups}
-          index={this.state.selectedGroup}
+          index={this.state.pickerIndex}
+          isSelected={this.state.pickerIsSelected}
           component={TrackGeneratorItem}
           onUpdate={this.onUpdate}
         />
@@ -80,37 +94,38 @@ export class TrackGenerator extends React.Component<
 export interface TrackGeneratorItemProps {
   item: SampleGroup;
   isActive: boolean;
+  isSelected: boolean;
+  onSelect: (index: number) => void;
+  index: number;
 }
 
 export class TrackGeneratorItem extends React.Component<
   TrackGeneratorItemProps
 > {
-  oo = this.ooListener.bind(this);
-  ooo = false;
-  ooListener() {
-    this.ooo = !this.ooo;
-    this.setState({});
+  click = this.clickListener.bind(this);
+  clickListener() {
+    this.props.onSelect(this.props.index);
   }
   render() {
-    let { item } = this.props;
+    let { item, isActive, isSelected } = this.props;
     let classes = ['track-generator-item'];
 
-    if (this.props.isActive) {
+    if (isActive) {
       classes.push('active');
     }
-    if (this.ooo) {
+    if (isActive && isSelected) {
       classes.push('active selected');
     }
 
     return (
-      <div className={classes.join(' ')} onClick={this.oo}>
+      <div className={classes.join(' ')} onClick={this.click}>
         <div className='track-generator-item-icon'>
           <span className={'icon-' + item.icon} />
         </div>
         <div className='track-generator-item-content'>
           <div className='track-generator-item-title'>{item.name}</div>
           <div className='track-generator-item-subtitle'>
-            {item.samples.length}
+            0{item.samples.length}.TRK
           </div>
         </div>
       </div>

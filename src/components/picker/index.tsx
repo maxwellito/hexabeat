@@ -1,6 +1,15 @@
 /**
  * This is like a list, but landscape
  *
+ *
+ *
+ * Input:
+ *  parent node
+ *     position + isSelected
+ *  User click
+ *     [position + ]
+ *
+ *
  * Reserved classname: picker
  */
 
@@ -12,72 +21,57 @@ const WHEEL_STEP = 4;
 export interface PickerProps {
   data: any[];
   index: number;
+  isSelected: boolean;
   component?: any;
   onUpdate?: (newIndex: number) => void;
 }
 
-export interface PickerState {}
+export interface PickerState {
+  index: number;
+  isSelected: boolean;
+}
 
 export class Picker extends React.Component<PickerProps, PickerState> {
-  previousIndex: number = 0;
-  isScrollingDown: true;
-  wheelListener: (e: React.WheelEvent) => void;
+  selectListener = this.onSelect.bind(this);
   wheelAcc = 0;
   private myRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: PickerProps) {
     super(props);
     this.state = {
-      index: 0
+      index: 0,
+      isSelected: false
     };
-    this.wheelListener = this.onWheel.bind(this);
     this.myRef = React.createRef();
   }
 
-  onWheel(e: React.WheelEvent) {
-    // End event
-    e.stopPropagation();
-    e.preventDefault();
-
-    const Y = e.deltaY + e.deltaX;
-    let newIndex = this.props.index;
-    if (!Y) {
+  onSelect(index: number) {
+    if (index === this.state.index) {
       return;
     }
-    this.wheelAcc += Y > 0 ? 1 : -1;
-
-    if (this.wheelAcc >= WHEEL_STEP) {
-      newIndex += Math.floor(this.wheelAcc / WHEEL_STEP);
-      this.wheelAcc %= WHEEL_STEP;
-    } else if (this.wheelAcc <= -WHEEL_STEP) {
-      newIndex -= Math.floor(-this.wheelAcc / WHEEL_STEP);
-      this.wheelAcc = -(-this.wheelAcc % WHEEL_STEP);
-    } else {
-      return;
-    }
-
-    newIndex = Math.min(this.props.data.length - 1, Math.max(0, newIndex));
-    this.props.onUpdate(newIndex);
-  }
-
-  shouldComponentUpdate(nextProps: PickerProps) {
-    return (
-      nextProps.index !== this.props.index || nextProps.data !== this.props.data
-    );
+    this.setState({
+      index,
+      isSelected: true
+    });
+    this.props.onUpdate(index);
   }
 
   render() {
+    let { isSelected } = this.props;
     let items = this.props.data.map((item: any, index: number) => {
-      let isActive = index === this.props.index;
+      let isActive = index === this.state.index;
       return React.createElement(this.props.component, {
         item,
         isActive,
-        key: index
+        isSelected,
+        key: index,
+        index,
+        onSelect: this.selectListener
       });
     });
 
     return (
-      <div className='picker' onWheel={this.wheelListener}>
+      <div className='picker'>
         <div className={'picker-wrap'} ref={this.myRef}>
           {items}
         </div>
