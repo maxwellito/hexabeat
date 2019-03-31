@@ -54,7 +54,7 @@ Contains the control bar (general volume, BPM), track list, option to add track
 * **N4** : BPM
 * **N5** : Volume track
 
-b. Playground screen
+b. Track screen
 
 - **P1** : ESC - Blinking
 - **P4** : Delete track (double tap)

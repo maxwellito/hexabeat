@@ -75,6 +75,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
     theLS.loadAssets().then(
       () => {
         console.info('yay');
+        store.dispatch(actions.setBpm(120));
+        store.dispatch(actions.setCurrentBit(0));
+        store.dispatch(actions.setSelectedTrack(null));
+        store.dispatch(actions.setVolume(0.75));
         store.dispatch(actions.setLiveset(theLS));
       },
       e => console.warn

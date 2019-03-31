@@ -3,6 +3,9 @@ import { Mpk, MpkKey } from 'services/MpkController';
 import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { MiniMPK } from 'components/common/minimpk';
+import { BpmInput } from './bpmInput';
+import { PlayController } from './playController';
+import { VolumeInput } from './volumeInput';
 
 export interface ControlBarProps {}
 
@@ -47,6 +50,9 @@ export class ControlBar extends React.Component<
   render() {
     return (
       <div>
+        <PlayController />
+        <BpmInput />
+        <VolumeInput />
         <MiniMPK />
       </div>
     );
