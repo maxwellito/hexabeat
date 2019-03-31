@@ -27,6 +27,8 @@ export interface PickerProps {
 export class Picker extends React.Component<PickerProps> {
   wheelAcc = 0;
   currentIndex: number;
+  scrollTo: number;
+  scrollProcess: number;
   private myRef: React.RefObject<HTMLDivElement> = React.createRef();
 
   render() {
@@ -57,9 +59,33 @@ export class Picker extends React.Component<PickerProps> {
 
   componentDidUpdate() {
     let wrap = this.myRef.current;
-    if (wrap) {
-      let active: any = wrap.querySelector('.active');
-      wrap.scrollTo((active ? active.offsetLeft : 0) - 80, 0);
+    let active: any = wrap && wrap.querySelector('.active');
+    if (!active) {
+      return;
+    }
+
+    this.scrollTo = Math.max(0, active.offsetLeft - 80);
+    if (!this.scrollProcess) {
+      this.scroll();
+    }
+  }
+
+  scroll() {
+    let wrap = this.myRef.current;
+    let scrollLeft = wrap.scrollLeft;
+    let direction = this.scrollTo - scrollLeft < 0 ? -10 : 10;
+    console.log(this.scrollTo, scrollLeft, direction);
+
+    if (Math.abs(this.scrollTo - scrollLeft) < 10) {
+      wrap.scrollTo(this.scrollTo, 0);
+      this.scrollProcess = null;
+      return;
+    }
+    wrap.scrollTo(wrap.scrollLeft + direction, 0);
+    if (scrollLeft !== wrap.scrollLeft) {
+      this.scrollProcess = requestAnimationFrame(this.scroll.bind(this));
+    } else {
+      this.scrollProcess = null;
     }
   }
 }
