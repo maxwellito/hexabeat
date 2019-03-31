@@ -3,6 +3,7 @@ import { LivesetsAction } from './reducers/livesets';
 import { BpmAction } from './reducers/session/bpm';
 import { CurrentBitAction } from './reducers/session/currentBit';
 import { GitRepositoriesAction } from './reducers/session/gitRepositories';
+import { PlayingAction } from './reducers/session/isPlaying';
 import { LivesetAction } from './reducers/session/liveset';
 import { SelectedTrackAction } from './reducers/session/selectedTrack';
 import { TracksAction } from './reducers/session/tracks';
@@ -45,6 +46,14 @@ export const setGitRepositories = (
 ): GitRepositoriesAction => ({
   type: 'SET_REPOSITORIES_COLLECTION',
   collection
+});
+// session.isPlaying
+export const play = (value: boolean): PlayingAction => ({
+  type: 'IS_PLAYING',
+  value
+});
+export const togglePlaying = (): PlayingAction => ({
+  type: 'TOGGLE_PLAYING'
 });
 // session.liveset
 export const setLiveset = (value: Liveset): LivesetAction => ({
