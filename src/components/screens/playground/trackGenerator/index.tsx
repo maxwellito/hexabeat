@@ -33,7 +33,7 @@ export class TrackGenerator extends React.Component<
   drapPos = 0;
   onUpdate = this.onUpdateListener.bind(this);
 
-  unsubscribe = store.subscribe(() => {
+  unsubscribeStore = store.subscribe(() => {
     let sampleGroups = store.getState().session.liveset.sampleGroups;
     console.log('Samplegroups: ', sampleGroups);
     if (sampleGroups !== this.state.sampleGroups) {
@@ -41,6 +41,21 @@ export class TrackGenerator extends React.Component<
         sampleGroups: sampleGroups
       });
     }
+  });
+
+  unsubscribeMpk = Mpk.takeControl({
+    [MpkKey.nob1]: (diff: number) => {
+      this.drapPos += diff;
+      console.log(this.drapPos, Math.floor(this.drapPos / 5));
+      this.setState({
+        pickerIsSelected: false,
+        pickerIndex: Math.floor(this.drapPos / 5)
+      });
+    },
+    [MpkKey.pad1]: () =>
+      this.setState({
+        pickerIsSelected: true
+      })
   });
 
   constructor(props: TrackGeneratorProps) {
@@ -58,25 +73,22 @@ export class TrackGenerator extends React.Component<
       pickerIndex: 0,
       pickerIsSelected: false
     };
-
-    // Mpk.takeControl({
-    //   [MpkKey.nob1]: this.updatePos.bind(this),
-    //   [MpkKey.pad1]: this.selectGroup.bind(this)
-    // });
   }
 
-  onUpdateListener(e: any) {
-    console.log(e);
+  onUpdateListener(index: number) {
     this.setState({
+      pickerIndex: index,
       pickerIsSelected: true
     });
   }
 
   componentWillUnmount() {
-    this.unsubscribe();
+    this.unsubscribeStore();
+    this.unsubscribeMpk();
   }
 
   render() {
+    console.info(this.state.pickerIndex);
     return (
       <div>
         <Picker
@@ -125,7 +137,7 @@ export class TrackGeneratorItem extends React.Component<
         <div className='track-generator-item-content'>
           <div className='track-generator-item-title'>{item.name}</div>
           <div className='track-generator-item-subtitle'>
-            0{item.samples.length}.TRK
+            SMPL.0{item.samples.length}
           </div>
         </div>
       </div>

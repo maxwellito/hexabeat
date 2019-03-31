@@ -1,7 +1,8 @@
 @import '~/styles/variables.css';
 
 .picker {
-  overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 .picker-wrap {

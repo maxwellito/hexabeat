@@ -16,8 +16,6 @@
 import * as React from 'react';
 import './index.css';
 
-const WHEEL_STEP = 4;
-
 export interface PickerProps {
   data: any[];
   index: number;
@@ -26,56 +24,42 @@ export interface PickerProps {
   onUpdate?: (newIndex: number) => void;
 }
 
-export interface PickerState {
-  index: number;
-  isSelected: boolean;
-}
-
-export class Picker extends React.Component<PickerProps, PickerState> {
-  selectListener = this.onSelect.bind(this);
+export class Picker extends React.Component<PickerProps> {
   wheelAcc = 0;
-  private myRef: React.RefObject<HTMLDivElement>;
-
-  constructor(props: PickerProps) {
-    super(props);
-    this.state = {
-      index: 0,
-      isSelected: false
-    };
-    this.myRef = React.createRef();
-  }
-
-  onSelect(index: number) {
-    if (index === this.state.index) {
-      return;
-    }
-    this.setState({
-      index,
-      isSelected: true
-    });
-    this.props.onUpdate(index);
-  }
+  currentIndex: number;
+  private myRef: React.RefObject<HTMLDivElement> = React.createRef();
 
   render() {
+    let index = this.props.index,
+      dataLength = this.props.data.length,
+      currentIndex = Math.max(0, Math.min(dataLength - 1, index));
+    this.currentIndex = currentIndex;
+
     let { isSelected } = this.props;
     let items = this.props.data.map((item: any, index: number) => {
-      let isActive = index === this.state.index;
+      let isActive = index === currentIndex;
       return React.createElement(this.props.component, {
         item,
         isActive,
         isSelected,
         key: index,
         index,
-        onSelect: this.selectListener
+        onSelect: this.props.onUpdate
       });
     });
 
     return (
-      <div className='picker'>
-        <div className={'picker-wrap'} ref={this.myRef}>
-          {items}
-        </div>
+      <div className='picker' ref={this.myRef}>
+        <div className={'picker-wrap'}>{items}</div>
       </div>
     );
+  }
+
+  componentDidUpdate() {
+    let wrap = this.myRef.current;
+    if (wrap) {
+      let active: any = wrap.querySelector('.active');
+      wrap.scrollTo((active ? active.offsetLeft : 0) - 80, 0);
+    }
   }
 }
