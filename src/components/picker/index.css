@@ -5,6 +5,10 @@
   scrollbar-width: none;
 }
 
+.picker::-webkit-scrollbar {
+  display: none;
+}
+
 .picker-wrap {
   display: flex;
 }
