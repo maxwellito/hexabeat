@@ -110,6 +110,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   render() {
+    let onLoad;
+    if (this.state.isLoadingLivesetContent) {
+      onLoad = <span>LOADING...</span>;
+    }
     return (
       <div className='container'>
         <div />
@@ -150,6 +154,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
             component={LivesetItem}
             onUpdate={this.updateListener}
           />
+          {onLoad}
         </div>
       </div>
     );

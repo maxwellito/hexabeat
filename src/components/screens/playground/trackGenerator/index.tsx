@@ -53,11 +53,20 @@ export class TrackGenerator extends React.Component<
 
   takeControlMPK() {
     this.unsubscribeMpk = Mpk.takeControl({
+      // Select choice
       [MpkKey.nob1]: (diff: number) => {
         this.drapPos += diff;
         this.setState({
           pickerIsSelected: false,
           pickerIndex: Math.floor(this.drapPos / 5)
+        });
+      },
+      // Escape
+      [MpkKey.nob4]: (diff: number) => {
+        this.releaseControlMPK();
+        this.setState({
+          pickerIsSelected: false,
+          pickerIndex: 0
         });
       },
       [MpkKey.pad1]: () =>
