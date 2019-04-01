@@ -2,7 +2,7 @@ import * as React from 'react';
 import { store, actions } from 'store';
 import './index.css';
 
-const VOLUME_STEP = 1 / 32;
+export const VOLUME_STEP = 1 / 32;
 
 export interface VolumeInputState {
   value: number;
@@ -19,7 +19,6 @@ export class VolumeInput extends React.Component<any, VolumeInputState> {
   wheelListener = this.onWheel.bind(this);
   unsubscribe = store.subscribe(() => {
     let newVolume = store.getState().session.volume;
-    console.log('New session volume', newVolume);
     if (newVolume !== this.state.value) {
       this.setState({
         value: newVolume
@@ -29,7 +28,6 @@ export class VolumeInput extends React.Component<any, VolumeInputState> {
 
   constructor(props: any) {
     super(props);
-    console.log(store.getState());
     this.state = {
       value: store.getState().session.volume
     };

@@ -5,6 +5,7 @@
   position: relative;
   padding: var(--half-box-size);
   clip-path: var(--cut-shape);
+  margin-right: var(--space);
 }
 
 .track-generator-item-icon {

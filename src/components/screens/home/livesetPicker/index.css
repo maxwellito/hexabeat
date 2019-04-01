@@ -9,7 +9,7 @@
     'title title'
     'meta_1 meta_2'
     'description description';
-  margin-right: 1rem;
+  margin-right: var(--space);
   padding: var(--box-size);
   clip-path: var(--cut-shape);
 }

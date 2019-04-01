@@ -11,7 +11,6 @@ export function livesets(
 ): Liveset[] {
   switch (action.type) {
     case 'ADD_LIVESET':
-      console.info(state, action.liveset);
       return [...state, action.liveset];
     case 'REMOVE_LIVESET':
       state.splice(state.indexOf(action.liveset), 1);

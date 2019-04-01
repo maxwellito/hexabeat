@@ -37,8 +37,6 @@ export class Picker extends React.Component<PickerProps> {
       currentIndex = Math.max(0, Math.min(dataLength - 1, index));
     this.currentIndex = currentIndex;
 
-    console.warn(index);
-
     let { isSelected } = this.props;
     let items = this.props.data.map((item: any, index: number) => {
       let isActive = index === currentIndex;
@@ -76,7 +74,6 @@ export class Picker extends React.Component<PickerProps> {
     let wrap = this.myRef.current;
     let scrollLeft = wrap.scrollLeft;
     let direction = this.scrollTo - scrollLeft < 0 ? -10 : 10;
-    console.log(this.scrollTo, scrollLeft, direction);
 
     if (Math.abs(this.scrollTo - scrollLeft) < 10) {
       wrap.scrollTo(this.scrollTo, 0);

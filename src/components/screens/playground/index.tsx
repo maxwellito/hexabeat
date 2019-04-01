@@ -4,6 +4,8 @@ import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
 import { TrackGenerator } from './trackGenerator';
 
+import { VOLUME_STEP } from './controlBar/volumeInput';
+
 export interface PlaygroundProps {}
 
 export interface PlaygroundState {
@@ -85,12 +87,14 @@ export class Playground extends React.Component<
       if (!track) {
         return;
       }
-      track.volume += diff;
+      track.volume += diff > 0 ? VOLUME_STEP : -VOLUME_STEP;
     },
 
     // Session volume
     [MpkKey.nob3]: (diff: number) => {
-      const newVol = store.getState().session.volume + diff;
+      const newVol =
+        store.getState().session.volume +
+        (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
       store.dispatch(actions.setVolume(newVol));
     },
     // Session BPM

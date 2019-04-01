@@ -52,11 +52,9 @@ export class TrackGenerator extends React.Component<
   });
 
   takeControlMPK() {
-    console.error('OUPS');
     this.unsubscribeMpk = Mpk.takeControl({
       [MpkKey.nob1]: (diff: number) => {
         this.drapPos += diff;
-        console.log(this.drapPos, Math.floor(this.drapPos / 5));
         this.setState({
           pickerIsSelected: false,
           pickerIndex: Math.floor(this.drapPos / 5)
@@ -106,7 +104,6 @@ export class TrackGenerator extends React.Component<
   }
 
   render() {
-    console.info(this.state.pickerIndex);
     return (
       <div>
         <Picker

@@ -453,6 +453,7 @@ const introAnimStack: number[][] = [
 
 export let Mpk = new MpkController();
 
+//# TO REMOVE: I'm sewious
 Mpk.takeControl({
   [MpkKey.pad1]: (s: boolean) => console.log('A : PAD1', s),
   [MpkKey.nob1]: (v: number) => console.log('A : NOB1', v),

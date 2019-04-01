@@ -12,8 +12,10 @@ import './index.css';
 export interface HomeProps {}
 
 export interface HomeState {
-  step: number;
   livesets: Liveset[];
+  isLoadingLivesetContent: boolean;
+  pickerIndex: number;
+  pickerIsSelected: boolean;
 }
 
 /**
@@ -27,63 +29,84 @@ export interface HomeState {
 export class Home extends React.Component<HomeProps, HomeState> {
   drapPos = 0;
 
-  unsubscribe = store.subscribe(() => {
+  startLoad = this.startLoadListener.bind(this);
+  updateListener = this.onUpdate.bind(this);
+
+  unsubscribeStore = store.subscribe(() => {
     let newLivesets = store.getState().livesets;
-    console.log('Hello', newLivesets);
     if (newLivesets !== this.state.livesets) {
       this.setState({
         livesets: [...newLivesets, null]
       });
     }
   });
-
-  startLoad = this.startLoadListener.bind(this);
+  unsubscribeMpk = Mpk.takeControl({
+    [MpkKey.pad1]: this.startLoad,
+    [MpkKey.nob1]: this.updatePos.bind(this)
+  });
 
   constructor(props: HomeProps) {
     super(props);
     this.state = {
-      step: 0,
-      livesets: store.getState().livesets
+      livesets: store.getState().livesets,
+      isLoadingLivesetContent: false,
+      pickerIndex: 0,
+      pickerIsSelected: false
     };
-    Mpk.takeControl({
-      [MpkKey.nob1]: this.updatePos.bind(this)
-    });
   }
 
-  componentWillUnmount() {
-    this.unsubscribe();
+  disconnect() {
+    this.unsubscribeStore();
+    this.unsubscribeMpk();
   }
 
   updatePos(rel: number) {
     this.drapPos += rel;
-    const step = Math.floor(this.drapPos / 5);
-    if (step === this.state.step) {
+    const pickerIndex = Math.floor(this.drapPos / 5);
+    if (pickerIndex === this.state.pickerIndex) {
       return;
     }
-    console.log(step);
     this.setState({
-      step
+      pickerIndex
     });
   }
 
-  startLoadListener(index: number) {
-    const theLS = this.state.livesets[index];
-    console.log(index, theLS);
-    if (!theLS) {
+  onUpdate(index: number) {
+    this.setState({
+      pickerIndex: index
+    });
+    this.startLoadListener();
+  }
+
+  startLoadListener() {
+    const { livesets, pickerIndex } = this.state;
+    const theLS = livesets[pickerIndex];
+    if (!theLS || this.state.isLoadingLivesetContent) {
       return;
     }
 
-    theLS.loadAssets().then(
-      () => {
-        console.info('yay');
-        store.dispatch(actions.setBpm(120));
-        store.dispatch(actions.setCurrentBit(0));
-        store.dispatch(actions.setSelectedTrack(null));
-        store.dispatch(actions.setVolume(0.75));
-        store.dispatch(actions.setLiveset(theLS));
-      },
-      e => console.warn
-    );
+    this.setState({
+      isLoadingLivesetContent: true,
+      pickerIsSelected: true
+    });
+
+    setTimeout(() => {
+      theLS.loadAssets().then(
+        () => {
+          console.info('LIVESET LOADED');
+          this.disconnect();
+          store.dispatch(actions.setBpm(120));
+          store.dispatch(actions.setCurrentBit(0));
+          store.dispatch(actions.setSelectedTrack(null));
+          store.dispatch(actions.setVolume(0.75));
+          store.dispatch(actions.setLiveset(theLS));
+        },
+        e => {
+          console.warn(e);
+          this.setState({ isLoadingLivesetContent: false });
+        }
+      );
+    }, 1000);
   }
 
   render() {
@@ -122,10 +145,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <p>//// PROVIDE ON-BOARDING HELP ////</p>
           <Picker
             data={this.state.livesets}
-            index={this.state.step}
-            isSelected={false}
+            index={this.state.pickerIndex}
+            isSelected={this.state.pickerIsSelected}
             component={LivesetItem}
-            onUpdate={this.startLoad}
+            onUpdate={this.updateListener}
           />
         </div>
       </div>
