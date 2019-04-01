@@ -1,10 +1,5 @@
 @import '~styles/variables.css';
 
-.liveset-picker {
-  position: relative;
-  vertical-align: top;
-}
-
 .liveset-item {
   display: inline-grid;
   width: 280px;
@@ -16,11 +11,7 @@
     'description description';
   margin-right: 1rem;
   padding: var(--box-size);
-}
-
-.liveset-item.active {
-  background-color: var(--shade-active-on);
-  color: var(--shade-base);
+  clip-path: var(--cut-shape);
 }
 
 .liveset-item-title {

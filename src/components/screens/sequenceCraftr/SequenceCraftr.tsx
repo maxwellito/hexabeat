@@ -5,7 +5,7 @@ import { Repository } from 'models/GitRepository';
 import { Sequencer } from 'models/Sequencer';
 import sequencers from 'services/sequencers';
 import { Mpk } from 'services/MpkController';
-import { TrackData } from '../track/trackData/trackData';
+import { TrackData } from 'components/screens/playground/track/trackData/trackData';
 import { List, ListItem } from 'components/list/List';
 import {
   AlgoListItem,

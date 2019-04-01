@@ -11,4 +11,12 @@
   --half-box-size: 12px;
   --box-size: 25px;
   --track-size: 52px;
+
+  --cut-shape: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - var(--half-box-size)),
+    calc(100% - var(--half-box-size)) 100%,
+    0% 100%
+  );
 }

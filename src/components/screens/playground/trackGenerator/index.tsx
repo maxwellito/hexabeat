@@ -132,13 +132,13 @@ export interface TrackGeneratorItemProps {
 export class TrackGeneratorItem extends React.Component<
   TrackGeneratorItemProps
 > {
-  click = this.clickListener.bind(this);
-  clickListener() {
+  clickListener = this.onClick.bind(this);
+  onClick() {
     this.props.onSelect(this.props.index);
   }
   render() {
     let { item, isActive, isSelected } = this.props;
-    let classes = ['track-generator-item'];
+    let classes = ['track-generator-item', 'picker-item'];
 
     if (isActive) {
       classes.push('active');
@@ -148,7 +148,7 @@ export class TrackGeneratorItem extends React.Component<
     }
 
     return (
-      <div className={classes.join(' ')} onClick={this.click}>
+      <div className={classes.join(' ')} onClick={this.clickListener}>
         <div className='track-generator-item-icon'>
           <span className={'icon-' + item.icon} />
         </div>

@@ -2,9 +2,10 @@ import * as React from 'react';
 import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { Mpk, MpkKey } from 'services/MpkController';
+import { Picker } from 'components/picker';
 
 import { MiniMPK } from 'components/common/minimpk';
-import { LivesetPicker } from './LivesetPicker';
+import { LivesetItem } from './LivesetPicker';
 
 import './index.css';
 
@@ -31,7 +32,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
     console.log('Hello', newLivesets);
     if (newLivesets !== this.state.livesets) {
       this.setState({
-        livesets: newLivesets
+        livesets: [...newLivesets, null]
       });
     }
   });
@@ -119,10 +120,12 @@ export class Home extends React.Component<HomeProps, HomeState> {
         </div>
         <div className='content'>
           <p>//// PROVIDE ON-BOARDING HELP ////</p>
-          <LivesetPicker
-            livesets={this.state.livesets}
-            selectedIndex={this.state.step}
-            onChange={this.startLoad}
+          <Picker
+            data={this.state.livesets}
+            index={this.state.step}
+            isSelected={false}
+            component={LivesetItem}
+            onUpdate={this.startLoad}
           />
         </div>
       </div>

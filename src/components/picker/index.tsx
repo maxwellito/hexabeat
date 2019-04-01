@@ -10,7 +10,7 @@
  *     [position + ]
  *
  *
- * Reserved classname: picker
+ * Reserved classname: picker and pickeritem
  */
 
 import * as React from 'react';
@@ -36,6 +36,8 @@ export class Picker extends React.Component<PickerProps> {
       dataLength = this.props.data.length,
       currentIndex = Math.max(0, Math.min(dataLength - 1, index));
     this.currentIndex = currentIndex;
+
+    console.warn(index);
 
     let { isSelected } = this.props;
     let items = this.props.data.map((item: any, index: number) => {

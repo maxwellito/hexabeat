@@ -4,18 +4,7 @@
   display: flex;
   position: relative;
   padding: var(--half-box-size);
-}
-.track-generator-item.active,
-.track-generator-item:hover {
-  color: var(--shade-base);
-  background-color: var(--shade-light);
-}
-.track-generator-item.selected,
-.track-generator-item.selected:hover {
-  background-color: var(--shade-active-on);
-
-  animation: flash 0.2s;
-  animation-fill-mode: forwards;
+  clip-path: var(--cut-shape);
 }
 
 .track-generator-item-icon {
@@ -37,22 +26,4 @@
 .track-generator-item-subtitle {
   font-size: 0.75rem;
   color: var(--shade);
-}
-
-@keyframes flash {
-  0% {
-    background-color: var(--shade-active-on);
-  }
-  25% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: var(--shade-active-on);
-  }
-  75% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: var(--shade-active-on);
-  }
 }
