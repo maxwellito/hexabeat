@@ -40,10 +40,24 @@ export class PlayController extends React.Component<any, PlayControllerState> {
   }
 
   render() {
-    const label = this.state.isPlaying ? '>' : '||';
+    const stack = []; //this.state.isPlaying ? '>' : '||';
+    if (this.state.isPlaying) {
+      stack.push(<line x1='4' y1='2' x2='4' y2='14' />);
+      stack.push(<line x1='12' y1='2' x2='12' y2='14' />);
+    } else {
+      stack.push(<polygon points='3,3 14,8 3,13 ' />);
+    }
     return (
-      <div className='playcontroller' onClick={this.clickListener}>
-        <span>{label}</span>
+      <div
+        className='controlbar-item playcontroller'
+        onClick={this.clickListener}
+      >
+        <svg
+          className='playcontroller-icon controlbar-item-content'
+          viewBox='0 0 16 16'
+        >
+          {stack}
+        </svg>
       </div>
     );
   }

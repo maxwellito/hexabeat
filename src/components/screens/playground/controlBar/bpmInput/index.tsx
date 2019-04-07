@@ -45,10 +45,15 @@ export class BpmInput extends React.Component<any, BpmInputState> {
   }
 
   render() {
+    let extraO;
+    if (this.state.value < 100) {
+      extraO = <span className='controlbar-item-content-off'>0</span>;
+    }
     return (
-      <div className='bpminput' onWheel={this.wheelListener}>
-        <span>BPM</span>
-        <span>{this.state.value}</span>
+      <div className='controlbar-item' onWheel={this.wheelListener}>
+        <div className='controlbar-item-title'>BPM</div>
+        {extraO}
+        <span className='controlbar-item-content'>{this.state.value}</span>
       </div>
     );
   }

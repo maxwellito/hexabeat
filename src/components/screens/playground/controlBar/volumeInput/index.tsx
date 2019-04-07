@@ -50,14 +50,18 @@ export class VolumeInput extends React.Component<any, VolumeInputState> {
 
   render() {
     let height = Math.round((this.state.value || 0) * 100) + '%';
+    let displayValue = this.state.value.toFixed(2).substr(2);
+    let extraO;
+    if (this.state.value === 1) {
+      displayValue = '100';
+    } else {
+      extraO = <span className='controlbar-item-content-off'>0</span>;
+    }
     return (
-      <div className='volumeinput' onWheel={this.wheelListener}>
-        <div className='volumeinput-wrap'>
-          <div className='volumeinput-content' style={{ height: height }} />
-        </div>
-        <span className='volumeinput-label'>
-          {this.state.value.toFixed(2).substr(2)}
-        </span>
+      <div className='controlbar-item' onWheel={this.wheelListener}>
+        <div className='controlbar-item-title'>Volume</div>
+        {extraO}
+        <span className='controlbar-item-content'>{displayValue}</span>
       </div>
     );
   }

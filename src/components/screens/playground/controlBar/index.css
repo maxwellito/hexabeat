@@ -1,0 +1,29 @@
+@import '~styles/variables.css';
+
+.controlbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--box-size);
+}
+
+.controlbar-item {
+  width: 4rem;
+  padding: var(--half-box-size);
+  background-color: var(--shade-dark);
+  margin-left: var(--space);
+  line-height: 1;
+}
+
+.controlbar-item-title {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.controlbar-item-content,
+.controlbar-item-content-off {
+  font-size: 2rem;
+}
+.controlbar-item-content-off {
+  color: var(--shade);
+}

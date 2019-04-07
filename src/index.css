@@ -65,3 +65,28 @@ h6 {
   border-color: var(--primary);
   box-shadow: 0 0 var(--border-width) var(--primary);
 }
+
+.stripped {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 4.99%,
+    transparent 5%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 54.99%,
+    transparent 55%,
+    transparent 100%
+  );
+  background-size: 8px 8px;
+  animation: moveStrip 2s linear infinite;
+}
+
+@keyframes moveStrip {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 8px;
+  }
+}

@@ -1,0 +1,20 @@
+.playcontroller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: var(--cut-shape);
+}
+
+.playcontroller-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.playcontroller-icon line {
+  stroke-width: 4px;
+  stroke: var(--shade-light);
+}
+
+.playcontroller-icon polygon {
+  fill: var(--shade-light);
+}
