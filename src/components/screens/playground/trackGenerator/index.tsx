@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { store } from 'store';
+import { store, actions } from 'store';
 import { Mpk, MpkKey } from 'services/MpkController';
 import { Picker } from 'components/picker';
 import { SampleGroup } from 'models/Liveset';
+import Track from 'models/Track';
 
 import './index.css';
 
@@ -61,18 +62,20 @@ export class TrackGenerator extends React.Component<
           pickerIndex: Math.floor(this.drapPos / 5)
         });
       },
+      [MpkKey.pad1]: () => {
+        this.setState({
+          pickerIsSelected: true
+        });
+        this.addTrack(this.state.pickerIndex);
+      },
       // Escape
-      [MpkKey.nob4]: (diff: number) => {
+      [MpkKey.pad4]: () => {
         this.releaseControlMPK();
         this.setState({
           pickerIsSelected: false,
           pickerIndex: 0
         });
-      },
-      [MpkKey.pad1]: () =>
-        this.setState({
-          pickerIsSelected: true
-        })
+      }
     });
   }
 
@@ -105,11 +108,17 @@ export class TrackGenerator extends React.Component<
       pickerIndex: index,
       pickerIsSelected: true
     });
+    this.addTrack(index);
   }
 
   componentWillUnmount() {
     this.unsubscribeStore();
     this.releaseControlMPK();
+  }
+
+  addTrack(index: number) {
+    let tr = new Track(this.state.sampleGroups[index]);
+    store.dispatch(actions.addTrack(tr));
   }
 
   render() {

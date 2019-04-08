@@ -24,6 +24,7 @@ export class TrackData extends React.Component<TrackDataProps, TrackDataState> {
     this.state = {
       currentPos: 0
     };
+    console.log(props);
     store.subscribe(() => {
       this.setState({
         currentPos: store.getState().session.currentBit

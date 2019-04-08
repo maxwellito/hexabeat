@@ -1,5 +1,4 @@
-@import '../../../styles/variables.css';
-
+@import '~styles/variables.css';
 
 .track-label {
   display: inline-block;

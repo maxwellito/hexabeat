@@ -1,4 +1,4 @@
-@import '../../styles/variables.css';
+@import '~styles/variables.css';
 
 .track {
   display: flex;
@@ -8,11 +8,9 @@
   margin: auto;
 }
 
-
-
 .track-bloc {
   opacity: 0;
-  animation: flashIn .2s;
+  animation: flashIn 0.2s;
   animation-fill-mode: both;
   vertical-align: top;
   min-width: 4rem;
@@ -20,7 +18,7 @@
   padding-bottom: var(--space);
   border-bottom-width: var(--space);
   border-bottom-style: solid;
-  border-bottom-color: var(--shade); 
+  border-bottom-color: var(--shade);
   margin: 1rem 0;
 }
 .track-bloc + .track-bloc {
@@ -38,9 +36,9 @@
   content: attr(data-title);
   color: var(--shade);
   background-color: var(--shade-base);
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: bold;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .track-bloc-title {
@@ -55,24 +53,47 @@
   line-height: 2.75rem;
 }
 
-
-
-.track > *:nth-child(1) { animation-delay: 0s; }
-.track > *:nth-child(2) { animation-delay: .1s; }
-.track > *:nth-child(3) { animation-delay: .2s; }
-.track > *:nth-child(4) { animation-delay: .3s; }
-.track > *:nth-child(5) { animation-delay: .4s; }
-
+.track > *:nth-child(1) {
+  animation-delay: 0s;
+}
+.track > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.track > *:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.track > *:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.track > *:nth-child(5) {
+  animation-delay: 0.4s;
+}
 
 @keyframes flashIn {
-  0%   {opacity: 0;}
+  0% {
+    opacity: 0;
+  }
 
-  10%   {opacity: 0;}
-  11%   {opacity: 1;}
-  12%   {opacity: 0;}
-  13%   {opacity: 1;}
-  14%   {opacity: 0;}
+  10% {
+    opacity: 0;
+  }
+  11% {
+    opacity: 1;
+  }
+  12% {
+    opacity: 0;
+  }
+  13% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 0;
+  }
 
-  0%   {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

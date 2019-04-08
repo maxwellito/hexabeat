@@ -3,6 +3,9 @@ import { Mpk, MpkKey } from 'services/MpkController';
 import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
 import { TrackGenerator } from './trackGenerator';
+import { TrackComponent } from './track/track';
+
+import Track from 'models/Track';
 
 import { VOLUME_STEP } from './controlBar/volumeInput';
 
@@ -10,6 +13,7 @@ export interface PlaygroundProps {}
 
 export interface PlaygroundState {
   activeTrack: number;
+  tracks: Track[];
 }
 
 /**
@@ -27,13 +31,13 @@ export class Playground extends React.Component<
   drapPos = 0;
 
   unsubscribeStore = store.subscribe(() => {
-    // let newLivesets = store.getState().livesets;
-    // console.log('Hello', newLivesets);
-    // if (newLivesets !== this.state.livesets) {
-    //   this.setState({
-    //     livesets: newLivesets
-    //   });
-    // }
+    let newTracks = store.getState().session.tracks;
+    console.log('Hello', newTracks);
+    if (newTracks !== this.state.tracks) {
+      this.setState({
+        tracks: newTracks
+      });
+    }
   });
 
   /** 
@@ -107,7 +111,8 @@ export class Playground extends React.Component<
   constructor(props: PlaygroundProps) {
     super(props);
     this.state = {
-      activeTrack: 0
+      activeTrack: 0,
+      tracks: store.getState().session.tracks
     };
   }
 
@@ -117,9 +122,13 @@ export class Playground extends React.Component<
   }
 
   render() {
+    let trks = this.state.tracks.map((t, i) => {
+      return <TrackComponent index={i} data={t} active={false} key={i} />;
+    });
     return (
       <div>
         <ControlBar />
+        {trks}
         <TrackGenerator />
         {/* <IconHelper /> */}
         Welcome
