@@ -34,6 +34,11 @@ body {
   -o-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   animation: looped 2s linear infinite;
 }
 
