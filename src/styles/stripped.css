@@ -1,0 +1,138 @@
+.stripped {
+  background-size: 8px 8px;
+  background-position: bottom;
+  /* animation: moveStrip 2s linear infinite; */
+}
+
+.stripped.x0 {
+  background-color: transparent;
+}
+.stripped.x1 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 4.99%,
+    transparent 5%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 54.99%,
+    transparent 55%,
+    transparent 100%
+  );
+}
+.stripped.x2 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 9.99%,
+    transparent 10%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 59.99%,
+    transparent 60%,
+    transparent 100%
+  );
+}
+.stripped.x3 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 14.99%,
+    transparent 15%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 64.99%,
+    transparent 65%,
+    transparent 100%
+  );
+}
+.stripped.x4 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 19.99%,
+    transparent 20%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 69.99%,
+    transparent 70%,
+    transparent 100%
+  );
+}
+.stripped.x5 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 24.99%,
+    transparent 25%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 74.99%,
+    transparent 75%,
+    transparent 100%
+  );
+}
+.stripped.x6 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 29.99%,
+    transparent 30%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 79.99%,
+    transparent 80%,
+    transparent 100%
+  );
+}
+.stripped.x7 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 34.99%,
+    transparent 35%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 84.99%,
+    transparent 85%,
+    transparent 100%
+  );
+}
+.stripped.x8 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 39.99%,
+    transparent 40%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 89.99%,
+    transparent 90%,
+    transparent 100%
+  );
+}
+.stripped.x9 {
+  background-image: linear-gradient(
+    45deg,
+    currentColor 0%,
+    currentColor 44.99%,
+    transparent 45%,
+    transparent 49.99%,
+    currentColor 50%,
+    currentColor 94.99%,
+    transparent 95%,
+    transparent 100%
+  );
+}
+.stripped.x10 {
+  background-color: currentColor;
+}
+
+@keyframes moveStrip {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 8px;
+  }
+}
