@@ -3,7 +3,7 @@ import { SampleGroup } from './Liveset';
 export default class Track {
   isEnabled = true; // boolean, is the track enabled
   isPlaying = true; // boolean, is the track currently playing
-  volume = 1; // number, between 0 and 1
+  volume = 0.99; // number, between 0 and 1
   phaser: number; // number, between 0 and 1
   sampleGroup: SampleGroup; // SampleGroup, sample set it's attached to
   layers: number; // number, layer length [1~4]
@@ -11,6 +11,7 @@ export default class Track {
   partitions: boolean[][]; // boolean[16][], grid data
   labels: string[]; // List of labels
   name: string;
+  _ = 1;
 
   audioCtx = new AudioContext();
 
@@ -37,6 +38,14 @@ export default class Track {
       !1,
       !1
     ]);
+  }
+
+  /**
+   * Set track volume
+   * @param volume Volume to set (between 0 and 1)
+   */
+  setVolume(volume: number) {
+    this.volume = Math.max(0, Math.min(1, volume));
   }
 
   playAt(index: number) {
