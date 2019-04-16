@@ -2,6 +2,15 @@
 @import './styles/fonts.css';
 @import './styles/stripped.css';
 
+/**
+ Reserved modifier names:
+
+ - on
+ - off
+ - active
+ 
+ */
+
 @font-face {
   font-family: 'Space Mono';
   font-weight: 400;

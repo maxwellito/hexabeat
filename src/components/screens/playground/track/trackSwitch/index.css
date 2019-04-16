@@ -1,0 +1,51 @@
+@import '~styles/variables.css';
+
+.track-switch {
+  display: flex;
+  display: inline-grid;
+  grid-gap: var(--space);
+  grid-template-columns: 5rem var(--box-size);
+  grid-template-rows: var(--box-size);
+  grid-template-areas:
+    'state enabled'
+    'state solo';
+  color: var(--shade);
+}
+
+.track-switch-state {
+  grid-area: state;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.track-switch-state.on {
+  background-color: var(--shade);
+}
+
+.track-switch-pill {
+  padding: 0.125em 0.375em;
+  color: var(--shade-light);
+}
+.track-switch-state.standby .track-switch-pill {
+  background-color: var(--shade-dark);
+  border: 1px solid currentColor;
+}
+
+.track-switch-button {
+  text-align: center;
+  box-sizing: border-box;
+  line-height: var(--box-size);
+  cursor: pointer;
+}
+.track-switch-button.on:hover,
+.track-switch-button.off:hover {
+  background-color: var(--shade);
+}
+.track-switch-button.on {
+  background-color: var(--shade-light);
+  color: var(--shade-base);
+}
+.track-switch-button.off {
+  background-color: var(--shade-dark);
+  color: var(--shade-light);
+}

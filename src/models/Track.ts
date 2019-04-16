@@ -1,17 +1,18 @@
 import { SampleGroup } from './Liveset';
 
 export default class Track {
+  name: string;
+
   isEnabled = true; // boolean, is the track enabled
   isPlaying = true; // boolean, is the track currently playing
   volume = 0.99; // number, between 0 and 1
   phaser: number; // number, between 0 and 1
-  sampleGroup: SampleGroup; // SampleGroup, sample set it's attached to
-  layers: number; // number, layer length [1~4]
-  samples: AudioBufferSourceNode[] = []; // number[],
   partitions: boolean[][]; // boolean[16][], grid data
+
+  sampleGroup: SampleGroup; // SampleGroup, sample set it's attached to
+  samples: AudioBufferSourceNode[] = []; // number[],
+  layers: number; // number, layer length [1~4]
   labels: string[]; // List of labels
-  name: string;
-  _ = 1;
 
   audioCtx = new AudioContext();
 

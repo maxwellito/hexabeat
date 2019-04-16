@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TrackIndex } from './trackIndex/trackIndex';
 import { LevelMeter } from './levelMeter/levelMeter';
 import { TrackLabel } from './trackLabel/trackLabel';
+import { TrackSwitch } from './trackSwitch';
 import { TrackData } from './trackData/trackData';
 import './track.css';
 import Track from 'models/Track';
@@ -30,7 +31,7 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
   constructor(props: TrackProps) {
     super(props);
     this.state = {
-      _: props.data._
+      _: 1
     };
   }
   volumeUpdateListener = this.onVolumeUpdate.bind(this);
@@ -38,6 +39,24 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     console.info(this.props.data.volume, newVolume);
     let track = this.props.data;
     track.setVolume(newVolume);
+    this.setState({
+      _: this.state._ + 1
+    });
+  }
+
+  soloToggleListener = this.onSoloToggle.bind(this);
+  onSoloToggle() {
+    let track = this.props.data;
+    track.isEnabled = !track.isEnabled;
+    this.setState({
+      _: this.state._ + 1
+    });
+  }
+
+  switchToggleListener = this.onSwitchToggle.bind(this);
+  onSwitchToggle() {
+    let track = this.props.data;
+    track.isPlaying = !track.isPlaying;
     this.setState({
       _: this.state._ + 1
     });
@@ -69,6 +88,15 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
           data-title='sampleset'
         >
           <div className='track-label'>{track.name}</div>
+        </div>
+        <div className='track-bloc' data-title='state'>
+          <TrackSwitch
+            isEnabled={track.isEnabled}
+            isPlaying={track.isPlaying}
+            isSolo={track.isEnabled}
+            toggleState={this.switchToggleListener}
+            toggleSolo={this.soloToggleListener}
+          />
         </div>
         <div className='track-bloc' data-title='volume'>
           <LevelMeter
