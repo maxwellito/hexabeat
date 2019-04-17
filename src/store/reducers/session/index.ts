@@ -6,6 +6,7 @@ import { gitRepositories } from './gitRepositories';
 import { isPlaying } from './isPlaying';
 import { liveset } from './liveset';
 import { selectedTrack } from './selectedTrack';
+import { soloTrack } from './soloTrack';
 import { tracks } from './tracks';
 import { volume } from './volume';
 
@@ -16,6 +17,7 @@ export default combineReducers({
   isPlaying,
   liveset,
   selectedTrack,
+  soloTrack,
   tracks,
   volume
 });
