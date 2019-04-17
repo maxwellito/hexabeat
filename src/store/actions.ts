@@ -6,6 +6,7 @@ import { GitRepositoriesAction } from './reducers/session/gitRepositories';
 import { PlayingAction } from './reducers/session/isPlaying';
 import { LivesetAction } from './reducers/session/liveset';
 import { SelectedTrackAction } from './reducers/session/selectedTrack';
+import { SoloTrackAction } from './reducers/session/soloTrack';
 import { TracksAction } from './reducers/session/tracks';
 import { VolumeAction } from './reducers/session/volume';
 
@@ -68,8 +69,16 @@ export const setSelectedTrack = (index: number): SelectedTrackAction => ({
   type: 'SELECT_TRACK',
   value: index
 });
-export const releaseSelectedTrack = (): LivesetAction => ({
+export const releaseSelectedTrack = (): SelectedTrackAction => ({
   type: 'RELEASE_TRACK'
+});
+// session.soloTrack
+export const setSoloTrack = (value: Track): SoloTrackAction => ({
+  type: 'SET_SOLO_TRACK',
+  value
+});
+export const releaseSoloTrack = (): SoloTrackAction => ({
+  type: 'RELEASE_SOLO_TRACK'
 });
 // session.tracks
 export const setTrack = (tracks: Track[]): TracksAction => ({

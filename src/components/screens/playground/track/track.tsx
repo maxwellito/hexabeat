@@ -44,23 +44,6 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     });
   }
 
-  soloToggleListener = this.onSoloToggle.bind(this);
-  onSoloToggle() {
-    let track = this.props.data;
-    track.isEnabled = !track.isEnabled;
-    this.setState({
-      _: this.state._ + 1
-    });
-  }
-
-  switchToggleListener = this.onSwitchToggle.bind(this);
-  onSwitchToggle() {
-    let track = this.props.data;
-    track.isPlaying = !track.isPlaying;
-    this.setState({
-      _: this.state._ + 1
-    });
-  }
   // shouldComponentUpdate(props) {
   //   console.log('Should I update the track?');
   //   if (props.data._ !== this.state._) {
@@ -90,13 +73,7 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
           <div className='track-label'>{track.name}</div>
         </div>
         <div className='track-bloc' data-title='state'>
-          <TrackSwitch
-            isEnabled={track.isEnabled}
-            isPlaying={track.isPlaying}
-            isSolo={track.isEnabled}
-            toggleState={this.switchToggleListener}
-            toggleSolo={this.soloToggleListener}
-          />
+          <TrackSwitch track={track} />
         </div>
         <div className='track-bloc' data-title='volume'>
           <LevelMeter

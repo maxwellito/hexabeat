@@ -1,26 +1,69 @@
 import * as React from 'react';
 import './index.css';
+import Track from 'models/Track';
+import { store, actions } from 'store';
 
 export interface TrackSwitchProps {
-  isPlaying: boolean;
-  isEnabled: boolean;
-  isSolo: boolean;
-  toggleState?: () => void;
-  toggleSolo?: () => void;
+  track: Track;
 }
 
-export class TrackSwitch extends React.Component<TrackSwitchProps> {
-  render() {
-    let state, stateClass;
-    let { isPlaying, isEnabled, isSolo, toggleState, toggleSolo } = this.props;
-    if (isPlaying === isEnabled) {
-      stateClass = state = isPlaying ? 'on' : 'off';
+export interface TrackSwitchState {
+  currentSoloTrack?: Track;
+}
+
+export class TrackSwitch extends React.Component<
+  TrackSwitchProps,
+  TrackSwitchState
+> {
+  unsubscribeStore = store.subscribe(() => {
+    let soloTrack = store.getState().session.soloTrack;
+    if (soloTrack !== this.state.currentSoloTrack) {
+      this.setState({
+        currentSoloTrack: soloTrack
+      });
+    }
+  });
+
+  constructor(props: TrackSwitchProps) {
+    super(props);
+    this.state = {
+      currentSoloTrack: store.getState().session.soloTrack
+    };
+  }
+
+  statusToggle() {
+    let { track } = this.props;
+    track.isEnabled = !track.isEnabled;
+    this.setState(this.state);
+  }
+  statusToggleListener = this.statusToggle.bind(this);
+
+  soloToggle() {
+    let { track } = this.props;
+    let action;
+    if (track.isSolo) {
+      action = actions.releaseSoloTrack();
     } else {
-      state = '/OFF';
+      action = actions.setSoloTrack(track);
+    }
+    store.dispatch(action);
+  }
+  soloToggleListener = this.soloToggle.bind(this);
+
+  render() {
+    let { track } = this.props;
+    let soloTrack = this.state.currentSoloTrack;
+
+    let state, stateClass;
+    let isOn = (soloTrack === track || !soloTrack) && track.isEnabled;
+    if (track.isPlaying === isOn) {
+      stateClass = state = isOn ? 'on' : 'off';
+    } else {
+      state = isOn ? 'READY' : 'END';
       stateClass = 'standby stripped x1';
     }
-    let enabledState = isEnabled ? 'on' : 'off';
-    let soloState = isSolo ? 'on' : 'off';
+    let enabledState = track.isEnabled ? 'on' : 'off';
+    let soloState = track.isSolo ? 'on' : 'off';
     return (
       <div className='track-switch'>
         <div className={'track-switch-state ' + stateClass}>
@@ -28,13 +71,13 @@ export class TrackSwitch extends React.Component<TrackSwitchProps> {
         </div>
         <div
           className={'track-switch-button ' + enabledState}
-          onClick={toggleState}
+          onClick={this.statusToggleListener}
         >
           I
         </div>
         <div
           className={'track-switch-button ' + soloState}
-          onClick={toggleSolo}
+          onClick={this.soloToggleListener}
         >
           S
         </div>

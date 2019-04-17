@@ -2,7 +2,6 @@ import * as React from 'react';
 import './levelMeter.css';
 
 export interface LevelMeterProps {
-  active?: boolean;
   progress: number;
   onUpdate?: (newIndex: number) => void;
 }
@@ -18,11 +17,9 @@ export class LevelMeter extends React.Component<
   wheelListener = this.onWheel.bind(this);
   onWheel(e: React.WheelEvent) {
     // End event
-    // e.stopPropagation();
-    // e.preventDefault();
+    e.stopPropagation();
 
     let x = this.props.progress - e.deltaY * (1 / 32);
-    console.log(x);
     // this.setState({
     //   progress: x
     // });
@@ -50,7 +47,7 @@ export class LevelMeter extends React.Component<
     let stripSize = Math.floor(this.props.progress * 5) + 1;
 
     return (
-      <div className='level-meter' onWheel={this.wheelListener}>
+      <div className='level-meter' onWheelCapture={this.wheelListener}>
         <div className='level-meter-wrap'>
           <div
             className={'level-meter-content stripped x' + stripSize}

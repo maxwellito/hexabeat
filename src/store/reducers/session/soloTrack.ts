@@ -1,13 +1,13 @@
 import Track from 'models/Track';
 
-export interface soloTrackAction {
+export interface SoloTrackAction {
   type: string;
   value?: Track;
 }
 
 export function soloTrack(
   state: Track = null,
-  action?: soloTrackAction
+  action?: SoloTrackAction
 ): Track {
   switch (action.type) {
     case 'SET_SOLO_TRACK':
