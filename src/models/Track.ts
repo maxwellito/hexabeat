@@ -15,6 +15,10 @@ export default class Track {
   layers: number; // number, layer length [1~4]
   labels: string[]; // List of labels
 
+  selectedRepo = 0;
+  selectedCommit = 0;
+  selectedSequencer = 0;
+
   audioCtx = new AudioContext();
 
   constructor(set: SampleGroup) {

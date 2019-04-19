@@ -73,7 +73,7 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
 
     let editor;
     if (this.state.isEditorOn) {
-      editor = <SequenceCraftr />;
+      editor = <SequenceCraftr track={track} onValidation={this.viiListener} />;
     }
 
     return (

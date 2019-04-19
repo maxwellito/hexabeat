@@ -14,22 +14,17 @@ import {
 import { HelperIcon } from 'components/common/helperIcon/helperIcon';
 
 import './SequenceCraftr.css';
+import Track from 'models/Track';
 
-export interface SequenceCraftrProps {}
-
-export interface SequenceCraftrState {
-  selectedRepo: number;
-  selectedCommit: number;
-  selectedSequencer: number;
+export interface SequenceCraftrProps {
+  track: Track;
+  onValidation: () => void;
 }
 
-export class SequenceCraftr extends React.Component<
-  SequenceCraftrProps,
-  SequenceCraftrState
-> {
-  updateRepoListener: (newIndex: number) => void;
-  updateCommitListener: (newIndex: number) => void;
-  updateSequencerListener: (newIndex: number) => void;
+export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
+  updateRepoListener = this.updateRepo.bind(this);
+  updateCommitListener = this.updateCommit.bind(this);
+  updateSequencerListener = this.updateSequencer.bind(this);
 
   repoCollection: Repository[] = [];
   repoCollectionList: ListItem[];
@@ -38,19 +33,8 @@ export class SequenceCraftr extends React.Component<
 
   constructor(props: SequenceCraftrProps) {
     super(props);
-    this.state = {
-      selectedRepo: 0,
-      selectedCommit: 0,
-      selectedSequencer: 0
-    };
-
-    this.updateRepoListener = this.updateRepo.bind(this);
-    this.updateCommitListener = this.updateCommit.bind(this);
-    this.updateSequencerListener = this.updateSequencer.bind(this);
 
     const repoCollection = store.getState().session.gitRepositories;
-    console.log(repoCollection);
-    debugger;
     this.repoCollectionList = [];
     repoCollection.forEach((value, name) => {
       this.repoCollection.push(value);
@@ -60,7 +44,6 @@ export class SequenceCraftr extends React.Component<
         subtitle: author
       });
     });
-
     Object.keys(sequencers).map(name => {
       this.sequencers.push(sequencers[name]);
       this.sequencersList.push({
@@ -74,22 +57,22 @@ export class SequenceCraftr extends React.Component<
   componentDidMount() {}
 
   updateRepo(newIndex: number) {
-    this.setState({
-      selectedRepo: newIndex,
-      selectedCommit: 0
-    });
+    let { track } = this.props;
+    track.selectedRepo = newIndex;
+    track.selectedCommit = 0;
+    this.setState({});
   }
 
   updateCommit(newIndex: number) {
-    this.setState({
-      selectedCommit: newIndex
-    });
+    let { track } = this.props;
+    track.selectedCommit = newIndex;
+    this.setState({});
   }
 
   updateSequencer(newIndex: number) {
-    this.setState({
-      selectedSequencer: newIndex
-    });
+    let { track } = this.props;
+    track.selectedSequencer = newIndex;
+    this.setState({});
   }
 
   componentWillUnmount() {
@@ -97,7 +80,8 @@ export class SequenceCraftr extends React.Component<
   }
 
   render() {
-    const selectedRepo = this.repoCollection[this.state.selectedRepo];
+    const { track } = this.props;
+    const selectedRepo = this.repoCollection[track.selectedRepo];
     const commitList = selectedRepo.commits.map(commit => {
       return {
         title: commit.hash,
@@ -106,26 +90,27 @@ export class SequenceCraftr extends React.Component<
     });
 
     // Calculate sequence
-    var SHA = selectedRepo.commits[this.state.selectedCommit];
-    var Algo = this.sequencers[this.state.selectedSequencer];
+    var SHA = selectedRepo.commits[track.selectedCommit];
+    var Algo = this.sequencers[track.selectedSequencer];
     var seq = Algo.algo(SHA, 2);
+    track.partitions = seq;
 
     return (
       <div className='sequence-craftr'>
         <div className='sequence-craftr-wrap'>
           <List
-            index={this.state.selectedRepo}
+            index={track.selectedRepo}
             data={this.repoCollectionList}
             onUpdate={this.updateRepoListener}
             ref='red'
           />
           <List
-            index={this.state.selectedCommit}
+            index={track.selectedCommit}
             data={commitList}
             onUpdate={this.updateCommitListener}
           />
           <List
-            index={this.state.selectedSequencer}
+            index={track.selectedSequencer}
             data={this.sequencersList}
             onUpdate={this.updateSequencerListener}
             component={AlgoListItem}
@@ -134,8 +119,8 @@ export class SequenceCraftr extends React.Component<
         <div>
           <TrackData data={seq} labels={['xyz', 'xxx']} />
         </div>
-        <HelperIcon index={1} type='nob' />
-        <HelperIcon index={3} type='pad' />
+        {/* <HelperIcon index={1} type='nob' />
+        <HelperIcon index={3} type='pad' /> */}
       </div>
     );
   }
