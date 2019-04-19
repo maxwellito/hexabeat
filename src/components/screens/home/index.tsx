@@ -99,6 +99,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           store.dispatch(actions.setCurrentBit(0));
           store.dispatch(actions.setSelectedTrack(null));
           store.dispatch(actions.setVolume(0.75));
+          store.dispatch(actions.setGitRepositories(theLS.repoData));
           store.dispatch(actions.setLiveset(theLS));
         },
         e => {

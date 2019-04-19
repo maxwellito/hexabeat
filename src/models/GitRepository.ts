@@ -1,6 +1,4 @@
-export interface RepositoryCollection {
-  [sourceName: string]: Repository
-}
+// export type RepositoryCollection = Map<string, Repository>;
 
 export interface Repository {
   name: string;

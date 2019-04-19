@@ -1,14 +1,15 @@
-import { RepositoryCollection } from 'models/GitRepository';
+// import { RepositoryCollection } from 'models/GitRepository';
+import { Repository } from 'models/GitRepository';
 
 export interface GitRepositoriesAction {
   type: string;
-  collection?: RepositoryCollection;
+  collection?: Map<string, Repository>;
 }
 
 export function gitRepositories(
-  state: RepositoryCollection = {},
+  state: Map<string, Repository> = new Map(),
   action: GitRepositoriesAction
-): RepositoryCollection {
+): Map<string, Repository> {
   switch (action.type) {
     case 'SET_REPOSITORIES_COLLECTION':
       return action.collection;

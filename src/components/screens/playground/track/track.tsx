@@ -4,6 +4,7 @@ import { LevelMeter } from './levelMeter/levelMeter';
 import { TrackLabel } from './trackLabel/trackLabel';
 import { TrackSwitch } from './trackSwitch';
 import { TrackData } from './trackData/trackData';
+import { SequenceCraftr } from 'components/screens/sequenceCraftr/SequenceCraftr';
 import './track.css';
 import Track from 'models/Track';
 
@@ -15,6 +16,7 @@ export interface TrackProps {
 
 export interface TrackState {
   _: number;
+  isEditorOn: boolean;
 }
 
 export class TrackComponent extends React.Component<TrackProps, TrackState> {
@@ -31,7 +33,8 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
   constructor(props: TrackProps) {
     super(props);
     this.state = {
-      _: 1
+      _: 1,
+      isEditorOn: false
     };
   }
   volumeUpdateListener = this.onVolumeUpdate.bind(this);
@@ -41,6 +44,13 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     track.setVolume(newVolume);
     this.setState({
       _: this.state._ + 1
+    });
+  }
+
+  viiListener = this.onVii.bind(this);
+  onVii(newVolume: number) {
+    this.setState({
+      isEditorOn: !this.state.isEditorOn
     });
   }
 
@@ -60,6 +70,11 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
 
     let { index } = this.props;
     let track = this.props.data;
+
+    let editor;
+    if (this.state.isEditorOn) {
+      editor = <SequenceCraftr />;
+    }
 
     return (
       <div className={classes.join(' ')}>
@@ -81,8 +96,13 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
             onUpdate={this.volumeUpdateListener}
           />
         </div>
-        <div className='track-bloc' data-title='sequence'>
+        <div
+          className='track-bloc'
+          data-title='sequence'
+          onClick={this.viiListener}
+        >
           <TrackData data={track.partitions} labels={track.labels} />
+          {editor}
         </div>
       </div>
     );

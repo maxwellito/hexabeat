@@ -10,7 +10,7 @@ import { SoloTrackAction } from './reducers/session/soloTrack';
 import { TracksAction } from './reducers/session/tracks';
 import { VolumeAction } from './reducers/session/volume';
 
-import { RepositoryCollection } from 'models/GitRepository';
+import { Repository } from 'models/GitRepository';
 import { Liveset } from 'models/Liveset';
 import Track from 'models/Track';
 
@@ -43,7 +43,7 @@ export const setCurrentBit = (index: number): CurrentBitAction => ({
 });
 // session.gitRepositories
 export const setGitRepositories = (
-  collection: RepositoryCollection
+  collection: Map<string, Repository>
 ): GitRepositoriesAction => ({
   type: 'SET_REPOSITORIES_COLLECTION',
   collection
