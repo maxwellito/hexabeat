@@ -19,17 +19,21 @@ export interface TrackDataState {
  * - `data`: boolean[][]
  */
 export class TrackData extends React.Component<TrackDataProps, TrackDataState> {
+  unsubscribe = store.subscribe(() => {
+    this.setState({
+      currentPos: store.getState().session.currentBit
+    });
+  });
+
   constructor(props: TrackDataProps) {
     super(props);
     this.state = {
       currentPos: 0
     };
-    console.log(props);
-    store.subscribe(() => {
-      this.setState({
-        currentPos: store.getState().session.currentBit
-      });
-    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {

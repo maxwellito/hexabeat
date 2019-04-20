@@ -92,7 +92,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
     // Calculate sequence
     var SHA = selectedRepo.commits[track.selectedCommit];
     var Algo = this.sequencers[track.selectedSequencer];
-    var seq = Algo.algo(SHA, 2);
+    var seq = Algo.algo(SHA, track.layers);
     track.partitions = seq;
 
     return (

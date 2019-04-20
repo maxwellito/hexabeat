@@ -5,6 +5,7 @@ import { App } from './App';
 import config from './config';
 import { Liveset } from 'models/Liveset';
 import { store, actions } from 'store';
+import { Machine } from 'models/Machine';
 
 import './index.css';
 
@@ -13,5 +14,6 @@ config.livesets.forEach(livesetFilePath => {
     store.dispatch(actions.addLiveset(liveset));
   });
 });
+new Machine();
 
 ReactDOM.render(<App />, document.getElementById('root'));

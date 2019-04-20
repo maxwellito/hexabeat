@@ -44,6 +44,8 @@ export default class Track {
       !1,
       !1
     ]);
+
+    set.samples.forEach(sample => this.addSample(sample.data));
   }
 
   /**
