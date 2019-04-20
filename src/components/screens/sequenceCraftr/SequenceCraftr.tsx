@@ -117,7 +117,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
           />
         </div>
         <div>
-          <TrackData data={seq} labels={['xyz', 'xxx']} />
+          <TrackData data={seq} labels={track.labels} />
         </div>
         {/* <HelperIcon index={1} type='nob' />
         <HelperIcon index={3} type='pad' /> */}

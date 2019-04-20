@@ -21,6 +21,9 @@
 .track-switch-state.on {
   background-color: var(--shade);
 }
+.track-switch-state.selected {
+  background-color: var(--shade-active-on);
+}
 
 .track-switch-pill {
   padding: 0.125em 0.375em;
@@ -29,6 +32,10 @@
 .track-switch-state.standby .track-switch-pill {
   background-color: var(--shade-dark);
   border: 1px solid currentColor;
+}
+.track-switch-state.selected .track-switch-pill {
+  color: var(--shade-base);
+  background-color: var(--shade-active-on);
 }
 
 .track-switch-button {

@@ -22,6 +22,10 @@ export class TrackSwitch extends React.Component<
         currentSoloTrack: soloTrack
       });
     }
+    let currentBit = store.getState().session.currentBit;
+    if (currentBit === 0) {
+      this.setState({});
+    }
   });
 
   constructor(props: TrackSwitchProps) {
@@ -58,10 +62,15 @@ export class TrackSwitch extends React.Component<
     let isOn = (soloTrack === track || !soloTrack) && track.isEnabled;
     if (track.isPlaying === isOn) {
       stateClass = state = isOn ? 'on' : 'off';
+      if (soloTrack === track) {
+        state = 'solo';
+        stateClass = 'selected';
+      }
     } else {
       state = isOn ? 'READY' : 'END';
       stateClass = 'standby stripped x1';
     }
+    console.log(state, stateClass);
     let enabledState = track.isEnabled ? 'on' : 'off';
     let soloState = track.isSolo ? 'on' : 'off';
     return (

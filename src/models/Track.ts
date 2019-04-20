@@ -6,7 +6,7 @@ export default class Track {
   isEnabled = true; // boolean, is the track enabled
   isPlaying = true; // boolean, is the track currently playing
   isSolo = false;
-  volume = 0.99; // number, between 0 and 1
+  volume = 1; // number, between 0 and 1
   phaser: number; // number, between 0 and 1
   partitions: boolean[][]; // boolean[16][], grid data
 
@@ -57,6 +57,12 @@ export default class Track {
   }
 
   playAt(index: number) {
+    if (index === 0) {
+      this.isPlaying = this.isEnabled;
+    }
+    if (!this.isPlaying) {
+      return;
+    }
     this.partitions.forEach((partition, pIndex) => {
       if (partition[index]) {
         let old = this.samples[pIndex];

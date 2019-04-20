@@ -45,7 +45,7 @@ export class PlayController extends React.Component<any, PlayControllerState> {
         className='controlbar-item playcontroller'
         onClick={this.clickListener}
       >
-        {this.state.isPlaying ? <ButtonPlay /> : <ButtonPause />}
+        {this.state.isPlaying ? <ButtonPause /> : <ButtonPlay />}
       </div>
     );
   }
