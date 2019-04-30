@@ -4,3 +4,6 @@ import * as actions from './actions';
 
 export const store = createStore(rootReducer);
 export { actions };
+
+//# Debug
+(<any>window).store = store;

@@ -82,7 +82,7 @@ export default class Track {
     this.layers = this.samples.length;
 
     return new Promise(resolve => {
-      this.audioCtx.decodeAudioData(audioFile, buffer => {
+      this.audioCtx.decodeAudioData(audioFile.slice(0), buffer => {
         source.buffer = buffer;
         source.connect(this.audioCtx.destination);
         resolve();
