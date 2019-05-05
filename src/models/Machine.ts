@@ -10,10 +10,7 @@ import Track from 'models/Track';
 export class Machine {
   session: any;
   isPlaying: boolean;
-  unsubscribe = store.subscribe(() => {
-    console.log('NEW SESSION UPDATE');
-    this.bump();
-  });
+  unsubscribe = store.subscribe(() => this.bump());
   nextKey: number;
 
   bump() {
@@ -52,7 +49,7 @@ export class Machine {
 
     let index = (this.session.currentBit + 17) % 16;
     this.session.tracks.forEach((trck: Track) => {
-      trck.playAt(index);
+      trck.playAt(index, this.session.volume);
     });
     store.dispatch(actions.setCurrentBit(index));
   }

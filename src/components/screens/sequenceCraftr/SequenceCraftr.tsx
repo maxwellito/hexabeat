@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { store } from 'store';
+import { actions, store } from 'store';
 
 import { Repository } from 'models/GitRepository';
 import { Sequencer } from 'models/Sequencer';
@@ -18,7 +18,6 @@ import Track from 'models/Track';
 
 export interface SequenceCraftrProps {
   track: Track;
-  onValidation: () => void;
 }
 
 export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
@@ -79,6 +78,11 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
     // window.removeEventListener('keyup', this.keyUpListener)
   }
 
+  viiListener = this.onVii.bind(this);
+  onVii(newVolume: number) {
+    store.dispatch(actions.releaseEditingTrack());
+  }
+
   render() {
     const { track } = this.props;
     const selectedRepo = this.repoCollection[track.selectedRepo];
@@ -96,7 +100,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
     track.partitions = seq;
 
     return (
-      <div className='sequence-craftr'>
+      <div className='sequence-craftr' onClick={this.viiListener}>
         <div className='sequence-craftr-wrap'>
           <List
             index={track.selectedRepo}

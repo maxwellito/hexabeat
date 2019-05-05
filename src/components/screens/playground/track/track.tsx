@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { actions, store } from 'store';
 import { TrackIndex } from './trackIndex/trackIndex';
 import { LevelMeter } from './levelMeter/levelMeter';
 import { TrackLabel } from './trackLabel/trackLabel';
 import { TrackSwitch } from './trackSwitch';
 import { TrackData } from './trackData/trackData';
-import { SequenceCraftr } from 'components/screens/sequenceCraftr/SequenceCraftr';
 import './track.css';
 import Track from 'models/Track';
 
@@ -49,9 +49,7 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
 
   viiListener = this.onVii.bind(this);
   onVii(newVolume: number) {
-    this.setState({
-      isEditorOn: !this.state.isEditorOn
-    });
+    store.dispatch(actions.setEditingTrack(this.props.data));
   }
 
   // shouldComponentUpdate(props) {
@@ -70,11 +68,6 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
 
     let { index } = this.props;
     let track = this.props.data;
-
-    let editor;
-    if (this.state.isEditorOn) {
-      editor = <SequenceCraftr track={track} onValidation={this.viiListener} />;
-    }
 
     return (
       <div className={classes.join(' ')}>
@@ -102,7 +95,6 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
           onClick={this.viiListener}
         >
           <TrackData data={track.partitions} labels={track.labels} />
-          {editor}
         </div>
       </div>
     );

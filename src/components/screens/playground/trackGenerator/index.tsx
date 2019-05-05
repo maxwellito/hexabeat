@@ -123,7 +123,7 @@ export class TrackGenerator extends React.Component<
 
   render() {
     return (
-      <div>
+      <div className='track'>
         <Picker
           data={this.state.sampleGroups}
           index={this.state.pickerIndex}

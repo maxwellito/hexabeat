@@ -2,6 +2,7 @@ import { HelpAction } from './reducers/help';
 import { LivesetsAction } from './reducers/livesets';
 import { BpmAction } from './reducers/session/bpm';
 import { CurrentBitAction } from './reducers/session/currentBit';
+import { EditingTrackAction } from './reducers/session/editingTrack';
 import { GitRepositoriesAction } from './reducers/session/gitRepositories';
 import { PlayingAction } from './reducers/session/isPlaying';
 import { LivesetAction } from './reducers/session/liveset';
@@ -40,6 +41,14 @@ export const setBpm = (value: number): BpmAction => ({
 export const setCurrentBit = (index: number): CurrentBitAction => ({
   type: 'SET_CURRECT_BIT',
   value: index
+});
+// session.editingTrack
+export const setEditingTrack = (value: Track): EditingTrackAction => ({
+  type: 'SET_EDITING_TRACK',
+  value
+});
+export const releaseEditingTrack = (): EditingTrackAction => ({
+  type: 'RELEASE_EDITING_TRACK'
 });
 // session.gitRepositories
 export const setGitRepositories = (

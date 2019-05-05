@@ -4,16 +4,19 @@ import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
 import { TrackGenerator } from './trackGenerator';
 import { TrackComponent } from './track/track';
+import { SequenceCraftr } from 'components/screens/sequenceCraftr/SequenceCraftr';
 
 import Track from 'models/Track';
 
 import { VOLUME_STEP } from './controlBar/volumeInput';
+import { editingTrack } from 'store/reducers/session/editingTrack';
 
 export interface PlaygroundProps {}
 
 export interface PlaygroundState {
   activeTrack: number;
   tracks: Track[];
+  editingTrack: Track;
 }
 
 /**
@@ -31,11 +34,14 @@ export class Playground extends React.Component<
   drapPos = 0;
 
   unsubscribeStore = store.subscribe(() => {
-    let newTracks = store.getState().session.tracks;
-    console.log('Hello', newTracks);
-    if (newTracks !== this.state.tracks) {
+    let { tracks, editingTrack } = store.getState().session;
+    if (
+      tracks !== this.state.tracks ||
+      editingTrack !== this.state.editingTrack
+    ) {
       this.setState({
-        tracks: newTracks
+        tracks,
+        editingTrack
       });
     }
   });
@@ -112,7 +118,8 @@ export class Playground extends React.Component<
     super(props);
     this.state = {
       activeTrack: 0,
-      tracks: store.getState().session.tracks
+      tracks: store.getState().session.tracks,
+      editingTrack: store.getState().session.editingTrack
     };
   }
 
@@ -125,13 +132,17 @@ export class Playground extends React.Component<
     let trks = this.state.tracks.map((t, i) => {
       return <TrackComponent index={i} data={t} active={false} key={i} />;
     });
+    let editor;
+    if (this.state.editingTrack) {
+      editor = <SequenceCraftr track={this.state.editingTrack} />;
+    }
     return (
       <div>
         <ControlBar />
         {trks}
         <TrackGenerator />
         {/* <IconHelper /> */}
-        Welcome
+        {editor}
       </div>
     );
   }

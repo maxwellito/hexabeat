@@ -20,6 +20,7 @@ export default class Track {
   selectedSequencer = 0;
 
   audioCtx = new AudioContext();
+  gain = this.audioCtx.createGain();
 
   constructor(set: SampleGroup) {
     this.sampleGroup = set;
@@ -54,9 +55,10 @@ export default class Track {
    */
   setVolume(volume: number) {
     this.volume = Math.max(0, Math.min(1, volume));
+    this.gain.gain.value = this.volume;
   }
 
-  playAt(index: number) {
+  playAt(index: number, masterVolume: number) {
     if (index === 0) {
       this.isPlaying = this.isEnabled;
     }
@@ -69,7 +71,8 @@ export default class Track {
         old.disconnect();
         let n = this.audioCtx.createBufferSource();
         n.buffer = old.buffer;
-        n.connect(this.audioCtx.destination);
+        this.gain.gain.value = this.volume * masterVolume;
+        n.connect(this.gain).connect(this.audioCtx.destination);
         this.samples[pIndex] = n;
         this.samples[pIndex].start(0);
       }
@@ -84,7 +87,7 @@ export default class Track {
     return new Promise(resolve => {
       this.audioCtx.decodeAudioData(audioFile.slice(0), buffer => {
         source.buffer = buffer;
-        source.connect(this.audioCtx.destination);
+        source.connect(this.gain).connect(this.audioCtx.destination);
         resolve();
       });
     });
