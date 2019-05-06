@@ -16,25 +16,16 @@ export interface TrackProps {
 
 export interface TrackState {
   _: number;
-  isEditorOn: boolean;
 }
 
 export class TrackComponent extends React.Component<TrackProps, TrackState> {
-  // unsubscribeStore = store.subscribe(() => {
-  //   let newTracks = store.getState().session.tracks;
-  //   console.log('Hello', newTracks);
-  //   if (newTracks !== this.state.tracks) {
-  //     this.setState({
-  //       tracks: newTracks
-  //     });
-  //   }
-  // });
-
   constructor(props: TrackProps) {
     super(props);
     this.state = {
-      _: 1,
-      isEditorOn: false
+      _: 0
+    };
+    this.props.data.updateListener = () => {
+      this.setState({});
     };
   }
   volumeUpdateListener = this.onVolumeUpdate.bind(this);
@@ -50,6 +41,11 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
   viiListener = this.onVii.bind(this);
   onVii(newVolume: number) {
     store.dispatch(actions.setEditingTrack(this.props.data));
+  }
+
+  componentWillUnmount() {
+    this.props.data.updateListener = null;
+    // this.unsubscribeStore();
   }
 
   // shouldComponentUpdate(props) {

@@ -22,6 +22,8 @@ export default class Track {
   audioCtx = new AudioContext();
   gain = this.audioCtx.createGain();
 
+  updateListener: () => void;
+
   constructor(set: SampleGroup) {
     this.sampleGroup = set;
     this.layers = set.samples.length;
@@ -56,6 +58,14 @@ export default class Track {
   setVolume(volume: number) {
     this.volume = Math.max(0, Math.min(1, volume));
     this.gain.gain.value = this.volume;
+    this.triggerUpdate();
+  }
+
+  triggerUpdate() {
+    if (!this.updateListener) {
+      return;
+    }
+    this.updateListener();
   }
 
   playAt(index: number, masterVolume: number) {

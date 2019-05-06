@@ -34,14 +34,16 @@ export class Playground extends React.Component<
   drapPos = 0;
 
   unsubscribeStore = store.subscribe(() => {
-    let { tracks, editingTrack } = store.getState().session;
+    let { tracks, editingTrack, selectedTrack } = store.getState().session;
     if (
       tracks !== this.state.tracks ||
-      editingTrack !== this.state.editingTrack
+      editingTrack !== this.state.editingTrack ||
+      selectedTrack !== this.state.activeTrack
     ) {
       this.setState({
         tracks,
-        editingTrack
+        editingTrack,
+        activeTrack: selectedTrack
       });
     }
   });
@@ -70,7 +72,14 @@ export class Playground extends React.Component<
       const newIndex = activeTrack === trackLength ? -1 : activeTrack;
       store.dispatch(actions.setSelectedTrack(newIndex));
     },
-    [MpkKey.nob7]: (diff: number) => {
+    [MpkKey.pad7]: (isPress: boolean) => {
+      if (!isPress) return;
+      const { tracks, selectedTrack } = store.getState().session;
+      const track = tracks[selectedTrack || 0];
+      if (!track) {
+        return;
+      }
+      store.dispatch(actions.setEditingTrack(track));
       // this.drapPos += diff;
       // console.log(this.drapPos, Math.floor(this.drapPos / 5));
       // this.setState({
@@ -83,21 +92,24 @@ export class Playground extends React.Component<
     [MpkKey.nob1]: (diff: number) => {
       const { activeTrack } = this.state;
       const trackLength = store.getState().session.tracks.length;
-      const newTrack = Math.max(0, Math.min(trackLength, activeTrack + diff));
+      const newTrack = Math.max(
+        0,
+        Math.min(trackLength - 1, activeTrack + diff)
+      );
       if (activeTrack !== newTrack) {
-        this.setState({
-          activeTrack: newTrack
-        });
+        store.dispatch(actions.setSelectedTrack(newTrack));
       }
     },
     // Volume track
     [MpkKey.nob5]: (diff: number) => {
       const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack];
+      const track = tracks[selectedTrack || 0];
       if (!track) {
         return;
       }
-      track.volume += diff > 0 ? VOLUME_STEP : -VOLUME_STEP;
+      const newVolume = track.volume + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+      console.log(selectedTrack, newVolume);
+      track.setVolume(newVolume);
     },
 
     // Session volume
@@ -130,7 +142,14 @@ export class Playground extends React.Component<
 
   render() {
     let trks = this.state.tracks.map((t, i) => {
-      return <TrackComponent index={i} data={t} active={false} key={i} />;
+      return (
+        <TrackComponent
+          index={i}
+          data={t}
+          active={this.state.activeTrack === i}
+          key={i}
+        />
+      );
     });
     let editor;
     if (this.state.editingTrack) {
