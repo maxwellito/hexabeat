@@ -11,7 +11,7 @@ export interface AlgoListItemProps extends ListItem {
 
 export class AlgoListItem extends React.Component<AlgoListItemProps> {
   render() {
-    let classes = ['list-item'];
+    let classes = ['list-item algo-list-item'];
 
     if (this.props.isActive) {
       classes.push('active');

@@ -8,7 +8,8 @@
   width: 500px;
 }
 
-.list-wrap-top, .list-wrap-bottom {
+.list-wrap-top,
+.list-wrap-bottom {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -29,10 +30,10 @@
 }
 
 .up .list-item.active {
-  animation: .2s goUp;
+  animation: 0.2s goUp;
 }
 .down .list-item.active {
-  animation: .2s goDown;
+  animation: 0.2s goDown;
 }
 
 .list-item-title {
@@ -43,34 +44,46 @@
   white-space: nowrap;
 }
 .list-item-subtitle {
-  font-size: .75em;
+  font-size: 0.75em;
   margin: 0;
   line-height: 1.2;
-  opacity: .5;
+  opacity: 0.5;
   white-space: nowrap;
 }
-
 
 .list-item.active {
   font-size: 1.5em;
 }
 .list-item.active .list-item-title {
-
   color: var(--shade-dark);
   background-color: var(--shade-light);
-  padding: .125em .25em;
+  padding: 0.125em 0.25em;
 }
 .list-item.active .list-item-subtitle {
   /* opacity: .75; */
 }
 
+.algo-list-item .list-item-title {
+  margin-left: 8px;
+}
+.algo-list-item .list-item-subtitle {
+  margin-left: 60px;
+}
 
 @keyframes goUp {
-  from {top: .5em;}
-  to   {top: 0;}
+  from {
+    top: 0.5em;
+  }
+  to {
+    top: 0;
+  }
 }
 
 @keyframes goDown {
-  from {top: -.5em;}
-  to   {top: 0;}
+  from {
+    top: -0.5em;
+  }
+  to {
+    top: 0;
+  }
 }

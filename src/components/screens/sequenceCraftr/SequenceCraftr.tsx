@@ -4,7 +4,7 @@ import { actions, store } from 'store';
 import { Repository } from 'models/GitRepository';
 import { Sequencer } from 'models/Sequencer';
 import sequencers from 'services/sequencers';
-import { Mpk } from 'services/MpkController';
+import { Mpk, MpkKey } from 'services/MpkController';
 import { TrackData } from 'components/screens/playground/track/trackData/trackData';
 import { List, ListItem } from 'components/list/List';
 import {
@@ -29,6 +29,26 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
   repoCollectionList: ListItem[];
   sequencers: Sequencer[] = [];
   sequencersList: AlgoListItemProps[] = [];
+
+  unsubscribeMpk = Mpk.takeControl({
+    [MpkKey.pad1]: (isPress: boolean) => {
+      if (isPress) {
+        this.viiListener();
+      }
+    },
+    [MpkKey.nob1]: (diff: number) => {
+      let { track } = this.props;
+      this.updateRepo(track.selectedRepo + diff);
+    },
+    [MpkKey.nob2]: (diff: number) => {
+      let { track } = this.props;
+      this.updateCommit(track.selectedCommit + diff);
+    },
+    [MpkKey.nob3]: (diff: number) => {
+      let { track } = this.props;
+      this.updateSequencer(track.selectedSequencer + diff);
+    }
+  });
 
   constructor(props: SequenceCraftrProps) {
     super(props);
@@ -57,6 +77,14 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
 
   updateRepo(newIndex: number) {
     let { track } = this.props;
+    newIndex = Math.min(
+      Math.max(0, newIndex),
+      this.repoCollectionList.length - 1
+    );
+    if (newIndex === track.selectedRepo) {
+      return;
+    }
+
     track.selectedRepo = newIndex;
     track.selectedCommit = 0;
     this.setState({});
@@ -64,18 +92,30 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
 
   updateCommit(newIndex: number) {
     let { track } = this.props;
+    const repoLength = this.repoCollection[track.selectedRepo].commits.length;
+    newIndex = Math.min(Math.max(0, newIndex), repoLength - 1);
+    if (newIndex === track.selectedCommit) {
+      return;
+    }
+
     track.selectedCommit = newIndex;
     this.setState({});
   }
 
   updateSequencer(newIndex: number) {
     let { track } = this.props;
+    newIndex = Math.min(Math.max(0, newIndex), this.sequencersList.length - 1);
+    if (newIndex === track.selectedSequencer) {
+      return;
+    }
+
     track.selectedSequencer = newIndex;
     this.setState({});
   }
 
   componentWillUnmount() {
     // window.removeEventListener('keyup', this.keyUpListener)
+    this.unsubscribeMpk();
   }
 
   viiListener = this.onVii.bind(this);
@@ -88,8 +128,8 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
     const selectedRepo = this.repoCollection[track.selectedRepo];
     const commitList = selectedRepo.commits.map(commit => {
       return {
-        title: commit.hash,
-        subtitle: commit.name
+        title: commit.hash.substr(0, 24),
+        subtitle: commit.name.substr(0, 36)
       };
     });
 
@@ -120,7 +160,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
             component={AlgoListItem}
           />
         </div>
-        <div>
+        <div className='sequence-craftr-track'>
           <TrackData data={seq} labels={track.labels} />
         </div>
         {/* <HelperIcon index={1} type='nob' />

@@ -1,5 +1,8 @@
 .sequence-craftr {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #000d;
   top: 0;
   bottom: 0;
@@ -11,4 +14,26 @@
 
 .sequence-craftr-wrap {
   display: flex;
+  width: 1000px;
+  margin: auto;
+}
+
+.sequence-craftr-wrap > *:nth-child(1) {
+  width: 20%;
+  margin-left: 1%;
+}
+
+.sequence-craftr-wrap > *:nth-child(2) {
+  width: 42%;
+  margin-left: 1%;
+}
+
+.sequence-craftr-wrap > *:nth-child(3) {
+  width: 35%;
+  margin-left: 1%;
+}
+
+.sequence-craftr-track {
+  display: flex;
+  justify-content: center;
 }
