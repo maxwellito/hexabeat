@@ -48,17 +48,18 @@ export class Playground extends React.Component<
     }
   });
 
-  /** 
-  - **P1** : PLAY/PAUSE
-  - **P4** : Selects
-  - **P5** : Mute track
-  - **P6** : Solo track
-
-  * **N1** : Select the track
-  * **N3** : Output volume
-  * **N4** : BPM
-  * **N5** : Volume track
-  */
+  /**
+   * **P1** : PLAY/PAUSE
+   * **P4** : Delete track (double tap)
+   * **P5** : Mute track
+   * **P6** : Solo track
+   * **P7** : Open Sequence Crafter
+   *
+   * **N1** : Select the track
+   * **N3** : Output volume
+   * **N4** : BPM
+   * **N5** : Volume track
+   */
 
   unsubscribeMpk = Mpk.takeControl({
     [MpkKey.pad1]: (isPress: boolean) => {
@@ -67,10 +68,28 @@ export class Playground extends React.Component<
       }
     },
     [MpkKey.pad4]: () => {
-      const { activeTrack } = this.state;
-      const trackLength = store.getState().session.tracks.length;
-      const newIndex = activeTrack === trackLength ? -1 : activeTrack;
-      store.dispatch(actions.setSelectedTrack(newIndex));
+      // const { activeTrack } = this.state;
+      // const trackLength = store.getState().session.tracks.length;
+      // const newIndex = activeTrack === trackLength ? -1 : activeTrack;
+      // store.dispatch(actions.setSelectedTrack(newIndex));
+    },
+    [MpkKey.pad5]: (isPress: boolean) => {
+      if (!isPress) return;
+      const { tracks, selectedTrack } = store.getState().session;
+      const track = tracks[selectedTrack || 0];
+      if (!track) {
+        return;
+      }
+      track.toggleMute();
+    },
+    [MpkKey.pad6]: (isPress: boolean) => {
+      if (!isPress) return;
+      const { tracks, selectedTrack } = store.getState().session;
+      const track = tracks[selectedTrack || 0];
+      if (!track) {
+        return;
+      }
+      track.toggleSolo();
     },
     [MpkKey.pad7]: (isPress: boolean) => {
       if (!isPress) return;

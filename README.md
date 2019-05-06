@@ -45,33 +45,24 @@ a. Main screen
 Contains the control bar (general volume, BPM), track list, option to add track
 
 - **P1** : PLAY/PAUSE
-- **P4** : Selects
+- **P4** : Delete track (double tap)
 - **P5** : Mute track
 - **P6** : Solo track
+- **P7** : Open Sequence Crafter
 
 * **N1** : Select the track
 * **N3** : Output volume
 * **N4** : BPM
 * **N5** : Volume track
 
-b. Track screen
-
-- **P1** : ESC - Blinking
-- **P4** : Delete track (double tap)
-- **P5** : Mute track
-- **P6** : Solo track
-- **P7** : Open Sequence Crafter
-
-* **N5** : Volume track
-
-c. Sequence Crafter
+b. Sequence Crafter
 
 - **P1** : ESC/Validate - Blinking
 
-* **N1** : Selects repository
-* **N2** : Sleected Commit
-* **N3** : Algorithm
-* **N4** : Offset
+* **N5** : Selects repository
+* **N6** : Sleected Commit
+* **N7** : Algorithm
+* **N8** : Offset?
 
 ## Liveset file
 

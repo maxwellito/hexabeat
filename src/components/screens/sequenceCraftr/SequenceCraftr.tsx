@@ -31,20 +31,20 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
   sequencersList: AlgoListItemProps[] = [];
 
   unsubscribeMpk = Mpk.takeControl({
-    [MpkKey.pad1]: (isPress: boolean) => {
+    [MpkKey.pad7]: (isPress: boolean) => {
       if (isPress) {
         this.viiListener();
       }
     },
-    [MpkKey.nob1]: (diff: number) => {
+    [MpkKey.nob5]: (diff: number) => {
       let { track } = this.props;
       this.updateRepo(track.selectedRepo + diff);
     },
-    [MpkKey.nob2]: (diff: number) => {
+    [MpkKey.nob6]: (diff: number) => {
       let { track } = this.props;
       this.updateCommit(track.selectedCommit + diff);
     },
-    [MpkKey.nob3]: (diff: number) => {
+    [MpkKey.nob7]: (diff: number) => {
       let { track } = this.props;
       this.updateSequencer(track.selectedSequencer + diff);
     }

@@ -61,6 +61,15 @@ export default class Track {
     this.triggerUpdate();
   }
 
+  toggleSolo() {
+    this.isSolo = !this.isSolo;
+    this.triggerUpdate();
+  }
+  toggleMute() {
+    this.isEnabled = !this.isEnabled;
+    this.triggerUpdate();
+  }
+
   triggerUpdate() {
     if (!this.updateListener) {
       return;
