@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Mpk, MpkKey } from 'services/MpkController';
+import { Mpk, MpkKey, NobBypass } from 'services/MpkController';
 import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
 import { TrackGenerator } from './trackGenerator';
@@ -108,7 +108,7 @@ export class Playground extends React.Component<
     },
 
     // Select track
-    [MpkKey.nob1]: (diff: number) => {
+    [MpkKey.nob1]: NobBypass(3, (diff: number) => {
       const { activeTrack } = this.state;
       const trackLength = store.getState().session.tracks.length;
       const newTrack = Math.max(
@@ -118,7 +118,7 @@ export class Playground extends React.Component<
       if (activeTrack !== newTrack) {
         store.dispatch(actions.setSelectedTrack(newTrack));
       }
-    },
+    }),
     // Volume track
     [MpkKey.nob5]: (diff: number) => {
       const { tracks, selectedTrack } = store.getState().session;
@@ -131,17 +131,18 @@ export class Playground extends React.Component<
       track.setVolume(newVolume);
     },
 
-    // Session volume
+    // Session BPM
     [MpkKey.nob3]: (diff: number) => {
+      const newBPM = store.getState().session.bpm + diff;
+      store.dispatch(actions.setBpm(newBPM));
+    },
+
+    // Session volume
+    [MpkKey.nob4]: (diff: number) => {
       const newVol =
         store.getState().session.volume +
         (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
       store.dispatch(actions.setVolume(newVol));
-    },
-    // Session BPM
-    [MpkKey.nob4]: (diff: number) => {
-      const newBPM = store.getState().session.bpm + diff;
-      store.dispatch(actions.setBpm(newBPM));
     }
   });
 

@@ -469,3 +469,15 @@ window.onafterprint = Mpk.takeControl({
 Mpk.onHelpKey = (status: boolean) => {
   console.log(`HELP ${status ? 'on' : 'off'}`);
 };
+
+export function NobBypass(stepSize: number, listener: NobListener) {
+  let state = 0;
+  return function(value: number) {
+    state += value;
+    const afterMod = state % stepSize;
+    if (afterMod !== state) {
+      listener((state - afterMod) / stepSize);
+      state = afterMod;
+    }
+  };
+}

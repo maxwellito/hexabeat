@@ -4,7 +4,7 @@ import { actions, store } from 'store';
 import { Repository } from 'models/GitRepository';
 import { Sequencer } from 'models/Sequencer';
 import sequencers from 'services/sequencers';
-import { Mpk, MpkKey } from 'services/MpkController';
+import { Mpk, MpkKey, NobBypass } from 'services/MpkController';
 import { TrackData } from 'components/screens/playground/track/trackData/trackData';
 import { List, ListItem } from 'components/list/List';
 import {
@@ -36,18 +36,18 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
         this.viiListener();
       }
     },
-    [MpkKey.nob5]: (diff: number) => {
+    [MpkKey.nob5]: NobBypass(3, (diff: number) => {
       let { track } = this.props;
       this.updateRepo(track.selectedRepo + diff);
-    },
-    [MpkKey.nob6]: (diff: number) => {
+    }),
+    [MpkKey.nob6]: NobBypass(3, (diff: number) => {
       let { track } = this.props;
       this.updateCommit(track.selectedCommit + diff);
-    },
-    [MpkKey.nob7]: (diff: number) => {
+    }),
+    [MpkKey.nob7]: NobBypass(3, (diff: number) => {
       let { track } = this.props;
       this.updateSequencer(track.selectedSequencer + diff);
-    }
+    })
   });
 
   constructor(props: SequenceCraftrProps) {
