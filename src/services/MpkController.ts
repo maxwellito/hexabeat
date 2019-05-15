@@ -481,3 +481,11 @@ export function NobBypass(stepSize: number, listener: NobListener) {
     }
   };
 }
+
+export function PadFilter(onPress: boolean, listener: PadListener) {
+  return function(state: boolean) {
+    if (state === onPress) {
+      listener(onPress);
+    }
+  };
+}

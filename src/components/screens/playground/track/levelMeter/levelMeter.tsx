@@ -34,7 +34,6 @@ export class LevelMeter extends React.Component<
   }
 
   render() {
-    console.log('>> ' + this.props.progress);
     let height = Math.round((this.props.progress || 0) * 100) + '%';
     let displayValue = this.props.progress.toFixed(2).substr(2);
     let extraO;

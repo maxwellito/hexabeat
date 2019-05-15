@@ -1,7 +1,10 @@
 import { SampleGroup } from './Liveset';
 
+let track_id_counter = 1;
+
 export default class Track {
   name: string;
+  id: number;
 
   isEnabled = true; // boolean, is the track enabled
   isPlaying = true; // boolean, is the track currently playing
@@ -25,6 +28,7 @@ export default class Track {
   updateListener: () => void;
 
   constructor(set: SampleGroup) {
+    this.id = track_id_counter++;
     this.sampleGroup = set;
     this.layers = set.samples.length;
     this.name = set.name;
@@ -96,6 +100,10 @@ export default class Track {
         this.samples[pIndex].start(0);
       }
     });
+  }
+
+  destroy() {
+    this.updateListener = null;
   }
 
   async addSample(audioFile: ArrayBuffer): Promise<any> {

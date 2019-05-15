@@ -30,7 +30,6 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
   }
   volumeUpdateListener = this.onVolumeUpdate.bind(this);
   onVolumeUpdate(newVolume: number) {
-    console.info(this.props.data.volume, newVolume);
     let track = this.props.data;
     track.setVolume(newVolume);
     this.setState({
@@ -43,19 +42,8 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     store.dispatch(actions.setEditingTrack(this.props.data));
   }
 
-  componentWillUnmount() {
-    this.props.data.updateListener = null;
-    // this.unsubscribeStore();
-  }
+  componentWillUnmount() {}
 
-  // shouldComponentUpdate(props) {
-  //   console.log('Should I update the track?');
-  //   if (props.data._ !== this.state._) {
-  //     this.setState({
-
-  //     })
-  //   }
-  // }
   render() {
     let classes = ['track'];
     if (this.props.active) {

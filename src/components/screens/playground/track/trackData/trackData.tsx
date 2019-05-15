@@ -19,7 +19,11 @@ export interface TrackDataState {
  * - `data`: boolean[][]
  */
 export class TrackData extends React.Component<TrackDataProps, TrackDataState> {
+  isDead = false;
   unsubscribe = store.subscribe(() => {
+    if (this.isDead) {
+      return;
+    }
     this.setState({
       currentPos: store.getState().session.currentBit
     });
@@ -34,6 +38,7 @@ export class TrackData extends React.Component<TrackDataProps, TrackDataState> {
 
   componentWillUnmount() {
     this.unsubscribe();
+    this.isDead = true;
   }
 
   render() {

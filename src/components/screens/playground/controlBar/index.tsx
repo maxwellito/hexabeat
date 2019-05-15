@@ -31,7 +31,6 @@ export class ControlBar extends React.Component<
 
   unsubscribe = store.subscribe(() => {
     // let newLivesets = store.getState().livesets;
-    // console.log('Hello', newLivesets);
     // if (newLivesets !== this.state.livesets) {
     //   this.setState({
     //     livesets: newLivesets

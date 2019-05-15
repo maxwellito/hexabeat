@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Mpk, MpkKey, NobBypass } from 'services/MpkController';
+import { Mpk, MpkKey, NobBypass, PadFilter } from 'services/MpkController';
 import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
 import { TrackGenerator } from './trackGenerator';
@@ -15,6 +15,7 @@ export interface PlaygroundProps {}
 
 export interface PlaygroundState {
   activeTrack: number;
+  selectedNewTrack: number;
   tracks: Track[];
   editingTrack: Track;
 }
@@ -67,12 +68,19 @@ export class Playground extends React.Component<
         store.dispatch(actions.togglePlaying());
       }
     },
-    [MpkKey.pad4]: () => {
-      // const { activeTrack } = this.state;
-      // const trackLength = store.getState().session.tracks.length;
-      // const newIndex = activeTrack === trackLength ? -1 : activeTrack;
-      // store.dispatch(actions.setSelectedTrack(newIndex));
-    },
+    [MpkKey.pad4]: PadFilter(true, () => {
+      const { tracks, selectedTrack } = store.getState().session;
+      if (store.getState().session.selectedTrack === null) {
+        // Add track
+        const { sampleGroups } = store.getState().session.liveset;
+        const tr = new Track(sampleGroups[this.state.selectedNewTrack]);
+        store.dispatch(actions.addTrack(tr));
+        store.dispatch(actions.setSelectedTrack(tracks.length));
+      } else {
+        // Delete track
+        store.dispatch(actions.removeTrack(tracks[selectedTrack]));
+      }
+    }),
     [MpkKey.pad5]: (isPress: boolean) => {
       if (!isPress) return;
       const { tracks, selectedTrack } = store.getState().session;
@@ -100,7 +108,6 @@ export class Playground extends React.Component<
       }
       store.dispatch(actions.setEditingTrack(track));
       // this.drapPos += diff;
-      // console.log(this.drapPos, Math.floor(this.drapPos / 5));
       // this.setState({
       //   pickerIsSelected: false,
       //   pickerIndex: Math.floor(this.drapPos / 5)
@@ -119,6 +126,19 @@ export class Playground extends React.Component<
         store.dispatch(actions.setSelectedTrack(newTrack));
       }
     }),
+    // Pick new track
+    [MpkKey.nob2]: NobBypass(3, (diff: number) => {
+      const { selectedNewTrack } = this.state;
+      const sgLength = store.getState().session.liveset.sampleGroups.length;
+      const newIndex = Math.max(
+        0,
+        Math.min(sgLength - 1, selectedNewTrack + diff)
+      );
+      if (selectedNewTrack !== newIndex) {
+        this.setState({ selectedNewTrack: newIndex });
+        store.dispatch(actions.setSelectedTrack(null));
+      }
+    }),
     // Volume track
     [MpkKey.nob5]: (diff: number) => {
       const { tracks, selectedTrack } = store.getState().session;
@@ -127,7 +147,6 @@ export class Playground extends React.Component<
         return;
       }
       const newVolume = track.volume + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
-      console.log(selectedTrack, newVolume);
       track.setVolume(newVolume);
     },
 
@@ -150,6 +169,7 @@ export class Playground extends React.Component<
     super(props);
     this.state = {
       activeTrack: 0,
+      selectedNewTrack: 0,
       tracks: store.getState().session.tracks,
       editingTrack: store.getState().session.editingTrack
     };
@@ -167,7 +187,7 @@ export class Playground extends React.Component<
           index={i}
           data={t}
           active={this.state.activeTrack === i}
-          key={i}
+          key={t.id}
         />
       );
     });
@@ -179,7 +199,10 @@ export class Playground extends React.Component<
       <div>
         <ControlBar />
         {trks}
-        <TrackGenerator />
+        <TrackGenerator
+          pickerIndex={this.state.selectedNewTrack}
+          isOn={this.state.activeTrack === -1}
+        />
         {/* <IconHelper /> */}
         {editor}
       </div>

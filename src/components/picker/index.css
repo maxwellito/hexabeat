@@ -12,7 +12,7 @@
   display: flex;
 }
 
-.picker-item.active,
+.picker:not(:hover) .picker-item.active,
 .picker-item:hover {
   color: var(--shade-base);
   background-color: var(--shade-light);

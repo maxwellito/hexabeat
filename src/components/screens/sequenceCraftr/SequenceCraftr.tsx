@@ -31,6 +31,11 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
   sequencersList: AlgoListItemProps[] = [];
 
   unsubscribeMpk = Mpk.takeControl({
+    [MpkKey.pad1]: (isPress: boolean) => {
+      if (isPress) {
+        this.viiListener();
+      }
+    },
     [MpkKey.pad7]: (isPress: boolean) => {
       if (isPress) {
         this.viiListener();

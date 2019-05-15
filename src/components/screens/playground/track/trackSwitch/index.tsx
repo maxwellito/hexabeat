@@ -15,7 +15,11 @@ export class TrackSwitch extends React.Component<
   TrackSwitchProps,
   TrackSwitchState
 > {
+  isDead = false;
   unsubscribeStore = store.subscribe(() => {
+    if (this.isDead) {
+      return;
+    }
     let soloTrack = store.getState().session.soloTrack;
     if (soloTrack !== this.state.currentSoloTrack) {
       this.setState({
@@ -54,6 +58,11 @@ export class TrackSwitch extends React.Component<
   }
   soloToggleListener = this.soloToggle.bind(this);
 
+  componentWillUnmount() {
+    this.unsubscribeStore();
+    this.isDead = true;
+  }
+
   render() {
     let { track } = this.props;
     let soloTrack = this.state.currentSoloTrack;
@@ -70,7 +79,6 @@ export class TrackSwitch extends React.Component<
       state = isOn ? 'READY' : 'END';
       stateClass = 'standby stripped x1';
     }
-    console.log(state, stateClass);
     let enabledState = track.isEnabled ? 'on' : 'off';
     let soloState = track.isSolo ? 'on' : 'off';
     return (

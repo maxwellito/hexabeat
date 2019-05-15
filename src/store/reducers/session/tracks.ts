@@ -13,8 +13,9 @@ export function tracks(state: Track[] = [], action?: TracksAction): Track[] {
     case 'ADD_TRACK':
       return [...state, action.track];
     case 'REMOVE_TRACK':
+      action.track.destroy();
       state.splice(state.indexOf(action.track), 1);
-      return state;
+      return [...state];
     default:
       return state;
   }
