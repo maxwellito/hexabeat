@@ -5,6 +5,7 @@ import { Mpk, MpkKey } from 'services/MpkController';
 import { Picker } from 'components/picker';
 
 import { MiniMPK } from 'components/common/minimpk';
+import { FullscreenIcon } from 'components/common/fullscreenIcon';
 import { LivesetItem } from './LivesetPicker';
 
 import './index.css';
@@ -119,7 +120,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
       <div className='container'>
         <div />
         <div />
-        <div />
+        <div>
+          <FullscreenIcon />
+        </div>
         <div>
           <MiniMPK />
         </div>
