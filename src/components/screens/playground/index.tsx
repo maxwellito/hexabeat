@@ -201,7 +201,7 @@ export class Playground extends React.Component<
         {trks}
         <TrackGenerator
           pickerIndex={this.state.selectedNewTrack}
-          isOn={this.state.activeTrack === -1}
+          isOn={this.state.activeTrack === null}
         />
         {/* <IconHelper /> */}
         {editor}

@@ -6,7 +6,7 @@ declare global {
   interface Document {
     fullScreenElement: HTMLElement;
     mozFullScreen: HTMLElement;
-    // webkitIsFullScreen: HTMLElement;
+    readonly webkitIsFullScreen: boolean;
     mozCancelFullScreen: () => void;
     webkitExitFullscreen: () => void;
   }

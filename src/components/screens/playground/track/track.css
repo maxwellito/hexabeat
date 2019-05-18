@@ -27,9 +27,6 @@
 .track.active .track-bloc {
   border-color: var(--shade-light);
 }
-.track.active .track-bloc.selected {
-  border-color: var(--shade-active-on);
-}
 
 .track-bloc:before {
   display: block;
@@ -40,17 +37,35 @@
   font-weight: bold;
   padding-bottom: 0.5rem;
 }
-
 .track-bloc-title {
   flex-grow: 1;
 }
 
+.track:before,
 .track-label {
   display: inline-block;
   height: var(--track-size);
   font-size: 2rem;
   color: var(--shade-light);
-  line-height: 2.75rem;
+  line-height: var(--track-size);
+}
+
+.track:before {
+  content: attr(data-id);
+  width: 5rem;
+  color: var(--shade-light);
+  margin: 2.375rem 1rem 0;
+  text-align: center;
+}
+.track.track-generator:before {
+  margin-top: 0.125rem;
+}
+.track.active:before {
+  color: var(--shade-base);
+  background: var(--shade-active-on);
+}
+.track.active .track-label {
+  color: var(--shade-active-on);
 }
 
 .track > *:nth-child(1) {
@@ -90,7 +105,7 @@
     opacity: 0;
   }
 
-  0% {
+  15% {
     opacity: 0;
   }
   100% {

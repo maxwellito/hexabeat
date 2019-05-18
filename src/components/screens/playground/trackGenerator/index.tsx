@@ -54,8 +54,13 @@ export class TrackGenerator extends React.Component<
   }
 
   render() {
+    const classes = ['track', 'track-generator'];
+    if (this.props.isOn) {
+      classes.push('active');
+    }
+    console.log(this.props);
     return (
-      <div className='track'>
+      <div className={classes.join(' ')} data-id='[+]'>
         <Picker
           data={this.state.sampleGroups}
           index={this.props.pickerIndex}
