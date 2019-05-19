@@ -18,10 +18,10 @@ import './index.css';
 
 export interface PickerProps {
   data: any[];
+  component?: any;
   index: number;
   isSelected: boolean;
-  component?: any;
-  onUpdate?: (newIndex: number) => void;
+  onUpdate?: (newIndex: number, isSelected: boolean) => void;
 }
 
 export class Picker extends React.Component<PickerProps> {

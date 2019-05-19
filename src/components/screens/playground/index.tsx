@@ -2,9 +2,10 @@ import * as React from 'react';
 import { Mpk, MpkKey, NobBypass, PadFilter } from 'services/MpkController';
 import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
-import { TrackGenerator } from './trackGenerator';
+import { TrackGenerator, TrackGeneratorItem } from './trackGenerator';
 import { TrackComponent } from './track/track';
 import { SequenceCraftr } from 'components/screens/sequenceCraftr/SequenceCraftr';
+import { Picker } from 'components/picker';
 
 import Track from 'models/Track';
 
@@ -18,6 +19,7 @@ export interface PlaygroundState {
   selectedNewTrack: number;
   tracks: Track[];
   editingTrack: Track;
+  selectedNewTrackIsSelected: boolean;
 }
 
 /**
@@ -33,6 +35,7 @@ export class Playground extends React.Component<
   PlaygroundState
 > {
   drapPos = 0;
+  sampleGroups = store.getState().session.liveset.sampleGroups;
 
   unsubscribeStore = store.subscribe(() => {
     let { tracks, editingTrack, selectedTrack } = store.getState().session;
@@ -72,10 +75,12 @@ export class Playground extends React.Component<
       const { tracks, selectedTrack } = store.getState().session;
       if (store.getState().session.selectedTrack === null) {
         // Add track
-        const { sampleGroups } = store.getState().session.liveset;
-        const tr = new Track(sampleGroups[this.state.selectedNewTrack]);
+        const tr = new Track(this.sampleGroups[this.state.selectedNewTrack]);
         store.dispatch(actions.addTrack(tr));
         store.dispatch(actions.setSelectedTrack(tracks.length));
+        this.setState({
+          selectedNewTrackIsSelected: true
+        });
       } else {
         // Delete track
         store.dispatch(actions.removeTrack(tracks[selectedTrack]));
@@ -129,13 +134,16 @@ export class Playground extends React.Component<
     // Pick new track
     [MpkKey.nob2]: NobBypass(3, (diff: number) => {
       const { selectedNewTrack } = this.state;
-      const sgLength = store.getState().session.liveset.sampleGroups.length;
+      const sgLength = this.sampleGroups.length;
       const newIndex = Math.max(
         0,
         Math.min(sgLength - 1, selectedNewTrack + diff)
       );
       if (selectedNewTrack !== newIndex) {
-        this.setState({ selectedNewTrack: newIndex });
+        this.setState({
+          selectedNewTrack: newIndex,
+          selectedNewTrackIsSelected: false
+        });
         store.dispatch(actions.setSelectedTrack(null));
       }
     }),
@@ -171,7 +179,8 @@ export class Playground extends React.Component<
       activeTrack: 0,
       selectedNewTrack: 0,
       tracks: store.getState().session.tracks,
-      editingTrack: store.getState().session.editingTrack
+      editingTrack: store.getState().session.editingTrack,
+      selectedNewTrackIsSelected: false
     };
   }
 
@@ -180,7 +189,22 @@ export class Playground extends React.Component<
     this.unsubscribeStore();
   }
 
+  onUpdateListener(index: number, isSelected: boolean) {
+    this.setState({
+      selectedNewTrack: index,
+      selectedNewTrackIsSelected: isSelected
+    });
+
+    if (!isSelected) {
+      return;
+    }
+    let tr = new Track(this.sampleGroups[index]);
+    store.dispatch(actions.addTrack(tr));
+  }
+  onUpdate = this.onUpdateListener.bind(this);
+
   render() {
+    console.log(this.state.selectedNewTrack);
     let trks = this.state.tracks.map((t, i) => {
       return (
         <TrackComponent
@@ -199,10 +223,24 @@ export class Playground extends React.Component<
       <div>
         <ControlBar />
         {trks}
-        <TrackGenerator
+        {/* <TrackGenerator
           pickerIndex={this.state.selectedNewTrack}
           isOn={this.state.activeTrack === null}
-        />
+        /> */}
+        <div
+          className={
+            'track ' + (this.state.activeTrack === null ? 'active' : '')
+          }
+          data-id='[+]'
+        >
+          <Picker
+            data={store.getState().session.liveset.sampleGroups}
+            component={TrackGeneratorItem}
+            index={this.state.selectedNewTrack}
+            isSelected={this.state.selectedNewTrackIsSelected}
+            onUpdate={this.onUpdate}
+          />
+        </div>
         {/* <IconHelper /> */}
         {editor}
       </div>

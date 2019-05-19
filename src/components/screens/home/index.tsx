@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
-import { Mpk, MpkKey } from 'services/MpkController';
 import { Picker } from 'components/picker';
 
 import { MiniMPK } from 'components/common/minimpk';
@@ -41,10 +40,6 @@ export class Home extends React.Component<HomeProps, HomeState> {
       });
     }
   });
-  unsubscribeMpk = Mpk.takeControl({
-    [MpkKey.pad1]: this.startLoad,
-    [MpkKey.nob1]: this.updatePos.bind(this)
-  });
 
   constructor(props: HomeProps) {
     super(props);
@@ -58,7 +53,6 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
   disconnect() {
     this.unsubscribeStore();
-    this.unsubscribeMpk();
   }
 
   updatePos(rel: number) {
@@ -72,10 +66,13 @@ export class Home extends React.Component<HomeProps, HomeState> {
     });
   }
 
-  onUpdate(index: number) {
+  onUpdate(index: number, isSelected: boolean) {
     this.setState({
       pickerIndex: index
     });
+    if (!isSelected) {
+      return;
+    }
     this.startLoadListener();
   }
 
@@ -153,9 +150,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <p>//// PROVIDE ON-BOARDING HELP ////</p>
           <Picker
             data={this.state.livesets}
+            component={LivesetItem}
             index={this.state.pickerIndex}
             isSelected={this.state.pickerIsSelected}
-            component={LivesetItem}
             onUpdate={this.updateListener}
           />
           {onLoad}

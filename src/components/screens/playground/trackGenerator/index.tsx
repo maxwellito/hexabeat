@@ -41,7 +41,10 @@ export class TrackGenerator extends React.Component<
     };
   }
 
-  onUpdateListener(index: number) {
+  onUpdateListener(index: number, isSelected: boolean) {
+    if (!isSelected) {
+      return;
+    }
     this.setState({
       pickerIsSelected: true
     });
@@ -63,9 +66,9 @@ export class TrackGenerator extends React.Component<
       <div className={classes.join(' ')} data-id='[+]'>
         <Picker
           data={this.state.sampleGroups}
+          component={TrackGeneratorItem}
           index={this.props.pickerIndex}
           isSelected={this.state.pickerIsSelected}
-          component={TrackGeneratorItem}
           onUpdate={this.onUpdate}
         />
       </div>
@@ -77,7 +80,7 @@ export interface TrackGeneratorItemProps {
   item: SampleGroup;
   isActive: boolean;
   isSelected: boolean;
-  onSelect: (index: number) => void;
+  onSelect: (index: number, isSelected: boolean) => void;
   index: number;
 }
 
@@ -86,7 +89,12 @@ export class TrackGeneratorItem extends React.Component<
 > {
   clickListener = this.onClick.bind(this);
   onClick() {
-    this.props.onSelect(this.props.index);
+    this.props.onSelect(this.props.index, true);
+  }
+
+  hoverListener = this.onHover.bind(this);
+  onHover() {
+    this.props.onSelect(this.props.index, false);
   }
   render() {
     let { item, isActive, isSelected } = this.props;
@@ -100,7 +108,11 @@ export class TrackGeneratorItem extends React.Component<
     }
 
     return (
-      <div className={classes.join(' ')} onClick={this.clickListener}>
+      <div
+        className={classes.join(' ')}
+        onClick={this.clickListener}
+        onMouseEnter={this.hoverListener}
+      >
         <div className='track-generator-item-icon'>
           <span className={'icon-' + item.icon} />
         </div>

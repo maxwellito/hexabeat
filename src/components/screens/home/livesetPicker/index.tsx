@@ -12,17 +12,22 @@ export interface LivesetItemProps {
   item: Liveset;
   isActive: boolean;
   isSelected: boolean;
-  onSelect: (index: number) => void;
+  onSelect: (index: number, isSelected: boolean) => void;
   index: number;
 }
 
 export class LivesetItem extends React.Component<LivesetItemProps> {
-  clickListener = this.onClick.bind(this);
   constructor(props: LivesetItemProps) {
     super(props);
   }
+  clickListener = this.onClick.bind(this);
   onClick() {
-    this.props.onSelect(this.props.index);
+    this.props.onSelect(this.props.index, true);
+  }
+
+  hoverListener = this.onHover.bind(this);
+  onHover() {
+    this.props.onSelect(this.props.index, false);
   }
   render() {
     const { item, isActive, isSelected } = this.props;
@@ -36,7 +41,11 @@ export class LivesetItem extends React.Component<LivesetItemProps> {
 
     if (!item) {
       return (
-        <div className={classes.join(' ')} onClick={this.clickListener}>
+        <div
+          className={classes.join(' ')}
+          onClick={this.clickListener}
+          onMouseOver={this.hoverListener}
+        >
           <div className='liveset-item-title'>[+] Add Liveset</div>
           <div>Upload liveset file</div>
         </div>
@@ -44,7 +53,11 @@ export class LivesetItem extends React.Component<LivesetItemProps> {
     }
 
     return (
-      <div className={classes.join(' ')} onClick={this.clickListener}>
+      <div
+        className={classes.join(' ')}
+        onClick={this.clickListener}
+        onMouseOver={this.hoverListener}
+      >
         <div className='liveset-item-title'>{item.name}</div>
         <div className='liveset-item-meta-1'>
           <span className='liveset-item-label'>version</span>
