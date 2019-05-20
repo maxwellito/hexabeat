@@ -65,12 +65,14 @@ export default class Track {
     this.triggerUpdate();
   }
 
-  toggleSolo() {
-    this.isSolo = !this.isSolo;
-    this.triggerUpdate();
+  toggleSolo(newState?: boolean) {
+    newState = newState === undefined ? !this.isSolo : newState;
+    this.isSolo = newState;
+    // this.triggerUpdate();
   }
-  toggleMute() {
-    this.isEnabled = !this.isEnabled;
+  toggleMute(newState?: boolean) {
+    newState = newState === undefined ? !this.isEnabled : newState;
+    this.isEnabled = newState;
     this.triggerUpdate();
   }
 
@@ -81,9 +83,9 @@ export default class Track {
     this.updateListener();
   }
 
-  playAt(index: number, masterVolume: number) {
+  playAt(index: number, masterVolume: number, soloTrack: Track) {
     if (index === 0) {
-      this.isPlaying = this.isEnabled;
+      this.isPlaying = this.isEnabled && (!soloTrack || this.isSolo);
     }
     if (!this.isPlaying) {
       return;

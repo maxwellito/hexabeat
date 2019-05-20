@@ -10,15 +10,22 @@ export function soloTrack(
   action?: SoloTrackAction
 ): Track {
   switch (action.type) {
+    case 'TOGGLE_SOLO_TRACK':
+      if (state && state !== action.value) {
+        state.toggleSolo(false);
+      }
+      action.value.toggleSolo();
+      const output = action.value.isSolo ? action.value : null;
+      return output;
     case 'SET_SOLO_TRACK':
       if (state) {
-        state.isSolo = false;
+        state.toggleSolo(false);
       }
-      action.value.isSolo = true;
+      action.value.toggleSolo(true);
       return action.value;
     case 'RELEASE_SOLO_TRACK':
       if (state) {
-        state.isSolo = false;
+        state.toggleSolo(false);
       }
       return null;
     default:

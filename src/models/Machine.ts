@@ -49,7 +49,7 @@ export class Machine {
 
     let index = (this.session.currentBit + 17) % 16;
     this.session.tracks.forEach((trck: Track) => {
-      trck.playAt(index, this.session.volume);
+      trck.playAt(index, this.session.volume, this.session.soloTrack);
     });
     store.dispatch(actions.setCurrentBit(index));
   }

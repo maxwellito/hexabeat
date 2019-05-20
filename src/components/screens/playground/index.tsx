@@ -102,7 +102,7 @@ export class Playground extends React.Component<
       if (!track) {
         return;
       }
-      track.toggleSolo();
+      store.dispatch(actions.toggleSoloTrack(track));
     },
     [MpkKey.pad7]: (isPress: boolean) => {
       if (!isPress) return;
@@ -204,7 +204,6 @@ export class Playground extends React.Component<
   onUpdate = this.onUpdateListener.bind(this);
 
   render() {
-    console.log(this.state.selectedNewTrack);
     let trks = this.state.tracks.map((t, i) => {
       return (
         <TrackComponent

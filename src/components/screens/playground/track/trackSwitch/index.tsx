@@ -48,13 +48,7 @@ export class TrackSwitch extends React.Component<
 
   soloToggle() {
     let { track } = this.props;
-    let action;
-    if (track.isSolo) {
-      action = actions.releaseSoloTrack();
-    } else {
-      action = actions.setSoloTrack(track);
-    }
-    store.dispatch(action);
+    store.dispatch(actions.toggleSoloTrack(track));
   }
   soloToggleListener = this.soloToggle.bind(this);
 

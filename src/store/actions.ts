@@ -82,6 +82,10 @@ export const releaseSelectedTrack = (): SelectedTrackAction => ({
   type: 'RELEASE_TRACK'
 });
 // session.soloTrack
+export const toggleSoloTrack = (value: Track): SoloTrackAction => ({
+  type: 'TOGGLE_SOLO_TRACK',
+  value
+});
 export const setSoloTrack = (value: Track): SoloTrackAction => ({
   type: 'SET_SOLO_TRACK',
   value
