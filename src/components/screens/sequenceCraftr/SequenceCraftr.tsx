@@ -11,7 +11,6 @@ import {
   AlgoListItem,
   AlgoListItemProps
 } from 'components/list/items/AlgoListItem';
-import { HelperIcon } from 'components/common/helperIcon/helperIcon';
 
 import './SequenceCraftr.css';
 import Track from 'models/Track';

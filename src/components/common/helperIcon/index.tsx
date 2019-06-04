@@ -2,6 +2,8 @@ import * as React from 'react';
 import './helperIcon.css';
 import { store } from 'store';
 
+// [komponent-class]: helpericon
+
 export interface HelperIconProps {
   index: number;
   type: 'nob' | 'pad';
@@ -38,7 +40,7 @@ export class HelperIcon extends React.Component<
   }
 
   render() {
-    const classes = ['helperIcon', this.props.type];
+    const classes = ['helpericon', this.props.type];
     if (this.props.status !== undefined) {
       classes.push(this.props.status ? 'on' : 'off');
     } else {

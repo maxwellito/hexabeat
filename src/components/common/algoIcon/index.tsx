@@ -1,5 +1,7 @@
 import * as React from 'react';
-import './algoIcon.css';
+import './index.css';
+
+// [komponent-class]: algoicon
 
 export interface AlgoIconProps {
   data: number[][];
@@ -33,7 +35,7 @@ export class AlgoIcon extends React.Component<AlgoIconProps> {
 
     return (
       <svg
-        className='algoIcon'
+        className='algoicon'
         viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       >
         {lines}

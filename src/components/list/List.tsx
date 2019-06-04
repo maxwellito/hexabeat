@@ -2,6 +2,8 @@ import * as React from 'react';
 import { DefaultListItem } from './items/DefaultListItem';
 import './List.css';
 
+// [komponent-class]: listwrap
+
 const WHEEL_STEP = 4;
 
 /**
@@ -92,10 +94,10 @@ export class List extends React.Component<ListProps, ListState> {
     this.previousIndex = this.props.index;
 
     return (
-      <div className={'list-wrap ' + wrapClass} onWheel={this.wheelListener}>
-        <div className='list-wrap-top'>{topList}</div>
+      <div className={'listwrap ' + wrapClass} onWheel={this.wheelListener}>
+        <div className='listwrap-top'>{topList}</div>
         {selectedItem}
-        <div className='list-wrap-bottom'>{bottomList}</div>
+        <div className='listwrap-bottom'>{bottomList}</div>
       </div>
     );
   }
