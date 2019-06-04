@@ -23,7 +23,7 @@ export default class Track {
   selectedSequencer = 0;
 
   audioCtx = new AudioContext();
-  gain = this.audioCtx.createGain();
+  gainNode = this.audioCtx.createGain();
 
   updateListener: () => void;
 
@@ -33,24 +33,7 @@ export default class Track {
     this.layers = set.samples.length;
     this.name = set.name;
     this.labels = set.samples.map(e => e.name);
-    this.partitions = set.samples.map(() => [
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1,
-      !1
-    ]);
+    this.partitions = set.samples.map(() => new Array(16).fill(false));
 
     set.samples.forEach(sample => this.addSample(sample.data));
   }
@@ -95,8 +78,8 @@ export default class Track {
         old.disconnect();
         let n = this.audioCtx.createBufferSource();
         n.buffer = old.buffer;
-        this.gain.gain.value = this.volume * masterVolume;
-        n.connect(this.gain).connect(this.audioCtx.destination);
+        this.gainNode.gain.value = this.volume * masterVolume;
+        n.connect(this.gainNode).connect(this.audioCtx.destination);
         this.samples[pIndex] = n;
         this.samples[pIndex].start(0);
       }
@@ -115,7 +98,7 @@ export default class Track {
     return new Promise(resolve => {
       this.audioCtx.decodeAudioData(audioFile.slice(0), buffer => {
         source.buffer = buffer;
-        source.connect(this.gain).connect(this.audioCtx.destination);
+        source.connect(this.gainNode).connect(this.audioCtx.destination);
         resolve();
       });
     });
