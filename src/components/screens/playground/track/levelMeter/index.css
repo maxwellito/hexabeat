@@ -1,13 +1,13 @@
 @import '~styles/variables.css';
 
-.level-meter {
+.levelmeter {
   position: relative;
   height: var(--track-size);
   width: calc(var(--border-width) * 3);
 }
 
 /* Background / Meter */
-.level-meter-wrap {
+.levelmeter-wrap {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -15,7 +15,7 @@
   right: 0;
   z-index: -1;
 }
-.level-meter-content {
+.levelmeter-content {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -24,7 +24,7 @@
 }
 
 /* Label */
-.level-meter-label {
+.levelmeter-label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +32,6 @@
   height: 100%;
   color: var(--shade-light);
 }
-.level-meter-label-off {
+.levelmeter-label-off {
   color: var(--shade);
 }

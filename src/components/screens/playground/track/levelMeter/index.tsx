@@ -1,5 +1,7 @@
 import * as React from 'react';
-import './levelMeter.css';
+import './index.css';
+
+// [komponent-class]: levelmeter
 
 export interface LevelMeterProps {
   progress: number;
@@ -40,20 +42,20 @@ export class LevelMeter extends React.Component<
     if (this.props.progress === 1) {
       displayValue = '100';
     } else {
-      extraO = <span className='level-meter-label-off'>0</span>;
+      extraO = <span className='levelmeter-label-off'>0</span>;
     }
 
     let stripSize = Math.floor(this.props.progress * 5) + 1;
 
     return (
-      <div className='level-meter' onWheelCapture={this.wheelListener}>
-        <div className='level-meter-wrap'>
+      <div className='levelmeter' onWheelCapture={this.wheelListener}>
+        <div className='levelmeter-wrap'>
           <div
-            className={'level-meter-content stripped x' + stripSize}
+            className={'levelmeter-content stripped x' + stripSize}
             style={{ height: height }}
           />
         </div>
-        <span className='level-meter-label'>
+        <span className='levelmeter-label'>
           {extraO}
           <span>{displayValue}</span>
         </span>

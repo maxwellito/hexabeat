@@ -1,7 +1,9 @@
 import * as React from 'react';
-import './index.css';
-import Track from 'models/Track';
 import { store, actions } from 'store';
+import Track from 'models/Track';
+import './index.css';
+
+// [komponent-class]: trackswitch
 
 export interface TrackSwitchProps {
   track: Track;
@@ -76,18 +78,18 @@ export class TrackSwitch extends React.Component<
     let enabledState = track.isEnabled ? 'on' : 'off';
     let soloState = track.isSolo ? 'on' : 'off';
     return (
-      <div className='track-switch'>
-        <div className={'track-switch-state ' + stateClass}>
-          <div className='track-switch-pill'>{state}</div>
+      <div className='trackswitch'>
+        <div className={'trackswitch-state ' + stateClass}>
+          <div className='trackswitch-pill'>{state}</div>
         </div>
         <div
-          className={'track-switch-button ' + enabledState}
+          className={'trackswitch-button ' + enabledState}
           onClick={this.statusToggleListener}
         >
           I
         </div>
         <div
-          className={'track-switch-button ' + soloState}
+          className={'trackswitch-button ' + soloState}
           onClick={this.soloToggleListener}
         >
           S

@@ -1,8 +1,9 @@
 import * as React from 'react';
-import './trackData.css';
 import { store } from 'store';
 
-const lineLength = 16;
+import './index.css';
+
+// [komponent-class]: trackdata
 
 export interface TrackDataProps {
   data: boolean[][];
@@ -55,13 +56,13 @@ export class TrackData extends React.Component<TrackDataProps, TrackDataState> {
         return <div className={dotClass} key={index} />;
       });
       return (
-        <div className='track-data-line' key={index}>
-          <div className='track-data-label'>{this.props.labels[index]}</div>
+        <div className='trackdata-line' key={index}>
+          <div className='trackdata-label'>{this.props.labels[index]}</div>
           {dots}
         </div>
       );
     });
 
-    return <div className='track-data'>{lines}</div>;
+    return <div className='trackdata'>{lines}</div>;
   }
 }

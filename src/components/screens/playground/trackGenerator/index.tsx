@@ -3,8 +3,9 @@ import { store, actions } from 'store';
 import { Picker } from 'components/picker';
 import { SampleGroup } from 'models/Liveset';
 import Track from 'models/Track';
-
 import './index.css';
+
+// [komponent-class]: trackgenerator
 
 export interface TrackGeneratorProps {
   isOn: boolean;
@@ -16,14 +17,6 @@ export interface TrackGeneratorState {
   pickerIsSelected: boolean;
 }
 
-/**
- * TrackGenerator component
- *
- * Components:
- * - LivesetPicker
- * - LivesetUploader
- * - LivesetStart
- */
 export class TrackGenerator extends React.Component<
   TrackGeneratorProps,
   TrackGeneratorState
@@ -57,7 +50,7 @@ export class TrackGenerator extends React.Component<
   }
 
   render() {
-    const classes = ['track', 'track-generator'];
+    const classes = ['track', 'trackgenerator'];
     if (this.props.isOn) {
       classes.push('active');
     }
@@ -75,6 +68,8 @@ export class TrackGenerator extends React.Component<
     );
   }
 }
+
+// [komponent-class]: trackgeneratoritem
 
 export interface TrackGeneratorItemProps {
   item: SampleGroup;
@@ -98,7 +93,7 @@ export class TrackGeneratorItem extends React.Component<
   }
   render() {
     let { item, isActive, isSelected } = this.props;
-    let classes = ['track-generator-item', 'picker-item'];
+    let classes = ['trackgeneratoritem', 'picker-item'];
 
     if (isActive) {
       classes.push('active');
@@ -113,12 +108,12 @@ export class TrackGeneratorItem extends React.Component<
         onClick={this.clickListener}
         onMouseEnter={this.hoverListener}
       >
-        <div className='track-generator-item-icon'>
+        <div className='trackgeneratoritem-icon'>
           <span className={'icon-' + item.icon} />
         </div>
-        <div className='track-generator-item-content'>
-          <div className='track-generator-item-title'>{item.name}</div>
-          <div className='track-generator-item-subtitle'>
+        <div className='trackgeneratoritem-content'>
+          <div className='trackgeneratoritem-title'>{item.name}</div>
+          <div className='trackgeneratoritem-subtitle'>
             SMPL.0{item.samples.length}
           </div>
         </div>

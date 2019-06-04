@@ -1,6 +1,6 @@
 @import '~/styles/variables.css';
 
-.track-generator-item {
+.trackgeneratoritem {
   display: flex;
   position: relative;
   padding: var(--half-box-size);
@@ -8,7 +8,7 @@
   margin-right: var(--space);
 }
 
-.track-generator-item-icon {
+.trackgeneratoritem-icon {
   position: relative;
   width: 2rem;
   height: 2rem;
@@ -18,13 +18,13 @@
   font-size: 2rem;
   text-align: center;
 }
-.track-generator-item-content {
+.trackgeneratoritem-content {
   flex-grow: 1;
 }
-.track-generator-item-title {
+.trackgeneratoritem-title {
   display: block;
 }
-.track-generator-item-subtitle {
+.trackgeneratoritem-subtitle {
   font-size: 0.75rem;
   color: var(--shade);
 }

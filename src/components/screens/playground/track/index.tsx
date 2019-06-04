@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { actions, store } from 'store';
-import { TrackIndex } from './trackIndex/trackIndex';
-import { LevelMeter } from './levelMeter/levelMeter';
-import { TrackLabel } from './trackLabel/trackLabel';
+import { LevelMeter } from './levelMeter';
 import { TrackSwitch } from './trackSwitch';
-import { TrackData } from './trackData/trackData';
-import './track.css';
+import { TrackData } from './trackData';
 import Track from 'models/Track';
+import './index.css';
+
+// [komponent-class]: track
 
 export interface TrackProps {
   index: number;

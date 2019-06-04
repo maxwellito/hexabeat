@@ -57,7 +57,7 @@
   margin: 2.375rem 1rem 0;
   text-align: center;
 }
-.track.track-generator:before {
+.track.trackgenerator:before {
   margin-top: 0.125rem;
 }
 .track.active:before {

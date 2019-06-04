@@ -1,4 +1,4 @@
-.sequence-craftr {
+.sequencecraftr {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -12,28 +12,28 @@
   z-index: 100;
 }
 
-.sequence-craftr-wrap {
+.sequencecraftr-wrap {
   display: flex;
   width: 1000px;
   margin: auto;
 }
 
-.sequence-craftr-wrap > *:nth-child(1) {
+.sequencecraftr-wrap > *:nth-child(1) {
   width: 20%;
   margin-left: 1%;
 }
 
-.sequence-craftr-wrap > *:nth-child(2) {
+.sequencecraftr-wrap > *:nth-child(2) {
   width: 42%;
   margin-left: 1%;
 }
 
-.sequence-craftr-wrap > *:nth-child(3) {
+.sequencecraftr-wrap > *:nth-child(3) {
   width: 35%;
   margin-left: 1%;
 }
 
-.sequence-craftr-track {
+.sequencecraftr-track {
   display: flex;
   justify-content: center;
 }

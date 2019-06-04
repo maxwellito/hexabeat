@@ -1,6 +1,6 @@
 @import '~styles/variables.css';
 
-.track-switch {
+.trackswitch {
   display: flex;
   display: inline-grid;
   grid-gap: var(--space);
@@ -12,47 +12,47 @@
   color: var(--shade);
 }
 
-.track-switch-state {
+.trackswitch-state {
   grid-area: state;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.track-switch-state.on {
+.trackswitch-state.on {
   background-color: var(--shade);
 }
-.track-switch-state.selected {
+.trackswitch-state.selected {
   background-color: var(--shade-active-on);
 }
 
-.track-switch-pill {
+.trackswitch-pill {
   padding: 0.125em 0.375em;
   color: var(--shade-light);
 }
-.track-switch-state.standby .track-switch-pill {
+.trackswitch-state.standby .trackswitch-pill {
   background-color: var(--shade-dark);
   border: 1px solid currentColor;
 }
-.track-switch-state.selected .track-switch-pill {
+.trackswitch-state.selected .trackswitch-pill {
   color: var(--shade-base);
   background-color: var(--shade-active-on);
 }
 
-.track-switch-button {
+.trackswitch-button {
   text-align: center;
   box-sizing: border-box;
   line-height: var(--box-size);
   cursor: pointer;
 }
-.track-switch-button.on:hover,
-.track-switch-button.off:hover {
+.trackswitch-button.on:hover,
+.trackswitch-button.off:hover {
   background-color: var(--shade);
 }
-.track-switch-button.on {
+.trackswitch-button.on {
   background-color: var(--shade-light);
   color: var(--shade-base);
 }
-.track-switch-button.off {
+.trackswitch-button.off {
   background-color: var(--shade-dark);
   color: var(--shade-light);
 }

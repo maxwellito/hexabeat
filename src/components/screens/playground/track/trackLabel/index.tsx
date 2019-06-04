@@ -1,5 +1,7 @@
 import * as React from 'react';
-import './trackLabel.css';
+import './index.css';
+
+// [komponent-class]: tracklabel
 
 export interface TrackLabelProps {
   title: string;
@@ -7,10 +9,7 @@ export interface TrackLabelProps {
 }
 
 export class TrackLabel extends React.Component<TrackLabelProps> {
-
   render() {
-    return (
-      <div className='track-label'>{this.props.title}</div>
-    );
+    return <div className='tracklabel'>{this.props.title}</div>;
   }
 }

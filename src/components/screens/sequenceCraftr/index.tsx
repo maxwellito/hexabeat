@@ -5,15 +5,17 @@ import { Repository } from 'models/GitRepository';
 import { Sequencer } from 'models/Sequencer';
 import sequencers from 'services/sequencers';
 import { Mpk, MpkKey, NobBypass } from 'services/MpkController';
-import { TrackData } from 'components/screens/playground/track/trackData/trackData';
+import { TrackData } from 'components/screens/playground/track/trackData';
 import { List, ListItem } from 'components/list/List';
 import {
   AlgoListItem,
   AlgoListItemProps
 } from 'components/list/items/AlgoListItem';
-
-import './SequenceCraftr.css';
 import Track from 'models/Track';
+
+import './index.css';
+
+// [komponent-class]: sequencecraftr
 
 export interface SequenceCraftrProps {
   track: Track;
@@ -144,8 +146,8 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
     track.partitions = seq;
 
     return (
-      <div className='sequence-craftr' onClick={this.viiListener}>
-        <div className='sequence-craftr-wrap'>
+      <div className='sequencecraftr' onClick={this.viiListener}>
+        <div className='sequencecraftr-wrap'>
           <List
             index={track.selectedRepo}
             data={this.repoCollectionList}
@@ -164,7 +166,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
             component={AlgoListItem}
           />
         </div>
-        <div className='sequence-craftr-track'>
+        <div className='sequencecraftr-track'>
           <TrackData data={seq} labels={track.labels} />
         </div>
         {/* <HelperIcon index={1} type='nob' />

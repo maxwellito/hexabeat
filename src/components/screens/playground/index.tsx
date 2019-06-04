@@ -2,15 +2,12 @@ import * as React from 'react';
 import { Mpk, MpkKey, NobBypass, PadFilter } from 'services/MpkController';
 import { store, actions } from 'store';
 import { ControlBar } from './controlBar';
-import { TrackGenerator, TrackGeneratorItem } from './trackGenerator';
-import { TrackComponent } from './track/track';
-import { SequenceCraftr } from 'components/screens/sequenceCraftr/SequenceCraftr';
+import { TrackGeneratorItem } from './trackGenerator';
+import { TrackComponent } from './track';
+import { SequenceCraftr } from 'components/screens/sequenceCraftr';
 import { Picker } from 'components/picker';
-
 import Track from 'models/Track';
-
 import { VOLUME_STEP } from './controlBar/volumeInput';
-import { editingTrack } from 'store/reducers/session/editingTrack';
 
 export interface PlaygroundProps {}
 

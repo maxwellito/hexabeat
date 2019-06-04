@@ -1,19 +1,19 @@
 @import '~styles/variables.css';
 
-.track-data {
+.trackdata {
   display: inline-block;
 }
 
-.track-data-line {
+.trackdata-line {
   display: flex;
 }
-.track-data-line > div.track-data-label {
+.trackdata-line > div.trackdata-label {
   width: 4ch;
   width: calc(var(--box-size) * 4);
   padding: 0.125em 0 0 0.5em;
   margin-left: 0;
 }
-.track-data-line > div {
+.trackdata-line > div {
   width: var(--box-size);
   height: var(--box-size);
   margin-left: var(--space);
@@ -21,20 +21,20 @@
   clip-path: var(--cut-shape);
 }
 
-.track-data-line + .track-data-line {
+.trackdata-line + .trackdata-line {
   margin-top: var(--space);
 }
 
-.track-data .bit-off {
+.trackdata .bit-off {
   background-color: var(--shade-dark);
 }
-.track-data .bit-on {
+.trackdata .bit-on {
   background-color: var(--shade);
 }
 
-.track-data .active.bit-on {
+.trackdata .bit-on.active {
   background-color: var(--shade-active-on);
 }
-.track-data .active.bit-off {
+.trackdata .bit-off.active {
   background-color: var(--shade-light);
 }

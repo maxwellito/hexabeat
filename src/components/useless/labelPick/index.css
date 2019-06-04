@@ -1,13 +1,13 @@
-@import '../../../styles/variables.css';
+@import '~styles/variables.css';
 
-.label-pick {
+.labelpick {
   display: inline-block;
   padding: var(--border-width-half);
   background-color: var(--shade-darker);
   vertical-align: top;
 }
 
-.label {
+.labelpick-item {
   display: inline-block;
   width: var(--ctrl-height);
   height: var(--ctrl-height);
@@ -17,11 +17,12 @@
   box-sizing: unset;
 }
 
-.labelTitle, .labelIndex {
+.labelpick-title,
+.labelpick-index {
   display: block;
   line-height: 1.2;
 }
-.labelTitle {
+.labelpick-title {
   font-size: 20px;
 }
 
