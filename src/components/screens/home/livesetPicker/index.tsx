@@ -2,12 +2,8 @@ import * as React from 'react';
 import { Liveset } from 'models/Liveset';
 import './index.css';
 
-/**
- * LivesetItem component
- * Vue component for a liveset item
- *
- * Reserved class names: picker & pickeritem
- */
+// [komponent-class]: livesetitem
+
 export interface LivesetItemProps {
   item: Liveset;
   isActive: boolean;
@@ -31,7 +27,7 @@ export class LivesetItem extends React.Component<LivesetItemProps> {
   }
   render() {
     const { item, isActive, isSelected } = this.props;
-    const classes = ['liveset-item', 'picker-item'];
+    const classes = ['livesetitem', 'picker-item'];
     if (isActive) {
       classes.push('active');
     }
@@ -46,7 +42,7 @@ export class LivesetItem extends React.Component<LivesetItemProps> {
           onClick={this.clickListener}
           onMouseOver={this.hoverListener}
         >
-          <div className='liveset-item-title'>[+] Add Liveset</div>
+          <div className='livesetitem-title'>[+] Add Liveset</div>
           <div>Upload liveset file</div>
         </div>
       );
@@ -58,16 +54,16 @@ export class LivesetItem extends React.Component<LivesetItemProps> {
         onClick={this.clickListener}
         onMouseOver={this.hoverListener}
       >
-        <div className='liveset-item-title'>{item.name}</div>
-        <div className='liveset-item-meta-1'>
-          <span className='liveset-item-label'>version</span>
-          <span className='liveset-item-contents'>{item.version}</span>
+        <div className='livesetitem-title'>{item.name}</div>
+        <div className='livesetitem-meta-1'>
+          <span className='livesetitem-label'>version</span>
+          <span className='livesetitem-contents'>{item.version}</span>
         </div>
-        <div className='liveset-item-meta-2'>
-          <span className='liveset-item-label'>author</span>
-          <span className='liveset-item-contents'>{item.author}</span>
+        <div className='livesetitem-meta-2'>
+          <span className='livesetitem-label'>author</span>
+          <span className='livesetitem-contents'>{item.author}</span>
         </div>
-        <div className='liveset-item-description'>{item.description}</div>
+        <div className='livesetitem-description'>{item.description}</div>
       </div>
     );
   }

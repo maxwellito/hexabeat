@@ -20,3 +20,19 @@
     0% 100%
   );
 }
+
+/**
+Reserved CSS classes
+
+- active
+- selected
+- on
+- off
+
+These classes must be applied as association with another class.
+
+Good: .mykomponent.active .mykomponent-title
+Not:  .active .mykomponent-title
+
+no camel, no dash (until modifier), no undescore
+*/

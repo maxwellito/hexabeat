@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { store, actions } from 'store';
-import './index.css';
 
 export const VOLUME_STEP = 1 / 32;
 

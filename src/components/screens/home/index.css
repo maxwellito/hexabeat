@@ -1,11 +1,11 @@
-.container {
+.homescreen {
   height: 100vh;
   display: grid;
   grid-template-columns: 50px 20px auto 80px;
   grid-template-rows: 30px 50px 40px auto 20px 20px;
 }
 
-.container > div {
+.homescreen > div {
   border-bottom: 1px dotted #333;
   border-left: 1px dotted #333;
 }

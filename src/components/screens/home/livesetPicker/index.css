@@ -1,6 +1,6 @@
 @import '~styles/variables.css';
 
-.liveset-item {
+.livesetitem {
   display: inline-grid;
   width: 280px;
   grid-template-columns: 7ch auto;
@@ -14,25 +14,23 @@
   clip-path: var(--cut-shape);
 }
 
-.liveset-item-title {
+.livesetitem-title {
   grid-area: title;
   font-size: 1.25rem;
 }
-.liveset-item-meta-1 {
+.livesetitem-meta-1 {
   grid-area: meta_1;
 }
-.liveset-item-meta-2 {
+.livesetitem-meta-2 {
   grid-area: meta_2;
 }
-.liveset-item-description {
+.livesetitem-description {
   grid-area: description;
 }
 
-.liveset-item-label {
+.livesetitem-label {
   display: block;
   color: var(--shade);
   font-size: 0.75rem;
   font-weight: bold;
-}
-.liveset-item-contents {
 }

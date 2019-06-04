@@ -6,6 +6,8 @@ export interface PlayControllerState {
   isPlaying: boolean;
 }
 
+// [komponent-class]: playcontroller
+
 /**
  * PlayController component
  * Used in the HomeScreem

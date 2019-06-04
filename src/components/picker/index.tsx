@@ -1,20 +1,7 @@
-/**
- * This is like a list, but landscape
- *
- *
- *
- * Input:
- *  parent node
- *     position + isSelected
- *  User click
- *     [position + ]
- *
- *
- * Reserved classname: picker and pickeritem
- */
-
 import * as React from 'react';
 import './index.css';
+
+// [komponent-class]: picker
 
 export interface PickerProps {
   data: any[];

@@ -9,6 +9,8 @@ import { LivesetItem } from './LivesetPicker';
 
 import './index.css';
 
+// [komponent-class]: homescreen
+
 export interface HomeProps {}
 
 export interface HomeState {
@@ -114,7 +116,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
       onLoad = <span>LOADING...</span>;
     }
     return (
-      <div className='container'>
+      <div className='homescreen'>
         <div />
         <div />
         <div>
