@@ -61,7 +61,6 @@ export default class Track {
    */
   setVolume(volume: number) {
     this.volume = Math.max(0, Math.min(1, volume));
-    this.gain.gain.value = this.volume;
     this.triggerUpdate();
   }
 
