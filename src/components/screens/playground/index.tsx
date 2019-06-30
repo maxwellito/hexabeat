@@ -225,7 +225,8 @@ export class Playground extends React.Component<
         /> */}
         <div
           className={
-            'track ' + (this.state.activeTrack === null ? 'active' : '')
+            'track trackgenerator ' +
+            (this.state.activeTrack === null ? 'active' : '')
           }
           data-id='[+]'
         >
