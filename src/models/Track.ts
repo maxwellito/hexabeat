@@ -1,6 +1,7 @@
 import { SampleGroup } from './Liveset';
 
 let track_id_counter = 1;
+const QUAL_MUL = 30;
 
 export default class Track {
   name: string;
@@ -22,8 +23,12 @@ export default class Track {
   selectedCommit = 0;
   selectedSequencer = 0;
 
+  filterFrequency = 1;
+  filterQuality = 0;
+
   audioCtx = new AudioContext();
   gainNode = this.audioCtx.createGain();
+  filterNode = this.audioCtx.createBiquadFilter();
 
   updateListener: () => void;
 
@@ -34,6 +39,10 @@ export default class Track {
     this.name = set.name;
     this.labels = set.samples.map(e => e.name);
     this.partitions = set.samples.map(() => new Array(16).fill(false));
+
+    // Init BiquadFilter
+    this.filterNode.type = (this.filterNode as any).LOWPASS;
+    this.filterNode.frequency.value = 5000;
 
     set.samples.forEach(sample => this.addSample(sample.data));
   }
@@ -79,11 +88,35 @@ export default class Track {
         let n = this.audioCtx.createBufferSource();
         n.buffer = old.buffer;
         this.gainNode.gain.value = this.volume * masterVolume;
-        n.connect(this.gainNode).connect(this.audioCtx.destination);
+        n.connect(this.gainNode)
+          .connect(this.filterNode)
+          .connect(this.audioCtx.destination);
+
         this.samples[pIndex] = n;
         this.samples[pIndex].start(0);
       }
     });
+  }
+
+  setFilterFrequency(value: number) {
+    this.filterFrequency = Math.min(1, Math.max(0, value));
+    // Clamp the frequency between the minimum value (40 Hz) and half of the
+    // sampling rate.
+    var minValue = 40;
+    var maxValue = this.audioCtx.sampleRate / 2;
+    // Logarithm (base 2) to compute how many octaves fall in the range.
+    var numberOfOctaves = Math.log(maxValue / minValue) / Math.LN2;
+    // Compute a multiplier from 0 to 1 based on an exponential scale.
+    var multiplier = Math.pow(2, numberOfOctaves * (value - 1.0));
+    // Get back to the frequency value between min and max.
+    this.filterNode.frequency.value = maxValue * multiplier;
+    this.triggerUpdate();
+  }
+
+  setFilterQuality(value: number) {
+    this.filterQuality = Math.min(1, Math.max(0, value));
+    this.filterNode.Q.value = value * QUAL_MUL;
+    this.triggerUpdate();
   }
 
   destroy() {

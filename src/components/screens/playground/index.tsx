@@ -144,16 +144,6 @@ export class Playground extends React.Component<
         store.dispatch(actions.setSelectedTrack(null));
       }
     }),
-    // Volume track
-    [MpkKey.nob5]: (diff: number) => {
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
-      }
-      const newVolume = track.volume + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
-      track.setVolume(newVolume);
-    },
 
     // Session BPM
     [MpkKey.nob3]: (diff: number) => {
@@ -167,6 +157,41 @@ export class Playground extends React.Component<
         store.getState().session.volume +
         (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
       store.dispatch(actions.setVolume(newVol));
+    },
+
+    // Volume track
+    [MpkKey.nob5]: (diff: number) => {
+      const { tracks, selectedTrack } = store.getState().session;
+      const track = tracks[selectedTrack || 0];
+      if (!track) {
+        return;
+      }
+      const newVolume = track.volume + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+      track.setVolume(newVolume);
+    },
+
+    // Filter Frequency track
+    [MpkKey.nob6]: (diff: number) => {
+      const { tracks, selectedTrack } = store.getState().session;
+      const track = tracks[selectedTrack || 0];
+      if (!track) {
+        return;
+      }
+      const newFrequency =
+        track.filterFrequency + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+      track.setFilterFrequency(newFrequency);
+    },
+
+    // Filter quality track
+    [MpkKey.nob7]: (diff: number) => {
+      const { tracks, selectedTrack } = store.getState().session;
+      const track = tracks[selectedTrack || 0];
+      if (!track) {
+        return;
+      }
+      const newQuality =
+        track.filterQuality + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+      track.setFilterQuality(newQuality);
     }
   });
 

@@ -37,6 +37,24 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     });
   }
 
+  updateFilterFrequencyListener = this.updateFilterFrequency.bind(this);
+  updateFilterFrequency(newFrequency: number) {
+    let track = this.props.data;
+    track.setFilterFrequency(newFrequency);
+    this.setState({
+      _: this.state._ + 1
+    });
+  }
+
+  updateFilterQualityListener = this.updateFilterQuality.bind(this);
+  updateFilterQuality(newQuality: number) {
+    let track = this.props.data;
+    track.setFilterQuality(newQuality);
+    this.setState({
+      _: this.state._ + 1
+    });
+  }
+
   viiListener = this.onVii.bind(this);
   onVii(newVolume: number) {
     store.dispatch(actions.setEditingTrack(this.props.data));
@@ -58,13 +76,25 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
         <div className='track-bloc track-bloc-title' data-title='sampleset'>
           <div className='track-label'>{track.name}</div>
         </div>
-        <div className='track-bloc' data-title='state'>
-          <TrackSwitch track={track} />
-        </div>
         <div className='track-bloc' data-title='volume'>
           <LevelMeter
             progress={track.volume}
             onUpdate={this.volumeUpdateListener}
+          />
+        </div>
+        <div className='track-bloc' data-title='state'>
+          <TrackSwitch track={track} />
+        </div>
+        <div className='track-bloc' data-title='freq.'>
+          <LevelMeter
+            progress={track.filterFrequency}
+            onUpdate={this.updateFilterFrequencyListener}
+          />
+        </div>
+        <div className='track-bloc' data-title='quality'>
+          <LevelMeter
+            progress={track.filterQuality}
+            onUpdate={this.updateFilterQualityListener}
           />
         </div>
         <div
