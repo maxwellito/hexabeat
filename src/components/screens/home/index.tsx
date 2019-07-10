@@ -7,8 +7,6 @@ import { MiniMPK } from 'components/common/minimpk';
 import { FullscreenIcon } from 'components/common/fullscreenIcon';
 import { LivesetItem } from './LivesetPicker';
 
-import { MpkHelper } from 'components/common/mpkHelper';
-
 import './index.css';
 
 // [komponent-class]: homescreen
@@ -120,7 +118,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
     return (
       <div className='homescreen'>
         <div />
-        <MpkHelper />
+        <div />
         <div>
           <FullscreenIcon />
         </div>

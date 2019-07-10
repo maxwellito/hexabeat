@@ -4,6 +4,7 @@ import { store } from 'store';
 
 import { Home } from 'components/screens/home';
 import { Playground } from 'components/screens/playground';
+import { MpkHelper } from 'components/common/mpkHelper';
 
 interface AppState {
   livesetReady: boolean;
@@ -33,6 +34,11 @@ export class App extends React.Component<any, AppState> {
   }
   render() {
     let screen = this.state.livesetReady ? <Playground /> : <Home />;
-    return <Provider store={store}>{screen}</Provider>;
+    return (
+      <Provider store={store}>
+        <MpkHelper />
+        {screen}
+      </Provider>
+    );
   }
 }

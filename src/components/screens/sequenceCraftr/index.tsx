@@ -32,28 +32,43 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
   sequencersList: AlgoListItemProps[] = [];
 
   unsubscribeMpk = Mpk.takeControl({
-    [MpkKey.pad1]: (isPress: boolean) => {
-      if (isPress) {
-        this.viiListener();
+    [MpkKey.pad1]: [
+      'Exit',
+      (isPress: boolean) => {
+        if (isPress) {
+          this.viiListener();
+        }
       }
-    },
-    [MpkKey.pad7]: (isPress: boolean) => {
-      if (isPress) {
-        this.viiListener();
+    ],
+    [MpkKey.pad7]: [
+      'Exit',
+      (isPress: boolean) => {
+        if (isPress) {
+          this.viiListener();
+        }
       }
-    },
-    [MpkKey.nob5]: NobBypass(3, (diff: number) => {
-      let { track } = this.props;
-      this.updateRepo(track.selectedRepo + diff);
-    }),
-    [MpkKey.nob6]: NobBypass(3, (diff: number) => {
-      let { track } = this.props;
-      this.updateCommit(track.selectedCommit + diff);
-    }),
-    [MpkKey.nob7]: NobBypass(3, (diff: number) => {
-      let { track } = this.props;
-      this.updateSequencer(track.selectedSequencer + diff);
-    })
+    ],
+    [MpkKey.nob5]: [
+      'Select repository',
+      NobBypass(3, (diff: number) => {
+        let { track } = this.props;
+        this.updateRepo(track.selectedRepo + diff);
+      })
+    ],
+    [MpkKey.nob6]: [
+      'Select commit',
+      NobBypass(3, (diff: number) => {
+        let { track } = this.props;
+        this.updateCommit(track.selectedCommit + diff);
+      })
+    ],
+    [MpkKey.nob7]: [
+      'Pick algorithm',
+      NobBypass(3, (diff: number) => {
+        let { track } = this.props;
+        this.updateSequencer(track.selectedSequencer + diff);
+      })
+    ]
   });
 
   constructor(props: SequenceCraftrProps) {

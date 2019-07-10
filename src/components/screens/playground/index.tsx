@@ -63,136 +63,173 @@ export class Playground extends React.Component<
    */
 
   unsubscribeMpk = Mpk.takeControl({
-    [MpkKey.pad1]: (isPress: boolean) => {
-      if (isPress) {
-        store.dispatch(actions.togglePlaying());
+    [MpkKey.pad1]: [
+      'Play/Pause',
+      (isPress: boolean) => {
+        if (isPress) {
+          store.dispatch(actions.togglePlaying());
+        }
       }
-    },
-    [MpkKey.pad4]: PadFilter(true, () => {
-      const { tracks, selectedTrack } = store.getState().session;
-      if (store.getState().session.selectedTrack === null) {
-        // Add track
-        const tr = new Track(this.sampleGroups[this.state.selectedNewTrack]);
-        store.dispatch(actions.addTrack(tr));
-        store.dispatch(actions.setSelectedTrack(tracks.length));
-        this.setState({
-          selectedNewTrackIsSelected: true
-        });
-      } else {
-        // Delete track
-        store.dispatch(actions.removeTrack(tracks[selectedTrack]));
+    ],
+    [MpkKey.pad4]: [
+      'Add/delete track',
+      PadFilter(true, () => {
+        const { tracks, selectedTrack } = store.getState().session;
+        if (store.getState().session.selectedTrack === null) {
+          // Add track
+          const tr = new Track(this.sampleGroups[this.state.selectedNewTrack]);
+          store.dispatch(actions.addTrack(tr));
+          store.dispatch(actions.setSelectedTrack(tracks.length));
+          this.setState({
+            selectedNewTrackIsSelected: true
+          });
+        } else {
+          // Delete track
+          store.dispatch(actions.removeTrack(tracks[selectedTrack]));
+        }
+      })
+    ],
+    [MpkKey.pad5]: [
+      'Mute track',
+      (isPress: boolean) => {
+        if (!isPress) return;
+        const { tracks, selectedTrack } = store.getState().session;
+        const track = tracks[selectedTrack || 0];
+        if (!track) {
+          return;
+        }
+        track.toggleMute();
       }
-    }),
-    [MpkKey.pad5]: (isPress: boolean) => {
-      if (!isPress) return;
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
+    ],
+    [MpkKey.pad6]: [
+      'Solo track',
+      (isPress: boolean) => {
+        if (!isPress) return;
+        const { tracks, selectedTrack } = store.getState().session;
+        const track = tracks[selectedTrack || 0];
+        if (!track) {
+          return;
+        }
+        store.dispatch(actions.toggleSoloTrack(track));
       }
-      track.toggleMute();
-    },
-    [MpkKey.pad6]: (isPress: boolean) => {
-      if (!isPress) return;
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
+    ],
+    [MpkKey.pad7]: [
+      'Open sequence crafter',
+      (isPress: boolean) => {
+        if (!isPress) return;
+        const { tracks, selectedTrack } = store.getState().session;
+        const track = tracks[selectedTrack || 0];
+        if (!track) {
+          return;
+        }
+        store.dispatch(actions.setEditingTrack(track));
+        // this.drapPos += diff;
+        // this.setState({
+        //   pickerIsSelected: false,
+        //   pickerIndex: Math.floor(this.drapPos / 5)
+        // });
       }
-      store.dispatch(actions.toggleSoloTrack(track));
-    },
-    [MpkKey.pad7]: (isPress: boolean) => {
-      if (!isPress) return;
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
-      }
-      store.dispatch(actions.setEditingTrack(track));
-      // this.drapPos += diff;
-      // this.setState({
-      //   pickerIsSelected: false,
-      //   pickerIndex: Math.floor(this.drapPos / 5)
-      // });
-    },
+    ],
 
     // Select track
-    [MpkKey.nob1]: NobBypass(3, (diff: number) => {
-      const { activeTrack } = this.state;
-      const trackLength = store.getState().session.tracks.length;
-      const newTrack = Math.max(
-        0,
-        Math.min(trackLength - 1, activeTrack + diff)
-      );
-      if (activeTrack !== newTrack) {
-        store.dispatch(actions.setSelectedTrack(newTrack));
-      }
-    }),
+    [MpkKey.nob1]: [
+      'Select track',
+      NobBypass(3, (diff: number) => {
+        const { activeTrack } = this.state;
+        const trackLength = store.getState().session.tracks.length;
+        const newTrack = Math.max(
+          0,
+          Math.min(trackLength - 1, activeTrack + diff)
+        );
+        if (activeTrack !== newTrack) {
+          store.dispatch(actions.setSelectedTrack(newTrack));
+        }
+      })
+    ],
     // Pick new track
-    [MpkKey.nob2]: NobBypass(3, (diff: number) => {
-      const { selectedNewTrack } = this.state;
-      const sgLength = this.sampleGroups.length;
-      const newIndex = Math.max(
-        0,
-        Math.min(sgLength - 1, selectedNewTrack + diff)
-      );
-      if (selectedNewTrack !== newIndex) {
-        this.setState({
-          selectedNewTrack: newIndex,
-          selectedNewTrackIsSelected: false
-        });
-        store.dispatch(actions.setSelectedTrack(null));
-      }
-    }),
+    [MpkKey.nob2]: [
+      'Selects new track to add',
+      NobBypass(3, (diff: number) => {
+        const { selectedNewTrack } = this.state;
+        const sgLength = this.sampleGroups.length;
+        const newIndex = Math.max(
+          0,
+          Math.min(sgLength - 1, selectedNewTrack + diff)
+        );
+        if (selectedNewTrack !== newIndex) {
+          this.setState({
+            selectedNewTrack: newIndex,
+            selectedNewTrackIsSelected: false
+          });
+          store.dispatch(actions.setSelectedTrack(null));
+        }
+      })
+    ],
 
     // Session BPM
-    [MpkKey.nob3]: (diff: number) => {
-      const newBPM = store.getState().session.bpm + diff;
-      store.dispatch(actions.setBpm(newBPM));
-    },
+    [MpkKey.nob3]: [
+      'BPM',
+      (diff: number) => {
+        const newBPM = store.getState().session.bpm + diff;
+        store.dispatch(actions.setBpm(newBPM));
+      }
+    ],
 
     // Session volume
-    [MpkKey.nob4]: (diff: number) => {
-      const newVol =
-        store.getState().session.volume +
-        (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
-      store.dispatch(actions.setVolume(newVol));
-    },
+    [MpkKey.nob4]: [
+      'Volume',
+      (diff: number) => {
+        const newVol =
+          store.getState().session.volume +
+          (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+        store.dispatch(actions.setVolume(newVol));
+      }
+    ],
 
     // Volume track
-    [MpkKey.nob5]: (diff: number) => {
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
+    [MpkKey.nob5]: [
+      'Track volume',
+      (diff: number) => {
+        const { tracks, selectedTrack } = store.getState().session;
+        const track = tracks[selectedTrack || 0];
+        if (!track) {
+          return;
+        }
+        const newVolume =
+          track.volume + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+        track.setVolume(newVolume);
       }
-      const newVolume = track.volume + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
-      track.setVolume(newVolume);
-    },
+    ],
 
     // Filter Frequency track
-    [MpkKey.nob6]: (diff: number) => {
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
+    [MpkKey.nob6]: [
+      'Track filter frequency',
+      (diff: number) => {
+        const { tracks, selectedTrack } = store.getState().session;
+        const track = tracks[selectedTrack || 0];
+        if (!track) {
+          return;
+        }
+        const newFrequency =
+          track.filterFrequency + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+        track.setFilterFrequency(newFrequency);
       }
-      const newFrequency =
-        track.filterFrequency + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
-      track.setFilterFrequency(newFrequency);
-    },
+    ],
 
     // Filter quality track
-    [MpkKey.nob7]: (diff: number) => {
-      const { tracks, selectedTrack } = store.getState().session;
-      const track = tracks[selectedTrack || 0];
-      if (!track) {
-        return;
+    [MpkKey.nob7]: [
+      'Filter track quality',
+      (diff: number) => {
+        const { tracks, selectedTrack } = store.getState().session;
+        const track = tracks[selectedTrack || 0];
+        if (!track) {
+          return;
+        }
+        const newQuality =
+          track.filterQuality + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
+        track.setFilterQuality(newQuality);
       }
-      const newQuality =
-        track.filterQuality + (diff > 0 ? VOLUME_STEP : -VOLUME_STEP);
-      track.setFilterQuality(newQuality);
-    }
+    ]
   });
 
   constructor(props: PlaygroundProps) {

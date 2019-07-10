@@ -339,7 +339,7 @@ class MpkController {
     ) {
       return;
     }
-    (<any>this.controlListener[padIndex])(state);
+    (<any>this.controlListener[padIndex][1])(state);
   }
   callNobListener(nobIndex: number, value: number): any {
     this.nobsState[nobIndex] =
@@ -354,7 +354,7 @@ class MpkController {
     ) {
       return;
     }
-    (<any>this.controlListener[nobIndex])(progress);
+    (<any>this.controlListener[nobIndex][1])(progress);
   }
   triggerHelp(state: boolean): void {
     this.isOnHelp = state;
@@ -372,7 +372,9 @@ class MpkController {
  *   [MpkKey.nob1]: (value: number) => {...},
  * }
  */
-export type CtrlListener = { [key: number]: PadListener | NobListener };
+export type CtrlListener = {
+  [key: number]: [string, PadListener | NobListener];
+};
 
 /**
  * Listener for pad events
@@ -455,15 +457,15 @@ export let Mpk = new MpkController();
 
 //# TO REMOVE: I'm sewious
 Mpk.takeControl({
-  [MpkKey.pad1]: (s: boolean) => console.log('A : PAD1', s),
-  [MpkKey.nob1]: (v: number) => console.log('A : NOB1', v),
-  [MpkKey.pad2]: (s: boolean) => console.log('A : PAD2', s),
-  [MpkKey.nob2]: (v: number) => console.log('A : NOB2', v)
+  [MpkKey.pad1]: ['Play/pause', (s: boolean) => console.log('A : PAD1', s)],
+  [MpkKey.nob1]: ['Volume', (v: number) => console.log('A : NOB1', v)],
+  [MpkKey.pad2]: ['Solo', (s: boolean) => console.log('A : PAD2', s)],
+  [MpkKey.nob2]: ['BPM', (v: number) => console.log('A : NOB2', v)]
 });
 
 window.onafterprint = Mpk.takeControl({
-  [MpkKey.pad1]: (s: boolean) => console.log('B : PAD1', s),
-  [MpkKey.nob1]: (v: number) => console.log('B : NOB1', v)
+  [MpkKey.pad1]: ['Banananrama', (s: boolean) => console.log('B : PAD1', s)],
+  [MpkKey.nob1]: ['Drift', (v: number) => console.log('B : NOB1', v)]
 });
 
 Mpk.onHelpKey = (status: boolean) => {
