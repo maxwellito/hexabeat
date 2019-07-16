@@ -123,7 +123,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <FullscreenIcon />
         </div>
         <div>
-          <MiniMPK />
+          <MiniMPK shortTag={false} />
         </div>
         <div />
         <div />

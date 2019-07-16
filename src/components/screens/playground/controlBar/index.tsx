@@ -29,19 +29,24 @@ export class ControlBar extends React.Component<
 
   render() {
     return (
-      <div className='controlbar'>
-        <div className='controlbar-item'>
-          <div className='controlbar-item-title'>{this.state.liveset}</div>
-        </div>
-        <BpmInput />
-        <VolumeInput />
-        <div className='controlbar-item'>
-          <div className='controlbar-item-title'>MPK</div>
-          <div className='controlbar-item-content'>
-            <MiniMPK />
+      <div className='track'>
+        <div className='controlbar'>
+          <div className='controlbar-item-main'>
+            <div className='controlbar-item-title'>Liveset</div>
+            <span className='controlbar-item-content'>
+              {this.state.liveset}
+            </span>
           </div>
+          <BpmInput />
+          <VolumeInput />
+          <div className='controlbar-item'>
+            <div className='controlbar-item-title'>MPK</div>
+            <div className='controlbar-item-content'>
+              <MiniMPK shortTag={true} />
+            </div>
+          </div>
+          <PlayController />
         </div>
-        <PlayController />
       </div>
     );
   }

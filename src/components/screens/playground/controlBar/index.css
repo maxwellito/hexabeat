@@ -6,15 +6,20 @@
   margin-bottom: var(--box-size);
 }
 
-.controlbar-item {
+.controlbar-item,
+.controlbar-item-main {
   width: 4rem;
   padding: var(--half-box-size);
   background-color: var(--shade-dark);
-  margin-left: var(--space);
+  margin-right: var(--space);
   line-height: 1;
 }
 .controlbar-item:hover {
   background-color: var(--shade);
+}
+.controlbar-item-main {
+  width: auto;
+  flex-grow: 1;
 }
 
 .controlbar-item-title {
@@ -25,7 +30,7 @@
 
 .controlbar-item-content,
 .controlbar-item-content-off {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .controlbar-item-content-off {
   color: var(--shade);

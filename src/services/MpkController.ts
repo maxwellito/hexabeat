@@ -119,13 +119,16 @@ class MpkController {
     this.runIntroAnimBinded = this.runIntroAnim.bind(this);
 
     // Check if the user already granted access
-    (<any>navigator).permissions.query({ name: 'midi', sysex: true }).then((
-      status: any /* PermissionStatus */
-    ) => {
-      if (status.state === 'granted') {
-        this.accessDevice();
+    (<any>navigator).permissions.query({ name: 'midi', sysex: true }).then(
+      (status: any /* PermissionStatus */) => {
+        if (status.state === 'granted') {
+          this.accessDevice();
+        }
+      },
+      (e: any) => {
+        this.status = MpkStatus.incompatible;
       }
-    });
+    );
   }
 
   /**
@@ -391,6 +394,7 @@ export type NobListener = (value: number) => void;
  */
 export enum MpkStatus {
   off = 'off',
+  incompatible = 'incompatible',
   waitingForAccess = 'waitingForAccess',
   pending = 'pending',
   connected = 'connected',
