@@ -2,9 +2,6 @@ import * as React from 'react';
 import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { Picker } from 'components/picker';
-
-import { MiniMPK } from 'components/common/minimpk';
-import { FullscreenIcon } from 'components/common/fullscreenIcon';
 import { LivesetItem } from './LivesetPicker';
 
 import './index.css';
@@ -18,6 +15,7 @@ export interface HomeState {
   isLoadingLivesetContent: boolean;
   pickerIndex: number;
   pickerIsSelected: boolean;
+  currentAction?: string;
 }
 
 /**
@@ -31,7 +29,6 @@ export interface HomeState {
 export class Home extends React.Component<HomeProps, HomeState> {
   drapPos = 0;
 
-  startLoad = this.startLoadListener.bind(this);
   updateListener = this.onUpdate.bind(this);
 
   unsubscribeStore = store.subscribe(() => {
@@ -75,19 +72,34 @@ export class Home extends React.Component<HomeProps, HomeState> {
     if (!isSelected) {
       return;
     }
-    this.startLoadListener();
+    const { livesets, pickerIndex } = this.state;
+    if (!livesets[index]) {
+      this.loadLiveset(prompt('Provide the URL to your liveset'));
+    } else {
+      const theLS = livesets[pickerIndex];
+      this.loadLivesetAssets(theLS);
+    }
   }
 
-  startLoadListener() {
-    const { livesets, pickerIndex } = this.state;
-    const theLS = livesets[pickerIndex];
+  loadLiveset(livesetPath: string) {
+    const newLiveset = new Liveset(livesetPath);
+    newLiveset
+      .loadConfig()
+      .then(
+        theLS => this.loadLivesetAssets(theLS),
+        err => this.setState({ currentAction: err.message })
+      );
+  }
+
+  loadLivesetAssets(theLS: Liveset) {
     if (!theLS || this.state.isLoadingLivesetContent) {
       return;
     }
 
     this.setState({
       isLoadingLivesetContent: true,
-      pickerIsSelected: true
+      pickerIsSelected: true,
+      currentAction: 'Loading...'
     });
 
     setTimeout(() => {
@@ -104,16 +116,19 @@ export class Home extends React.Component<HomeProps, HomeState> {
         },
         e => {
           console.warn(e);
-          this.setState({ isLoadingLivesetContent: false });
+          this.setState({
+            isLoadingLivesetContent: false,
+            currentAction: null
+          });
         }
       );
     }, 1000);
   }
 
   render() {
-    let onLoad;
-    if (this.state.isLoadingLivesetContent) {
-      onLoad = <span>LOADING...</span>;
+    let currentAction;
+    if (this.state.currentAction) {
+      currentAction = <span>{this.state.currentAction}</span>;
     }
     return (
       <div className='homescreen'>
@@ -140,7 +155,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           isSelected={this.state.pickerIsSelected}
           onUpdate={this.updateListener}
         />
-        {onLoad}
+        {currentAction}
       </div>
     );
   }
