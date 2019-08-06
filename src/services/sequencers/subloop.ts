@@ -1,6 +1,6 @@
 import { Sequencer } from 'models/Sequencer';
 import { Commit } from 'models/GitRepository';
-import HashSequencer from '../HashSequencer';
+import { binToInt } from '../HashSequencer';
 
 let subloop: Sequencer = {
   name: 'SubLoop',
@@ -60,7 +60,7 @@ function splicer(input: number[]): boolean[] {
     map.push({
       size: loopSize,
       data: input.splice(0, loopSize).map(x => !!x),
-      loop: HashSequencer.binToInt(input.splice(0, binaryMaxLoop)) + 1
+      loop: binToInt(input.splice(0, binaryMaxLoop)) + 1
     });
   }
 
