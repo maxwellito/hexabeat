@@ -117,48 +117,30 @@ export class Home extends React.Component<HomeProps, HomeState> {
     }
     return (
       <div className='homescreen'>
-        <div />
-        <div />
-        <div>
-          <FullscreenIcon />
-        </div>
-        <div>
-          <MiniMPK shortTag={false} />
-        </div>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div className='title'>
-          <p>phontom.</p>
-        </div>
-        <div className='subtitle'>
-          <p>welcome to the playground</p>
-        </div>
-        <div className='content'>
-          <p>//// PROVIDE ON-BOARDING HELP ////</p>
-          <Picker
-            data={this.state.livesets}
-            component={LivesetItem}
-            index={this.state.pickerIndex}
-            isSelected={this.state.pickerIsSelected}
-            onUpdate={this.updateListener}
-          />
-          {onLoad}
-        </div>
+        <h1>phontom.</h1>
+        <p>Express the beats from hidden commits.</p>
+        <p>
+          Phontom is a sequencer using commits from GitHub to make beats.
+          <br />
+          It takes a config file as input defining groups of sounds and
+          repositories to extract commits from.
+          <br />
+          Then mix and match commits and algorithms to make an infinite
+          combinaisons of sequences.
+          <br />
+          The app can be fully controlled via Akai MiniMPK device.
+          <br />
+          More resources to get started on this tutorial
+        </p>
+        <p>Start by picking one of the following set</p>
+        <Picker
+          data={this.state.livesets}
+          component={LivesetItem}
+          index={this.state.pickerIndex}
+          isSelected={this.state.pickerIsSelected}
+          onUpdate={this.updateListener}
+        />
+        {onLoad}
       </div>
     );
   }

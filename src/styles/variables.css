@@ -12,6 +12,8 @@
   --box-size: 25px;
   --track-size: 52px;
 
+  --view-width: 1200px;
+
   --cut-shape: polygon(
     0% 0%,
     100% 0%,
