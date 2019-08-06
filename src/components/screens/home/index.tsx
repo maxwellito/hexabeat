@@ -118,7 +118,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           console.warn(e);
           this.setState({
             isLoadingLivesetContent: false,
-            currentAction: null
+            currentAction: e.message
           });
         }
       );
@@ -128,7 +128,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
   render() {
     let currentAction;
     if (this.state.currentAction) {
-      currentAction = <span>{this.state.currentAction}</span>;
+      currentAction = (
+        <p className='homescreen-action-label'>{this.state.currentAction}</p>
+      );
     }
     return (
       <div className='homescreen'>

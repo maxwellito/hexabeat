@@ -2,3 +2,7 @@
   max-width: var(--view-width);
   margin: auto;
 }
+
+.homescreen-action-label {
+  color: var(--shade-active-on);
+}
