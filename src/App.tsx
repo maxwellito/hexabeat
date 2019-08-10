@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 
+import fullscreenHelper from 'services/FullscreenHelper';
+
 import { Home } from 'components/screens/home';
 import { Playground } from 'components/screens/playground';
 import { MpkHelper } from 'components/common/mpkHelper';
@@ -31,6 +33,12 @@ export class App extends React.Component<any, AppState> {
         });
       }
     });
+  }
+  componentDidMount() {
+    window.addEventListener('dblclick', fullscreenHelper.toggle);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('dblclick', fullscreenHelper.toggle);
   }
   render() {
     let screen = this.state.livesetReady ? <Playground /> : <Home />;
