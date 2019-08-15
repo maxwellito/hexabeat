@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DefaultListItem } from './items/DefaultListItem';
+import { DigitalNob } from 'components/common/digitalNob';
 import './List.css';
 
 // [komponent-class]: listwrap
@@ -27,7 +28,7 @@ export interface ListState {}
 export class List extends React.Component<ListProps, ListState> {
   previousIndex: number = 0;
   isScrollingDown: true;
-  wheelListener: (e: React.WheelEvent) => void;
+  updateListener = this.onUpdate.bind(this);
   wheelAcc = 0;
 
   constructor(props: ListProps) {
@@ -35,31 +36,10 @@ export class List extends React.Component<ListProps, ListState> {
     this.state = {
       index: 0
     };
-    this.wheelListener = this.onWheel.bind(this);
   }
 
-  onWheel(e: React.WheelEvent) {
-    // End event
-    e.stopPropagation();
-    e.preventDefault();
-
-    const Y = e.deltaY;
-    let newIndex = this.props.index;
-    if (!Y) {
-      return;
-    }
-    this.wheelAcc += Y > 0 ? 1 : -1;
-
-    if (this.wheelAcc >= WHEEL_STEP) {
-      newIndex += Math.floor(this.wheelAcc / WHEEL_STEP);
-      this.wheelAcc %= WHEEL_STEP;
-    } else if (this.wheelAcc <= -WHEEL_STEP) {
-      newIndex -= Math.floor(-this.wheelAcc / WHEEL_STEP);
-      this.wheelAcc = -(-this.wheelAcc % WHEEL_STEP);
-    } else {
-      return;
-    }
-
+  onUpdate(change: number) {
+    let newIndex = this.props.index + change;
     newIndex = Math.min(this.props.data.length - 1, Math.max(0, newIndex));
     this.props.onUpdate(newIndex);
   }
@@ -94,11 +74,14 @@ export class List extends React.Component<ListProps, ListState> {
     this.previousIndex = this.props.index;
 
     return (
-      <div className={'listwrap ' + wrapClass} onWheel={this.wheelListener}>
+      <DigitalNob
+        className={'listwrap ' + wrapClass}
+        onUpdate={this.updateListener}
+      >
         <div className='listwrap-top'>{topList}</div>
         {selectedItem}
         <div className='listwrap-bottom'>{bottomList}</div>
-      </div>
+      </DigitalNob>
     );
   }
 }

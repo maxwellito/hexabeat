@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DigitalNob } from 'components/common/digitalNob';
 import './index.css';
 
 // [komponent-class]: levelmeter
@@ -16,15 +17,9 @@ export class LevelMeter extends React.Component<
   LevelMeterProps,
   LevelMeterState
 > {
-  wheelListener = this.onWheel.bind(this);
-  onWheel(e: React.WheelEvent) {
-    // End event
-    e.stopPropagation();
-
-    let x = this.props.progress - e.deltaY * (1 / 32);
-    // this.setState({
-    //   progress: x
-    // });
+  updateListener = this.onUpdate.bind(this);
+  onUpdate(change: number) {
+    let x = this.props.progress + change * (1 / 32);
     this.props.onUpdate(x);
   }
 
@@ -48,7 +43,7 @@ export class LevelMeter extends React.Component<
     let stripSize = Math.floor(this.props.progress * 5) + 1;
 
     return (
-      <div className='levelmeter' onWheelCapture={this.wheelListener}>
+      <DigitalNob className='levelmeter' onUpdate={this.updateListener}>
         <div className='levelmeter-wrap'>
           <div
             className={'levelmeter-content stripped x' + stripSize}
@@ -59,7 +54,7 @@ export class LevelMeter extends React.Component<
           {extraO}
           <span>{displayValue}</span>
         </span>
-      </div>
+      </DigitalNob>
     );
   }
 }

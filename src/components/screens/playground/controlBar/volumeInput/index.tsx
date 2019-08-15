@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { store, actions } from 'store';
+import { DigitalNob } from 'components/common/digitalNob';
 
 export const VOLUME_STEP = 1 / 32;
 
@@ -15,7 +16,7 @@ export interface VolumeInputState {
  * Reserved CSS class: volumeinput
  */
 export class VolumeInput extends React.Component<any, VolumeInputState> {
-  wheelListener = this.onWheel.bind(this);
+  updateListener = this.onUpdate.bind(this);
   unsubscribe = store.subscribe(() => {
     let newVolume = store.getState().session.volume;
     if (newVolume !== this.state.value) {
@@ -32,19 +33,10 @@ export class VolumeInput extends React.Component<any, VolumeInputState> {
     };
   }
 
-  onWheel(e: React.WheelEvent) {
-    // End event
-    e.stopPropagation();
-    e.preventDefault();
-
-    const Y = e.deltaY;
+  onUpdate(change: number) {
     const value = this.state.value;
-    if (!Y) {
-      return;
-    }
-    store.dispatch(
-      actions.setVolume(value + (Y < 0 ? VOLUME_STEP : -VOLUME_STEP))
-    );
+    console.log(value, change, change * VOLUME_STEP);
+    store.dispatch(actions.setVolume(value + change * VOLUME_STEP));
   }
 
   render() {
@@ -57,11 +49,11 @@ export class VolumeInput extends React.Component<any, VolumeInputState> {
       extraO = <span className='controlbar-item-content-off'>0</span>;
     }
     return (
-      <div className='controlbar-item' onWheel={this.wheelListener}>
+      <DigitalNob className='controlbar-item' onUpdate={this.updateListener}>
         <div className='controlbar-item-title'>Volume</div>
         {extraO}
         <span className='controlbar-item-content'>{displayValue}</span>
-      </div>
+      </DigitalNob>
     );
   }
 }

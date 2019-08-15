@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { store, actions } from 'store';
+import { DigitalNob } from 'components/common/digitalNob';
 
 export interface BpmInputState {
   value: number;
@@ -13,7 +14,7 @@ export interface BpmInputState {
  * Reserved CSS class: bpminput
  */
 export class BpmInput extends React.Component<any, BpmInputState> {
-  wheelListener = this.onWheel.bind(this);
+  updateListener = this.onUpdate.bind(this);
   unsubscribe = store.subscribe(() => {
     let newBpm = store.getState().session.bpm;
     if (newBpm !== this.state.value) {
@@ -30,16 +31,8 @@ export class BpmInput extends React.Component<any, BpmInputState> {
     };
   }
 
-  onWheel(e: React.WheelEvent) {
-    // End event
-    e.stopPropagation();
-    e.preventDefault();
-
-    const Y = e.deltaY;
-    if (!Y) {
-      return;
-    }
-    const value = this.state.value + (Y > 0 ? -1 : 1);
+  onUpdate(change: number) {
+    const value = this.state.value + change;
     store.dispatch(actions.setBpm(value));
   }
 
@@ -49,11 +42,11 @@ export class BpmInput extends React.Component<any, BpmInputState> {
       extraO = <span className='controlbar-item-content-off'>0</span>;
     }
     return (
-      <div className='controlbar-item' onWheel={this.wheelListener}>
+      <DigitalNob className='controlbar-item' onUpdate={this.updateListener}>
         <div className='controlbar-item-title'>BPM</div>
         {extraO}
         <span className='controlbar-item-content'>{this.state.value}</span>
-      </div>
+      </DigitalNob>
     );
   }
 }
