@@ -83,6 +83,15 @@
 .track > *:nth-child(5) {
   animation-delay: 0.4s;
 }
+.track > *:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.track > *:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.track > *:nth-child(8) {
+  animation-delay: 0.7s;
+}
 
 @keyframes flashIn {
   0% {
