@@ -55,8 +55,14 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     });
   }
 
-  viiListener = this.onVii.bind(this);
-  onVii(newVolume: number) {
+  removeTrackListener = this.removeTrack.bind(this);
+  removeTrack() {
+    let track = this.props.data;
+    store.dispatch(actions.removeTrack(track));
+  }
+
+  editTrackListener = this.editTrack.bind(this);
+  editTrack(newVolume: number) {
     store.dispatch(actions.setEditingTrack(this.props.data));
   }
 
@@ -75,6 +81,14 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
       <div className={classes.join(' ')} data-id={'0' + index}>
         <div className='track-bloc track-bloc-title' data-title='sampleset'>
           <div className='track-label'>{track.name}</div>
+        </div>
+        <div className='track-bloc compact' data-title='-'>
+          <div
+            className='trackswitch-button off'
+            onClick={this.removeTrackListener}
+          >
+            ×
+          </div>
         </div>
         <div className='track-bloc' data-title='volume'>
           <LevelMeter
@@ -100,7 +114,7 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
         <div
           className='track-bloc'
           data-title='sequence'
-          onClick={this.viiListener}
+          onClick={this.editTrackListener}
         >
           <TrackData data={track.partitions} labels={track.labels} />
         </div>

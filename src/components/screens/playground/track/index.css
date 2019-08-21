@@ -27,6 +27,9 @@
 .track.active .track-bloc {
   border-color: var(--shade-light);
 }
+.track-bloc.compact {
+  min-width: var(--box-size);
+}
 
 .track-bloc:before {
   display: block;
