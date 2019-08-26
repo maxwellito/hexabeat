@@ -6,6 +6,7 @@ const WHEEL_STEP = 4;
 
 export interface DigitalNobProps {
   unitSize?: number;
+  reverseScroll?: boolean;
   className?: string;
   onUpdate: (change: number) => void;
 }
@@ -104,7 +105,11 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
     if (!Y) {
       return;
     }
-    this.wheelAcc += Y > 0 ? 1 : -1;
+    if (this.props.reverseScroll) {
+      this.wheelAcc += Y > 0 ? -1 : +1;
+    } else {
+      this.wheelAcc += Y > 0 ? +1 : -1;
+    }
 
     if (this.wheelAcc >= WHEEL_STEP) {
       newIndex += Math.floor(this.wheelAcc / WHEEL_STEP);

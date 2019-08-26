@@ -76,6 +76,7 @@ export class List extends React.Component<ListProps, ListState> {
     return (
       <DigitalNob
         className={'listwrap ' + wrapClass}
+        reverseScroll={true}
         onUpdate={this.updateListener}
       >
         <div className='listwrap-top'>{topList}</div>

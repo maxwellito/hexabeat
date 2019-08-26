@@ -43,7 +43,11 @@ export class LevelMeter extends React.Component<
     let stripSize = Math.floor(this.props.progress * 5) + 1;
 
     return (
-      <DigitalNob className='levelmeter' onUpdate={this.updateListener}>
+      <DigitalNob
+        className='levelmeter'
+        unitSize={2}
+        onUpdate={this.updateListener}
+      >
         <div className='levelmeter-wrap'>
           <div
             className={'levelmeter-content stripped x' + stripSize}
