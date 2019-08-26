@@ -36,7 +36,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
       'Exit',
       (isPress: boolean) => {
         if (isPress) {
-          this.viiListener();
+          this.closeListener();
         }
       }
     ],
@@ -44,7 +44,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
       'Exit',
       (isPress: boolean) => {
         if (isPress) {
-          this.viiListener();
+          this.closeListener();
         }
       }
     ],
@@ -135,12 +135,11 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
   }
 
   componentWillUnmount() {
-    // window.removeEventListener('keyup', this.keyUpListener)
     this.unsubscribeMpk();
   }
 
-  viiListener = this.onVii.bind(this);
-  onVii(newVolume: number) {
+  closeListener = this.onClose.bind(this);
+  onClose(newVolume: number) {
     store.dispatch(actions.releaseEditingTrack());
   }
 
@@ -161,7 +160,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
     track.partitions = seq;
 
     return (
-      <div className='sequencecraftr' onClick={this.viiListener}>
+      <div className='sequencecraftr' onClick={this.closeListener}>
         <div className='sequencecraftr-wrap'>
           <List
             index={track.selectedRepo}
@@ -183,9 +182,8 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
         </div>
         <div className='sequencecraftr-track'>
           <TrackData data={seq} labels={track.labels} />
+          <button onClick={this.closeListener}>Done. [×]</button>
         </div>
-        {/* <HelperIcon index={1} type='nob' />
-        <HelperIcon index={3} type='pad' /> */}
       </div>
     );
   }

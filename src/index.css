@@ -80,3 +80,22 @@ h6 {
   border-color: var(--primary);
   box-shadow: 0 0 var(--border-width) var(--primary);
 }
+
+/* Button */
+
+button {
+  border: none;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: var(--box-size);
+  cursor: pointer;
+  background-color: var(--shade-dark);
+  color: var(--shade-light);
+}
+button:hover {
+  background-color: var(--shade);
+}
+button.on {
+  background-color: var(--shade-light);
+  color: var(--shade-base);
+}

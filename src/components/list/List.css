@@ -56,11 +56,12 @@
 }
 .listitem.active .listitem-title {
   color: var(--shade-dark);
-  background-color: var(--shade-light);
+  background-color: var(--shade-active-on);
   padding: 0.125em 0.25em;
 }
 .listitem.active .listitem-subtitle {
-  /* opacity: .75; */
+  color: var(--shade-light);
+  opacity: 1;
 }
 
 .algolistitem .listitem-title {

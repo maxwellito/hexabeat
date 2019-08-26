@@ -36,4 +36,9 @@
 .sequencecraftr-track {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.sequencecraftr-track .trackdata {
+  margin-right: 2rem;
 }

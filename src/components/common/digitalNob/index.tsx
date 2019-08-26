@@ -155,7 +155,6 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
     this.updatePlanned = window.requestAnimationFrame(
       this.requestAnimationListener
     );
-    console.log(`Update for ${this.updatePlanned}`);
   }
 
   requestAnimation() {

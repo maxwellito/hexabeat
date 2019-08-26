@@ -86,6 +86,7 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
           <div
             className='trackswitch-button off'
             onClick={this.removeTrackListener}
+            title='Delete track'
           >
             ×
           </div>

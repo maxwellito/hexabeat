@@ -4,6 +4,6 @@
   width: 52px;
 }
 .algoicon line {
-  stroke: var(--shade-light);
+  stroke: currentColor;
   stroke-linecap: round;
 }
