@@ -41,7 +41,7 @@ export default class Track {
     this.partitions = set.samples.map(() => new Array(16).fill(false));
 
     // Init BiquadFilter
-    this.filterNode.type = (this.filterNode as any).LOWPASS;
+    this.filterNode.type = 'lowpass';
     this.filterNode.frequency.value = 5000;
 
     set.samples.forEach(sample => this.addSample(sample.data));
@@ -107,7 +107,10 @@ export default class Track {
     // Logarithm (base 2) to compute how many octaves fall in the range.
     var numberOfOctaves = Math.log(maxValue / minValue) / Math.LN2;
     // Compute a multiplier from 0 to 1 based on an exponential scale.
-    var multiplier = Math.pow(2, numberOfOctaves * (value - 1.0));
+    var multiplier = Math.pow(
+      2,
+      numberOfOctaves * (this.filterFrequency - 1.0)
+    );
     // Get back to the frequency value between min and max.
     this.filterNode.frequency.value = maxValue * multiplier;
     this.triggerUpdate();
