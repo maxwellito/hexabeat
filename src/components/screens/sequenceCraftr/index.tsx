@@ -182,7 +182,7 @@ export class SequenceCraftr extends React.Component<SequenceCraftrProps> {
         </div>
         <div className='sequencecraftr-track'>
           <TrackData data={seq} labels={track.labels} />
-          <button onClick={this.closeListener}>Done. [×]</button>
+          <button onClick={this.closeListener}>DONE [×]</button>
         </div>
       </div>
     );
