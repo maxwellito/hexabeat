@@ -19,6 +19,9 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
   wheelAcc = 0;
   updatePlanned: number;
 
+  elRef: React.RefObject<HTMLDivElement> = React.createRef();
+  el: HTMLDivElement;
+
   touchStartListener = this.touchStart.bind(this);
   touchUpdateListener = this.touchUpdate.bind(this);
   touchEndListener = this.touchEnd.bind(this);
@@ -33,7 +36,20 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
     if (this.updatePlanned) {
       window.cancelAnimationFrame(this.updatePlanned);
     }
+    if (this.el) {
+      this.el.onwheel = null;
+    }
     this.mouseEnd(null);
+  }
+
+  componentDidMount() {
+    // Keep the wrapper listening to the wheel event
+    let el = this.elRef.current;
+    if (this.el && this.el !== el) {
+      this.el.onwheel = null;
+    }
+    this.el = el;
+    this.el.onwheel = this.wheelListener;
   }
 
   render() {
@@ -41,12 +57,12 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
     className = 'digitalnob ' + (className || '');
     return (
       <div
-        onMouseDown={this.mouseStartListener}
-        onTouchStart={this.touchStartListener}
-        onTouchMove={this.touchUpdateListener}
-        onTouchEnd={this.touchEndListener}
-        onWheel={this.wheelListener}
+        onMouseDownCapture={this.mouseStartListener}
+        onTouchStartCapture={this.touchStartListener}
+        onTouchMoveCapture={this.touchUpdateListener}
+        onTouchEndCapture={this.touchEndListener}
         className={className}
+        ref={this.elRef}
       >
         {this.props.children}
       </div>
@@ -61,8 +77,6 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
   }
 
   touchUpdate(t: TouchEvent) {
-    t.preventDefault();
-    t.stopPropagation();
     this.update(t.targetTouches[0].pageX, t.targetTouches[0].pageY);
   }
 
@@ -81,9 +95,6 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
   }
 
   mouseUpdate(t: MouseEvent) {
-    t.preventDefault();
-    t.stopPropagation();
-
     this.update(t.pageX, t.pageY);
   }
 
@@ -121,6 +132,7 @@ export class DigitalNob extends React.Component<DigitalNobProps> {
       return;
     }
     this.setNextValue(this.nextValue + newIndex);
+    return false;
   }
 
   /* Logic ***********************************************/
