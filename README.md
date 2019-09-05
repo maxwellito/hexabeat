@@ -1,8 +1,6 @@
-# Phontom project
+# HexaBeat
 
 **From commit to beat.**
-
-_Phontom is a codename project for now. It will change, for sure._
 
 Web-based application to generate music from repositories commits. To start, two things are required: a list of repositories to load from GitHub, and a track config file.
 
