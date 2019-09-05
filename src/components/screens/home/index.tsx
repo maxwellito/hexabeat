@@ -136,10 +136,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
     }
     return (
       <div className='homescreen'>
-        <h1>phontom.</h1>
+        <img src='public/hexabeat.svg' className='homescreen-logo' />
         <p>Express the beats from hidden commits.</p>
         <p>
-          Phontom is a sequencer using commits from GitHub to make beats.
+          HexaBeat is a sequencer using commits from GitHub to make beats.
           <br />
           It takes a config file as input defining groups of sounds and
           repositories to extract commits from.

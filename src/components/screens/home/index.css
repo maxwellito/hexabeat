@@ -3,6 +3,11 @@
   margin: auto;
 }
 
+.homescreen-logo {
+  height: 4rem;
+  margin: 2rem 0 1rem;
+}
+
 .homescreen-action-label {
   color: var(--shade-active-on);
 }
