@@ -1,0 +1,159 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+	 width="1100px" height="600px" viewBox="-20 0 1080 600"  xml:space="preserve" preserveAspectRatio="xMidYMid">
+
+<g fill="none" stroke="#fff">
+
+	<g id="pad_1">
+		<rect x="63.5" y="190.5" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="68.5" y="195.5" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_2">
+		<rect x="183.5" y="190.5" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="188.5" y="195.5" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_3">
+		<rect x="304" y="190.5" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="309" y="195.5" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_4">
+		<rect x="424" y="190.5" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="429" y="195.5" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_5">
+		<rect x="63.5" y="311" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="68.5" y="316" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_6">
+		<rect x="183.5" y="311" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="188.5" y="316" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_7">
+		<rect x="304" y="311" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="309" y="316" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+	<g id="pad_8">
+		<rect x="424" y="311" stroke-width="2" rx="4" stroke-miterlimit="10" width="98" height="98"/>
+		<rect x="429" y="316" stroke-miterlimit="10" width="88" height="88"/>
+	</g>
+
+
+
+	<g id="nob_1">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="583.5" cy="250.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="583.5" cy="247" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="583.5" y1="253.5" x2="583.5" y2="223.5"/>
+	</g>
+	<g id="nob_2">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="681.5" cy="250.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="681.5" cy="247" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="681.5" y1="253.5" x2="681.5" y2="223.5"/>
+	</g>
+	<g id="nob_3">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="779.5" cy="250.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="779.5" cy="247" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="779.5" y1="253.5" x2="779.5" y2="223.5"/>
+	</g>
+	<g id="nob_4">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="877.5" cy="250.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="877.5" cy="247" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="877.5" y1="253.5" x2="877.5" y2="223.5"/>
+	</g>
+	<g id="nob_5">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="583.5" cy="355.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="583.5" cy="352" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="583.5" y1="358.5" x2="583.5" y2="328.5"/>
+	</g>
+	<g id="nob_6">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="681.5" cy="355.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="681.5" cy="352" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="681.5" y1="358.5" x2="681.5" y2="328.5"/>
+	</g>
+	<g id="nob_7">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="779.5" cy="355.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="779.5" cy="352" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="779.5" y1="358.5" x2="779.5" y2="328.5"/>
+	</g>
+	<g id="nob_8">
+		<circle stroke-width="2" stroke-miterlimit="10" cx="877.5" cy="355.5" r="27"/>
+		<circle stroke-miterlimit="10" cx="877.5" cy="352" r="21"/>
+		<line stroke-width="8" stroke-miterlimit="10" x1="877.5" y1="358.5" x2="877.5" y2="328.5"/>
+	</g>
+
+
+
+	<g id="helper_pad_1">
+		<text text-anchor="end" x="130" y="137.3672" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="138.149,133.5 156.5,133.5 156.5,181.5 		"/>
+	</g>
+	<g id="helper_pad_2">
+		<text text-anchor="end" x="166" y="111.5322" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="174.231,107.5 276.5,107.5 276.5,181.5 		"/>
+	</g>
+	<g id="helper_pad_3">
+		<text text-anchor="end" x="202" y="85.4438" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="210.312,81.5 397,81.5 397,181.5 		"/>
+	</g>
+	<g id="helper_pad_4">
+		<text text-anchor="end" x="238" y="59.3672" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="517,181.5 516.812,55.5 246.395,55.5 		"/>
+	</g>
+	<g id="helper_pad_5">
+		<text text-anchor="end" x="130" y="471.6328" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="138.149,467.5 156.5,467.5 156.5,419.5 		"/>
+	</g>
+	<g id="helper_pad_6">
+		<text text-anchor="end" x="166" y="497.4678" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="174.231,493.5 276.5,493.5 276.5,419.5 		"/>
+	</g>
+	<g id="helper_pad_7">
+		<text text-anchor="end" x="202" y="523.5566" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="210.312,519.5 397,519.5 397,419.5 		"/>
+	</g>
+	<g id="helper_pad_8">
+		<text text-anchor="end" x="238" y="549.6328" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="517,419.5 516.812,545.5 246.395,545.5 		"/>
+	</g>
+
+
+
+	<g id="helper_nob_1">
+		<text x="865.301" y="59.3672" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="584.081,212.5 584.27,55.5 854.687,55.5 		"/>
+	</g>
+	<g id="helper_nob_2">
+		<text x="879.289" y="85.4438" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="868.769,81.5 682.081,81.5 682.081,212.5 		"/>
+	</g>
+	<g id="helper_nob_3">
+		<text x="892.589" y="111.5322" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="882.183,107.5 779.914,107.5 779.913,212.5 		"/>
+	</g>
+	<g id="helper_nob_4">
+		<text x="906.808" y="137.3672" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="896.266,133.5 877.914,133.5 877.914,212.5 		"/>
+	</g>
+	<g id="helper_nob_5">
+		<text x="865.301" y="549.6328" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="584.081,388.5 584.27,545.5 854.687,545.5 		"/>
+	</g>
+	<g id="helper_nob_6">
+		<text x="879.289" y="523.5566" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="868.769,519.5 682.081,519.5 682.081,388.5 		"/>
+	</g>
+	<g id="helper_nob_7">
+		<text x="892.589" y="497.4678" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="882.183,493.5 779.914,493.5 779.913,388.5 		"/>
+	</g>
+	<g id="helper_nob_8">
+		<text x="906.808" y="471.6328" font-family="'saxMono'" font-size="14" fill="#fff" stroke="none">SELECT/DELETE STUFF</text>
+		<polyline stroke-miterlimit="10" points="896.266,467.5 877.914,467.5 877.914,388.5 		"/>
+	</g>
+</g>
+</svg>
