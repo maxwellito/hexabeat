@@ -68,6 +68,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   onUpdate(index: number, isSelected: boolean) {
+    if (this.state.pickerIsSelected) {
+      return;
+    }
     this.setState({
       pickerIndex: index
     });
@@ -75,6 +78,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
       return;
     }
     const { livesets, pickerIndex } = this.state;
+    this.setState({
+      pickerIsSelected: true
+    });
     if (!livesets[index]) {
       this.loadLiveset(prompt('Provide the URL to your liveset'));
     } else {
@@ -84,6 +90,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   loadLiveset(livesetPath: string) {
+    this.setState({
+      currentAction: 'Loading liveset config...'
+    });
     const newLiveset = new Liveset(livesetPath);
     newLiveset
       .loadConfig()
@@ -100,8 +109,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
     this.setState({
       isLoadingLivesetContent: true,
-      pickerIsSelected: true,
-      currentAction: 'Loading...'
+      currentAction: 'Loading liveset content...'
     });
 
     setTimeout(() => {

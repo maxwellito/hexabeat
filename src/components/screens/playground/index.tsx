@@ -32,6 +32,7 @@ export class Playground extends React.Component<
   PlaygroundState
 > {
   drapPos = 0;
+  timerClearGenerator: number;
   sampleGroups = store.getState().session.liveset.sampleGroups;
 
   unsubscribeStore = store.subscribe(() => {
@@ -83,6 +84,7 @@ export class Playground extends React.Component<
           this.setState({
             selectedNewTrackIsSelected: true
           });
+          this.startTimerClearGenerator();
         } else {
           // Delete track
           store.dispatch(actions.removeTrack(tracks[selectedTrack]));
@@ -162,6 +164,7 @@ export class Playground extends React.Component<
             selectedNewTrackIsSelected: false
           });
           store.dispatch(actions.setSelectedTrack(null));
+          this.clearTimerClearGenerator();
         }
       })
     ],
@@ -249,6 +252,9 @@ export class Playground extends React.Component<
   }
 
   onUpdateListener(index: number, isSelected: boolean) {
+    if (index !== this.state.selectedNewTrack && this.timerClearGenerator) {
+      this.clearTimerClearGenerator();
+    }
     this.setState({
       selectedNewTrack: index,
       selectedNewTrackIsSelected: isSelected
@@ -259,8 +265,24 @@ export class Playground extends React.Component<
     }
     let tr = new Track(this.sampleGroups[index]);
     store.dispatch(actions.addTrack(tr));
+    this.startTimerClearGenerator();
   }
   onUpdate = this.onUpdateListener.bind(this);
+
+  startTimerClearGenerator() {
+    this.timerClearGenerator = setTimeout(() => {
+      this.setState({
+        selectedNewTrack: -1,
+        selectedNewTrackIsSelected: false
+      });
+      this.timerClearGenerator = null;
+    }, 1000);
+  }
+
+  clearTimerClearGenerator() {
+    clearTimeout(this.timerClearGenerator);
+    this.timerClearGenerator = null;
+  }
 
   render() {
     let trks = this.state.tracks.map((t, i) => {
@@ -281,10 +303,6 @@ export class Playground extends React.Component<
       <div>
         <ControlBar />
         {trks}
-        {/* <TrackGenerator
-          pickerIndex={this.state.selectedNewTrack}
-          isOn={this.state.activeTrack === null}
-        /> */}
         <div
           className={
             'track trackgenerator ' +
@@ -300,7 +318,6 @@ export class Playground extends React.Component<
             onUpdate={this.onUpdate}
           />
         </div>
-        {/* <IconHelper /> */}
         {editor}
       </div>
     );

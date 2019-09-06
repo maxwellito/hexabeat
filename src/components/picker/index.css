@@ -12,13 +12,11 @@
   display: flex;
 }
 
-.picker:not(:hover) .picker-item.active,
-.picker-item:hover {
+.picker-item.active {
   color: var(--shade-base);
   background-color: var(--shade-light);
 }
-.picker-item.selected,
-.picker-item.selected:hover {
+.picker-item.selected {
   background-color: var(--shade-active-on);
   animation: picker-flash 0.2s;
   animation-fill-mode: forwards;
