@@ -15,20 +15,30 @@ const X_MAX = 8,
   GAP_SIZE = LINE_PADDING + LINE_WIDTH;
 
 export class AlgoIcon extends React.Component<AlgoIconProps> {
+  shouldComponentUpdate() {
+    return !this.props;
+  }
   render() {
-    const lines = this.props.data.map((lineData, lineIndex) => {
-      const [y, x1, x2] = lineData;
-      return (
-        <line
-          key={lineIndex}
-          strokeWidth={LINE_WIDTH}
-          x1={POS_BASE + GAP_SIZE * x1}
-          y1={POS_BASE + GAP_SIZE * y}
-          x2={POS_BASE + GAP_SIZE * x2}
-          y2={POS_BASE + GAP_SIZE * y}
-        />
-      );
-    });
+    let dots = [];
+    for (let x = 0; x < X_MAX; x++) {
+      for (let y = 0; y < Y_MAX; y++) {
+        const isOn = this.props.data
+          .filter(path => path[0] === y)
+          .filter(path => path[1] <= x)
+          .filter(path => path[2] >= x);
+
+        dots.push(
+          <line
+            key={x * Y_MAX + y}
+            strokeWidth={isOn.length ? LINE_WIDTH : 1}
+            x1={POS_BASE + GAP_SIZE * x}
+            y1={POS_BASE + GAP_SIZE * y}
+            x2={POS_BASE + GAP_SIZE * x}
+            y2={POS_BASE + GAP_SIZE * y}
+          />
+        );
+      }
+    }
 
     const viewBoxWidth = POS_BASE + X_MAX * GAP_SIZE,
       viewBoxHeight = POS_BASE + Y_MAX * GAP_SIZE;
@@ -38,7 +48,7 @@ export class AlgoIcon extends React.Component<AlgoIconProps> {
         className='algoicon'
         viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       >
-        {lines}
+        {dots}
       </svg>
     );
   }

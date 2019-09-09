@@ -5,5 +5,5 @@
 }
 .algoicon line {
   stroke: currentColor;
-  stroke-linecap: round;
+  stroke-linecap: square;
 }
