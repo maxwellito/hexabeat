@@ -23,8 +23,6 @@ let beat: Sequencer = {
       return input.quad[index++];
     };
 
-    console.log(`New beat`);
-
     for (let t = 0; t < tracks; t++) {
       /**
        * beatSize
@@ -42,8 +40,6 @@ let beat: Sequencer = {
       let beatSize = Math.pow(2, next() + next()),
         offset = (next() * 4 + next()) % beatSize,
         row = [];
-
-      console.log(`  ${t}: ${beatSize}, ${offset}`);
 
       if (beatSize > 16) {
         offset = -1;

@@ -35,7 +35,6 @@ export class VolumeInput extends React.Component<any, VolumeInputState> {
 
   onUpdate(change: number) {
     const value = this.state.value;
-    console.log(value, change, change * VOLUME_STEP);
     store.dispatch(actions.setVolume(value + change * VOLUME_STEP));
   }
 

@@ -4,8 +4,6 @@ import { Liveset } from 'models/Liveset';
 import { Picker } from 'components/picker';
 import { LivesetItem } from './LivesetPicker';
 
-import { DigitalNob } from 'components/common/digitalNob';
-
 import './index.css';
 
 // [komponent-class]: homescreen
@@ -159,13 +157,6 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <br />
           More resources to get started on this tutorial
         </p>
-        <DigitalNob
-          onUpdate={e => {
-            console.log('>>', e);
-          }}
-        >
-          <p>Start by picking one of the following set</p>
-        </DigitalNob>
         <Picker
           data={this.state.livesets}
           component={LivesetItem}

@@ -182,7 +182,7 @@ class MpkController {
   stateChangeHandler(e: any) {
     // Ditch device that aren't what we are looking for
     if (!~e.port.name.indexOf(this.deviceName)) {
-      console.log(`Useless device [${e.port.name}]`);
+      console.info(`Useless device [${e.port.name}]`);
       return;
     }
 
@@ -458,23 +458,6 @@ const introAnimStack: number[][] = [
 ];
 
 export let Mpk = new MpkController();
-
-//# TO REMOVE: I'm sewious
-Mpk.takeControl({
-  [MpkKey.pad1]: ['Play/pause', (s: boolean) => console.log('A : PAD1', s)],
-  [MpkKey.nob1]: ['Volume', (v: number) => console.log('A : NOB1', v)],
-  [MpkKey.pad2]: ['Solo', (s: boolean) => console.log('A : PAD2', s)],
-  [MpkKey.nob2]: ['BPM', (v: number) => console.log('A : NOB2', v)]
-});
-
-window.onafterprint = Mpk.takeControl({
-  [MpkKey.pad1]: ['Banananrama', (s: boolean) => console.log('B : PAD1', s)],
-  [MpkKey.nob1]: ['Drift', (v: number) => console.log('B : NOB1', v)]
-});
-
-Mpk.onHelpKey = (status: boolean) => {
-  console.log(`HELP ${status ? 'on' : 'off'}`);
-};
 
 export function NobBypass(stepSize: number, listener: NobListener) {
   let state = 0;

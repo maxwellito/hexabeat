@@ -54,7 +54,6 @@ export class TrackGenerator extends React.Component<
     if (this.props.isOn) {
       classes.push('active');
     }
-    console.log(this.props);
     return (
       <div className={classes.join(' ')} data-id='[+]'>
         <Picker
