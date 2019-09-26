@@ -5,6 +5,12 @@
   justify-content: center;
   width: 100%;
   margin-bottom: var(--box-size);
+  background-color: var(--shade-base);
+}
+.controlbar-track {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .controlbar-item,

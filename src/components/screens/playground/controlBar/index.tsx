@@ -29,7 +29,7 @@ export class ControlBar extends React.Component<
 
   render() {
     return (
-      <div className='track'>
+      <div className='track controlbar-track'>
         <div className='controlbar'>
           <div className='controlbar-item-main'>
             <div className='controlbar-item-title'>Liveset</div>

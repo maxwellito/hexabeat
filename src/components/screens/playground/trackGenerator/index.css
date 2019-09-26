@@ -1,5 +1,9 @@
 @import '~/styles/variables.css';
 
+.track.trackgenerator {
+  margin-bottom: var(--box-size);
+}
+
 .trackgeneratoritem {
   display: flex;
   position: relative;

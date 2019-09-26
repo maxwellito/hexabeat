@@ -35,6 +35,10 @@ export class Playground extends React.Component<
   timerClearGenerator: number;
   sampleGroups = store.getState().session.liveset.sampleGroups;
 
+  private myTracks: React.RefObject<HTMLDivElement> = React.createRef();
+  scrollTo: number;
+  scrollProcess: number;
+
   unsubscribeStore = store.subscribe(() => {
     let { tracks, editingTrack, selectedTrack } = store.getState().session;
     if (
@@ -246,6 +250,37 @@ export class Playground extends React.Component<
     };
   }
 
+  componentDidUpdate() {
+    let wrap = this.myTracks.current;
+    let active: any = wrap && wrap.querySelector('.track.active');
+    if (!active) {
+      return;
+    }
+
+    this.scrollTo = Math.max(0, active.offsetTop - 120);
+    if (!this.scrollProcess) {
+      this.scroll();
+    }
+  }
+
+  scroll() {
+    let wrap = document.documentElement;
+    let { scrollTop } = wrap;
+    let direction = this.scrollTo - scrollTop < 0 ? -10 : 10;
+
+    if (Math.abs(this.scrollTo - scrollTop) < 10) {
+      wrap.scrollTo(0, this.scrollTo);
+      this.scrollProcess = null;
+      return;
+    }
+    wrap.scrollTo(0, wrap.scrollTop + direction);
+    if (scrollTop !== wrap.scrollTop) {
+      this.scrollProcess = requestAnimationFrame(this.scroll.bind(this));
+    } else {
+      this.scrollProcess = null;
+    }
+  }
+
   componentWillUnmount() {
     this.unsubscribeMpk();
     this.unsubscribeStore();
@@ -300,7 +335,7 @@ export class Playground extends React.Component<
       editor = <SequenceCraftr track={this.state.editingTrack} />;
     }
     return (
-      <div>
+      <div className='playground' ref={this.myTracks}>
         <ControlBar />
         {trks}
         <div
