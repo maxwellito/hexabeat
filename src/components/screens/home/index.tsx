@@ -142,29 +142,65 @@ export class Home extends React.Component<HomeProps, HomeState> {
     }
     return (
       <div className='homescreen'>
-        <img src='public/hexabeat.svg' className='homescreen-logo' />
-        <p>Express the beats from hidden commits.</p>
-        <p>
-          HexaBeat is a sequencer using commits from GitHub to make beats.
-          <br />
-          It takes a config file as input defining groups of sounds and
-          repositories to extract commits from.
-          <br />
-          Then mix and match commits and algorithms to make an infinite
-          combinaisons of sequences.
-          <br />
-          The app can be fully controlled via Akai MiniMPK device.
-          <br />
-          More resources to get started on this tutorial
-        </p>
-        <Picker
-          data={this.state.livesets}
-          component={LivesetItem}
-          index={this.state.pickerIndex}
-          isSelected={this.state.pickerIsSelected}
-          onUpdate={this.updateListener}
-        />
-        {currentAction}
+        <div className='homescreen-head strokegrid-row'>
+          <div>
+            <img src='public/hexabeat.svg' className='homescreen-logo' />
+          </div>
+          <div>
+            <img src='public/hexabeat-title.svg' className='homescreen-logo' />
+          </div>
+        </div>
+        <div className='strokegrid-row'>
+          <div>
+            <p>Express the beats from hidden commits.</p>
+            <p>
+              HexaBeat is a sequencer using commits from GitHub to make beats.
+              <br />
+              It takes a config file as input defining groups of sounds and
+              repositories to extract commits from.
+              <br />
+              Then mix and match commits and algorithms to make an infinite
+              combinaisons of sequences.
+              <br />
+              The app can be fully controlled via Akai MiniMPK device.
+              <br />
+              More resources to get started on this tutorial.
+            </p>
+          </div>
+        </div>
+        <div className='strokegrid-row'>
+          <div>
+            <p>Pick one of the following liveset to start.</p>
+          </div>
+        </div>
+        <div className='homescreen-picker-wrap'>
+          <Picker
+            data={this.state.livesets}
+            component={LivesetItem}
+            index={this.state.pickerIndex}
+            isSelected={this.state.pickerIsSelected}
+            onUpdate={this.updateListener}
+          />
+        </div>
+        <div className='strokegrid-row'>
+          <div className='homescreen-action-label'>{currentAction}</div>
+          <div>
+            <p className='homescreen-credits'>
+              <span>by </span>
+              <a href='https://twitter.com/mxwllt'>
+                <svg>
+                  <use href='#icon-maxwellito' />
+                </svg>
+              </a>
+              <span> / on </span>
+              <a href='https://github.com/maxwellito/hexabeat'>
+                <svg>
+                  <use href='#icon-github' />
+                </svg>
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,13 +1,50 @@
 .homescreen {
   max-width: var(--view-width);
-  margin: auto;
+  margin: var(--box-size) auto;
 }
 
-.homescreen-logo {
+.homescreen-head {
+  line-height: 0;
+}
+.homescreen-head img {
   height: 4rem;
-  margin: 2rem 0 1rem;
 }
 
+.homescreen-picker-wrap {
+  margin-top: var(--half-box-size);
+  margin-bottom: var(--half-box-size);
+}
 .homescreen-action-label {
+  flex-grow: 1;
   color: var(--shade-active-on);
+}
+
+.homescreen-credits a {
+  color: inherit;
+}
+.homescreen-credits svg {
+  height: 1em;
+  width: 1em;
+  vertical-align: sub;
+}
+
+/* StrokeGrid */
+.strokegrid-row {
+  display: flex;
+  border: 1px solid var(--shade-light);
+}
+.strokegrid-row + .strokegrid-row {
+  border-top-width: 0px;
+}
+.strokegrid-row > * {
+  padding: var(--half-box-size);
+}
+.strokegrid-row > * + * {
+  border-left: 1px solid var(--shade-light);
+}
+.strokegrid-row p:first-child {
+  margin-top: 0;
+}
+.strokegrid-row p:last-child {
+  margin-bottom: 0;
 }
