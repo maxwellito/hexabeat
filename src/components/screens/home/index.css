@@ -19,6 +19,9 @@
   color: var(--shade-active-on);
 }
 
+.homescreen-credit {
+  line-height: 0;
+}
 .homescreen-credits a {
   color: inherit;
 }

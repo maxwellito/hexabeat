@@ -1,0 +1,11 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="2 2 162 162">
+<g fill="none" stroke="#fff" stroke-width="4" stroke-miterlimit="10">
+	<polyline stroke-linecap="round" points="30,126 30,96 56,111 56,141 82,156 160,111 160,51 108,21 56,51 56,21 30,6 4,21 4,111 30,126 56,111 	"/>
+	<path stroke-linecap="round" d="M82,66L56,51v30L30,66V36L4,21"/>
+	<path d="M56,21L30,36"/>
+	<path d="M30,66l26-15"/>
+	<path d="M134,36L82,66v90"/>
+	<path stroke-linecap="round" d="M107.75,81L134,66"/>
+	<path stroke-linecap="round" d="M107.75,111L134,96"/>
+</g>
+</svg>

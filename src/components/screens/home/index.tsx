@@ -144,7 +144,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
       <div className='homescreen'>
         <div className='homescreen-head strokegrid-row'>
           <div>
-            <img src='public/hexabeat.svg' className='homescreen-logo' />
+            <img src='public/hexabeat-logo.svg' className='homescreen-logo' />
           </div>
           <div>
             <img src='public/hexabeat-title.svg' className='homescreen-logo' />
