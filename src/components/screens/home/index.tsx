@@ -2,6 +2,7 @@ import * as React from 'react';
 import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { Picker } from 'components/picker';
+import { MiniMPK } from 'components/common/minimpk';
 import { LivesetItem } from './LivesetPicker';
 import themeService from 'services/Theme';
 
@@ -169,6 +170,12 @@ export class Home extends React.Component<HomeProps, HomeState> {
               More resources to get started on this tutorial.
             </p>
           </div>
+        </div>
+        <div className='strokegrid-row'>
+          <div>
+            <p>Double click anywhere to go fullscreen.</p>
+          </div>
+          <MiniMPK />
         </div>
         <div className='strokegrid-row'>
           <div>

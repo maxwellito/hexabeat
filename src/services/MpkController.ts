@@ -126,7 +126,7 @@ class MpkController {
         }
       },
       (e: any) => {
-        this.status = MpkStatus.incompatible;
+        this.setStatus(MpkStatus.incompatible);
       }
     );
   }
@@ -227,7 +227,7 @@ class MpkController {
    *
    * @public
    */
-  onStateChange(listener: (status: MpkStatus) => void) {
+  onStateChange(listener: (status: MpkStatus) => void): (bin: any) => void {
     if (~this.statusListener.indexOf(listener)) {
       return this.lostCall;
     }
