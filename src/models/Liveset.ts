@@ -6,6 +6,7 @@
 
 import { fetchJson, fetchArrayBuffer } from 'services/utils/fetch';
 import config from '../config';
+import themeService from 'services/Theme';
 import { githubFetcher } from 'services/GithubFetcher';
 import { Repository } from 'models/GitRepository';
 
@@ -17,6 +18,7 @@ export class LivesetFile {
   repositories: string[];
   pathBase: string;
   sampleGroups: SampleGroup[];
+  theme: { [property: string]: string };
 }
 
 export class SampleGroup {
@@ -130,6 +132,11 @@ export class Liveset extends LivesetFile {
       input.repositories = config.repositories;
     }
 
+    // Test theme variables
+    if (input.theme) {
+      themeService.isValidTheme(input.theme);
+    }
+
     // Test version
     if (!input.version) {
       throw new Error(`Version is missing in ${this.configUrl}`);
@@ -144,6 +151,7 @@ export class Liveset extends LivesetFile {
     this.repositories = input.repositories;
     this.pathBase = input.pathBase;
     this.sampleGroups = input.sampleGroups;
+    this.theme = input.theme;
   }
 
   /**

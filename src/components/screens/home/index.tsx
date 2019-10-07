@@ -3,6 +3,7 @@ import { store, actions } from 'store';
 import { Liveset } from 'models/Liveset';
 import { Picker } from 'components/picker';
 import { LivesetItem } from './LivesetPicker';
+import themeService from 'services/Theme';
 
 import './index.css';
 
@@ -121,6 +122,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           store.dispatch(actions.setVolume(0.75));
           store.dispatch(actions.setGitRepositories(theLS.repoData));
           store.dispatch(actions.setLiveset(theLS));
+          themeService.set(theLS.theme);
         },
         e => {
           console.warn(e);
