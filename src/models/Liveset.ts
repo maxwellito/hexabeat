@@ -79,6 +79,14 @@ export class Liveset extends LivesetFile {
         );
       }
 
+      if (group.icon && group.icon.length > 3) {
+        throw new Error(
+          `Too long icon name on sampleGroup n."${x}" of ${
+            this.configUrl
+          } [maximum length: 3 characters]`
+        );
+      }
+
       if (!group.samples || !group.samples.length) {
         throw new Error(
           `No samples found in "${group.name}" sampleGroup of ${this.configUrl}`

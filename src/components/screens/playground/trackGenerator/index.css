@@ -17,10 +17,11 @@
   width: 2rem;
   height: 2rem;
   padding: var(--space);
-  margin-right: var(--space);
-  line-height: 1;
-  font-size: 2rem;
+  margin-right: var(--half-box-size);
+  line-height: 1.875rem;
+  font-size: 1rem;
   text-align: center;
+  border: 1px solid;
 }
 .trackgeneratoritem-content {
   flex-grow: 1;

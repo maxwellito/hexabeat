@@ -1,5 +1,4 @@
 @import './styles/variables.css';
-@import './styles/fonts.css';
 @import './styles/stripped.css';
 
 /**
@@ -32,7 +31,6 @@ body {
   padding: 0;
   font-family: 'Space Mono', monospace;
   background-color: var(--shade-base);
-  /* background-image: url(/public/background.svg); */
   color: var(--shade-light);
 
   font-weight: normal;
@@ -48,8 +46,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  animation: looped 2s linear infinite;
 }
 
 h1,
@@ -59,15 +55,6 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-}
-
-@keyframes looped {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 50px;
-  }
 }
 
 /* Components */
@@ -82,7 +69,6 @@ h6 {
 }
 
 /* Button */
-
 button {
   border: none;
   text-align: center;

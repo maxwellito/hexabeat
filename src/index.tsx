@@ -12,7 +12,7 @@ import './index.css';
 config.livesets.forEach(livesetFilePath => {
   new Liveset(livesetFilePath).loadConfig().then(liveset => {
     store.dispatch(actions.addLiveset(liveset));
-  });
+  }, console.warn);
 });
 new Machine();
 

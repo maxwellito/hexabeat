@@ -107,9 +107,7 @@ export class TrackGeneratorItem extends React.Component<
         onClick={this.clickListener}
         onMouseEnter={this.hoverListener}
       >
-        <div className='trackgeneratoritem-icon'>
-          <span className={'icon-' + item.icon} />
-        </div>
+        <div className='trackgeneratoritem-icon'>{item.icon}</div>
         <div className='trackgeneratoritem-content'>
           <div className='trackgeneratoritem-title'>{item.name}</div>
           <div className='trackgeneratoritem-subtitle'>
