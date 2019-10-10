@@ -1,10 +1,16 @@
 .homescreen {
   max-width: var(--view-width);
-  margin: var(--box-size) auto;
+  margin: 0 auto;
+  height: 100vh;
+  padding: var(--box-size);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .homescreen-head {
-  line-height: 0;
+  line-height: 1;
 }
 .homescreen-head img {
   height: 4rem;
@@ -19,9 +25,6 @@
   color: var(--shade-active-on);
 }
 
-.homescreen-credits {
-  line-height: 0;
-}
 .homescreen-credits a {
   color: inherit;
 }

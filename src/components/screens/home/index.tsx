@@ -137,12 +137,6 @@ export class Home extends React.Component<HomeProps, HomeState> {
   }
 
   render() {
-    let currentAction;
-    if (this.state.currentAction) {
-      currentAction = (
-        <p className='homescreen-action-label'>{this.state.currentAction}</p>
-      );
-    }
     return (
       <div className='homescreen'>
         <div className='homescreen-head strokegrid-row'>
@@ -192,7 +186,11 @@ export class Home extends React.Component<HomeProps, HomeState> {
           />
         </div>
         <div className='strokegrid-row'>
-          <div className='homescreen-action-label'>{currentAction}</div>
+          <div className='homescreen-action-label'>
+            <p className='homescreen-action-label'>
+              {this.state.currentAction}
+            </p>
+          </div>
           <div>
             <p className='homescreen-credits'>
               <span>by </span>
