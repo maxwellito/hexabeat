@@ -61,7 +61,7 @@
   text-align: center;
 }
 .track.trackgenerator:before {
-  margin-top: 0.125rem;
+  margin-top: 0.25rem;
 }
 .track.active:before {
   color: var(--shade-base);

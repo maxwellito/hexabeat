@@ -25,6 +25,7 @@
 }
 .trackgeneratoritem-content {
   flex-grow: 1;
+  white-space: nowrap;
 }
 .trackgeneratoritem-title {
   display: block;
