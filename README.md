@@ -1,12 +1,15 @@
 # HexaBeat
 
-**From commit to beat.**
+**Express the beats from hidden commits.**
 
-Web-based application to generate music from repositories commits. To start, two things are required: a list of repositories to load from GitHub, and a track config file.
+HexaBeat is a sequencer using commits from GitHub to make beats.
+It takes a config file as input (also called liveset file) defining groups of sounds and repositories to extract commits from.
+Then mix and match commits and algorithms to make an infinite combinaisons of sequences.
+The app can be fully controlled via Akai MiniMPK device.
 
-The app will load the list of different commits and load the config file provided and all the required samples.
+[Start HexaBeat](//maxwellito.github.io/hexabeat)
 
-## UI Workflow
+## Usage
 
 In every case, P8 is reserved to reset nobs and display help.
 
@@ -20,53 +23,112 @@ In every case, P8 is reserved to reset nobs and display help.
  '---------- PADS ---------'   '--------- NOBS ----------'
 ```
 
-### Setup
+_Mini MPK setup_
 
-The MPK is not required to manipulate the app. The setup must be blank.
+# FAQ
 
-a. Pick an audio deck from the list (preset and added by the user). Under each of them a tickbox will inform if a session already exists about it. If the user wants to add a custom one, the last item in the list is a `+` to provide the audio deck URL. One the choice made, it loads the audio deck. If fail, it doesn't go to the next step.
+### Why this stuff?
 
-- **P1** : Selects
+I wanted to build something to discover React and Redux beyond a simple TO DO list app. It was fun. It probably contain a lot of misconception and missing optimisations.
 
-* **N1** : Move cursor alon the list
+### Is there a way to record this inaudible stuff?
 
-b. If there's an active session about this deck, the UI will ask if the user wants to continue or reset.
+Nothing is built in. It's your problem now.
 
-- **P1** : Selects
+### Does this work with other MIDI keyboards than the Akai Mini MPK?
 
-* **N1** : Move cursor alon the list
+No.
 
-### Play
+### Is it planned to control it with other devices?
 
-a. Main screen
+No.
 
-Contains the control bar (general volume, BPM), track list, option to add track
+### Why the demo video looks cool and the product produce crappy stuff?
 
-- **P1** : PLAY/PAUSE
-- **P4** : Delete track (double tap)
-- **P5** : Mute track
-- **P6** : Solo track
-- **P7** : Open Sequence Crafter
+Marketing got a high power of persuasion. It's reminder that you shouldn't trust everything you see on YouTube or social medias en general.
 
-* **N1** : Select the track
-* **N3** : Output volume
-* **N4** : BPM
-* **N5** : Volume track
+### Why the default sample are in a separate repo?
 
-b. Sequence Crafter
+I'm not entirely sure about the rights to use them, so in case it get striked, it won't take down the code. But shhhhhh.
+Also, I don't wanted to mess up the main repo with them.
 
-- **P1** : ESC/Validate - Blinking
+### Can I build my own liveset file?
 
-* **N5** : Selects repository
-* **N6** : Sleected Commit
-* **N7** : Algorithm
-* **N8** : Offset?
+Yes you can! [Follow these instruction to build your own liveset](#build-your-own-liveset-file)
 
-## Liveset file
+# Build your own liveset file
 
-The Liveset file is a JSON encoded file that define the different audio sets and repositories sources. A good example is available at `/public/decks/demo.json`.
+The Liveset file is a JSON encoded file that define the different audio sets and repositories sources. Here is an example below:
 
-When this file is loaded on a user computer, it's stored in the local storage.
+```json
+{
+  "name": "minimal kit",
+  "version": "1.1",
+  "description": "Audio deck for minimal kit",
+  "author": "Sancho Gomez aka Wurst Offendr",
+  "repositories": [
+    "maxwellito/vivus",
+    "maxwellito/triangulart",
+    "maxwellito/commitbeat",
+    "maxwellito/breaklock"
+  ],
+  "pathBase": "/public/livesets/",
+  "sampleGroups": [
+    {
+      "name": "hightomtom",
+      "icon": "HT",
+      "samples": [
+        { "name": "HT10", "url": "TR808WAV/HT/HT10.WAV" },
+        { "name": "HT25", "url": "TR808WAV/HT/HT25.WAV" }
+      ]
+    },
+    {
+      "name": "midtomtom",
+      "icon": "MT",
+      "samples": [
+        { "name": "MT10", "url": "TR808WAV/MT/MT10.WAV" },
+        { "name": "MT25", "url": "TR808WAV/MT/MT25.WAV" }
+      ]
+    }
+  ],
+  "themed": {
+    "shade-base": "#000",
+    "shade-dark": "#011",
+    "shade": "#044",
+    "shade-light": "#0ff",
+    "shade-active-on": "#f0f"
+  }
+}
+```
+
+### 1. Metadata
+
+The first properties are basic metadata : `name`, `version`, `description`, `author`. There's no specific restrictions, feel free to provide few details.
+
+### 2. GitHub repositories list
+
+The property `repositories`is a simple array of repositories to load which will be used as commit sources. The list provided must be valid and contain a minimum of one repository.
+
+### 3. Sample groups
+
+This is where tracks are defined. The property `sampleGroups` is an array of sample group. Each group, is defined by a `name`, an `icon` (string of maximum 3 letters) and links to audio samples (minimum 1, maximum 4). Each sample object got 2 properties: `url` (link to the audio file) and a `name` (unique string of maximum 8 chars).
+
+In case you have a common path to all the audio files, you can use the property `pathBase` to set a URL base. In the example above, the sample `TR808WAV/MT/MT25.WAV` will be loaded via `/public/livesets/TR808WAV/MT/MT25.WAV`.
+
+### 4. Theme
+
+Liveset config allow to provide a custom theme. These will override the CSS variables of the app. Please find the default values above.
+
+- **shade-base**: `#000`
+- **shade-dark**: `#111`
+- **shade**: `#444`
+- **shade-light**: `#fff`
+- **shade-active-on**: `#f6c408`
+
+> #### WARNING: In order to let HexaBeat app load your liveset + samples they must be accessible from the app domain. Thankfully all request across \*.github.io domains are possible. So if you host your files on GitHub pages you will be able to load your assets without fears of cross-domain issues.
+
+Then to share your creation with the rest of the world, provide the link to your liveset file on a hash. Like this URL : https://maxwellito.github.io/hexabeat/#//you.github.io/my-hexabeat/my-little-pony.json
+This link will open HexaBeat and load `//you.github.io/my-hexabeat/my-little-pony.json` and boot it. If the magic doesn't happen, maybe check the web console, you might have an error somewhere.
 
 ## Credits
 
