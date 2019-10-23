@@ -5,13 +5,18 @@
 HexaBeat is a sequencer using commits from GitHub to make beats.
 It takes a config file as input (also called liveset file) defining groups of sounds and repositories to extract commits from.
 Then mix and match commits and algorithms to make an infinite combinaisons of sequences.
-The app can be fully controlled via Akai MiniMPK device.
+The app can be fully controlled via Akai MPK Mini device.
 
 [Start HexaBeat](//maxwellito.github.io/hexabeat)
 
+![](Photo of the device in action)
+
 ## Usage
 
-In every case, P8 is reserved to reset nobs and display help.
+The app should work on all devices, as long as the screen is large enough.
+On different parts of the user interface you will notice your cursor changing. If you get a multidirectional cross, you should be able to scroll or click and drag to update the value.
+
+However, if you're the lucky owner of a Akai MPK Mini you will be able to control the app from the pads and nobs of the device.
 
 ```
  .----. .----. .----. .----.    .--.   .--.   .--.   .--.
@@ -23,7 +28,11 @@ In every case, P8 is reserved to reset nobs and display help.
  '---------- PADS ---------'   '--------- NOBS ----------'
 ```
 
-_Mini MPK setup_
+_MPK Mini setup_
+
+The `P8` pad is a special pad thay will have the same function across the workflow. When the P8 pad is pressed, all nobs are disabled to let you reset them and help will be displayed to give you hints at the midi mapping. Then release to get back on playing.
+
+Nobs are the perfect tool to go through a list. However there's a physical limitiation. The nobs aren't infinite, they got a minimum and a maximum. This create a problem when you reach the maximum of your nob but not the end of the list you're scrolling into. So it will be necessary to reset the nobs with the P8 pad like described above.
 
 # FAQ
 
@@ -35,7 +44,7 @@ I wanted to build something to discover React and Redux beyond a simple TO DO li
 
 Nothing is built in. It's your problem now.
 
-### Does this work with other MIDI keyboards than the Akai Mini MPK?
+### Does this work with other MIDI keyboards than the Akai MPK Mini?
 
 No.
 
@@ -55,6 +64,10 @@ Also, I don't wanted to mess up the main repo with them.
 ### Can I build my own liveset file?
 
 Yes you can! [Follow these instruction to build your own liveset](#build-your-own-liveset-file)
+
+### Can I build my own algorithm to process commits?
+
+Not for now, but I can imagine adding them as part of the liveset config and load them via ES6 modules. But for now I just wanted to release the project and move on.
 
 # Build your own liveset file
 
@@ -129,10 +142,3 @@ Liveset config allow to provide a custom theme. These will override the CSS vari
 
 Then to share your creation with the rest of the world, provide the link to your liveset file on a hash. Like this URL : https://maxwellito.github.io/hexabeat/#//you.github.io/my-hexabeat/my-little-pony.json
 This link will open HexaBeat and load `//you.github.io/my-hexabeat/my-little-pony.json` and boot it. If the magic doesn't happen, maybe check the web console, you might have an error somewhere.
-
-## Credits
-
-The awful CommitBeat
-
-Music instruments: Icon pack
-Icons made by [Freepik](http://www.freepik.com/) from [www.flaticon.com](https://www.flaticon.com/) is licensed by Creative Commons BY 3.0
