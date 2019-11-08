@@ -12,11 +12,14 @@ export interface PickerProps {
 }
 
 export class Picker extends React.Component<PickerProps> {
-  wheelAcc = 0;
   currentIndex: number;
   scrollTo: number;
   scrollProcess: number;
   private myRef: React.RefObject<HTMLDivElement> = React.createRef();
+  wheelListener = this.onWheel.bind(this);
+  autoscrollState = true;
+  pauseAutoscroll = () => (this.autoscrollState = false);
+  resumeAutoscroll = () => (this.autoscrollState = true);
 
   render() {
     let index = this.props.index,
@@ -38,7 +41,13 @@ export class Picker extends React.Component<PickerProps> {
     });
 
     return (
-      <div className='picker' ref={this.myRef}>
+      <div
+        className='picker'
+        ref={this.myRef}
+        onWheel={this.wheelListener}
+        onMouseEnter={this.pauseAutoscroll}
+        onMouseLeave={this.resumeAutoscroll}
+      >
         <div className={'picker-wrap'}>{items}</div>
       </div>
     );
@@ -62,16 +71,24 @@ export class Picker extends React.Component<PickerProps> {
     let scrollLeft = wrap.scrollLeft;
     let direction = this.scrollTo - scrollLeft < 0 ? -10 : 10;
 
+    if (!this.autoscrollState) {
+      return;
+    }
+
     if (Math.abs(this.scrollTo - scrollLeft) < 10) {
-      wrap.scrollTo(this.scrollTo, 0);
+      wrap.scrollLeft = this.scrollTo;
       this.scrollProcess = null;
       return;
     }
-    wrap.scrollTo(wrap.scrollLeft + direction, 0);
+    wrap.scrollLeft = wrap.scrollLeft + direction;
     if (scrollLeft !== wrap.scrollLeft) {
       this.scrollProcess = requestAnimationFrame(this.scroll.bind(this));
     } else {
       this.scrollProcess = null;
     }
+  }
+
+  onWheel(e: React.WheelEvent) {
+    this.myRef.current.scrollLeft += e.deltaY;
   }
 }
