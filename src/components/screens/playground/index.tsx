@@ -269,11 +269,11 @@ export class Playground extends React.Component<
     let direction = this.scrollTo - scrollTop < 0 ? -10 : 10;
 
     if (Math.abs(this.scrollTo - scrollTop) < 10) {
-      wrap.scrollTo(0, this.scrollTo);
+      wrap.scrollTop = this.scrollTo;
       this.scrollProcess = null;
       return;
     }
-    wrap.scrollTo(0, wrap.scrollTop + direction);
+    wrap.scrollTop = wrap.scrollTop + direction;
     if (scrollTop !== wrap.scrollTop) {
       this.scrollProcess = requestAnimationFrame(this.scroll.bind(this));
     } else {

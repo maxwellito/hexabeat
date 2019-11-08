@@ -81,7 +81,10 @@ export class TrackComponent extends React.Component<TrackProps, TrackState> {
     return (
       <div className={classes.join(' ')} data-id={leftPad(index, 2, '0')}>
         <div className='track-bloc track-bloc-title' data-title='sampleset'>
-          <div className='track-label'>{track.name}</div>
+          <div className='track-label track-label-large'>{track.name}</div>
+          <div className='track-label track-label-short'>
+            {track.sampleGroup.icon}
+          </div>
         </div>
         <div className='track-bloc compact' data-title='-'>
           <div

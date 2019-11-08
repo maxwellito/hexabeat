@@ -6,6 +6,7 @@ import './index.css';
 export interface TrackLabelProps {
   title: string;
   subtitle: string;
+  icon?: string
 }
 
 export class TrackLabel extends React.Component<TrackLabelProps> {

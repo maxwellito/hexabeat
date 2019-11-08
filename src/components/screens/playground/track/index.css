@@ -124,3 +124,21 @@
     opacity: 1;
   }
 }
+
+@media (min-width: 1024px) {
+  .track-label-large {
+    display: inherit;
+  }
+  .track-label-short {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .track-label-large {
+    display: none;
+  }
+  .track-label-short {
+    display: inherit;
+  }
+}
