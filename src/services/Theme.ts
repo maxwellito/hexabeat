@@ -1,6 +1,6 @@
 import { Liveset } from 'models/Liveset';
 
-const colorRegex = /^#([0-9a-f]{3}){1,2}$/;
+const colorRegex = /^#([0-9a-f]{3}){1,2}$/i;
 const defaultTheme: { [property: string]: string } = {
   'shade-base': '#000',
   'shade-dark': '#111',
@@ -21,7 +21,7 @@ class ThemeService {
     );
     this.htmlTag.style.setProperty(
       '--shade-base-overlay',
-      `${input['shade-base']}d`
+      `${input['shade-base']}${input['shade-base'].length === 4 ? 'd' : 'dd'}`
     );
   }
 
