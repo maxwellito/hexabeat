@@ -9,7 +9,9 @@ The app can be fully controlled via Akai MPK Mini device.
 
 [Start HexaBeat](//maxwellito.github.io/hexabeat)
 
-![](Photo of the device in action)
+<a href="https://www.youtube.com/watch?v=XbCedvCfd-Y">
+  <img alt="HexaBeat introduction" src="https://raw.githubusercontent.com/maxwellito/hexabeat/master/public/img/video-link.jpg" width="480">
+</a>
 
 ## Usage
 
