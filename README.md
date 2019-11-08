@@ -104,7 +104,7 @@ The Liveset file is a JSON encoded file that define the different audio sets and
       ]
     }
   ],
-  "themed": {
+  "theme": {
     "shade-base": "#000",
     "shade-dark": "#011",
     "shade": "#044",
