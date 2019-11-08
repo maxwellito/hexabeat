@@ -117,6 +117,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
         () => {
           console.info('LIVESET LOADED');
           this.disconnect();
+          store.dispatch(actions.play(true));
           store.dispatch(actions.setBpm(120));
           store.dispatch(actions.setCurrentBit(0));
           store.dispatch(actions.setSelectedTrack(null));
@@ -141,10 +142,16 @@ export class Home extends React.Component<HomeProps, HomeState> {
       <div className='homescreen'>
         <div className='homescreen-head strokegrid-row'>
           <div>
-            <img src='public/hexabeat-logo.svg' className='homescreen-logo' />
+            <img
+              src='public/img/hexabeat-logo.svg'
+              className='homescreen-logo'
+            />
           </div>
           <div>
-            <img src='public/hexabeat-title.svg' className='homescreen-logo' />
+            <img
+              src='public/img/hexabeat-title.svg'
+              className='homescreen-logo'
+            />
           </div>
         </div>
         <div className='strokegrid-row'>
@@ -159,9 +166,13 @@ export class Home extends React.Component<HomeProps, HomeState> {
               Then mix and match commits and algorithms to make an infinite
               combinaisons of sequences.
               <br />
-              The app can be fully controlled via Akai MiniMPK device.
+              The app can be fully controlled via{' '}
+              <a href='https://github.com/maxwellito/hexabeat#usage'>
+                Akai MiniMPK device
+              </a>
+              .
               <br />
-              More resources to get started on this tutorial.
+              Wide screen is required.
             </p>
           </div>
         </div>
