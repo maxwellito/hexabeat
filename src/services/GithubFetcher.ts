@@ -8,8 +8,7 @@ const firstLiner = /^(.)*(\r?\n|\r)?/;
  * @return {promise} Promise resolved with GitHub data
  */
 export function githubFetcher(repo: string): Promise<Repository> {
-  // return fetch(`https://api.github.com/repos/${repo}/commits`)
-  return fetch(`/public/repos/${repo}.json`)
+  return fetch(`https://api.github.com/repos/${repo}/commits`)
     .then(response => response.json())
     .then((data: any) => {
       return {

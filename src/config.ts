@@ -5,6 +5,9 @@
  */
 
 export default {
-  livesets: ['/public/livesets/minimal.json', '/public/livesets/panorama.json'],
+  livesets: [
+    '/hexabeat-livesets/tr808.json',
+    '/hexabeat-livesets/chiptune.json'
+  ],
   repositories: ['samaaron/sonic-pi', 'maxwellito/matrx']
 };

@@ -10,7 +10,7 @@ import { Machine } from 'models/Machine';
 
 import './index.css';
 
-// CHeck if a config file is provided
+// Check if a config file is provided
 if (location.hash) {
   // Load config file
   const theLS = new Liveset(location.hash.substr(1));
@@ -28,11 +28,15 @@ if (location.hash) {
     });
 }
 // Load default config files
-config.livesets.forEach(livesetFilePath => {
-  new Liveset(livesetFilePath).loadConfig().then(liveset => {
-    store.dispatch(actions.addLiveset(liveset));
-  }, console.warn);
-});
+Promise.all(
+  config.livesets.map(livesetFilePath =>
+    new Liveset(livesetFilePath).loadConfig()
+  )
+).then(
+  livesets =>
+    livesets.forEach(liveset => store.dispatch(actions.addLiveset(liveset))),
+  console.warn
+);
 
 new Machine();
 
