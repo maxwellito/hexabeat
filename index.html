@@ -20,17 +20,38 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root" class="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div id="root" class="root">
+      <div style="padding: 2rem;">
+        <p>This is HexaBeat</p>
+        <p>
+          HexaBeat is a sequencer using commits from GitHub to make beats.
+          <br />
+          It takes a config file as input defining groups of sounds and
+          repositories to extract commits from.
+          <br />
+          Then mix and match commits and algorithms to make an infinite
+          combinaisons of sequences.
+          <br />
+          The app can be fully controlled via
+          <a href="https://github.com/maxwellito/hexabeat#usage"
+            >Akai MiniMPK device</a
+          >.
+          <br />
+          Wide screen is required.
+        </p>
+        <p>Loading in progress, please wait...</p>
+        <style>
+          html {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+          }
+          a {
+            color: inherit;
+          }
+        </style>
+      </div>
+    </div>
 
     <!-- SVG Icon definitions -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -47,12 +68,8 @@
         />
       </symbol>
     </svg>
-
-    <!-- Dependencies -->
-    <script src="./node_modules/react/umd/react.development.js"></script>
-    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
-
-    <!-- Main -->
-    <script src="./dist/bundle.js"></script>
   </body>
+
+  <!-- Main -->
+  <script async src="./dist/bundle.js"></script>
 </html>
