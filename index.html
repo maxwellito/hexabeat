@@ -3,10 +3,7 @@
   <head>
     <title>HexaBeat</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="/public/manifest.json" />
     <link
@@ -15,6 +12,26 @@
     />
 
     <link rel="stylesheet" href="dist/style.css" />
+    <style>
+      @media (min-width: 1024px) {
+        .root-warning {
+          display: none;
+        }
+      }
+      @media (max-width: 1023px) {
+        .root {
+          display: none;
+        }
+      }
+      .root-warning {
+        position: fixed;
+        background: black;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
   </head>
   <body>
     <noscript>
@@ -50,6 +67,28 @@
             color: inherit;
           }
         </style>
+      </div>
+    </div>
+
+    <div class="root-warning">
+      <div class="homescreen">
+        <div class="homescreen-head strokegrid-row">
+          <div>
+            <img src="public/img/hexabeat-logo.svg" class="homescreen-logo" />
+          </div>
+        </div>
+        <div class="strokegrid-row">
+          <p>
+            HexaBeat is a sequencer using commits from GitHub to make beats.
+          </p>
+        </div>
+        <div class="strokegrid-row">
+          <p>
+            Sadly the app is build for screens wider than 1024px. Maybe the
+            landscape orientation of your device is enough to continue, if not
+            the aventure stops here for now.
+          </p>
+        </div>
       </div>
     </div>
 
