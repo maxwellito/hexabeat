@@ -71,5 +71,12 @@
   </body>
 
   <!-- Main -->
-  <script async src="./dist/bundle.js"></script>
+  <!-- <script async src="./dist/bundle.js"></script> -->
+  <script>
+    setTimeout(() => {
+      var bundleTag = document.createElement('script');
+      bundleTag.src = './dist/bundle.js';
+      document.body.appendChild(bundleTag);
+    }, 1);
+  </script>
 </html>

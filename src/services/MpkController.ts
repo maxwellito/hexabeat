@@ -119,7 +119,13 @@ class MpkController {
     this.runIntroAnimBinded = this.runIntroAnim.bind(this);
 
     // Check if the user already granted access
-    (<any>navigator).permissions.query({ name: 'midi', sysex: true }).then(
+    const permissions = (<any>navigator).permissions;
+    if (!permissions || !permissions.query) {
+      this.setStatus(MpkStatus.incompatible);
+      return;
+    }
+
+    permissions.query({ name: 'midi', sysex: true }).then(
       (status: any /* PermissionStatus */) => {
         if (status.state === 'granted') {
           this.accessDevice();

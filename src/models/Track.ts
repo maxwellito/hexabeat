@@ -26,7 +26,8 @@ export default class Track {
   filterFrequency = 1;
   filterQuality = 0;
 
-  audioCtx = new AudioContext();
+  audioCtx: AudioContext = new ((window as any).AudioContext ||
+    (window as any).webkitAudioContext)();
   gainNode = this.audioCtx.createGain();
   filterNode = this.audioCtx.createBiquadFilter();
 
