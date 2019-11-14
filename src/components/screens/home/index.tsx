@@ -78,15 +78,20 @@ export class Home extends React.Component<HomeProps, HomeState> {
       return;
     }
     const { livesets, pickerIndex } = this.state;
-    this.setState({
-      pickerIsSelected: true
-    });
+
     if (!livesets[index]) {
-      this.loadLiveset(prompt('Provide the URL to your liveset'));
+      const livesetPath = prompt('Provide the URL to your liveset');
+      if (!livesetPath) {
+        return;
+      }
+      this.loadLiveset(livesetPath);
     } else {
       const theLS = livesets[pickerIndex];
       this.loadLivesetAssets(theLS);
     }
+    this.setState({
+      pickerIsSelected: true
+    });
   }
 
   loadLiveset(livesetPath: string) {
@@ -94,12 +99,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
       currentAction: 'Loading liveset config...'
     });
     const newLiveset = new Liveset(livesetPath);
-    newLiveset
-      .loadConfig()
-      .then(
-        theLS => this.loadLivesetAssets(theLS),
-        err => this.setState({ currentAction: err.message })
-      );
+    newLiveset.loadConfig().then(
+      theLS => this.loadLivesetAssets(theLS),
+      err => this.setState({ currentAction: err.message })
+    );
   }
 
   loadLivesetAssets(theLS: Liveset) {
