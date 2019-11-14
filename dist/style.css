@@ -535,7 +535,7 @@ no camel, no dash (until modifier), no undescore
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .track-label-large {
     display: inherit;
   }
@@ -544,7 +544,7 @@ no camel, no dash (until modifier), no undescore
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .track-label-large {
     display: none;
   }
